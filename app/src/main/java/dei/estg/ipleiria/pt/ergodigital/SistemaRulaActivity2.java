@@ -63,6 +63,7 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 pescoco = position +1;
+                //lala
             }
 
             @Override
