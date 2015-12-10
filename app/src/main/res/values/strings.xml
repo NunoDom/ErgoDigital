@@ -1,0 +1,151 @@
+<resources>
+    <string name="app_name">ErgoDigital</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_lista_pessoas">Lista Pessoas</string>
+    <string name="title_activity_avaliacao_postural">Avaliacao Postural</string>
+
+
+
+
+    <string name="title_activity_postural_evaluation">Avaliação Postural</string>
+
+    <string name="textBtnCH">Movimentação de Cargas</string>
+    <string name="textBtnPA">Avaliação Postural</string>
+    <string name="textBtnRM">Movimento Repetitivo</string>
+    <string name="textTitle">Types of Ergonomic Evaluation</string>
+
+
+
+    <string name="PEA_title">Tools</string>
+    <string name="PEA_btn_owas">System OWAS</string>
+    <string name="title_activity_system_owas">System OWAS</string>
+    <string name="PEA_btn_rula">System RULA</string>
+    <string name="title_activity_sistema_rula">SistemaRulaActivity</string>
+    <string name="title_activity_sistema_owas">SistemaOwasActivity</string>
+
+
+
+    <string-array name="OWAStorso">
+        <item>1-Reto</item>
+        <item>2-Inclinado</item>
+        <item>3-Reto e Torcido</item>
+        <item>4-Inclinado e Torcido</item>
+    </string-array>
+
+    <string-array name="OWASbracos">
+        <item>1-Dois braços para baixo</item>
+        <item>2-Um braço para cima</item>
+        <item>3-Dois braços para cima</item>
+    </string-array>
+
+    <string-array name="OWASpernas">
+        <item>1-Duas pernas retas</item>
+        <item>2-Uma perna reta</item>
+        <item>3-Duas pernas flexionadas</item>
+        <item>4-Uma perna flexionada</item>
+        <item>5-Uma perna ajoelhada</item>
+        <item>6-Deslocamento com pernas</item>
+        <item>7-Duas pernas suspensas</item>
+    </string-array>
+
+    <string-array name="OWASforca">
+        <item>10Kg ou + </item>
+        <item>+10Kg &lt; 20kg </item>
+        <item>+20Kg</item>
+    </string-array>
+
+//GENERICOS
+
+    <string-array name="Lados">
+        <item>Lado Direito</item>
+        <item>Lado Esquerdo</item>
+    </string-array>
+
+
+    //fgh
+
+    <string-array name="RULAbraco">
+        <item>1 +20º a -20º</item>
+        <item>2 -20º em ext.</item>
+        <item>3 20º a 45º</item>
+        <item>4 45º a 90º</item>
+        <item>5 >90º</item>
+    </string-array>
+    <string-array name="RULAbraco_Correcao">
+        <item>Sem correcao</item>
+        <item>Ombro levantado ou abdução</item>
+        <item>Apoiado</item>
+    </string-array>
+
+    <string-array name="RULAantebraco">
+        <item>1 60º a 100º</item>
+        <item>2 0-60º</item>
+        <item>3 >100º</item>
+    </string-array>
+
+    <string-array name="RulaPontosDeForcaCarga">
+        <item> menor que 2Kg</item>
+        <item>2 a 10 Kg (itermitente)</item>
+        <item>2 a 10 Kg (estático ou repetido)</item>
+        <item>maior que 10Kg ou repetida ou de impacto</item>
+    </string-array>
+
+    <string-array name="RulaPescoco">
+        <item>De 0º a 10º</item>
+        <item>De 10º a 20º</item>
+        <item>Superior a 20º</item>
+        <item>Em extensão</item>
+    </string-array>
+
+    <string-array name="RulaTronco">
+        <item>0º</item>
+        <item>De 0º a 20º</item>
+        <item>De 20º a 60º</item>
+        <item>Superior a 60º</item>
+    </string-array>
+
+
+
+    <string-array name="RULAantebraco_Correcao">
+        <item>Sem correcao</item>
+        <item>Se cruzar linha do corpo</item>
+        <item>fora da linha  a mais de 45º</item>
+    </string-array>
+
+    <string-array name="RULApunho">
+        <item>1 0º</item>
+        <item>2 +15º a -15º</item>
+        <item>3 >+15º o &lt;-15º</item>
+    </string-array>
+    <string-array name="RULAGiroPunho">
+        <item>1 Principalmente na metade da amplitude de giro do punho</item>
+        <item>2 No inicio ou final da amplitude de giro do punho</item>
+    </string-array>
+    <string name="title_activity_sistema_reba">SistemaRebaActivity</string>
+
+
+
+
+
+    //REBA
+
+    <string-array name="RebaTronco">
+        <item>Erecto</item>
+        <item>Flexão 0-20º ou Extensão 0º-20º</item>
+        <item>Flexão 20º-60º ou Extensão >20º</item>
+        <item>Flexão > 60º</item>
+    </string-array>
+    <string-array name="RebaPescoco">
+        <item>Flexão 0-20º</item>
+        <item>Flexão ou Extensão >20º</item>
+    </string-array>
+    <string-array name="RebaPernas">
+        <item>Peso bilateral, andando ou sentado</item>
+        <item>Peso unilateral ou postura instável</item>
+    </string-array>
+    <string name="title_activity_sistema_reba2">SistemaRebaActivity2</string>
+    <string name="title_activity_sistema_rula2">SistemaRulaActivity2</string>
+    <string name="title_activity_sistema_rula3">SistemaRulaActivity3</string>
+    <string name="title_activity_rula_activity_result">RulaActivityResult</string>
+
+</resources>

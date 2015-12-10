@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dei.estg.ipleiria.pt.ergodigital" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListaPessoasActivity"
+            android:label="@string/title_activity_lista_pessoas"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AvaliacaoPosturalActivity"
+            android:label="@string/title_activity_avaliacao_postural"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaRulaActivity"
+            android:label="@string/title_activity_sistema_rula"
+            android:parentActivityName=".AvaliacaoPosturalActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.AvaliacaoPosturalActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaOwasActivity"
+            android:label="@string/title_activity_sistema_owas"
+            android:parentActivityName=".AvaliacaoPosturalActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.AvaliacaoPosturalActivity" />
+        </activity>
+        <activity
+            android:name=".Pop"
+            android:theme="@style/AppTheme.CustomTheme" >
+        </activity>
+        <activity
+            android:name=".SistemaRebaActivity"
+            android:label="@string/title_activity_sistema_reba"
+            android:parentActivityName=".AvaliacaoPosturalActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.AvaliacaoPosturalActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaRebaActivity2"
+            android:label="@string/title_activity_sistema_reba2"
+            android:parentActivityName=".SistemaRebaActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRebaActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaRulaActivity2"
+            android:label="@string/title_activity_sistema_rula2"
+            android:parentActivityName=".SistemaRulaActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaRulaActivity3"
+            android:label="@string/title_activity_sistema_rula3"
+            android:parentActivityName=".SistemaRulaActivity2"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity2" />
+        </activity>
+        <activity
+            android:name=".RulaActivityResult"
+            android:label="@string/title_activity_rula_activity_result"
+            android:parentActivityName=".SistemaRulaActivity3"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity3" />
+        </activity>
+    </application>
+
+</manifest>
