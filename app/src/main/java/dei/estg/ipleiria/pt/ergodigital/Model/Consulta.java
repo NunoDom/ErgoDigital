@@ -16,7 +16,6 @@ public class Consulta {
     private int horasTrabalhoDiario;
     private String observacoes;
 
-///nuno panisgas!!
 
     public Consulta(int id) {
         this.id = id;
