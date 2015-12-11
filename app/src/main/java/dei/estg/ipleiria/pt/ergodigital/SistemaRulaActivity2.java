@@ -21,7 +21,7 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
     int ResultadoB;
     int pescoco=1;
     int tronco=1;
-    int pernas=1;
+    int pernas=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,6 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 pescoco = position +1;
-                //lala
             }
 
             @Override
@@ -99,7 +98,8 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
 public void actualizaResultados()
 {
     TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
-    CheckBox chckboxRulaPescoco1 = (CheckBox)findViewById(R.id.chckboxRulaPescoco);
+    CheckBox chckboxRulaPescoco1 = (CheckBox)findViewById(R.id.chckboxRulaPescoco1);
+    CheckBox chckboxRulaPescoco2 = (CheckBox)findViewById(R.id.chckboxRulaPescoco2);
     CheckBox chckboxRulaTronco1 = (CheckBox)findViewById(R.id.chckboxRulaTronco1);
     CheckBox chckboxRulaTronco2 = (CheckBox)findViewById(R.id.chckboxRulaTronco2);
     CheckBox chckboxRulaPernas1 = (CheckBox)findViewById(R.id.chckboxRulaPernas1);
@@ -109,6 +109,10 @@ public void actualizaResultados()
     {
         pescoco+=1;
     }
+    if(chckboxRulaPescoco2.isChecked())
+{
+        pescoco+=1;
+}
     if(chckboxRulaTronco1.isChecked())
     {
         tronco+=1;
@@ -123,9 +127,12 @@ public void actualizaResultados()
     }
     if(chckboxRulaPernas2.isChecked())
     {
-        pernas+=1;
+        pernas+=2;
     }
 
+    Toast.makeText(getApplicationContext(), "Pescoco : "+pescoco, Toast.LENGTH_SHORT).show();
+    Toast.makeText(getApplicationContext(), "Tronco : "+tronco, Toast.LENGTH_SHORT).show();
+    Toast.makeText(getApplicationContext(), "Pernas : "+pernas, Toast.LENGTH_SHORT).show();
     ResultadoB=tab.devolveTabelaB(pescoco,tronco,pernas);
 
 }

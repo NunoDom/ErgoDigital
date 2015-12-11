@@ -7,16 +7,20 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaRULA;
 
 public class SistemaRulaActivity3 extends AppCompatActivity {
 
+    String lala;
     int ResultadoA;
     int ResultadoB;
-    int Musculatura=1;
-    int Forca=1;
+    int Musculatura=0;
+    int Forca=0;
     int Lado;
 
     @Override
@@ -29,7 +33,7 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
         if (getIntent().hasExtra("ResultadoA")){
             Bundle extras = getIntent().getExtras();
             ResultadoA=extras.getInt("ResultadoA");
-            ResultadoA=extras.getInt("ResultadoB");
+            ResultadoB=extras.getInt("ResultadoB");
             Lado = extras.getInt("Lado");
         }
 
@@ -42,34 +46,56 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
 
                 Intent intent = new Intent();
 
-                int resultadoC= ResultadoA+Musculatura+Forca;
-                int resultadoD= ResultadoB+Musculatura+Forca;
+
+                CheckBox checkBoxPontosMusculatura = (CheckBox)findViewById(R.id.checkBoxPontosMusculatura);
+                if (checkBoxPontosMusculatura.isChecked())
+                    Musculatura=1;
+                else
+                    Musculatura=0;
+
+
+                int resultadoC = ResultadoA + Musculatura + Forca;
+                int resultadoD = ResultadoB + Musculatura + Forca;
                 int ResultadoTotal = tab.devolveTabelaC(resultadoC, resultadoD);
 
-                Toast.makeText(getApplicationContext(), "resultadoA: " + resultadoC+"\n resultadoB: "+ ResultadoB, Toast.LENGTH_SHORT).show();
-                String message="";
-                if (ResultadoTotal==1 ||ResultadoTotal==2)
-                {
-                    message="Postura aceitável, se não for mantida ou repetida por longos períodos de tempo";
+                Toast.makeText(getApplicationContext(), "resultadoA: " + resultadoC + "\n resultadoB: " + resultadoD, Toast.LENGTH_SHORT).show();
+                String message = "";
+                if (ResultadoTotal == 1 || ResultadoTotal == 2) {
+                    message = "Postura aceitável, se não for mantida ou repetida por longos períodos de tempo";
                 }
-                if (ResultadoTotal==3 ||ResultadoTotal==4)
-                {
-                    message="Postura a investigar e poderão ser necessárias alterações";
+                if (ResultadoTotal == 3 || ResultadoTotal == 4) {
+                    message = "Postura a investigar e poderão ser necessárias alterações";
                 }
-                if (ResultadoTotal==5 ||ResultadoTotal==6)
-                {
-                    message="Postura a investigar e alterar rapidamente";
+                if (ResultadoTotal == 5 || ResultadoTotal == 6) {
+                    message = "Postura a investigar e alterar rapidamente";
                 }
-                if (ResultadoTotal==7)
-                {
-                    message="Postura a investigar e alterar urgentemente";
+                if (ResultadoTotal == 7) {
+                    message = "Postura a investigar e alterar urgentemente";
                 }
-                Toast.makeText(getApplicationContext(), "Resultado Total : " + ResultadoTotal+"\n "+message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Resultado Total : " + ResultadoTotal + "\n " + message, Toast.LENGTH_SHORT).show();
 
 
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        Spinner spinner1 = (Spinner) findViewById(R.id.cbForcaCargaList);
+
+
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Forca=position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        Toast.makeText(getApplicationContext(), "Position" + lala, Toast.LENGTH_LONG);
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

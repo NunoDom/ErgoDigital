@@ -59,8 +59,16 @@
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Se existir rotação ou inclinação"
-                    android:id="@+id/chckboxRulaPescoco"
+                    android:text="Se existir rotação"
+                    android:id="@+id/chckboxRulaPescoco1"
+                    android:layout_weight="0.03"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Se existir inclinação"
+                    android:id="@+id/chckboxRulaPescoco2"
                     android:layout_weight="0.03"
                     android:checked="false" />
             </LinearLayout>

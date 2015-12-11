@@ -112,14 +112,17 @@
                                 android:layout_height="wrap_content"
                                 android:text="Se o ombro estiver levantado"
                                 android:id="@+id/chckboxRulaBraco1"
-                                android:layout_gravity="left" />
+                                android:layout_gravity="left"
+                                android:onClick="OnClickChckboxBraco1"
+                                android:nestedScrollingEnabled="true" />
 
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Se o ombro estiver em abdução"
                                 android:id="@+id/chckboxRulaBraco2"
-                                android:layout_gravity="left" />
+                                android:layout_gravity="left"
+                                android:onClick="OnClickChckboxBraco2" />
                         </RadioGroup>
 
                         <CheckBox

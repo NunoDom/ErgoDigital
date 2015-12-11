@@ -103,7 +103,6 @@ public class TabelaReferenciaRULA {
         rulaTabelaA[1][2][3][0]=4;
         rulaTabelaA[1][2][3][1]=4;
 
-        //------------------------------------------------------------ <<<<>>>
 
         //TABELA OMBRO 3 // COTOVELO 1 // PUNHO 1
         rulaTabelaA[2][0][0][0]=2;
@@ -135,7 +134,7 @@ public class TabelaReferenciaRULA {
         rulaTabelaA[2][2][0][0]=3;
         rulaTabelaA[2][2][0][1]=4;
         //TABELA OMBRO 3 // COTOVELO 3 // PUNHO 2
-        rulaTabelaA[2][2][1][0]=3;
+        rulaTabelaA[2][2][1][0]=4;
         rulaTabelaA[2][2][1][1]=4;
         //TABELA OMBRO 3 // COTOVELO 3 // PUNHO 3
         rulaTabelaA[2][2][2][0]=4;
@@ -145,43 +144,83 @@ public class TabelaReferenciaRULA {
         rulaTabelaA[2][2][3][1]=4;
 
         //TABELA OMBRO 4 // COTOVELO 1 // PUNHO 1
-        rulaTabelaA[2][0][0][0]=2;
-        rulaTabelaA[2][0][0][1]=3;
+        rulaTabelaA[3][0][0][0]=2;
+        rulaTabelaA[3][0][0][1]=3;
         //TABELA OMBRO 4 // COTOVELO 1 // PUNHO 2
-        rulaTabelaA[2][0][1][0]=2;
-        rulaTabelaA[2][0][1][1]=3;
+        rulaTabelaA[3][0][1][0]=2;
+        rulaTabelaA[3][0][1][1]=3;
         //TABELA OMBRO 4 // COTOVELO 1 // PUNHO 3
-        rulaTabelaA[2][0][2][0]=3;
-        rulaTabelaA[2][0][2][1]=3;
+        rulaTabelaA[3][0][2][0]=3;
+        rulaTabelaA[3][0][2][1]=3;
         //TABELA OMBRO 4 // COTOVELO 1 // PUNHO 4
-        rulaTabelaA[2][0][3][0]=3;
-        rulaTabelaA[2][0][3][1]=3;
+        rulaTabelaA[3][0][3][0]=3;
+        rulaTabelaA[3][0][3][1]=3;
 
         //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 1
-        rulaTabelaA[2][1][0][0]=3;
-        rulaTabelaA[2][1][0][1]=3;
+        rulaTabelaA[3][1][0][0]=3;
+        rulaTabelaA[3][1][0][1]=3;
         //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 2
-        rulaTabelaA[2][1][1][0]=3;
-        rulaTabelaA[2][1][1][1]=3;
+        rulaTabelaA[3][1][1][0]=3;
+        rulaTabelaA[3][1][1][1]=3;
         //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 3
-        rulaTabelaA[2][1][2][0]=3;
-        rulaTabelaA[2][1][2][1]=3;
+        rulaTabelaA[3][1][2][0]=3;
+        rulaTabelaA[3][1][2][1]=3;
         //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 4
-        rulaTabelaA[2][1][3][0]=3;
-        rulaTabelaA[2][1][3][1]=3;
+        rulaTabelaA[3][1][3][0]=3;
+        rulaTabelaA[3][1][3][1]=3;
 
         //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 1
-        rulaTabelaA[2][2][0][0]=3;
-        rulaTabelaA[2][2][0][1]=4;
+        rulaTabelaA[3][2][0][0]=3;
+        rulaTabelaA[3][2][0][1]=4;
         //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 2
-        rulaTabelaA[2][2][1][0]=3;
-        rulaTabelaA[2][2][1][1]=4;
+        rulaTabelaA[3][2][1][0]=3;
+        rulaTabelaA[3][2][1][1]=4;
         //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 3
-        rulaTabelaA[2][2][2][0]=4;
-        rulaTabelaA[2][2][2][1]=4;
+        rulaTabelaA[3][2][2][0]=4;
+        rulaTabelaA[3][2][2][1]=4;
         //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 4
-        rulaTabelaA[2][2][3][0]=4;
-        rulaTabelaA[2][2][3][1]=4;
+        rulaTabelaA[3][2][3][0]=4;
+        rulaTabelaA[3][2][3][1]=4;
+
+//-------------------------------------------------------------------------
+//TABELA OMBRO 5 // COTOVELO 1 // PUNHO 1
+        rulaTabelaA[4][0][0][0]=2;
+        rulaTabelaA[4][0][0][1]=3;
+        //TABELA OMBRO 4 // COTOVELO 1 // PUNHO 2
+        rulaTabelaA[4][0][1][0]=2;
+        rulaTabelaA[4][0][1][1]=3;
+        //TABELA OMBRO 4 // COTOVELO 1 // PUNHO 3
+        rulaTabelaA[4][0][2][0]=3;
+        rulaTabelaA[4][0][2][1]=3;
+        //TABELA OMBRO 4 // COTOVELO 1 // PUNHO 4
+        rulaTabelaA[4][0][3][0]=3;
+        rulaTabelaA[4][0][3][1]=3;
+
+        //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 1
+        rulaTabelaA[4][1][0][0]=3;
+        rulaTabelaA[4][1][0][1]=3;
+        //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 2
+        rulaTabelaA[4][1][1][0]=3;
+        rulaTabelaA[4][1][1][1]=3;
+        //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 3
+        rulaTabelaA[4][1][2][0]=3;
+        rulaTabelaA[4][1][2][1]=3;
+        //TABELA OMBRO 4 // COTOVELO 2 // PUNHO 4
+        rulaTabelaA[4][1][3][0]=3;
+        rulaTabelaA[4][1][3][1]=3;
+
+        //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 1
+        rulaTabelaA[4][2][0][0]=3;
+        rulaTabelaA[4][2][0][1]=4;
+        //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 2
+        rulaTabelaA[4][2][1][0]=3;
+        rulaTabelaA[4][2][1][1]=4;
+        //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 3
+        rulaTabelaA[4][2][2][0]=4;
+        rulaTabelaA[4][2][2][1]=4;
+        //TABELA OMBRO 4 // COTOVELO 3 // PUNHO 4
+        rulaTabelaA[4][2][3][0]=4;
+        rulaTabelaA[4][2][3][1]=4;
 
 // ------------------------------------------------------------
 // ------------------------------------------------------------

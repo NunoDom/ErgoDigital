@@ -23,7 +23,7 @@
         android:layout_width="269dp"
         android:layout_height="wrap_content"
         android:text="Se postura é principalmente estática ou se actividade repetitiva"
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBoxPontosMusculatura"
         android:layout_weight="0.05"
         android:layout_marginTop="10dp" />
 
@@ -36,9 +36,9 @@
         android:layout_marginTop="10dp" />
 
     <Spinner
-        android:layout_width="367dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner4"
+        android:id="@+id/cbForcaCargaList"
         android:entries="@array/RulaPontosDeForcaCarga"
         android:layout_marginTop="10dp"
         android:layout_gravity="right" />

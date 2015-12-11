@@ -141,21 +141,41 @@ public class SistemaRulaActivity extends AppCompatActivity {
         ImageView imageBraco = (ImageView)findViewById(R.id.ivRULAbraco);
         ImageView imageAntebraco = (ImageView)findViewById(R.id.ivRULAantebraco);
         ImageView imagePunho =(ImageView)findViewById(R.id.ivRULApunho);
+        CheckBox ch1= (CheckBox) findViewById(R.id.chckboxRulaBraco1);
+        CheckBox ch2= (CheckBox) findViewById(R.id.chckboxRulaBraco2);
+        CheckBox ch3= (CheckBox) findViewById(R.id.chckboxRulaBraco3);
+
         if (lado==0){
             switch (braco) {
-                case 1:imageBraco.setImageResource(R.drawable.ic_rula_rua1);
+                case 1:
+                    imageBraco.setImageResource(R.drawable.ic_rula_rua1);
+                    ch1.setEnabled(false);
+                    ch2.setEnabled(false);
+                    ch3.setEnabled(true);
                     break;
                 case 2:
                     imageBraco.setImageResource(R.drawable.ic_rula_rua2);
+                    ch1.setEnabled(false);
+                    ch2.setEnabled(false);
+                    ch3.setEnabled(false);
                     break;
                 case 3:
                     imageBraco.setImageResource(R.drawable.ic_rula_rua3);
+                    ch1.setEnabled(true);
+                    ch2.setEnabled(true);
+                    ch3.setEnabled(false);
                     break;
                 case 4:
                     imageBraco.setImageResource(R.drawable.ic_rula_rua4);
+                    ch1.setEnabled(true);
+                    ch2.setEnabled(true);
+                    ch3.setEnabled(false);
                     break;
                 case 5:
                     imageBraco.setImageResource(R.drawable.ic_rula_rua5);
+                    ch1.setEnabled(true);
+                    ch2.setEnabled(true);
+                    ch3.setEnabled(false);
                     break;
 
             }
@@ -277,6 +297,10 @@ public class SistemaRulaActivity extends AppCompatActivity {
 
             resultado = tab.devolveTabelaA(braco, antebraco, punho, giro);
 
+            Toast.makeText(getApplicationContext(), "Braco : "+braco, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Antebraço : "+antebraco, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Punho : "+punho, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Giro : "+giro, Toast.LENGTH_SHORT).show();
             Toast.makeText(getApplicationContext(), "resultado: "+resultado,
 
                     Toast.LENGTH_SHORT).show();
@@ -292,6 +316,14 @@ public class SistemaRulaActivity extends AppCompatActivity {
     }
 
 
+    public void OnClickChckboxBraco1(View view) {
+        CheckBox ch2= (CheckBox) findViewById(R.id.chckboxRulaBraco2);
+        ch2.setChecked(false);
 
+    }
 
+    public void OnClickChckboxBraco2(View view) {
+        CheckBox ch1= (CheckBox) findViewById(R.id.chckboxRulaBraco1);
+        ch1.setChecked(false);
+    }
 }
