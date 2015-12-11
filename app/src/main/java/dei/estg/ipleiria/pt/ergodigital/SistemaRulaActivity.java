@@ -20,19 +20,6 @@ import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaRULA
 
 public class SistemaRulaActivity extends AppCompatActivity {
 
-    int lado;
-
-    int braco;
-    int antebraco;
-    int punho;
-    int giro;
-
-    int resultado;
-
-    int bracoCorrecao;
-    int antebroCorrecao;
-    int punhoCorrecao;
-    int giroCorrecao;
 
 
     @Override
@@ -64,7 +51,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
     spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            braco = position+1;
             actualizarImagens();
 
         }
@@ -78,7 +64,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
     spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            antebraco = position+1;
             actualizarImagens();
         }
 
@@ -91,7 +76,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
     spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            punho = position+1;
             actualizarImagens();
         }
 
@@ -106,7 +90,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
         spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                giro = position+1;
                 actualizarImagens();
             }
 
@@ -120,7 +103,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
         spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                lado = position;
                 actualizarImagens();
             }
 
@@ -144,6 +126,18 @@ public class SistemaRulaActivity extends AppCompatActivity {
         CheckBox ch1= (CheckBox) findViewById(R.id.chckboxRulaBraco1);
         CheckBox ch2= (CheckBox) findViewById(R.id.chckboxRulaBraco2);
         CheckBox ch3= (CheckBox) findViewById(R.id.chckboxRulaBraco3);
+
+        Spinner spinner1= (Spinner)findViewById(R.id.cbRULAbraco);
+        Spinner spinner2= (Spinner)findViewById(R.id.cbRULAantebraco);
+        Spinner spinner3= (Spinner)findViewById(R.id.cbRulaPunho);
+        Spinner spinner4= (Spinner)findViewById(R.id.cbRULA_giroPunho);
+        Spinner spinner5= (Spinner)findViewById(R.id.cbRulaLado);
+
+        int braco = (int)spinner1.getSelectedItemId()+1;
+        int antebraco = (int)spinner2.getSelectedItemId()+1;
+        int punho = (int)spinner3.getSelectedItemId()+1;
+        int giro = (int)spinner4.getSelectedItemId()+1;
+        int lado = (int)spinner5.getSelectedItemId();
 
         if (lado==0){
             switch (braco) {
@@ -249,9 +243,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
                 case 3:
                     imagePunho.setImageResource(R.drawable.ic_rula_lw3);
                     break;
-                //case 4:
-                //    imagePunho.setImageResource(R.drawable.ic_rula_lw4);
-                //    break;
 
             }
         }
@@ -261,9 +252,23 @@ public class SistemaRulaActivity extends AppCompatActivity {
 
     public void click(View view)
     {
-
+        int resultado;
 
         TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
+        Spinner spinner1= (Spinner)findViewById(R.id.cbRULAbraco);
+        Spinner spinner2= (Spinner)findViewById(R.id.cbRULAantebraco);
+        Spinner spinner3= (Spinner)findViewById(R.id.cbRulaPunho);
+        Spinner spinner4= (Spinner)findViewById(R.id.cbRULA_giroPunho);
+        Spinner spinner5= (Spinner)findViewById(R.id.cbRulaLado);
+
+        int braco = (int)spinner1.getSelectedItemId()+1;
+        int antebraco = (int)spinner2.getSelectedItemId()+1;
+        int punho = (int)spinner3.getSelectedItemId()+1;
+        int giro = (int)spinner4.getSelectedItemId()+1;
+        int lado = (int)spinner5.getSelectedItemId();
+
+
+
 
 
         if (braco>0&&antebraco>0&&punho>0&&giro>0 ) {
@@ -295,23 +300,29 @@ public class SistemaRulaActivity extends AppCompatActivity {
                 punho+=1;
             }
 
-            resultado = tab.devolveTabelaA(braco, antebraco, punho, giro);
+            if (braco<=6&&antebraco<=3&&punho<=4&&giro<=2) {
+                resultado = tab.devolveTabelaA(braco, antebraco, punho, giro);
+                Intent intent = new Intent(this, SistemaRulaActivity2.class);
+                intent.putExtra("Lado", lado);
+                intent.putExtra("ResultadoA", resultado);
+                startActivity(intent);
+                finish();
 
-            Toast.makeText(getApplicationContext(), "Braco : "+braco, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), "Antebraço : "+antebraco, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), "Punho : "+punho, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), "Giro : "+giro, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), "resultado: "+resultado,
-
-                    Toast.LENGTH_SHORT).show();
+            }else
+            {
+                Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();
+            }
+            Toast.makeText(getApplicationContext(), "Braco : "+braco+"\nAntebraço : "+antebraco+"\nPunho : "+punho+"\nGiro : "+giro, Toast.LENGTH_SHORT).show();
 
 
+
+
+        }else
+        {
+            Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();
         }
 
-        Intent intent = new Intent(this, SistemaRulaActivity2.class);
-        intent.putExtra("Lado",lado);
-        intent.putExtra("ResultadoA",resultado);
-        startActivity(intent);
+
 
     }
 

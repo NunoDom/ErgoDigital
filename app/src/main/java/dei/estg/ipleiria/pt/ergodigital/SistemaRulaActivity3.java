@@ -16,11 +16,8 @@ import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaRULA
 
 public class SistemaRulaActivity3 extends AppCompatActivity {
 
-    String lala;
     int ResultadoA;
     int ResultadoB;
-    int Musculatura=0;
-    int Forca=0;
     int Lado;
 
     @Override
@@ -42,17 +39,15 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+                Spinner spinner1 = (Spinner) findViewById(R.id.cbForcaCargaList);
+                int Musculatura = 0;
+                int Forca = spinner1.getSelectedItemPosition();
+                CheckBox checkBoxPontosMusculatura = (CheckBox) findViewById(R.id.checkBoxPontosMusculatura);
                 TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
 
-                Intent intent = new Intent();
-
-
-                CheckBox checkBoxPontosMusculatura = (CheckBox)findViewById(R.id.checkBoxPontosMusculatura);
                 if (checkBoxPontosMusculatura.isChecked())
-                    Musculatura=1;
-                else
-                    Musculatura=0;
-
+                    Musculatura = 1;
 
                 int resultadoC = ResultadoA + Musculatura + Forca;
                 int resultadoD = ResultadoB + Musculatura + Forca;
@@ -73,29 +68,13 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
                     message = "Postura a investigar e alterar urgentemente";
                 }
                 Toast.makeText(getApplicationContext(), "Resultado Total : " + ResultadoTotal + "\n " + message, Toast.LENGTH_SHORT).show();
+               finish();
 
 
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        Spinner spinner1 = (Spinner) findViewById(R.id.cbForcaCargaList);
-
-
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Forca=position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        Toast.makeText(getApplicationContext(), "Position" + lala, Toast.LENGTH_LONG);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

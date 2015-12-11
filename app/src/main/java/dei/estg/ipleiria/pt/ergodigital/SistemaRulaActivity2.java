@@ -19,9 +19,6 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
     int ResultadoA;
     int Lado;
     int ResultadoB;
-    int pescoco=1;
-    int tronco=1;
-    int pernas=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +42,7 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
                 intent.putExtra("ResultadoB",ResultadoB);
                 intent.putExtra("Lado",Lado);
                 startActivity(intent);
+                finish();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -62,7 +60,6 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pescoco = position +1;
             }
 
             @Override
@@ -76,7 +73,6 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                tronco = position +1;
             }
 
             @Override
@@ -85,25 +81,24 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
     }
 
 
 public void actualizaResultados()
-{
-    TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
+{   TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
+    Spinner spinner1 = (Spinner) findViewById(R.id.cbRulaPescoco);
+    Spinner spinner2 = (Spinner) findViewById(R.id.cbRulaTronco);
+    Spinner spinner3 = (Spinner) findViewById(R.id.cbRulaPernas);
+
+    int pescoco=spinner1.getSelectedItemPosition()+1;
+    int tronco=spinner2.getSelectedItemPosition()+1;
+    int pernas=spinner3.getSelectedItemPosition()+1;
+
+
     CheckBox chckboxRulaPescoco1 = (CheckBox)findViewById(R.id.chckboxRulaPescoco1);
     CheckBox chckboxRulaPescoco2 = (CheckBox)findViewById(R.id.chckboxRulaPescoco2);
     CheckBox chckboxRulaTronco1 = (CheckBox)findViewById(R.id.chckboxRulaTronco1);
     CheckBox chckboxRulaTronco2 = (CheckBox)findViewById(R.id.chckboxRulaTronco2);
-    CheckBox chckboxRulaPernas1 = (CheckBox)findViewById(R.id.chckboxRulaPernas1);
-    CheckBox chckboxRulaPernas2 = (CheckBox)findViewById(R.id.chckboxRulaPernas2);
 
     if(chckboxRulaPescoco1.isChecked())
     {
@@ -120,14 +115,6 @@ public void actualizaResultados()
     if(chckboxRulaTronco2.isChecked())
     {
         tronco+=1;
-    }
-    if(chckboxRulaPernas1.isChecked())
-    {
-        pernas+=1;
-    }
-    if(chckboxRulaPernas2.isChecked())
-    {
-        pernas+=2;
     }
 
     Toast.makeText(getApplicationContext(), "Pescoco : "+pescoco, Toast.LENGTH_SHORT).show();

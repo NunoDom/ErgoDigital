@@ -566,21 +566,24 @@ public class TabelaReferenciaRULA {
 
     }
 
-    public int devolveTabelaC(int superior, int inferior){
 
-        if (inferior>7) {
-            return rulaTabelaC[superior - 1][6];
-        }else{
-            return rulaTabelaC[superior - 1][inferior - 1];
-        }
-    }
 
-    public int devolveTabelaD(int membrosSuperiores, int pescocoTroncoPernas){
+    public int devolveTabelaC(int membrosSuperiores, int pescocoTroncoPernas){
 
         if (pescocoTroncoPernas>7) {
-            return rulaTabelaC[membrosSuperiores - 1][6];
+            if (membrosSuperiores>8){
+                return rulaTabelaC[7][6];
+            }else {
+                return rulaTabelaC[membrosSuperiores - 1][6];
+            }
         }else{
-            return rulaTabelaC[membrosSuperiores - 1][pescocoTroncoPernas - 1];
+            if (membrosSuperiores>8){
+                return rulaTabelaC[7][pescocoTroncoPernas - 1];
+            }else {
+                return rulaTabelaC[membrosSuperiores - 1][pescocoTroncoPernas - 1];
+            }
+
+
         }
     }
 

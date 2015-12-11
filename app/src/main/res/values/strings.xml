@@ -79,8 +79,7 @@
 
     <string-array name="RULAantebraco">
         <item>1 60º a 100º</item>
-        <item>2 0-60º</item>
-        <item>3 >100º</item>
+        <item>2 0-60º ou >100º</item>
     </string-array>
 
     <string-array name="RulaPontosDeForcaCarga">
@@ -104,6 +103,10 @@
         <item>Superior a 60º</item>
     </string-array>
 
+    <string-array name="RulaPernas">
+        <item>Se pernas e os pés estão bem apoiados e equilibrados</item>
+        <item>Se as pernas e os pés não estão correctamente apoiados e equilibrados</item>
+    </string-array>
 
 
     <string-array name="RULAantebraco_Correcao">

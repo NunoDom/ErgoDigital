@@ -112,14 +112,14 @@
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Se as pernas e os pés estão bem apoiadose equilibrados"
+                    android:text="Se torçao do tronco"
                     android:id="@+id/chckboxRulaTronco1"
                     android:layout_weight="0.03" />
 
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Se as pernas e os pés não estão correctamente apoiados e equilibrados"
+                    android:text="Se inclinação do corpo"
                     android:id="@+id/chckboxRulaTronco2"
                     android:layout_weight="0.03" />
             </LinearLayout>
@@ -133,20 +133,11 @@
             android:id="@+id/textView15"
             android:layout_marginTop="10dp" />
 
-        <CheckBox
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Se pernas e os pés estão bem apoiados e equilibrados"
-            android:id="@+id/chckboxRulaPernas1"
-            android:layout_weight="0.03"
-            android:layout_marginTop="10dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Se as pernas e os pés não estão correctamente apoiados e equilibrados"
-            android:id="@+id/chckboxRulaPernas2"
-            android:layout_weight="0.03" />
+            android:id="@+id/cbRulaPernas"
+            android:entries="@array/RulaPernas" />
 
     </LinearLayout>
     </ScrollView>
