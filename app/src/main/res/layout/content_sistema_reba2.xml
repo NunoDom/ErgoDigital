@@ -27,152 +27,169 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="680dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:layout_weight="0.59"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivRebaBraco"
+                    android:src="@drawable/ic_no_image_squad"
+                    android:paddingTop="10dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Braço"
+                        android:id="@+id/tvRebaBraco" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cbRebaBraco"
+                        android:longClickable="false"
+                        android:spinnerMode="dialog"
+                        android:entries="@array/RebaTronco"
+                        android:nestedScrollingEnabled="false" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se houver adução ou rotação de braço"
+                        android:id="@+id/chckboxRebaCorrecaoBraco"
+                        android:layout_gravity="left"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se elevar o ombro"
+                        android:id="@+id/chckboxRebaCorrecaoBraco2"
+                        android:layout_gravity="left" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se apoiado suportando peso do braço"
+                        android:id="@+id/chckboxRebaCorrecaoBraco3"
+                        android:layout_gravity="left" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.59"
+                android:weightSum="1"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:layout_width="113dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ivRebaAntebraco"
+                    android:src="@drawable/ic_no_image_squad"
+                    android:paddingTop="10dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Antebraço"
+                        android:id="@+id/tvRebaAnteBraco"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cbRebaAntebraco"
+                        android:entries="@array/RebaPescoco"
+                        android:spinnerMode="dropdown" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="104dp"
+                    android:id="@+id/ivRebaPulso"
+                    android:src="@drawable/ic_no_image_squad"
+                    android:paddingTop="10dp" />
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:layout_width="110dp"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ivRebaBraco"
-                        android:src="@drawable/ic_no_image_squad"
-                        android:layout_weight="0.14" />
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Pulso"
+                        android:id="@+id/tvRebaPernas"
+                        android:layout_weight="0.14"
+                        android:gravity="bottom" />
 
-                    <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ivRebaAntebraco"
-                        android:src="@drawable/ic_no_image_rec"
-                        android:layout_weight="0.14" />
-
-                    <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ivRebaPulso"
-                        android:src="@drawable/ic_no_image_squad"
-                        android:layout_weight="0.14" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioGroup
+                    <Spinner
                         android:layout_width="match_parent"
-                        android:layout_height="654dp"
-                        android:orientation="vertical"
-                        android:measureWithLargestChild="false"
-                        android:longClickable="false"
-                        android:weightSum="1"
-                        android:gravity="top|center_horizontal">
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cbRebaPulso"
+                        android:layout_weight="0.04"
+                        android:entries="@array/RebaPernas"
+                        android:spinnerMode="dropdown"
+                        android:focusable="false" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Braço"
-                            android:id="@+id/tvRebaBraco" />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/cbRebaBraco"
-                            android:longClickable="false"
-                            android:spinnerMode="dialog"
-                            android:entries="@array/RebaTronco"
-                            android:layout_weight="0.04"
-                            android:nestedScrollingEnabled="false" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Se o ombro estiver apoiado"
-                            android:id="@+id/chkBoxRebaCorrecaoBraco"
-                            android:layout_gravity="left" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Se o ombro estiver apoiado"
-                            android:id="@+id/chkBoxRebaCorrecaoBraco2"
-                            android:layout_gravity="left" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Se o ombro estiver apoiado"
-                            android:id="@+id/chkBoxRebaCorrecaoBraco3"
-                            android:layout_gravity="left" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Antebraço"
-                            android:id="@+id/tvRebaAnteBraco"
-                            android:gravity="bottom"
-                            android:layout_weight="0.10" />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/cbRULAantebraco"
-                            android:entries="@array/RebaPescoco"
-                            android:layout_weight="0.04"
-                            android:spinnerMode="dropdown" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Pulso"
-                            android:id="@+id/tvRebaPernas"
-                            android:layout_weight="0.14"
-                            android:gravity="bottom" />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/cbRebaPernas"
-                            android:layout_weight="0.04"
-                            android:entries="@array/RebaPernas"
-                            android:spinnerMode="dropdown"
-                            android:focusable="false" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Se flexão dos joelhos entre 30º e 60º"
-                            android:id="@+id/chkBoxRebaPernas1"
-                            android:layout_gravity="left" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Se a flexão dos joelhos >60º"
-                            android:id="@+id/chkBoxRebaPernas2"
-                            android:layout_weight="0.25"
-                            android:layout_gravity="left|top" />
-
-                        <Button
-                            android:layout_width="137dp"
-                            android:layout_height="wrap_content"
-                            android:text="Seguinte"
-                            android:id="@+id/btnRebaSeguinte"
-                            android:onClick="clickRebaSeguinte" />
-
-                    </RadioGroup>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se houber desvio ou rotação do pulso"
+                        android:id="@+id/chckboxRebaCorrecaoPulso"
+                        android:layout_gravity="left" />
 
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Pontuação da Pega"
+                    android:id="@+id/textView16" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cbRebaPega"
+                    android:entries="@array/RebaPega" />
 
             </LinearLayout>
 

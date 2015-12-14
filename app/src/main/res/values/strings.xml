@@ -103,6 +103,19 @@
         <item>Superior a 60º</item>
     </string-array>
 
+    <string-array name="RebaPega">
+        <item>Boa - Pega bem ajustada e pega de potência</item>
+        <item>Aceitável - Pega aceitável mas não é ideal ou a pega é aceitável por outra parte do corpo</item>
+        <item>Má -  Pega não aceitável apesar de possível</item>
+        <item>Inaceitável - Difícil e inseguro, sem pegas ou pega inaceitável usando outras partes do corpo</item>
+    </string-array>
+    <string-array name="RebaForca">
+        <item>Carga inferior a 5Kg</item>
+        <item>Carga entre 5Kg e 10Kg</item>
+        <item>Carga superior a 10Kg</item>
+    </string-array>
+
+
     <string-array name="RulaPernas">
         <item>Se pernas e os pés estão bem apoiados e equilibrados</item>
         <item>Se as pernas e os pés não estão correctamente apoiados e equilibrados</item>
