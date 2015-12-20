@@ -52,5 +52,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void callMCActivity(View view){
+
+        Intent intent = new Intent(this, MovimentacaoDeCargasActivity.class);
+        //intent.putExtra("",Pessoa);
+        startActivity(intent);
+
+    }
 
 }

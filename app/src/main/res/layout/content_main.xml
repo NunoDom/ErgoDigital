@@ -73,7 +73,8 @@
             android:layout_height="wrap_content"
             android:text="@string/textBtnCH"
             android:id="@+id/btnCH"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="callMCActivity" />
 
         <TextView
             android:layout_width="wrap_content"

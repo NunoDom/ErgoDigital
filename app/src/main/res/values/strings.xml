@@ -103,17 +103,7 @@
         <item>Superior a 60º</item>
     </string-array>
 
-    <string-array name="RebaPega">
-        <item>Boa - Pega bem ajustada e pega de potência</item>
-        <item>Aceitável - Pega aceitável mas não é ideal ou a pega é aceitável por outra parte do corpo</item>
-        <item>Má -  Pega não aceitável apesar de possível</item>
-        <item>Inaceitável - Difícil e inseguro, sem pegas ou pega inaceitável usando outras partes do corpo</item>
-    </string-array>
-    <string-array name="RebaForca">
-        <item>Carga inferior a 5Kg</item>
-        <item>Carga entre 5Kg e 10Kg</item>
-        <item>Carga superior a 10Kg</item>
-    </string-array>
+
 
 
     <string-array name="RulaPernas">
@@ -145,6 +135,20 @@
 
     //REBA
 
+    <string-array name="RebaPega">
+        <item>Boa - Pega bem ajustada e pega de potência</item>
+        <item>Aceitável - Pega aceitável mas não é ideal ou a pega é aceitável por outra parte do corpo</item>
+        <item>Má -  Pega não aceitável apesar de possível</item>
+        <item>Inaceitável - Difícil e inseguro, sem pegas ou pega inaceitável usando outras partes do corpo</item>
+    </string-array>
+    <string-array name="RebaForca">
+        <item>Carga inferior a 5Kg</item>
+        <item>Carga entre 5Kg e 10Kg</item>
+        <item>Carga superior a 10Kg</item>
+    </string-array>
+
+
+
     <string-array name="RebaTronco">
         <item>Erecto</item>
         <item>Flexão 0-20º ou Extensão 0º-20º</item>
@@ -159,9 +163,31 @@
         <item>Peso bilateral, andando ou sentado</item>
         <item>Peso unilateral ou postura instável</item>
     </string-array>
+
+    <string-array name="RebaBraco">
+        <item>Extensão 20º a Flexão 20º</item>
+        <item>Extensão > 20º ou Flexão 20º a 45€º</item>
+        <item>Flexão 45º a 60º</item>
+        <item>Flexão > 90º</item>
+    </string-array>
+    <string-array name="RebaAntebraco">
+        <item>Flexão 60-100º</item>
+        <item>Flexão &lt; 60º ou Flexão > 100º</item>
+    </string-array>
+    <string-array name="RebaPulso">
+        <item>Flexão/Extensão 0º - 15º</item>
+        <item>Flexão/Extensão > 15º</item>
+    </string-array>
+
+
+    <color name="white">#FFFFFFFF</color>
+
     <string name="title_activity_sistema_reba2">SistemaRebaActivity2</string>
     <string name="title_activity_sistema_rula2">SistemaRulaActivity2</string>
     <string name="title_activity_sistema_rula3">SistemaRulaActivity3</string>
     <string name="title_activity_rula_activity_result">RulaActivityResult</string>
+    <string name="title_activity_movimentacao_de_cargas">MovimentacaoDeCargasActivity</string>
+    <string name="title_activity_sistema_kim">SistemaKimActivity</string>
+    <string name="title_activity_sistema_mac">SistemaMacActivity</string>
 
 </resources>

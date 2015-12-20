@@ -31,11 +31,13 @@ public class SistemaRebaActivity extends AppCompatActivity {
                 Spinner spinner1 = (Spinner)findViewById(R.id.cbRebaTronco);
                 Spinner spinner2 = (Spinner)findViewById(R.id.cbRebaPescoco);
                 Spinner spinner3 = (Spinner)findViewById(R.id.cbRebaPernas);
+                Spinner spinnerCarga = (Spinner)findViewById(R.id.cbRebaCarga);
 
                 CheckBox checkBox1 = (CheckBox)findViewById(R.id.chckboxRebaCorrecaoTronco);
                 CheckBox checkBox2 = (CheckBox)findViewById(R.id.chckboxRebaCorrecaoPescoco);
                 CheckBox checkBox3 = (CheckBox)findViewById(R.id.chckboxRebaCorrecaoPernas1);
                 CheckBox checkBox4 = (CheckBox)findViewById(R.id.chckboxRebaCorrecaoPernas2);
+                CheckBox checkBox5 = (CheckBox)findViewById(R.id.chckboxRebaCorrecaoCarga);
 
                 int tronco = spinner1.getSelectedItemPosition()+1;
                 int pescoco = spinner2.getSelectedItemPosition()+1;
@@ -62,6 +64,12 @@ public class SistemaRebaActivity extends AppCompatActivity {
 
 
                 Integer resultadoA=tab.devolveTabelaA(tronco,pescoco,pernas);
+                resultadoA+=spinnerCarga.getSelectedItemPosition();
+
+                if (checkBox5.isChecked())
+                {
+                    resultadoA+=1;
+                }
 
 
                 Intent intent = new Intent(getApplicationContext(),SistemaRebaActivity2.class);

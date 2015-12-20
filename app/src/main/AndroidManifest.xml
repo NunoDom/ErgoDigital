@@ -103,6 +103,33 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity3" />
         </activity>
+        <activity
+            android:name=".MovimentacaoDeCargasActivity"
+            android:label="@string/title_activity_movimentacao_de_cargas"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaKimActivity"
+            android:label="@string/title_activity_sistema_kim"
+            android:parentActivityName=".MovimentacaoDeCargasActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MovimentacaoDeCargasActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacActivity"
+            android:label="@string/title_activity_sistema_mac"
+            android:parentActivityName=".MovimentacaoDeCargasActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MovimentacaoDeCargasActivity" />
+        </activity>
     </application>
 
 </manifest>
