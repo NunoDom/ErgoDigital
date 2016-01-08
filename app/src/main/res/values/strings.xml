@@ -180,6 +180,74 @@
     </string-array>
 
 
+    //KIM
+    <string-array name="KimTipoDeOperação">
+        <item>Selecione um tipo:</item>
+        <item>Operação de elevação ou deslocamento</item>
+        <item>Pega</item>
+        <item>Transporte</item>
+    </string-array>
+
+    <string-array name="KimElevacaoDeslocacao">
+        <item>Menos de 10 vezes</item>
+        <item>De 10 a 40 vezes</item>
+        <item>De 40 a 200 vezes</item>
+        <item>De 200 a 500 vezes</item>
+        <item>De 500 a 1000 vezes</item>
+        <item>Mais de 1000 vezes</item>
+    </string-array>
+    <string-array name="KimaPega">
+        <item>Menos que 5 minutos</item>
+        <item>De 5 a 15 minutos</item>
+        <item>De 15 minutos a 1 hora</item>
+        <item>De 1 hora a 2 hora</item>>
+        <item>De 2 horas a 4 horas</item>
+        <item>Mais de 4 horas</item>
+    </string-array>
+
+    <string-array name="KimTransporte">
+        <item>Menos de 300 metros</item>
+        <item>De 300 m a 1km</item>
+        <item>De 1km a 4km</item>
+        <item>De 4km a 8km</item>
+        <item>De 4km a 16km</item>
+        <item>Mais de 16km</item>
+    </string-array>
+
+    <string-array name="KimCargaHomens">
+        <item>Menos de 10Kg</item>
+        <item>De 10Kg a 20Kg</item>
+        <item>De 20Kg a 30Kg</item>
+        <item>De 30Kg a 40Kg</item>
+        <item>Mais de 40Kg</item>
+    </string-array>
+    <string-array name="KimCargaMulheres">
+        <item>Menos de 5Kg</item>
+        <item>De 5Kg a 10Kg</item>
+        <item>De 10Kg a 15Kg</item>
+        <item>De 15Kg a 25Kg</item>
+        <item>Mais de 25Kg</item>
+    </string-array>
+
+    <string-array name="KimPosicaoDeCarga">
+        <item>Tronco Direito, não torcido Aquando da Elevação, pega, transporte e abaixamento, a carga está proxima do corpo</item>
+        <item>De 5Kg a 10Kg</item>
+        <item>De 10Kg a 15Kg</item>
+        <item>De 15Kg a 25Kg</item>
+    </string-array>
+
+    <string-array name="KimCondicoesDeTrabalho">
+        <item>Menos de 5Kg</item>
+        <item>De 5Kg a 10Kg</item>
+        <item>De 10Kg a 15Kg</item>
+        <item>De 15Kg a 25Kg</item>
+        <item>Mais de 25Kg</item>
+    </string-array>
+
+
+    //GAM ou CAM
+
+
     <color name="white">#FFFFFFFF</color>
 
     <string name="title_activity_sistema_reba2">SistemaRebaActivity2</string>
