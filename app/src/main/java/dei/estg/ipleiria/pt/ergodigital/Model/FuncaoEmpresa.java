@@ -10,12 +10,18 @@ public class FuncaoEmpresa {
     private int NomeFuncao;
 
 
-
-public int devolverAnos()
+public int devolverAnos(int anoFim, int anoInicio)
 {
     //anoFim-anoInicio;
     return 0;
 
-
 }
+
+    public int getNomeFuncao() {
+        return NomeFuncao;
+    }
+
+    public void setNomeFuncao(int nomeFuncao) {
+        NomeFuncao = nomeFuncao;
+    }
 }
