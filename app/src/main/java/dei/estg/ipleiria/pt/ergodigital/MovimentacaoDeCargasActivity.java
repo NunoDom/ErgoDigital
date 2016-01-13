@@ -30,14 +30,16 @@ public class MovimentacaoDeCargasActivity extends AppCompatActivity {
 
     public void callKIMActivity(View view){
 
-        Intent intent = new Intent(this, SistemaKimActivity.class);
+        //Intent intent = new Intent(this, SistemaKimLevantarActivity.class);
+        Intent intent = new Intent(this, SistemaKimMainActivity.class);
         startActivity(intent);
 
     }
 
     public void callMACActivity(View view){
 
-        Intent intent = new Intent(this, SistemaMacActivity.class);
+        //Intent intent = new Intent(this, SistemaMacActivity.class);
+        Intent intent = new Intent(this, SistemaMacMainActivity.class);
         startActivity(intent);
 
     }

@@ -95,7 +95,7 @@
                 android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity2" />
         </activity>
         <activity
-            android:name=".RulaActivityResult"
+            android:name=".RulaActivityResultado"
             android:label="@string/title_activity_rula_activity_result"
             android:parentActivityName=".SistemaRulaActivity3"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -113,13 +113,13 @@
                 android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
         </activity>
         <activity
-            android:name=".SistemaKimActivity"
+            android:name=".SistemaKimLevantarActivity"
             android:label="@string/title_activity_sistema_kim"
-            android:parentActivityName=".MovimentacaoDeCargasActivity"
+            android:parentActivityName=".SistemaKimMainActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.MovimentacaoDeCargasActivity" />
+                android:value=".SistemaKimMainActivity" />
         </activity>
         <activity
             android:name=".SistemaMacActivity"
@@ -129,6 +129,29 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dei.estg.ipleiria.pt.ergodigital.MovimentacaoDeCargasActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaKimMainActivity"
+            android:label="@string/title_activity_sistema_kim_escolha"
+            android:parentActivityName=".MovimentacaoDeCargasActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MovimentacaoDeCargasActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacMainActivity"
+            android:label="@string/title_activity_sistema_mac_main"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".SistemaKimEmpurrarActivity"
+            android:label="@string/title_activity_sistema_kim_empurrar"
+            android:parentActivityName=".SistemaKimMainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaKimMainActivity" />
         </activity>
     </application>
 

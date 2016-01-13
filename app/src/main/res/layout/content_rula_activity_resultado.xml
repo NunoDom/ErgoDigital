@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_rula_activity_result"
-    tools:context="dei.estg.ipleiria.pt.ergodigital.RulaActivityResult">
+    tools:context="dei.estg.ipleiria.pt.ergodigital.RulaActivityResultado">
 
     <TextView
         android:layout_width="wrap_content"

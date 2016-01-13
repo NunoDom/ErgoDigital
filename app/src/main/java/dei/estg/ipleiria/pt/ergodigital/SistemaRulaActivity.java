@@ -1,6 +1,7 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaOWAS;
@@ -20,7 +22,7 @@ import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaRULA
 
 public class SistemaRulaActivity extends AppCompatActivity {
 
-
+    Spinner spinner5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class SistemaRulaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sistema_rula);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        spinner5 = (Spinner)findViewById(R.id.cbRulaLado);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.rula_fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -252,77 +257,91 @@ public class SistemaRulaActivity extends AppCompatActivity {
 
     public void click(View view)
     {
-        int resultado;
 
-        TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
-        Spinner spinner1= (Spinner)findViewById(R.id.cbRULAbraco);
-        Spinner spinner2= (Spinner)findViewById(R.id.cbRULAantebraco);
-        Spinner spinner3= (Spinner)findViewById(R.id.cbRulaPunho);
-        Spinner spinner4= (Spinner)findViewById(R.id.cbRULA_giroPunho);
-        Spinner spinner5= (Spinner)findViewById(R.id.cbRulaLado);
+        if(verificaCampos()) {
+            int resultado;
 
-        int braco = (int)spinner1.getSelectedItemId()+1;
-        int antebraco = (int)spinner2.getSelectedItemId()+1;
-        int punho = (int)spinner3.getSelectedItemId()+1;
-        int giro = (int)spinner4.getSelectedItemId()+1;
-        int lado = (int)spinner5.getSelectedItemId();
+            TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
+            Spinner spinner1 = (Spinner) findViewById(R.id.cbRULAbraco);
+            Spinner spinner2 = (Spinner) findViewById(R.id.cbRULAantebraco);
+            Spinner spinner3 = (Spinner) findViewById(R.id.cbRulaPunho);
+            Spinner spinner4 = (Spinner) findViewById(R.id.cbRULA_giroPunho);
 
 
+            int braco = (int) spinner1.getSelectedItemId() + 1;
+            int antebraco = (int) spinner2.getSelectedItemId() + 1;
+            int punho = (int) spinner3.getSelectedItemId() + 1;
+            int giro = (int) spinner4.getSelectedItemId() + 1;
+            int lado = (int) spinner5.getSelectedItemId() - 1;
 
 
+            if (braco > 0 && antebraco > 0 && punho > 0 && giro > 0) {
 
-        if (braco>0&&antebraco>0&&punho>0&&giro>0 ) {
+                CheckBox chckboxRulaBraco1 = (CheckBox) findViewById(R.id.chckboxRulaBraco1);
+                CheckBox chckboxRulaBraco2 = (CheckBox) findViewById(R.id.chckboxRulaBraco2);
+                CheckBox chckboxRulaBraco3 = (CheckBox) findViewById(R.id.chckboxRulaBraco3);
+                CheckBox chckboxRulaABraco1 = (CheckBox) findViewById(R.id.chckboxRulaABraco1);
+                CheckBox chckboxRulaPunho1 = (CheckBox) findViewById(R.id.chckboxRulaPunho1);
 
-            CheckBox chckboxRulaBraco1 = (CheckBox)findViewById(R.id.chckboxRulaBraco1);
-            CheckBox chckboxRulaBraco2 = (CheckBox)findViewById(R.id.chckboxRulaBraco2);
-            CheckBox chckboxRulaBraco3 = (CheckBox)findViewById(R.id.chckboxRulaBraco3);
-            CheckBox chckboxRulaABraco1 = (CheckBox)findViewById(R.id.chckboxRulaABraco1);
-            CheckBox chckboxRulaPunho1 = (CheckBox)findViewById(R.id.chckboxRulaPunho1);
+                if (chckboxRulaBraco1.isChecked()) {
+                    braco += 1;
+                }
+                if (chckboxRulaBraco2.isChecked()) {
+                    braco += 1;
+                }
+                if (chckboxRulaBraco3.isChecked()) {
+                    braco -= 1;
+                }
+                if (chckboxRulaABraco1.isChecked()) {
+                    antebraco += 1;
+                }
+                if (chckboxRulaPunho1.isChecked()) {
+                    punho += 1;
+                }
 
-            if (chckboxRulaBraco1.isChecked())
-            {
-                braco+=1;
-            }
-            if (chckboxRulaBraco2.isChecked())
-            {
-                braco+=1;
-            }
-            if (chckboxRulaBraco3.isChecked())
-            {
-                braco-=1;
-            }
-            if (chckboxRulaABraco1.isChecked())
-            {
-                antebraco+=1;
-            }
-            if (chckboxRulaPunho1.isChecked())
-            {
-                punho+=1;
-            }
+                if (braco <= 6 && antebraco <= 3 && punho <= 4 && giro <= 2) {
+                    resultado = tab.devolveTabelaA(braco, antebraco, punho, giro);
+                    Intent intent = new Intent(this, SistemaRulaActivity2.class);
+                    intent.putExtra("Lado", lado);
+                    intent.putExtra("ResultadoA", resultado);
+                    startActivity(intent);
+                    finish();
 
-            if (braco<=6&&antebraco<=3&&punho<=4&&giro<=2) {
-                resultado = tab.devolveTabelaA(braco, antebraco, punho, giro);
-                Intent intent = new Intent(this, SistemaRulaActivity2.class);
-                intent.putExtra("Lado", lado);
-                intent.putExtra("ResultadoA", resultado);
-                startActivity(intent);
-                finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(getApplicationContext(), "Braco : " + braco + "\nAntebraço : " + antebraco + "\nPunho : " + punho + "\nGiro : " + giro, Toast.LENGTH_SHORT).show();
 
-            }else
-            {
+
+            } else {
                 Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();
             }
-            Toast.makeText(getApplicationContext(), "Braco : "+braco+"\nAntebraço : "+antebraco+"\nPunho : "+punho+"\nGiro : "+giro, Toast.LENGTH_SHORT).show();
+
+
+        }
+    }
 
 
 
+    public boolean verificaCampos()
+    {
 
-        }else
+        ///S spinnerText = (TextView)findViewById(R.id.cbRulaLado);
+
+
+        //TextView spinnerText = (TextView) spinner.getChildAt(0);
+
+
+
+        if(spinner5.getSelectedItemPosition()==0)
         {
-            Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();
+            TextView spinnerText = (TextView)spinner5.getChildAt(0);
+            spinnerText.setTextColor(Color.RED);
+
+            return false;
         }
 
-
+        return true;
 
     }
 

@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_sistema_kim"
-    tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaKimActivity">
+    tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaKimLevantarActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -40,15 +40,52 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cbKimDuracaoRepeticao"
-            android:visibility="visible" />
+            android:id="@+id/cbKimDuracaoRepeticao" />
 
-        <Spinner
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner2"
-            android:visibility="visible"
-            android:entries="@array/KimElevacaoDeslocacao" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pontuação da Carga"
+            android:id="@+id/textView19" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Sexo:"
+                android:id="@+id/textView20" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbKimSexo"
+                android:visibility="visible"
+                android:entries="@array/KimElevacaoSexo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/textView21" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbKimLevantarPontucaoCarga" />
+        </LinearLayout>
 
     </LinearLayout>
 

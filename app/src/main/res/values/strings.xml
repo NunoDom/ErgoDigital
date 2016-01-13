@@ -57,6 +57,7 @@
 //GENERICOS
 
     <string-array name="Lados">
+        <item>--SELECIONE UM LADO--</item>
         <item>Lado Direito</item>
         <item>Lado Esquerdo</item>
     </string-array>
@@ -187,7 +188,7 @@
         <item>Pega</item>
         <item>Transporte</item>
     </string-array>
-
+PASSO 1
     <string-array name="KimElevacaoDeslocacao">
         <item>Menos de 10 vezes</item>
         <item>De 10 a 40 vezes</item>
@@ -196,7 +197,7 @@
         <item>De 500 a 1000 vezes</item>
         <item>Mais de 1000 vezes</item>
     </string-array>
-    <string-array name="KimaPega">
+    <string-array name="KimaElevacaoPega">
         <item>Menos que 5 minutos</item>
         <item>De 5 a 15 minutos</item>
         <item>De 15 minutos a 1 hora</item>
@@ -205,7 +206,7 @@
         <item>Mais de 4 horas</item>
     </string-array>
 
-    <string-array name="KimTransporte">
+    <string-array name="KimElevacaoTransporte">
         <item>Menos de 300 metros</item>
         <item>De 300 m a 1km</item>
         <item>De 1km a 4km</item>
@@ -214,14 +215,23 @@
         <item>Mais de 16km</item>
     </string-array>
 
-    <string-array name="KimCargaHomens">
+
+
+    //PASSO 2
+    <string-array name="KimElevacaoSexo">
+        <item>--SELECIONE O SEXO--</item>
+        <item>Homens</item>
+        <item>Mulheres</item>
+    </string-array>
+
+    <string-array name="KimElevacaoCargaHomens">
         <item>Menos de 10Kg</item>
         <item>De 10Kg a 20Kg</item>
         <item>De 20Kg a 30Kg</item>
         <item>De 30Kg a 40Kg</item>
         <item>Mais de 40Kg</item>
     </string-array>
-    <string-array name="KimCargaMulheres">
+    <string-array name="KimElevacaoCargaMulheres">
         <item>Menos de 5Kg</item>
         <item>De 5Kg a 10Kg</item>
         <item>De 10Kg a 15Kg</item>
@@ -229,14 +239,14 @@
         <item>Mais de 25Kg</item>
     </string-array>
 
-    <string-array name="KimPosicaoDeCarga">
+    <string-array name="KimElevacaoPosicaoDeCarga">
         <item>Tronco Direito, não torcido Aquando da Elevação, pega, transporte e abaixamento, a carga está proxima do corpo</item>
         <item>De 5Kg a 10Kg</item>
         <item>De 10Kg a 15Kg</item>
         <item>De 15Kg a 25Kg</item>
     </string-array>
 
-    <string-array name="KimCondicoesDeTrabalho">
+    <string-array name="KimElevacaoCondicoesDeTrabalho">
         <item>Menos de 5Kg</item>
         <item>De 5Kg a 10Kg</item>
         <item>De 10Kg a 15Kg</item>
@@ -257,5 +267,8 @@
     <string name="title_activity_movimentacao_de_cargas">MovimentacaoDeCargasActivity</string>
     <string name="title_activity_sistema_kim">SistemaKimActivity</string>
     <string name="title_activity_sistema_mac">SistemaMacActivity</string>
+    <string name="title_activity_sistema_kim_escolha">SIstemaKimEscolhaActivity</string>
+    <string name="title_activity_sistema_mac_main">SistemaMacMainActivity</string>
+    <string name="title_activity_sistema_kim_empurrar">SistemaKimEmpurrarActivity</string>
 
 </resources>
