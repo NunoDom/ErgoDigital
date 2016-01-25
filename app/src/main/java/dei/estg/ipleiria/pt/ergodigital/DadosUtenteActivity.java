@@ -121,7 +121,7 @@ if(ano<1900 || ano>GregorianCalendar.YEAR){
                     }else{
                     Pessoa pessoa = new Pessoa(nome, dia, mes, ano, genero, altura, peso);
                     GerirPessoas.INSTANCE.addPessoa(pessoa);
-                    Toast.makeText(this,"Utente adicionado com sucesso",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Utente adicionado com sucesso ",Toast.LENGTH_SHORT).show();
                         this.finish();
                     }
                 }
