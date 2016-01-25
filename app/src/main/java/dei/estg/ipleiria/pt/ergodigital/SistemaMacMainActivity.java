@@ -1,5 +1,6 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,4 +27,27 @@ public class SistemaMacMainActivity extends AppCompatActivity {
         });
     }
 
+
+
+
+    public void callMacElevacaoActivity(View view){
+
+        Intent intent = new Intent(this, SistemaMacElevacaoActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void callMacTransporteActivity(View view){
+
+        Intent intent = new Intent(this, SistemaMacTransporteActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void callMacEquipaActivity(View view){
+
+        Intent intent = new Intent(this, SistemaMacEquipaActivity.class);
+        startActivity(intent);
+
+    }
 }

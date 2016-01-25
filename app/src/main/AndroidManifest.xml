@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dei.estg.ipleiria.pt.ergodigital" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -122,7 +132,7 @@
                 android:value=".SistemaKimMainActivity" />
         </activity>
         <activity
-            android:name=".SistemaMacActivity"
+            android:name=".SistemaMacElevacaoActivity"
             android:label="@string/title_activity_sistema_mac"
             android:parentActivityName=".MovimentacaoDeCargasActivity"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -152,6 +162,114 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dei.estg.ipleiria.pt.ergodigital.SistemaKimMainActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacTransporteActivity"
+            android:label="@string/title_activity_sistema_mac_transporte"
+            android:parentActivityName=".SistemaMacMainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacMainActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacEquipaActivity"
+            android:label="@string/title_activity_sistema_mac_equipa"
+            android:parentActivityName=".SistemaMacMainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacMainActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacElevacao2Activity"
+            android:label="@string/title_activity_sistema_mac_elevacao2"
+            android:parentActivityName=".SistemaMacElevacaoActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacElevacaoActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacElevacao3Activity"
+            android:label="@string/title_activity_sistema_mac_elevancao3"
+            android:parentActivityName=".SistemaMacElevacao2Activity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacElevacao2Activity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacTransporte3Activity"
+            android:label="@string/title_activity_sistema_mac_transporte3"
+            android:parentActivityName=".SistemaMacTransporte2Activity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacTransporte2Activity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacEquipa2Activity"
+            android:label="@string/title_activity_sistema_mac_equipa2"
+            android:parentActivityName=".SistemaMacEquipaActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacEquipaActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacEquipa3Activity"
+            android:label="@string/title_activity_sistema_mac_equipa3"
+            android:parentActivityName=".SistemaMacEquipa2Activity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacEquipa2Activity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacTransporte2Activity"
+            android:label="@string/title_activity_sistema_mac_transporte2"
+            android:parentActivityName=".SistemaMacTransporteActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacTransporteActivity" />
+        </activity>
+        <activity
+            android:name=".SistemaMacElevacaoResultActivity"
+            android:label="@string/title_activity_sistema_mac_elevacao_result"
+            android:parentActivityName=".SistemaMacElevacao3Activity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacElevacao3Activity" />
+        </activity>
+        <activity
+            android:name=".UserSettingsActivity"
+            android:label="@string/title_activity_user_settings"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EscolhaAvaliacoesActivity"
+            android:label="@string/title_activity_escolha_avaliacoes"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DadosUtenteActivity"
+            android:label="@string/title_activity_dados_utente"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
         </activity>
     </application>
 

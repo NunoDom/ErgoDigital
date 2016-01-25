@@ -8,6 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import dei.estg.ipleiria.pt.ergodigital.Model.GerirPessoas;
+import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
 
 public class ListaPessoasActivity extends AppCompatActivity {
 
@@ -18,14 +26,33 @@ public class ListaPessoasActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        aaaa();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-           public void onClick(View view) {
+            public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+
+        ListView listaListView= (ListView)findViewById(R.id.listViewListaPessoas);
+        listaListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -37,18 +64,36 @@ public class ListaPessoasActivity extends AppCompatActivity {
     }
 
 
+    public void callOWAS(View view) {
 
-    public void callOWAS(View view){
-
-        Intent intent = new Intent(this,SistemaOwasActivity.class);
+        Intent intent = new Intent(this, SistemaOwasActivity.class);
         startActivity(intent);
 
     }
-    public void callRULA(View view){
 
-        Intent intent = new Intent(this,SistemaRulaActivity.class);
+    public void callRULA(View view) {
+
+        Intent intent = new Intent(this, SistemaRulaActivity.class);
         startActivity(intent);
 
     }
+
+
+    private void aaaa() {
+        // our adapter instance
+
+        ArrayList<Pessoa> resultados = GerirPessoas.INSTANCE.getListaPessoas();
+        ListView listView = (ListView) findViewById(R.id.listViewListaPessoas);
+
+        ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(ListaPessoasActivity.this, android.R.layout.simple_list_item_1, resultados);
+        listView.setAdapter(adapter);
+
+
+    }
+
+
+
+
+
 
 }

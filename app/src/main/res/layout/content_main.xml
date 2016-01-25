@@ -12,83 +12,35 @@
     android:gravity="center">
 
 
-    <LinearLayout
-        android:orientation="vertical"
+    <Button
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="Adicionar Utentes"
+        android:id="@+id/button9"
+        android:onClick="callAddUtentes" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView6"
-            android:layout_gravity="center_horizontal" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista Utentes"
+        android:id="@+id/button8"
+        android:layout_gravity="center_horizontal"
+        android:onClick="callListaUtentes" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView7"
-            android:layout_gravity="center_horizontal" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar Pessoas"
+        android:id="@+id/button10"
+        android:layout_gravity="center_horizontal"
+        android:onClick="callGuardar" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/textTitle"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView5"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView8"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnPA"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/textBtnPA"
-            android:onClick="callAPActivity" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView2"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textBtnCH"
-            android:id="@+id/btnCH"
-            android:layout_gravity="center_horizontal"
-            android:onClick="callMCActivity" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView3"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textBtnRM"
-            android:id="@+id/btnRM"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LER Pessoas"
+        android:id="@+id/button11"
+        android:layout_gravity="center_horizontal"
+        android:onClick="callLer" />
 </LinearLayout>

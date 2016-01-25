@@ -12,46 +12,54 @@
     <string name="textBtnCH">Movimentação de Cargas</string>
     <string name="textBtnPA">Avaliação Postural</string>
     <string name="textBtnRM">Movimento Repetitivo</string>
-    <string name="textTitle">Types of Ergonomic Evaluation</string>
+    <string name="textTitle">Tipos de Avaliações Ergonomicas</string>
 
 
 
-    <string name="PEA_title">Tools</string>
-    <string name="PEA_btn_owas">System OWAS</string>
-    <string name="title_activity_system_owas">System OWAS</string>
-    <string name="PEA_btn_rula">System RULA</string>
-    <string name="title_activity_sistema_rula">SistemaRulaActivity</string>
-    <string name="title_activity_sistema_owas">SistemaOwasActivity</string>
+    <string name="PEA_title">Ferramentas</string>
+
+    <string name="PEA_btn_owas">Sistema OWAS</string>
+    <string name="PEA_btn_owas_descricao">(Ovako Working Posture Analysing System)</string>
+
+    <string name="PEA_btn_rula">Sistema RULA</string>
+    <string name="PEA_btn_rula_descricao">(Rapid Upper Limb Assessement)</string>
+
+    <string name="PEA_btn_reba">Sistema REBA</string>
+    <string name="PEA_btn_reba_descricao">(Rapid Entire Body Assessement)</string>
+
+    <string name="title_activity_system_owas">Sistema OWAS</string>
+    <string name="title_activity_sistema_rula">Sistema Rula</string>
+    <string name="title_activity_sistema_owas">Sistema Owas</string>
 
 
 
     <string-array name="OWAStorso">
-        <item>1-Reto</item>
-        <item>2-Inclinado</item>
-        <item>3-Reto e Torcido</item>
-        <item>4-Inclinado e Torcido</item>
+        <item>Reto</item>
+        <item>Inclinado</item>
+        <item>Reto e Torcido</item>
+        <item>Inclinado e Torcido</item>
     </string-array>
 
     <string-array name="OWASbracos">
-        <item>1-Dois braços para baixo</item>
-        <item>2-Um braço para cima</item>
-        <item>3-Dois braços para cima</item>
+        <item>Dois braços para baixo</item>
+        <item>Um braço para cima</item>
+        <item>Dois braços para cima</item>
     </string-array>
 
     <string-array name="OWASpernas">
-        <item>1-Duas pernas retas</item>
-        <item>2-Uma perna reta</item>
-        <item>3-Duas pernas flexionadas</item>
-        <item>4-Uma perna flexionada</item>
-        <item>5-Uma perna ajoelhada</item>
-        <item>6-Deslocamento com pernas</item>
-        <item>7-Duas pernas suspensas</item>
+        <item>Duas pernas retas</item>
+        <item>Uma perna reta</item>
+        <item>Duas pernas flexionadas</item>
+        <item>Uma perna flexionada</item>
+        <item>Uma perna ajoelhada</item>
+        <item>Deslocamento com pernas</item>
+        <item>Duas pernas suspensas</item>
     </string-array>
 
     <string-array name="OWASforca">
-        <item>10Kg ou + </item>
-        <item>+10Kg &lt; 20kg </item>
-        <item>+20Kg</item>
+        <item>Até a 10Kg</item>
+        <item>de 10Kg a 20Kg </item>
+        <item>Superior a 20Kg</item>
     </string-array>
 
 //GENERICOS
@@ -66,42 +74,42 @@
     //fgh
 
     <string-array name="RULAbraco">
-        <item>1 +20º a -20º</item>
-        <item>2 -20º em ext.</item>
-        <item>3 20º a 45º</item>
-        <item>4 45º a 90º</item>
-        <item>5 >90º</item>
+        <item>Ângulo de +20\u00B0 a -20\u00B0 </item>
+        <item>Ângulo -20\u00B0 em ext.</item>
+        <item>Ângulo de +20\u00B0 a +45\u00B0</item>
+        <item>Ângulo de +45\u00B0 a +90\u00B0</item>
+        <item>Ângulo superior a +90\u00B0</item>
     </string-array>
     <string-array name="RULAbraco_Correcao">
-        <item>Sem correcao</item>
+        <item>Sem correção</item>
         <item>Ombro levantado ou abdução</item>
         <item>Apoiado</item>
     </string-array>
 
     <string-array name="RULAantebraco">
-        <item>1 60º a 100º</item>
-        <item>2 0-60º ou >100º</item>
+        <item>Ângulo de +60\u00B0 a +100\u00B0</item>
+        <item>Ângulos de 0 a +60\u00B0 ou superior a +100\u00B0</item>
     </string-array>
 
     <string-array name="RulaPontosDeForcaCarga">
-        <item> menor que 2Kg</item>
-        <item>2 a 10 Kg (itermitente)</item>
-        <item>2 a 10 Kg (estático ou repetido)</item>
-        <item>maior que 10Kg ou repetida ou de impacto</item>
+        <item>Inferir a 2Kg</item>
+        <item>De 2Kg a 10 Kg (itermitente)</item>
+        <item>De 2Kg a 10 Kg (estático ou repetido)</item>
+        <item>Superior a 10Kg ou repetida ou de impacto</item>
     </string-array>
 
     <string-array name="RulaPescoco">
-        <item>De 0º a 10º</item>
-        <item>De 10º a 20º</item>
-        <item>Superior a 20º</item>
+        <item>Ângulo de 0\u00B0 a +10\u00B0</item>
+        <item>Ângulo de +10\u00B0 a +20\u00B0</item>
+        <item>Ângulo superior a +20\u00B0</item>
         <item>Em extensão</item>
     </string-array>
 
     <string-array name="RulaTronco">
-        <item>0º</item>
-        <item>De 0º a 20º</item>
-        <item>De 20º a 60º</item>
-        <item>Superior a 60º</item>
+        <item>Ângulo igual a 0\u00B0</item>
+        <item>Ângulo e 0\u00B0 a +20\u00B0</item>
+        <item>Ângulo de +20\u00B0 a +60\u00B0</item>
+        <item>Ângulo superior a +60\u00B0</item>
     </string-array>
 
 
@@ -116,17 +124,17 @@
     <string-array name="RULAantebraco_Correcao">
         <item>Sem correcao</item>
         <item>Se cruzar linha do corpo</item>
-        <item>fora da linha  a mais de 45º</item>
+        <item>fora da linha  a mais de 45\u00B0</item>
     </string-array>
 
     <string-array name="RULApunho">
-        <item>1 0º</item>
-        <item>2 +15º a -15º</item>
-        <item>3 >+15º o &lt;-15º</item>
+        <item>Ângulo igual a 0\u00B0</item>
+        <item>Ângulo de +15\u00B0 a -15\u00B0</item>
+        <item>Ângulo superior a +15\u00B0 ou inferior a &lt;-15\u00B0</item>
     </string-array>
     <string-array name="RULAGiroPunho">
-        <item>1 Principalmente na metade da amplitude de giro do punho</item>
-        <item>2 No inicio ou final da amplitude de giro do punho</item>
+        <item>Principalmente na metade da amplitude de giro do punho</item>
+        <item>No inicio ou final da amplitude de giro do punho</item>
     </string-array>
     <string name="title_activity_sistema_reba">SistemaRebaActivity</string>
 
@@ -152,13 +160,13 @@
 
     <string-array name="RebaTronco">
         <item>Erecto</item>
-        <item>Flexão 0-20º ou Extensão 0º-20º</item>
-        <item>Flexão 20º-60º ou Extensão >20º</item>
-        <item>Flexão > 60º</item>
+        <item>Flexão  0\u00B0-20\u00B0 ou Extensão 0\u00B0-20\u00B0</item>
+        <item>Flexão 20\u00B0-60\u00B0 ou Extensão >20\u00B0</item>
+        <item>Flexão > 60\u00B0</item>
     </string-array>
     <string-array name="RebaPescoco">
-        <item>Flexão 0-20º</item>
-        <item>Flexão ou Extensão >20º</item>
+        <item>Flexão 0\u00B0-20\u00B0</item>
+        <item>Flexão ou Extensão >20\u00B0</item>
     </string-array>
     <string-array name="RebaPernas">
         <item>Peso bilateral, andando ou sentado</item>
@@ -166,29 +174,48 @@
     </string-array>
 
     <string-array name="RebaBraco">
-        <item>Extensão 20º a Flexão 20º</item>
-        <item>Extensão > 20º ou Flexão 20º a 45€º</item>
-        <item>Flexão 45º a 60º</item>
-        <item>Flexão > 90º</item>
+        <item>Extensão 20\u00B0 a Flexão 20\u00B0</item>
+        <item>Extensão > 20\u00B0 ou Flexão 20\u00B0 a 45\u00B0</item>
+        <item>Flexão 45\u00B0 a 60\u00B0</item>
+        <item>Flexão > 90\u00B0</item>
     </string-array>
     <string-array name="RebaAntebraco">
-        <item>Flexão 60-100º</item>
-        <item>Flexão &lt; 60º ou Flexão > 100º</item>
+        <item>Flexão 60\u00B0-100\u00B0</item>
+        <item>Flexão &lt; 60\u00B0 ou Flexão > 100\u00B0</item>
     </string-array>
     <string-array name="RebaPulso">
-        <item>Flexão/Extensão 0º - 15º</item>
-        <item>Flexão/Extensão > 15º</item>
+        <item>Flexão/Extensão 0\u00B0 - 15\u00B0</item>
+        <item>Flexão/Extensão > 15\u00B0</item>
     </string-array>
 
 
     //KIM
+    <string name="KimDescricao">Kim - Key Item Method </string>
+    <string name="KimLevantarDescricao"> KIM (Levantar, Pegar e Transportar) </string>
+    <string name="KimEmpurarDescricao"> KIM (Empurrar e Puxar) </string>
+
     <string-array name="KimTipoDeOperação">
         <item>Selecione um tipo:</item>
-        <item>Operação de elevação ou deslocamento</item>
-        <item>Pega</item>
-        <item>Transporte</item>
+        <item>Operação de elevação ou deslocamento (menos de 5s)</item>
+        <item>Pega (mais de 5s)</item>
+        <item>Transporte (mais de 5m)</item>
     </string-array>
 PASSO 1
+
+    <string name="KimElevacaoPontuacaoTempoLabel">Número por
+        dia de trabalho</string>
+    <string name="KimPegaPontuacaoTempoLabel">Duração total
+        no dia de trabalho</string>
+    <string name="KimTransportePontuacaoTempoLabel">Distância global
+        \n no dia de trabalho</string>
+
+    <string name="KimDescricaoPosicaoTrabalho1">Aquando da elevação, pega, transporte e abaixamento, a carga está próxima do corpo</string>
+    <string name="KimDescricaoPosicaoTrabalho2">Aquando da elevação, pega, transporte e abaixamento, a carga está próxima ou a meio do corpo</string>
+    <string name="KimDescricaoPosicaoTrabalho3">Ligeira inclinação para a frente om torção do tronco em simultâneo
+        Carga longe do corpo ou acima da altura &lt;br do ombro</string>
+
+
+
     <string-array name="KimElevacaoDeslocacao">
         <item>Menos de 10 vezes</item>
         <item>De 10 a 40 vezes</item>
@@ -218,10 +245,10 @@ PASSO 1
 
 
     //PASSO 2
-    <string-array name="KimElevacaoSexo">
-        <item>--SELECIONE O SEXO--</item>
-        <item>Homens</item>
-        <item>Mulheres</item>
+    <string-array name="ArrayGenero">
+        <item>--SELECIONE O GÉNERO--</item>
+        <item>Homem</item>
+        <item>Mulher</item>
     </string-array>
 
     <string-array name="KimElevacaoCargaHomens">
@@ -240,22 +267,192 @@ PASSO 1
     </string-array>
 
     <string-array name="KimElevacaoPosicaoDeCarga">
-        <item>Tronco Direito, não torcido Aquando da Elevação, pega, transporte e abaixamento, a carga está proxima do corpo</item>
-        <item>De 5Kg a 10Kg</item>
-        <item>De 10Kg a 15Kg</item>
-        <item>De 15Kg a 25Kg</item>
+        <item>Selecione uma posição</item>
+        <item>Tronco Direito, não torcido</item>
+        <item>Ligeira inclinação para a frente ou torção do tronco</item>
+        <item>Inclinação para baixo ou mais para a frente</item>
+        <item>Inclinação para a frente com torção do tronco em simultâneo</item>
     </string-array>
 
     <string-array name="KimElevacaoCondicoesDeTrabalho">
-        <item>Menos de 5Kg</item>
-        <item>De 5Kg a 10Kg</item>
-        <item>De 10Kg a 15Kg</item>
-        <item>De 15Kg a 25Kg</item>
-        <item>Mais de 25Kg</item>
+        <item>Boas condições de Trabalho</item>
+        <item>Espaço de movimento restrito</item>
+        <item>Espaço de movimento demasiado restrito</item>
+    </string-array>
+
+//KIM EMPURAR
+
+    <string name="KimEmpurarPontuacaoTitulo">Pontuação de Tempo</string>
+    <string name="KimEmpurarPontuacaoMassaTitulo">Pontuação da Massa</string>
+
+
+    <string-array name="KimEmpurarTipoOperacao">
+        <item>Selecione uma opçao</item>
+        <item>Curta distancia ou paragens frequantes</item>
+        <item>Longas Distancias</item>
+    </string-array>
+
+    <string name="KimEmpurarTipoOperacaoNumeroVezes">Número de vezes</string>
+    <string name="KimEmpurarTipoOperacaoDistancia">Distancia Total</string>
+
+    <string-array name="KimEmpurarTipoOperacaoLongaDistancia">
+        <item>menos de 300 metros</item>
+        <item>de 300 metros a 1 km</item>
+        <item>de 1 km a 4 km</item>
+        <item>de 4 km a 8 km</item>
+        <item>de 4 km a 16 km</item>
+        <item>mais de 16km</item>
+    </string-array>
+    <string-array name="KimEmpurarTipoOperacaoCurtaDistancia">
+        <item>menos de 10 vezes</item>
+        <item>de 10 a 40 vezes</item>
+        <item>de 40 a 200 vezes</item>
+        <item>de 200 a 500 vezes</item>
+        <item>de 500 a 1000 vezes</item>
+        <item>Mais de 1000 vezes</item>
+    </string-array>
+
+    <string-array name="KimEmpurarTipoMovimentoMassa">
+        <item>Selecione um tipo</item>
+        <item>Rolamento</item>
+        <item>Deslizamento</item>
+    </string-array>
+
+    <string-array name="KimEmpurarMassaMoverAjuda">
+        <item>Sem, a carga é rolada</item>
+        <item>Carrinho de mão</item>
+        <item>Carruagem, rolo, carro de de transporte sem rodas fixas</item>
+        <item>Veículos em carris, mesas transportadoras, carruagens com rodas fixas</item>
+        <item>Manipuladores, corda, balanceiros</item>
     </string-array>
 
 
+    <string-array name="KimEmpurarMassaPesoCarga1">
+        <item>menos de 50 kg</item>
+        <item>de 50 a 100 kg </item>
+        <item>de 100 a 200 kg </item>
+        <item>de 200 a 300 kg </item>
+        <item>de 300 a 400 kg </item>
+        <item>de 400 a 600 kg </item>
+        <item>de 600 a 1000 kg </item>
+    </string-array>
+
+    <string-array name="KimEmpurarMassaPesoCarga2">
+        <item>menos de 50 kg</item>
+        <item>de 50 a 100 kg </item>
+        <item>de 100 a 200 kg </item>
+        <item>de 200 a 300 kg </item>
+    </string-array>
+
+    <string-array name="KimEmpurarMassaPesoCarga3">
+        <item>menos de 50 kg</item>
+        <item>de 50 a 100 kg </item>
+        <item>de 100 a 200 kg </item>
+        <item>de 200 a 300 kg </item>
+        <item>de 300 a 400 kg </item>
+        <item>de 400 a 600 kg </item>
+    </string-array>
+
+    <string-array name="KimEmpurarMassaPesoCarga4">
+        <item>menos de 50 kg</item>
+        <item>de 50 a 100 kg </item>
+        <item>de 100 a 200 kg </item>
+        <item>de 200 a 300 kg </item>
+        <item>de 300 a 400 kg </item>
+        <item>de 400 a 600 kg </item>
+        <item>de 600 a 1000 kg </item>
+    </string-array>
+
+    <string-array name="KimEmpurarMassaPesoCarga5">
+        <item>menos de 50 kg</item>
+        <item>de 50 a 100 kg </item>
+        <item>de 100 a 200 kg </item>
+        <item>de 200 a 300 kg </item>
+    </string-array>
+
+    <string-array name="KimEmpurarDeslizamentoPesoCarga">
+        <item>menos de 10 kg</item>
+        <item>de 10 a 25 kg </item>
+        <item>de 25 a 50 kg </item>
+        <item>mais de 50kg </item>
+    </string-array>
+
+    <string name="KimEmpurarPosicaoTrabalhoTitulo">Posição de trabalho</string>
+    <string name="KimEmpurarPosicaoTrabalho1">Tronco direito, não torcido</string>
+    <string name="KimEmpurarPosicaoTrabalho2">Tronco ligeiramente dobrado para a frente ou ligeiramente torcido(puxar com um dos lados)</string>
+    <string name="KimEmpurarPosicaoTrabalho3">Corpo baixo inclinado em direcao do movimento,dobrado ajoelhado inclinado</string>
+    <string name="KimEmpurarPosicaoTrabalho4">Combinação de corpo inclinado e torcido</string>
+
+    <string name="KimEmpurarPrecisaoPosicaoTitle">Precisão da posição</string>
+    <string name="KimEmpurarPrecisaoPosicaoRadioButton1">Lenta \n-Sem especificação da distância a percorrer \n- a carga pode rolar até para ou ir contra um obstáculo</string>
+    <string name="KimEmpurarPrecisaoPosicaoRadioButton2">Rápida \n-A carga deve ser posicionada e parada de forma precisa \n- distancia a percorrer deve ser respeitada escrupulosamente\n- Mudanças frequentes na direção</string>
+
+    <string name="KimEmpurarPrecisaoVelocidadeMovimentoTitle">Velocidade de movimento</string>
+    <string name="KimEmpurarPrecisaoVelocidadeMovimentoRadioButton1">lenta (menos de 0.8m/s)</string>
+    <string name="KimEmpurarPrecisaoVelocidadeMovimentoRadioButton2">rápida (0.8 até 1.3 m/s)</string>
+
+    <string name="KimEmpurarCondicoesTrabalhoTitulo">Condições de trabalho</string>
+    <string name="KimEmpurarCondicoesTrabalho1">Boas, solo ou outras superficies firmes, suaves, secas, sem inclinação, sem obstaculos no espaço de trabalho, rolamento ou rodas deslizam facilmente, sem desgaste vísivel nos rolamentos das rodas</string>
+    <string name="KimEmpurarCondicoesTrabalho2">Restritas, solo sujo, um pouco irregular, suave; inclinação suave até 2º; obstáculos no espaço de trabalho que têm de ser evitados; rolamentos ou rodas sujasm não deslizam facilmente, rolamentos apressentam desgaste</string>
+    <string name="KimEmpurarCondicoesTrabalho3">Difíceis, caminho nao pavimentado ou pavimento grosseiramente, buracos ou cavidades, bastante sujidade; inclinaçao de 2º a 5º; camiões industriais, têm se ser libertados quando arrancam; rolamentos ou rodas sujas, rolamentos rodam com difículdade</string>
+    <string name="KimEmpurarCondicoesTrabalho4">Complicadas, degraus, escadas; inclinação superior a 5º; combinação das condições de "Restritas" a "Difíceis"</string>
+
+
     //GAM ou CAM
+    <string name="Gam">Consiste em avaliar os factores de risco mais comuns em operações de elevação (levantar e baixar), e transporte (carregar e segurar).</string>
+
+    <string name="GamElevacaoFrequenciaPesoCargaTitulo">Frequencia/Peso da carga</string>
+    <string-array name="GamElevacaoPontuacaoFrequenciaPeso">
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+        <item>10</item>
+    </string-array>
+
+    <string name="GamElevacaoPontuacaoFrequenciaPeso">Pontuação</string>
+    <string name="GamElevacaoFrequenciaPesoCargaDescricao">O valor escolhido têm de ser com base no gráfico da relação entre peso da carga com o tempo entre elevações ou elevações por hora</string>
+    <string name="GamLegendaButaoGrafico">Gráfico: </string>
+
+    <string name="GamElevacaoDistanciaMaosTitulo">Distância entre a mão e região lombar</string>
+
+    <string name="GamElevacaoDistanciaMaos1">Próximo\n -braços alinhanhos verticalmente e tronco direito</string>
+    <string name="GamElevacaoDistanciaMaos2">Moderado\n -braços em ângulo longe do corpo</string>
+    <string name="GamElevacaoDistanciaMaos3">Moderado\n -tronco inclinado para a frente</string>
+    <string name="GamElevacaoDistanciaMaos4">Longe\n -braços longe do corpo e tronco inclinado para a frente</string>
+
+    <string name="GamElevacaoVerticalTitulo">Região de elevação vertical</string>
+    <string name="GamElevacaoVertical1">Acima do joelho e/ou abaixo da altura do cotovelo</string>
+    <string name="GamElevacaoVertical2">Acima do joelho e/ou acima da altura do cotovelo</string>
+    <string name="GamElevacaoVertical3">A nível do pavimento ou abaixo</string>
+
+    <string name="GamElevacaoTorcaoTroncoTitulo">Torção do tronco e inclinação lateral</string>
+    <string name="GamElevacaoTorcaoTronco1">Sem torção ou inclinação</string>
+    <string name="GamElevacaoTorcaoTronco2">Se o tronco roda em relação às ancas e coxas \nou operador pende para um lado à medida que a carga é levantada</string>
+    <string name="GamElevacaoTorcaoTronco3">Se o tronco roda e se inclina para o lado à medida que a carga é levantada</string>
+
+    <string name="GamElevacaoConstrangimentTitulo">Constrangimento de posição</string>
+    <string name="GamElevacaoConstrangimentoPosicao1">Se movimentos livres</string>
+    <string name="GamElevacaoConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n por exemplo: um transportador com a monocalha excessivamente alto</string>
+    <string name="GamElevacaoConstrangimentoPosicao3">Se a posição for escessivamente restrita \npor exemplo: áreas confinadas tais como compartimentos de bagagem</string>
+
+    <string name="GamElevacaoAderenciaCargaTitulo">Torção do tronco e inclinação lateral</string>
+    <string name="GamElevacaoAderenciaCarga1">Boa\n -Contentores com puxadores ou pegas bem projectadas, adequadas para o efeit\n -Partes soltas permitindo uma pega confortável</string>
+    <string name="GamElevacaoAderenciaCarga2">Razoável\n -Contentores com puxadores ou pegas fracas\n -Dedos imobilizados a 90º debaixo do contentor</string>
+    <string name="GamElevacaoAderenciaCarga3">Fraca\n -Contentores mal projectados.\n -Peças soltas, objectos irrgulares, volumosos ou difíceis de pegar\n -Sacos não rígidos ou cargas imprevisíveis</string>
+
+    <string name="GamElevacaoSuperficiePavimentoTitulo">Superfície do pavimento</string>
+    <string name="GamElevacaoSuperficiePavimento1">Pavimento seco e limpo em boas condições</string>
+    <string name="GamElevacaoSuperficiePavimento2">Pavimento seco e mas em fracas condições, gasto ou desnivelado</string>
+    <string name="GamElevacaoSuperficiePavimento3">Pavimento sujo/húmido ou inclinado ou base instável</string>
+
+    <string name="GamElevacaoOutrosFactoresTitulo">Outros fatores ambientais</string>
+    <string name="GamElevacaoOutrosFactoresDescricao">Observe o ambiente de trabalho e pontue com base neste casos:\n  -Temperaruras extremes\n  -Fortes correntes de ar \nCondição de luminusidade: \n      -Escuro\n     -Luminoso,pouco contraste</string>
+    <string name="GamElevacaoOutrosFactoresSubtitulo">Numero de fatores de risco</string>
+    <string name="GamElevacaoOutrosFactoresOpcao1">Um</string>
+    <string name="GamElevacaoOutrosFactoresOpcao2">Varios</string>
+
+
+
 
 
     <color name="white">#FFFFFFFF</color>
@@ -270,5 +467,55 @@ PASSO 1
     <string name="title_activity_sistema_kim_escolha">SIstemaKimEscolhaActivity</string>
     <string name="title_activity_sistema_mac_main">SistemaMacMainActivity</string>
     <string name="title_activity_sistema_kim_empurrar">SistemaKimEmpurrarActivity</string>
+    <string name="title_activity_sistema_mac_transporte">SistemaMacTransporteActivity</string>
+    <string name="title_activity_sistema_mac_equipa">SistemaMacEquipa</string>
+    <string name="title_activity_sistema_mac_elevacao2">SistemaMacElevacao2Activity</string>
+    <string name="title_activity_sistema_mac_elevancao3">SistemaMacElevancao3Activity</string>
+    <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
+    <string name="related_movies">Related Videos</string>
+    <string name="vertical_grid_title"><![CDATA[Vertical Video Grid]]></string>
+    <string name="error">Error</string>
+    <string name="ok">OK</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="init_text">00:00</string>
+    <string name="play_pause_description">Play Pause Button</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="no_video_found">No video was found</string>
+    <string name="about_app">About DemoCast Player</string>
+    <string name="version">Version: %1$s</string>
+    <string name="popular_header">Popular Videos</string>
+    <string name="preferences">PREFERENCES</string>
+    <string name="grid_view">Grid View</string>
+    <string name="error_fragment">Error Fragment</string>
+    <string name="personal_settings">Personal Settings</string>
+    <string name="watch_trailer_1">Watch trailer</string>
+    <string name="watch_trailer_2">FREE</string>
+    <string name="rent_1">Rent By Day</string>
+    <string name="rent_2">From $1.99</string>
+    <string name="buy_1">Buy and Own</string>
+    <string name="buy_2">AT $9.99</string>
+    <string name="movie">Movie</string>
+    <string name="should_start">shouldStart</string>
+    <string name="start_position">startPosition</string>
+    <string name="search_results">Search Results</string>
+
+    <!-- Error messages -->
+    <string name="video_error_media_load_timeout">Media loading timed out</string>
+    <string name="video_error_server_inaccessible">Media server was not reachable</string>
+    <string name="video_error_unknown_error">Failed to load video</string>
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
+    <string name="oops">Oops</string>
+    <string name="title_activity_sistema_mac_transporte3">SistemaMacTransporte3Activity</string>
+    <string name="title_activity_sistema_mac_equipa2">SistemaMacEquipa2Activity</string>
+    <string name="title_activity_sistema_mac_equipa3">SistemaMacEquipa3Activity</string>
+    <string name="title_activity_sistema_mac_transporte2">SistemaMacTransporte2Activity</string>
+    <string name="title_activity_sistema_mac_elevacao_result">SistemaMacElevacaoResultActivity
+    </string>
+    <string name="title_activity_user_settings">UserSettingsActivity</string>
+    <string name="title_activity_escolha_avaliacoes">EscolhaAvaliacoesActivity</string>
+    <string name="title_activity_dados_utente">DadosUtenteActivity</string>
 
 </resources>

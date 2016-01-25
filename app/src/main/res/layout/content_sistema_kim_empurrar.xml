@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -8,6 +9,337 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_sistema_kim_empurrar"
-    tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaKimEmpurrarActivity">
+    tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaKimEmpurrarActivity"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2" >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Género"
+                android:id="@+id/textView7" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbKimEmpurarGenero"
+                android:entries="@array/ArrayGenero" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/KimEmpurarPontuacaoTitulo"
+            android:id="@+id/txtViewKimEmpurarPontuacaoTitulo" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tipo de Operação"
+                android:id="@+id/txtViewKimEmpurarTipoOperacaoTitulo" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/cbKimEmpurarTipoOperacao"
+                android:layout_gravity="right"
+                android:entries="@array/KimEmpurarTipoOperacao" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Numero de Vezes/Distancia Total"
+                android:id="@+id/txtViewKimEmpurarEscalaTempoTitulo" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/cbKimEmpurarEscalaTempo"
+                android:layout_gravity="right" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/KimEmpurarPontuacaoMassaTitulo"
+            android:id="@+id/txtViewKimEmpurarPontuacaoMassaTitulo"
+            android:paddingTop="10dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tipo de Movimento"
+                android:id="@+id/txtViewKimEmpurarTipoMovimentoMassaTitulo"
+                android:paddingTop="5dp" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/cbKimEmpurarTipoMovimentoMassa"
+                android:layout_gravity="right"
+                android:entries="@array/KimEmpurarTipoMovimentoMassa"
+                android:gravity="right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tipo de ajuda"
+                android:id="@+id/txtViewKimEmpurarTipoCargaTitulo"
+                android:visibility="invisible" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/cbKimEmpurarTipoCarga"
+                android:layout_gravity="right"
+                android:entries="@array/KimEmpurarMassaMoverAjuda"
+                android:visibility="invisible"
+                android:gravity="right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Numero de Vezes/Distancia Total"
+                android:id="@+id/txtViewKimEmpurarPesoCargaTitulo" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/cbKimEmpurarPesoCarga"
+                android:layout_gravity="right" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pontuação de Precisao"
+            android:id="@+id/textView27" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/KimEmpurarPrecisaoVelocidadeMovimentoTitle"
+                    android:id="@+id/textView28" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="50dp">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/KimEmpurarPrecisaoVelocidadeMovimentoRadioButton1"
+                        android:id="@+id/rbKimEmpurarPrecisaoVelocidadeMovimentoRadioButton1" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/KimEmpurarPrecisaoVelocidadeMovimentoRadioButton2"
+                        android:id="@+id/rbKimEmpurarPrecisaoVelocidadeMovimentoRadioButton2" />
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/KimEmpurarPrecisaoPosicaoTitle"
+                android:id="@+id/textView29" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="50dp"
+                android:paddingTop="5dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarPrecisaoPosicaoRadioButton1"
+                    android:id="@+id/rbKimEmpurarPrecisaoPosicaoRadioButton1" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarPrecisaoPosicaoRadioButton2"
+                    android:id="@+id/rbKimEmpurarPrecisaoPosicaoRadioButton2"
+                    android:paddingTop="5dp" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/KimEmpurarPosicaoTrabalhoTitulo"
+                android:id="@+id/txtViewKimEmpurarPosicaoTrabalhoTitulo"
+                android:paddingTop="10dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp"
+                android:id="@+id/rgKimEmpurarPosicaoTrabalho"
+                android:paddingLeft="50dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarPosicaoTrabalho1"
+                    android:id="@+id/rbKimEmpurarPosicaoTrabalho1"
+                    android:paddingTop="2dp"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarPosicaoTrabalho2"
+                    android:id="@+id/rbKimEmpurarPosicaoTrabalho2"
+                    android:paddingTop="2dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarPosicaoTrabalho3"
+                    android:id="@+id/rbKimEmpurarPosicaoTrabalho3"
+                    android:paddingTop="2dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarPosicaoTrabalho4"
+                    android:id="@+id/rbKimEmpurarPosicaoTrabalho4"
+                    android:paddingTop="2dp" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/KimEmpurarCondicoesTrabalhoTitulo"
+                android:id="@+id/txtViewKimEmpurarCondicaoTrabalhoTitulo" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp"
+                android:id="@+id/rgKimEmpurarCondicaoTrabalho"
+                android:paddingLeft="50dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarCondicoesTrabalho1"
+                    android:id="@+id/rbKimEmpurarCondicaoTrabalho1"
+                    android:paddingTop="2dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarCondicoesTrabalho2"
+                    android:id="@+id/rbKimEmpurarCondicaoTrabalho2"
+                    android:paddingTop="2dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarCondicoesTrabalho3"
+                    android:id="@+id/rbKimEmpurarCondicaoTrabalho3"
+                    android:paddingTop="2dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/KimEmpurarCondicoesTrabalho4"
+                    android:id="@+id/rbKimEmpurarCondicaoTrabalho4"
+                    android:paddingTop="2dp" />
+            </RadioGroup>
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

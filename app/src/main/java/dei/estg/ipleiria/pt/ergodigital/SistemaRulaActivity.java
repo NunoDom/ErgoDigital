@@ -38,8 +38,9 @@ public class SistemaRulaActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SistemaRulaActivity.this,Pop.class);
-                startActivity(intent);
+                click(view);
+                //Intent intent = new Intent(SistemaRulaActivity.this,Pop.class);
+                //startActivity(intent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -305,7 +306,7 @@ public class SistemaRulaActivity extends AppCompatActivity {
                     intent.putExtra("Lado", lado);
                     intent.putExtra("ResultadoA", resultado);
                     startActivity(intent);
-                    finish();
+                    //finish();
 
                 } else {
                     Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();

@@ -95,11 +95,11 @@
                             android:id="@+id/tvRULAbraco" />
 
                         <Spinner
-                            android:layout_width="match_parent"
+                            android:layout_width="fill_parent"
                             android:layout_height="44dp"
                             android:id="@+id/cbRULAbraco"
                             android:longClickable="false"
-                            android:spinnerMode="dialog"
+                            android:spinnerMode="dropdown"
                             android:entries="@array/RULAbraco"
                             android:nestedScrollingEnabled="false" />
 
@@ -108,8 +108,8 @@
                             android:layout_height="wrap_content">
 
                             <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
                                 android:text="Se o ombro estiver levantado"
                                 android:id="@+id/chckboxRulaBraco1"
                                 android:layout_gravity="left"
@@ -117,7 +117,7 @@
                                 android:nestedScrollingEnabled="true" />
 
                             <CheckBox
-                                android:layout_width="wrap_content"
+                                android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Se o ombro estiver em abdução"
                                 android:id="@+id/chckboxRulaBraco2"
@@ -126,7 +126,7 @@
                         </RadioGroup>
 
                         <CheckBox
-                            android:layout_width="wrap_content"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:text="Se o ombro estiver apoiado"
                             android:id="@+id/chckboxRulaBraco3"
@@ -142,7 +142,7 @@
                             android:layout_weight="0.10" />
 
                         <Spinner
-                            android:layout_width="match_parent"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/cbRULAantebraco"
                             android:entries="@array/RULAantebraco"
@@ -150,7 +150,7 @@
                             android:spinnerMode="dropdown" />
 
                         <CheckBox
-                            android:layout_width="wrap_content"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:text="Se braço cruzar a linha média do corpo, ou se situar fora da linha a mais de 45º"
                             android:id="@+id/chckboxRulaABraco1"
@@ -166,7 +166,7 @@
                             android:gravity="bottom" />
 
                         <Spinner
-                            android:layout_width="match_parent"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/cbRulaPunho"
                             android:layout_weight="0.04"
@@ -201,7 +201,8 @@
                             android:layout_height="wrap_content"
                             android:text="Analisar"
                             android:id="@+id/btnSeguinte"
-                            android:onClick="click" />
+                            android:onClick="click"
+                            android:visibility="gone" />
 
                     </RadioGroup>
 

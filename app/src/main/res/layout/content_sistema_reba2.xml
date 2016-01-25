@@ -52,11 +52,12 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Braço"
-                        android:id="@+id/tvRebaBraco" />
+                        android:id="@+id/tvRebaBraco"
+                        android:layout_gravity="center" />
 
                     <Spinner
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:id="@+id/cbRebaBraco"
                         android:longClickable="false"
                         android:spinnerMode="dialog"
@@ -115,11 +116,12 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Antebraço"
-                        android:id="@+id/tvRebaAnteBraco"/>
+                        android:id="@+id/tvRebaAnteBraco"
+                        android:layout_gravity="center" />
 
                     <Spinner
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:id="@+id/cbRebaAntebraco"
                         android:entries="@array/RebaAntebraco"
                         android:spinnerMode="dropdown" />
@@ -153,11 +155,12 @@
                         android:text="Pulso"
                         android:id="@+id/tvRebaPernas"
                         android:layout_weight="0.14"
-                        android:gravity="bottom" />
+                        android:gravity="bottom"
+                        android:layout_gravity="center" />
 
                     <Spinner
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:id="@+id/cbRebaPulso"
                         android:layout_weight="0.04"
                         android:entries="@array/RebaPulso"
@@ -177,18 +180,21 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Pontuação da Pega"
-                    android:id="@+id/textView16" />
+                    android:id="@+id/textView16"
+                    android:layout_gravity="center" />
 
                 <Spinner
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:id="@+id/cbRebaPega"
                     android:entries="@array/RebaPega" />
 

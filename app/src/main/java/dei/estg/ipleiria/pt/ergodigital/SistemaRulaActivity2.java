@@ -42,7 +42,7 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
                 intent.putExtra("ResultadoB",ResultadoB);
                 intent.putExtra("Lado",Lado);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -142,11 +142,18 @@
                         android:layout_height="wrap_content"
                         android:text="Analisar"
                         android:id="@+id/btnAnalisar"
-                        android:onClick="click" />
+                        android:onClick="click"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="80dp"></LinearLayout>
 
                 </RadioGroup>
 
             </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

@@ -9,7 +9,10 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_sistema_kim"
     tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaKimLevantarActivity">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -19,38 +22,91 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Tipo de Trabalho"
-            android:id="@+id/txtViewKimTipoDeTrabalho" />
+            android:text="Pontuação da Trabalho"
+            android:id="@+id/textView26" />
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/cbKimTipoDeTrabalho"
-            android:entries="@array/KimTipoDeOperação"
-            android:focusable="false"
-            android:spinnerMode="dropdown" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/txtViewTempoActividade" />
-
-        <Spinner
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cbKimDuracaoRepeticao" />
+            android:layout_height="match_parent"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Tipo de Trabalho"
+                    android:id="@+id/txtViewKimTipoDeTrabalho" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/cbKimTipoDeTrabalho"
+                    android:entries="@array/KimTipoDeOperação"
+                    android:focusable="false"
+                    android:spinnerMode="dropdown"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/txtViewTempoActividade"
+                    android:layout_gravity="left"
+                    android:text="Selecione um tipo de trabalho em cima" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/cbKimDuracaoRepeticao"
+                    android:layout_gravity="right" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Pontuação da Carga"
-            android:id="@+id/textView19" />
+            android:id="@+id/textView25" />
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Sexo:"
+                android:id="@+id/textView20"
+                android:layout_gravity="left" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:id="@+id/cbKimSexo"
+                android:visibility="visible"
+                android:entries="@array/ArrayGenero"
+                android:layout_gravity="right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -58,35 +114,119 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Sexo:"
-                android:id="@+id/textView20" />
+                android:text="Carga Efectiva"
+                android:id="@+id/textView21"
+                android:layout_gravity="left" />
 
             <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbKimSexo"
-                android:visibility="visible"
-                android:entries="@array/KimElevacaoSexo" />
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:id="@+id/cbKimLevantarPontucaoCarga"
+                android:layout_gravity="right" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Posição de Trabalho"
+            android:id="@+id/textView22" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/textView21" />
+                android:paddingTop="5dp">
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbKimLevantarPontucaoCarga" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Posição de Carga"
+                    android:id="@+id/textView23"
+                    android:gravity="center"
+                    android:layout_gravity="left" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/cbKimPosiçãoCarga"
+                    android:entries="@array/KimElevacaoPosicaoDeCarga"
+                    android:layout_gravity="right" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Descrição da Posição"
+                    android:id="@+id/textView24"
+                    android:layout_gravity="left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textviewDescricaoPosicaoTrabalho"
+                    android:layout_gravity="right"
+                    android:paddingLeft="20dp" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Condições de Trabalho"
+            android:id="@+id/textView19"
+            android:paddingTop="10dp" />
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Boas Condições de Trabalho, por exemplo, espaço suficiente, sem obstaculos fisicos no espaço de trabalho, nivelamento e pavimento sólido, iluminação suficiente, boas condições de fixação"
+                    android:id="@+id/radioButton" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Espaço para movimento restrito e condições ergonómicas desfavoráveis ex:1 espaço para movimento limitado por área de trabalho demasiado baixa ou alta, inferior a 1,5m2 2:estabilidade da posição prejudicada por pavimento desnivelado ou pavimento mole "
+                    android:id="@+id/radioButton2" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Espaço de movimento demasiado restrito e/ou instabilidade do centro de gravidade da carga. Ex: transferência de pacientes "
+                    android:id="@+id/radioButton3" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
 </LinearLayout>

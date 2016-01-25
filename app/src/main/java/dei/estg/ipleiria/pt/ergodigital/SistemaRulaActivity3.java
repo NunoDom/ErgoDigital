@@ -68,7 +68,7 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
                     message = "Postura a investigar e alterar urgentemente";
                 }
                 Toast.makeText(getApplicationContext(), "Resultado Total : " + ResultadoTotal + "\n " + message, Toast.LENGTH_SHORT).show();
-               finish();
+               //finish();
 
 
             }

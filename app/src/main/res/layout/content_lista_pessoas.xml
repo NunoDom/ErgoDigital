@@ -10,4 +10,12 @@
     tools:showIn="@layout/activity_lista_pessoas"
     tools:context="dei.estg.ipleiria.pt.ergodigital.ListaPessoasActivity">
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewListaPessoas"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
