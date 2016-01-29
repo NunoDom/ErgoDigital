@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoTorcaoTroncoTitulo"
-                android:id="@+id/txtiewGamElevacaoTorcaoTroncoTitle" />
+                android:id="@+id/txViewGamElevacaoTorcaoTroncoTitulo" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -119,14 +119,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="80dp"
-            android:id="@+id/linearGamElevacaoConstrangiment">
+            android:id="@+id/linearGamElevacaoConstrangimento">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoConstrangimentTitulo"
-                android:id="@+id/txtViewGamElevacaoConstrangimentTitulo"
+                android:id="@+id/txtViewGamElevacaoConstrangimentoTitulo"
                 android:layout_marginTop="10dp" />
 
             <RadioGroup

@@ -28,14 +28,16 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editTextUtenteNome" />
+            android:id="@+id/editTextUtenteNome"
+            android:enabled="false" />
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,29 +47,16 @@
             android:id="@+id/txtViewData" />
 
         <EditText
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editTextUtenteDataAno"
-            android:hint="ano" />
-
-        <EditText
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editTextUtenteDataMes"
-            android:hint="mes"
-            android:numeric="integer" />
-
-        <EditText
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editTextUtenteDataDia"
-            android:hint="dia" />
+            android:id="@+id/editTextUtenteData"
+            android:inputType="none"
+            android:enabled="true"
+            android:layout_weight="0.82"
+            android:drawableRight="@android:drawable/ic_menu_my_calendar"
+            android:focusable="false"
+            android:editable="false"
+            android:clickable="true" />
 
     </LinearLayout>
 
@@ -108,7 +97,8 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextUtenteAltura" />
+            android:id="@+id/editTextUtenteAltura"
+            android:enabled="false" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -136,7 +126,8 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextUtentePeso" />
+            android:id="@+id/editTextUtentePeso"
+            android:enabled="false" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -147,31 +138,51 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar"
+            android:id="@+id/bntDadosPessoaAdicionar"
+            android:visibility="gone"
+            android:onClick="clickAdicionar" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:id="@+id/bntDadosPessoaGuardar"
+            android:visibility="gone"
+            android:onClick="clickGuardar" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Editar"
             android:id="@+id/bntDadosPessoaEditar"
-            android:onClick="editarUtente" />
+            android:onClick="editarUtente"
+            android:visibility="gone" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Apagar"
             android:id="@+id/bntDadosPessoaApagar"
-            android:onClick="apagarUtente" />
+            android:onClick="apagarUtente"
+            android:visibility="gone" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Realizar Avaliação"
             android:id="@+id/bntDadosPessoaRealizarAvaliacao"
-            android:onClick="realizarAvaliacao" />
+            android:onClick="realizarAvaliacao"
+            android:visibility="gone" />
 
     </LinearLayout>
 

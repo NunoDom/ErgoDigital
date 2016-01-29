@@ -14,7 +14,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/GamElevacaoFrequenciaPesoCargaTitulo"
-                    android:id="@+id/textView33" />
+                    android:id="@+id/txtViewGamElevacaoPontuacaoFrequenciaPesoTitulo" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -74,12 +74,12 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/GamLegendaButaoGrafico"
-                        android:id="@+id/txtViewGamLegendaButaoGrafico" />
+                        android:id="@+id/txtViewGamElevacaoLegendaButaoGrafico" />
 
                     <ToggleButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tgGrafico" />
+                        android:id="@+id/tgGamElevacaoGrafico" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -88,12 +88,12 @@
                     android:layout_height="wrap_content"
                     android:weightSum="1"
                     android:visibility="gone"
-                    android:id="@+id/layoutGraficoGAM">
+                    android:id="@+id/layoutGraficoGamElevacao">
 
                     <ImageView
                         android:layout_width="332dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imagemGrafico"
+                        android:id="@+id/imagemGraficoElevacao"
                         android:layout_weight="0.2"
                         android:src="@drawable/ic_no_image_rec"
                         android:visibility="gone" />

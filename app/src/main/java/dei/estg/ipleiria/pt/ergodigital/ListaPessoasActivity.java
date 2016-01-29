@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GerirPessoas;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
 
 public class ListaPessoasActivity extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class ListaPessoasActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        aaaa();
+        updateAdaptador();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -38,17 +38,17 @@ public class ListaPessoasActivity extends AppCompatActivity {
         });
 
         ListView listaListView= (ListView)findViewById(R.id.listViewListaPessoas);
-        listaListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        listaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent= new Intent(ListaPessoasActivity.this,DadosUtenteActivity.class);
+                ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>(GestaoUtentes.getInstance().getListaPessoas());
+                Pessoa pessoa = pessoas.get(position);
+                intent.putExtra("pessoa",pessoa);
+                startActivity(intent);
             }
         });
+
 
 
 
@@ -79,10 +79,9 @@ public class ListaPessoasActivity extends AppCompatActivity {
     }
 
 
-    private void aaaa() {
-        // our adapter instance
+    private void updateAdaptador() {
 
-        ArrayList<Pessoa> resultados = GerirPessoas.INSTANCE.getListaPessoas();
+        ArrayList<Pessoa> resultados = new ArrayList<Pessoa>(GestaoUtentes.getInstance().getListaPessoas());
         ListView listView = (ListView) findViewById(R.id.listViewListaPessoas);
 
         ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(ListaPessoasActivity.this, android.R.layout.simple_list_item_1, resultados);

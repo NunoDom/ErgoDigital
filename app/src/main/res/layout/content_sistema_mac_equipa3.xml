@@ -25,32 +25,32 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoAderenciaCargaTitulo"
-                android:id="@+id/textView45" />
+                android:id="@+id/txtViewMacEquipaAderenciaCargaTitulo" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/radioGroup8" >
+                android:id="@+id/rgGamEquipaAderenciaCarga" >
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoAderenciaCarga1"
-                    android:id="@+id/radioButton25"
+                    android:id="@+id/rbGamEquipaAderenciaCarga1"
                     android:checked="false" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoAderenciaCarga2"
-                    android:id="@+id/radioButton26" />
+                    android:id="@+id/rbGamEquipaAderenciaCarga2" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoAderenciaCarga3"
-                    android:id="@+id/radioButton27" />
+                    android:id="@+id/rbGamEquipaAderenciaCarga3" />
             </RadioGroup>
         </LinearLayout>
 
@@ -64,32 +64,32 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoSuperficiePavimentoTitulo"
-                android:id="@+id/textView46" />
+                android:id="@+id/txtViewGamEquipaSuperficiePavimentoTitulo" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/radioGroup9" >
+                android:id="@+id/rgGamEquipaSuperficiePavimento" >
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoSuperficiePavimento1"
-                    android:id="@+id/radioButton28"
+                    android:id="@+id/rbGamEquipaSuperficiePavimento1"
                     android:checked="false" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoSuperficiePavimento2"
-                    android:id="@+id/radioButton29" />
+                    android:id="@+id/rbGamEquipaSuperficiePavimento2" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoSuperficiePavimento3"
-                    android:id="@+id/radioButton30" />
+                    android:id="@+id/rbGamEquipaSuperficiePavimento3" />
             </RadioGroup>
         </LinearLayout>
 
@@ -103,14 +103,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoOutrosFactoresTitulo"
-                android:id="@+id/textView47" />
+                android:id="@+id/txtViewGamEquipaOutrosFactoresTitulo" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/GamElevacaoOutrosFactoresDescricao"
-                android:id="@+id/textView48"
+                android:id="@+id/txtViewGamEquipaOutrosFactoresDescricao"
                 android:inputType="textMultiLine"
                 android:layout_marginLeft="5dp" />
 
@@ -119,26 +119,63 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/GamElevacaoOutrosFactoresSubtitulo"
-                android:id="@+id/textView49" />
+                android:id="@+id/txtViewGamEquipaOutrosFactoresSubtitulo" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/radioGroup10" >
+                android:id="@+id/rgGamEquipaOutrosFactores" >
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoOutrosFactoresOpcao1"
-                    android:id="@+id/radioButton31" />
+                    android:id="@+id/rbGamEquipaOutrosFactoresOpcao1" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoOutrosFactoresOpcao2"
-                    android:id="@+id/radioButton32" />
+                    android:id="@+id/rbGamEquipaOutrosFactoresOpcao2" />
             </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/GamEquipaComunicacaoTitulo"
+                android:id="@+id/textView8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/GamEquipaComunicacaoDescricao"
+                android:id="@+id/textView17"
+                android:inputType="textMultiLine"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/GamEquipaComunicacaoSubtitulo"
+                android:id="@+id/textView33" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner2"
+                android:entries="@array/GamEquipaComunicacao"
+                android:layout_gravity="right" />
+
         </LinearLayout>
 
         <LinearLayout

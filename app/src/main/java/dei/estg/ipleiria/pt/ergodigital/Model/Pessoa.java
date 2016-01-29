@@ -2,6 +2,8 @@ package dei.estg.ipleiria.pt.ergodigital.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -10,27 +12,32 @@ import java.util.List;
  */
 public class Pessoa  implements Serializable{
 
+
+    private int id;
     private String nomeCompleto;
-    private GregorianCalendar dataNascimento;
+    private Date dataNascimento;
     private Integer genero;
     private int altura;
     private int peso;
-
-
     private ArrayList<FuncaoEmpresa> HistoricoFuncoesEmp;
-
     private List<Consulta> consultas;
 
 
 
-    public Pessoa(String nomeCompleto, int dia, int mes, int ano, Integer genero, int altura, int peso) {
+    public Pessoa(int id, String nomeCompleto, Date dataNascimento, Integer genero, int altura, int peso) {
+        this.id=id;
         this.nomeCompleto = nomeCompleto;
-        this.dataNascimento = new GregorianCalendar(ano,mes,dia);
+        this.dataNascimento = dataNascimento;
         this.genero = genero;
         this.altura = altura;
         this.peso = peso;
     }
 
+
+
+    public int getId() {
+        return id;
+    }
 
 
     public String getName() {
@@ -41,11 +48,11 @@ public class Pessoa  implements Serializable{
         this.nomeCompleto = nomeCompleto;
     }
 
-    public GregorianCalendar getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(GregorianCalendar dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -106,24 +113,24 @@ public class Pessoa  implements Serializable{
 
     private int getIdade()
     {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dataNascimento);
 
 
-        GregorianCalendar cal = new GregorianCalendar();
-        int y, m, d, a;
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        y = cal.get(dataNascimento.YEAR);
-        m = cal.get(dataNascimento.MONTH);
-        d = cal.get(dataNascimento.DAY_OF_MONTH);
-        //cal.set(GregorianCalendar.YEAR, GregorianCalendar.MONTH, GregorianCalendar.DAY_OF_MONTH);
-        a = y - cal.get(GregorianCalendar.YEAR);
-        if ((m < cal.get(GregorianCalendar.MONTH))
-                || ((m == cal.get(GregorianCalendar.MONTH)) && (d < cal
-                .get(GregorianCalendar.DAY_OF_MONTH)))) {
-            --a;
+        Calendar today = Calendar.getInstance();
+
+        cal.set(year, month, day);
+
+        int age = today.get(Calendar.YEAR) - cal.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < cal.get(Calendar.DAY_OF_YEAR)){
+            age--;
         }
-        if(a < 0)
-            throw new IllegalArgumentException("Age < 0");
-        return a;
+        return age;
 
     }
 
@@ -142,4 +149,6 @@ public class Pessoa  implements Serializable{
     public String toString() {
         return getPrimeiroNome()+" "+getUltimoNome()+", "+getIdade();
     }
+
+
 }

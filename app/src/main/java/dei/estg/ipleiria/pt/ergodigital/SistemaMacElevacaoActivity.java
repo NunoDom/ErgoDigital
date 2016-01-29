@@ -60,7 +60,7 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
 
 
 
-        ToggleButton butaoImagem = (ToggleButton)findViewById(R.id.tgGrafico);
+        ToggleButton butaoImagem = (ToggleButton)findViewById(R.id.tgGamElevacaoGrafico);
 
         butaoImagem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -77,8 +77,8 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
     private void clickToggleButtonGrafico(Boolean estado)
     {
 
-        ImageView imagem= (ImageView)findViewById(R.id.imagemGrafico);
-        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.layoutGraficoGAM);
+        ImageView imagem= (ImageView)findViewById(R.id.imagemGraficoElevacao);
+        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.layoutGraficoGamElevacao);
 
         if(estado) {
             //Toast.makeText(this,"ON",Toast.LENGTH_SHORT).show();;

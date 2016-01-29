@@ -16,26 +16,31 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left">
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Medium Text"
-            android:id="@+id/textView53" />
+            android:id="@+id/textView34"
+            android:autoText="false" />
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/imageViewQuadrado1" />
+            android:id="@+id/imageViewReasultadoA"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left" >
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,14 +52,17 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/imageView5" />
+            android:id="@+id/imageViewReasultadoB"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left" >
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,14 +74,17 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/imageView6" />
+            android:id="@+id/imageViewReasultadoC"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left" >
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,14 +96,17 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/imageView7" />
+            android:id="@+id/imageViewReasultadoD"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left" >
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,14 +118,17 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/imageView8" />
+            android:id="@+id/imageViewReasultadoE"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left" >
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,6 +140,74 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/imageView9" />
+            android:id="@+id/imageViewReasultadoF"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView35" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageViewReasultadoG"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView36" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageViewReasultadoH"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:layout_marginTop="1dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView37" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageViewReasultadoI"
+            android:background="#AA000000"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 </LinearLayout>

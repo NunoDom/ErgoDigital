@@ -150,7 +150,7 @@ public class SistemaMacElevacao2Activity extends AppCompatActivity {
 
         if (radioGroup3.getCheckedRadioButtonId() <0)
         {
-            LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearGamElevacaoConstrangiment);
+            LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearGamElevacaoConstrangimento);
             TextView linha = (TextView)linearLayout.getChildAt(0);
             linha.setTextColor(Color.RED);
             linha.setFocusable(true);

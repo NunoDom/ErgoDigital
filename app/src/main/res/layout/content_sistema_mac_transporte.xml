@@ -21,6 +21,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/GamElevacaoFrequenciaPesoCargaTitulo"
+                android:id="@+id/txtViewGamTransportePontuacaoFrequenciaPesoTitulo" />
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -32,13 +39,13 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/GamElevacaoPontuacaoFrequenciaPeso"
-                    android:id="@+id/textView17"
+                    android:id="@+id/txtViewGamTransportePontuacaoFrequenciaPeso"
                     android:layout_gravity="center" />
 
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinner2"
+                    android:id="@+id/cbGamTransportePontuacaoFrequenciaPeso"
                     android:entries="@array/GamElevacaoPontuacaoFrequenciaPeso" />
             </LinearLayout>
 
@@ -52,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="@string/GamElevacaoFrequenciaPesoCargaDescricao"
-                    android:id="@+id/textView34"
+                    android:id="@+id/txtViewGamTransporteFrequenciaPesoCargaDescricao"
                     android:layout_gravity="center" />
             </LinearLayout>
 
@@ -67,20 +74,13 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/GamLegendaButaoGrafico"
-                    android:id="@+id/textView35" />
+                    android:id="@+id/txtViewGamTransporteLegendaButaoGrafico" />
 
                 <ToggleButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/toggleButton" />
+                    android:id="@+id/tgGamTransporteGrafico" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/GamElevacaoFrequenciaPesoCargaTitulo"
-                android:id="@+id/textView8" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -88,12 +88,12 @@
                 android:layout_height="wrap_content"
                 android:weightSum="1"
                 android:visibility="gone"
-                android:id="@+id/linearLayout" >
+                android:id="@+id/layoutGraficoGamTransporte" >
 
                 <ImageView
                     android:layout_width="332dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imagemGraficoTransporte"
                     android:layout_weight="0.2"
                     android:src="@drawable/ic_no_image_rec"
                     android:visibility="gone" />
@@ -104,47 +104,47 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout2" >
+            android:id="@+id/layoutGamTransporteDistanciaMaosTitulo" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoDistanciaMaosTitulo"
-                android:id="@+id/textView36" />
+                android:id="@+id/txtViewGamTransporteDistanciaMaosTitulo" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/radioGroup" >
+                android:id="@+id/rgGamTransporteDistanciaMaos" >
 
                 <RadioButton
                     android:drawableLeft="@drawable/ic_no_image_rec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos1"
-                    android:id="@+id/radioButton4" />
+                    android:id="@+id/rbGamTransporteDistanciaMaos1" />
 
                 <RadioButton
                     android:drawableLeft="@drawable/ic_no_image_rec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos2"
-                    android:id="@+id/radioButton5" />
+                    android:id="@+id/rbGamTransporteDistanciaMaos2" />
 
                 <RadioButton
                     android:drawableLeft="@drawable/ic_no_image_rec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos3"
-                    android:id="@+id/radioButton6" />
+                    android:id="@+id/rbGamTransporteDistanciaMaos3" />
 
                 <RadioButton
                     android:drawableLeft="@drawable/ic_no_image_rec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos4"
-                    android:id="@+id/radioButton7" />
+                    android:id="@+id/rbGamTransporteDistanciaMaos4" />
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>

@@ -435,7 +435,7 @@ PASSO 1
     <string name="GamElevacaoConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n por exemplo: um transportador com a monocalha excessivamente alto</string>
     <string name="GamElevacaoConstrangimentoPosicao3">Se a posição for escessivamente restrita \npor exemplo: áreas confinadas tais como compartimentos de bagagem</string>
 
-    <string name="GamElevacaoAderenciaCargaTitulo">Torção do tronco e inclinação lateral</string>
+    <string name="GamElevacaoAderenciaCargaTitulo">Aderência à carga</string>
     <string name="GamElevacaoAderenciaCarga1">Boa\n -Contentores com puxadores ou pegas bem projectadas, adequadas para o efeit\n -Partes soltas permitindo uma pega confortável</string>
     <string name="GamElevacaoAderenciaCarga2">Razoável\n -Contentores com puxadores ou pegas fracas\n -Dedos imobilizados a 90º debaixo do contentor</string>
     <string name="GamElevacaoAderenciaCarga3">Fraca\n -Contentores mal projectados.\n -Peças soltas, objectos irrgulares, volumosos ou difíceis de pegar\n -Sacos não rígidos ou cargas imprevisíveis</string>
@@ -451,11 +451,84 @@ PASSO 1
     <string name="GamElevacaoOutrosFactoresOpcao1">Um</string>
     <string name="GamElevacaoOutrosFactoresOpcao2">Varios</string>
 
+//TRANSPORTE
+
+
+    <string name="GamTransporteDistanciaTitulo">Distância do Transporte</string>
+    <string name="GamTransporteDistancia1">opcao1</string>
+    <string name="GamTransporteDistancia2">opcao2</string>
+    <string name="GamTransporteDistancia3">opcao3</string>
+
+    <string name="GamTransporteObstaculosTitulo">Obstaculos no percurso</string>
+    <string name="GamTransporteObstaculos1">opcao1</string>
+    <string name="GamTransporteObstaculos2">opcao2</string>
+    <string name="GamTransporteObstaculos3">opcao3</string>
+    <string name="GamTransporteObstaculos4">opcao4</string>
+
+
+
+//EQUIPA
+
+
+
+    <string name="GamEquipaPontuacaoFrequenciaPesoNumeroPessoas">Número de pessoas</string>
+    <string name="GamEquipaPontuacaoFrequenciaPesoPesoCarga">Peso da carga</string>
+
+    <string-array name="GamEquipaPontuacaoFrequenciaPesoPessoas">
+        <item>2 Pessoas</item>
+        <item>3 Pessoas</item>
+        <item>4 Pessoas</item>
+    </string-array>
+
+    <string-array name="GamEquipaPontuacaoFrequenciaPesoEscalaPeso2Pessoas">
+        <item>Menos de 35Kg</item>
+        <item>de 35Kg a 50Kg</item>
+        <item>de 50Kg a 85Kg</item>
+        <item>Mais de 85Kg</item>
+    </string-array>
+    <string-array name="GamEquipaPontuacaoFrequenciaPesoEscalaPeso3Pessoas">
+        <item>Menos de 40Kg</item>
+        <item>de 40Kg a 75Kg</item>
+        <item>de 75Kg a 125Kg</item>
+        <item>Mais de 125Kg</item>
+    </string-array>
+    <string-array name="GamEquipaPontuacaoFrequenciaPesoEscalaPeso4Pessoas">
+        <item>de 40Kg a 100Kg</item>
+        <item>de 100Kg a 170Kg</item>
+        <item>mais de 170Kg</item>
+    </string-array>
+
+    <string name="GamEquipaComunicacaoTitulo">Comunicação, coordenação e controlo</string>
+    <string name="GamEquipaComunicacaoDescricao">A comunicação é essencial durante a operação de elevação em equipa.\nExemplos de boa comunicação seria ouvir os operadores contarem ’um’ ‘dois’ ‘três’, etc, antes de levantarem a carga.\nObserve se a equipa controla a carga, se esta é levantada ligeiramente e se todos os membros levantam em conjunto.
+\nUma elevação com um membro da equipa descoordenado pode deixar um membro da equipa suportar todo o peso
+</string>
+    <string name="GamEquipaComunicacaoSubtitulo">Pontuação da Comunicação</string>
+
+    <string-array name="GamEquipaComunicacao">
+        <item>Boa Comunicação</item>
+        <item>Média Comunicação</item>
+        <item>Má Comunicação</item>
+    </string-array>
 
 
 
 
-    <color name="white">#FFFFFFFF</color>
+    <string-array name="COLORTEST">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+
+
+
+
+
+
+
+
 
     <string name="title_activity_sistema_reba2">SistemaRebaActivity2</string>
     <string name="title_activity_sistema_rula2">SistemaRulaActivity2</string>

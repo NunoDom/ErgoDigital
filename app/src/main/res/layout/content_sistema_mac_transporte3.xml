@@ -24,72 +24,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/GamElevacaoAderenciaCargaTitulo"
-                android:id="@+id/textView40" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="50dp"
-                android:id="@+id/radioGroup5" >
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/GamElevacaoAderenciaCarga1"
-                    android:id="@+id/radioButton17"
-                    android:checked="false" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/GamElevacaoAderenciaCarga2"
-                    android:id="@+id/radioButton18" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/GamElevacaoAderenciaCarga3"
-                    android:id="@+id/radioButton19" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoSuperficiePavimentoTitulo"
-                android:id="@+id/textView41" />
+                android:id="@+id/txtViewGamTransporteSuperficiePavimentoTitulo" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/radioGroup6" >
+                android:id="@+id/rgGamTransporteSuperficiePavimento" >
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoSuperficiePavimento1"
-                    android:id="@+id/radioButton20"
+                    android:id="@+id/rbGamTransporteSuperficiePavimento1"
                     android:checked="false" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoSuperficiePavimento2"
-                    android:id="@+id/radioButton21" />
+                    android:id="@+id/rbGamTransporteSuperficiePavimento2" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoSuperficiePavimento3"
-                    android:id="@+id/radioButton22" />
+                    android:id="@+id/rbGamTransporteSuperficiePavimento3" />
             </RadioGroup>
         </LinearLayout>
 
@@ -103,14 +64,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamElevacaoOutrosFactoresTitulo"
-                android:id="@+id/textView42" />
+                android:id="@+id/txtViewGamTransporteOutrosFactoresTitulo" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/GamElevacaoOutrosFactoresDescricao"
-                android:id="@+id/textView43"
+                android:id="@+id/txtViewGamTransporteOutrosFactoresDescricao"
                 android:inputType="textMultiLine"
                 android:layout_marginLeft="5dp" />
 
@@ -119,25 +80,110 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/GamElevacaoOutrosFactoresSubtitulo"
-                android:id="@+id/textView44" />
+                android:id="@+id/txtViewGamTransporteOutrosFactoresSubtitulo" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/radioGroup7" >
+                android:id="@+id/rgFactoresRisco" >
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoOutrosFactoresOpcao1"
-                    android:id="@+id/radioButton23" />
+                    android:id="@+id/rbGamTransporteOutrosFactoresOpcao1" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoOutrosFactoresOpcao2"
-                    android:id="@+id/radioButton24" />
+                    android:id="@+id/rbGamTransporteOutrosFactoresOpcao2" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/GamTransporteDistanciaTitulo"
+                android:id="@+id/txtViewGamTransporteDistanciaTitulo" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/rgGamTransporteDistancia" >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GamTransporteDistancia1"
+                    android:id="@+id/rbGamTransporteDistancia1"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GamTransporteDistancia2"
+                    android:id="@+id/rbGamTransporteDistancia2" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GamTransporteDistancia3"
+                    android:id="@+id/rbGamTransporteDistancia3" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/GamTransporteObstaculosTitulo"
+                android:id="@+id/txtViewGamTransporteObstaculosTitulo" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/rgGamTransporteObstaculos" >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GamTransporteObstaculos1"
+                    android:id="@+id/rbGamTransporteObstaculos1"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GamTransporteObstaculos2"
+                    android:id="@+id/rbGamTransporteObstaculos2" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GamTransporteObstaculos3"
+                    android:id="@+id/rbGamTransporteObstaculos3" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GamTransporteObstaculos4"
+                    android:id="@+id/rbGamTransporteObstaculos4"
+                    android:checked="false" />
             </RadioGroup>
         </LinearLayout>
 
