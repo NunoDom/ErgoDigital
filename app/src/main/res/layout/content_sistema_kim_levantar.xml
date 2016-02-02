@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Pontuação da Trabalho"
+            android:text="Pontuação do Trabalho"
             android:id="@+id/textView26" />
 
         <LinearLayout
@@ -92,8 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Sexo:"
-                android:id="@+id/textView20"
+                android:text="Género:"
+                android:id="@+id/txtViewKimLevantarGenero"
                 android:layout_gravity="left" />
 
             <Spinner

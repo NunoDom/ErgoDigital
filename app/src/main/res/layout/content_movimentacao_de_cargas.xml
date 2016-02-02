@@ -14,7 +14,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:gravity="center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,27 +23,35 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Ferramentas"
             android:id="@+id/txtviewMCtitle"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp" />
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_width="315dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.20"
             android:gravity="center"
             android:weightSum="1">
 
             <Button
-                android:layout_width="109dp"
-                android:layout_height="109dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="KIM"
                 android:id="@+id/btnKim"
                 android:layout_weight="0.00"
-                android:onClick="callKIMActivity" />
+                android:onClick="callKIMActivity"
+                android:layout_marginTop="50dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView38" />
 
             <Button
-                android:layout_width="109dp"
-                android:layout_height="109dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="MAC"
                 android:id="@+id/btnMac"
                 android:layout_gravity="center"

@@ -513,82 +513,34 @@ PASSO 1
 
 
 
-    <string-array name="COLORTEST">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-    </string-array>
 
 
 
 
+    <string name="title_activity_sistema_reba2">Sistema Reba</string>
+    <string name="title_activity_sistema_rula2">Sistema Rula</string>
+    <string name="title_activity_sistema_rula3">Sistema Rula</string>
+    <string name="title_activity_rula_activity_result">Rula Resultado</string>
+    <string name="title_activity_movimentacao_de_cargas">Movimentacao de Cargas</string>
+    <string name="title_activity_sistema_kim">Sistema Kim</string>
+    <string name="title_activity_sistema_mac">Sistema Mac</string>
+    <string name="title_activity_sistema_kim_escolha">Ferramentas Kim</string>
+    <string name="title_activity_sistema_mac_main">Ferramentas Mac </string>
+    <string name="title_activity_sistema_kim_empurrar">Sistema Kim Empurrar</string>
+    <string name="title_activity_sistema_mac_transporte">Sistema Mac Transporte</string>
+    <string name="title_activity_sistema_mac_equipa">Sistema Mac Equipa</string>
+    <string name="title_activity_sistema_mac_elevacao2">Sistema Mac Elevacao</string>
+    <string name="title_activity_sistema_mac_elevancao3">Sistema Mac Elevancao</string>
 
-
-
-
-
-
-    <string name="title_activity_sistema_reba2">SistemaRebaActivity2</string>
-    <string name="title_activity_sistema_rula2">SistemaRulaActivity2</string>
-    <string name="title_activity_sistema_rula3">SistemaRulaActivity3</string>
-    <string name="title_activity_rula_activity_result">RulaActivityResult</string>
-    <string name="title_activity_movimentacao_de_cargas">MovimentacaoDeCargasActivity</string>
-    <string name="title_activity_sistema_kim">SistemaKimActivity</string>
-    <string name="title_activity_sistema_mac">SistemaMacActivity</string>
-    <string name="title_activity_sistema_kim_escolha">SIstemaKimEscolhaActivity</string>
-    <string name="title_activity_sistema_mac_main">SistemaMacMainActivity</string>
-    <string name="title_activity_sistema_kim_empurrar">SistemaKimEmpurrarActivity</string>
-    <string name="title_activity_sistema_mac_transporte">SistemaMacTransporteActivity</string>
-    <string name="title_activity_sistema_mac_equipa">SistemaMacEquipa</string>
-    <string name="title_activity_sistema_mac_elevacao2">SistemaMacElevacao2Activity</string>
-    <string name="title_activity_sistema_mac_elevancao3">SistemaMacElevancao3Activity</string>
-    <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
-    <string name="related_movies">Related Videos</string>
-    <string name="vertical_grid_title"><![CDATA[Vertical Video Grid]]></string>
-    <string name="error">Error</string>
-    <string name="ok">OK</string>
-    <string name="pause">Pause</string>
-    <string name="play">Play</string>
-    <string name="stop">Stop</string>
-    <string name="init_text">00:00</string>
-    <string name="play_pause_description">Play Pause Button</string>
-    <string name="loading">Loading&#8230;</string>
-    <string name="no_video_found">No video was found</string>
-    <string name="about_app">About DemoCast Player</string>
-    <string name="version">Version: %1$s</string>
-    <string name="popular_header">Popular Videos</string>
-    <string name="preferences">PREFERENCES</string>
-    <string name="grid_view">Grid View</string>
-    <string name="error_fragment">Error Fragment</string>
-    <string name="personal_settings">Personal Settings</string>
-    <string name="watch_trailer_1">Watch trailer</string>
-    <string name="watch_trailer_2">FREE</string>
-    <string name="rent_1">Rent By Day</string>
-    <string name="rent_2">From $1.99</string>
-    <string name="buy_1">Buy and Own</string>
-    <string name="buy_2">AT $9.99</string>
-    <string name="movie">Movie</string>
-    <string name="should_start">shouldStart</string>
-    <string name="start_position">startPosition</string>
-    <string name="search_results">Search Results</string>
-
-    <!-- Error messages -->
-    <string name="video_error_media_load_timeout">Media loading timed out</string>
-    <string name="video_error_server_inaccessible">Media server was not reachable</string>
-    <string name="video_error_unknown_error">Failed to load video</string>
-    <string name="error_fragment_message">An error occurred</string>
-    <string name="dismiss_error">Dismiss</string>
-    <string name="oops">Oops</string>
-    <string name="title_activity_sistema_mac_transporte3">SistemaMacTransporte3Activity</string>
-    <string name="title_activity_sistema_mac_equipa2">SistemaMacEquipa2Activity</string>
-    <string name="title_activity_sistema_mac_equipa3">SistemaMacEquipa3Activity</string>
-    <string name="title_activity_sistema_mac_transporte2">SistemaMacTransporte2Activity</string>
-    <string name="title_activity_sistema_mac_elevacao_result">SistemaMacElevacaoResultActivity
+    <string name="title_activity_sistema_mac_transporte3">Sistema Mac Transporte</string>
+    <string name="title_activity_sistema_mac_equipa2">Sistema Mac Equipa</string>
+    <string name="title_activity_sistema_mac_equipa3">Sistema Mac Equipa</string>
+    <string name="title_activity_sistema_mac_transporte2">Sistem aMac Transporte</string>
+    <string name="title_activity_sistema_mac_elevacao_result">Sistema Mac Elevacao Resultado
     </string>
     <string name="title_activity_user_settings">UserSettingsActivity</string>
-    <string name="title_activity_escolha_avaliacoes">EscolhaAvaliacoesActivity</string>
-    <string name="title_activity_dados_utente">DadosUtenteActivity</string>
+    <string name="title_activity_escolha_avaliacoes">Ferramentas de Avaliacoes</string>
+    <string name="title_activity_dados_utente">Ficha de Utente</string>
+    <string name="title_activity_dados_consulta">DadosConsultaActivity</string>
 
 </resources>

@@ -29,6 +29,20 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp" >
+
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cbRebaLado"
+                    android:entries="@array/Lados" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="0.59"
                 android:weightSum="1"
@@ -200,13 +214,13 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"></LinearLayout>
+
         </LinearLayout>
     </ScrollView>
-
-
-
-
-
 
 
 </LinearLayout>

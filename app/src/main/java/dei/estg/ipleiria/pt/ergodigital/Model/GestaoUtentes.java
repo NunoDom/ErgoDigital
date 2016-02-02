@@ -3,6 +3,7 @@ package dei.estg.ipleiria.pt.ergodigital.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Nuno on 24/01/2016.
@@ -10,15 +11,52 @@ import java.util.Date;
 public class GestaoUtentes implements Serializable{
 
 private static GestaoUtentes instance;
-private static int numPessoas;
 private ArrayList<Pessoa> listaPessoas;
 
-
-    public GestaoUtentes()
-    {
-        listaPessoas= new ArrayList<Pessoa>();
+    public ArrayList<Consulta> getListaConsultas() {
+        return listaConsultas;
     }
 
+    private ArrayList<Consulta> listaConsultas;
+
+
+    private GestaoUtentes()
+    {
+        listaPessoas= new ArrayList<Pessoa>();
+        listaConsultas= new ArrayList<Consulta>();
+        addConsultas();
+    }
+
+
+    public void addUtentes() {
+
+        GregorianCalendar data = new GregorianCalendar(1989,5,12);
+        Date date=data.getTime();
+        GregorianCalendar data1 = new GregorianCalendar(1989,9,12);
+        Date date1=data.getTime();
+
+
+        GestaoUtentes.getInstance().addPessoa("Nuno Domingues", date, 0, 170, 85);
+        GestaoUtentes.getInstance().addPessoa("Tiago Pinto", date1, 0, 180, 95);
+
+
+    }
+
+    public void addConsultas() {
+
+        Consulta consulta = new Consulta(1);
+        Resultado resultado= new Resultado("OWAS","avaliacaoTeste");
+        consulta.addResultado(resultado);
+
+listaConsultas.add(consulta);
+    }
+
+
+    public boolean addConsulta(int id){
+        Consulta consulta = new Consulta(id);
+        listaConsultas.add(consulta);
+        return true;
+    }
 
     public static GestaoUtentes getInstance() {
         if (instance == null)
@@ -33,8 +71,7 @@ private ArrayList<Pessoa> listaPessoas;
     }
 
     public boolean addPessoa(String nome,Date dataNascimento, int genero, int altura,int peso){
-        numPessoas++;
-        Pessoa pessoa = new Pessoa(numPessoas,nome,dataNascimento,genero,altura,peso);
+        Pessoa pessoa = new Pessoa(nome,dataNascimento,genero,altura,peso);
         listaPessoas.add(pessoa);
         return true;
     }

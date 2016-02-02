@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class Pessoa  implements Serializable{
 
+    private static int Identificador=1;
+
 
     private int id;
     private String nomeCompleto;
@@ -24,8 +26,8 @@ public class Pessoa  implements Serializable{
 
 
 
-    public Pessoa(int id, String nomeCompleto, Date dataNascimento, Integer genero, int altura, int peso) {
-        this.id=id;
+    public Pessoa(String nomeCompleto, Date dataNascimento, Integer genero, int altura, int peso) {
+        this.id=Identificador++;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.genero = genero;

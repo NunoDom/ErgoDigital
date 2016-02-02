@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -271,6 +271,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dei.estg.ipleiria.pt.ergodigital.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DadosConsultaActivity"
+            android:label="@string/title_activity_dados_consulta"
+            android:parentActivityName=".DadosUtenteActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dei.estg.ipleiria.pt.ergodigital.DadosUtenteActivity" />
         </activity>
     </application>
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -13,7 +14,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.sql.Time;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,13 +21,10 @@ import java.util.GregorianCalendar;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
-import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaKIM;
-
-import static java.util.Calendar.YEAR;
 
 public class DadosUtenteActivity extends AppCompatActivity {
 
-
+    DateFormat formate;
     Button botaoGuardar;
     Button botaoEditar;
     Button botaoSelecionar;
@@ -52,6 +49,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        formate = DateFormat.getDateInstance();
         editTextName = (EditText)findViewById(R.id.editTextUtenteNome);
         editTextData= (EditText)findViewById(R.id.editTextUtenteData);
         editTextAltura= (EditText)findViewById(R.id.editTextUtenteAltura);
@@ -62,6 +60,23 @@ public class DadosUtenteActivity extends AppCompatActivity {
         botaoSelecionar=(Button)findViewById(R.id.bntDadosPessoaRealizarAvaliacao);
         botaoApagar=(Button)findViewById(R.id.bntDadosPessoaApagar);
         botaoAdicionar=(Button)findViewById(R.id.bntDadosPessoaAdicionar);
+        spinnerGenero.setEnabled(false);
+
+
+
+        if (getIntent().hasExtra("pessoa")) { //EDITAR
+            Bundle extras = getIntent().getExtras();
+            pessoa = (Pessoa)extras.getSerializable("pessoa");
+            preencherCampos(pessoa);
+            tipo=1;
+            botaoEditar.setVisibility(View.VISIBLE);
+            botaoSelecionar.setVisibility(View.VISIBLE);
+            botaoApagar.setVisibility(View.VISIBLE);
+        }else
+        {
+            desloquearCampos();
+            botaoAdicionar.setVisibility(View.VISIBLE);
+        }
 
 
         d = new DatePickerDialog.OnDateSetListener(){
@@ -71,7 +86,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
                 GregorianCalendar data = new GregorianCalendar(year,monthOfYear,dayOfMonth);
                 Date date=data.getTime();
                 calender.setTime(date);
-                DateFormat formate = DateFormat.getDateInstance();
+
                 editTextData.setText(formate.format(calender.getTime()));
             }
         };
@@ -89,18 +104,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
 
 
 
-        if (getIntent().hasExtra("pessoa")) { //EDITAR BUTAO PASSA A GUARDAR
-            Bundle extras = getIntent().getExtras();
-            pessoa = (Pessoa)extras.getSerializable("pessoa");
-            preencherCampos(pessoa);
-            tipo=1;
-            botaoEditar.setVisibility(View.VISIBLE);
-            botaoSelecionar.setVisibility(View.VISIBLE);
-            botaoApagar.setVisibility(View.VISIBLE);
-        }else
-        {
-            botaoAdicionar.setVisibility(View.VISIBLE);
-        }
+
 
 
 
@@ -127,6 +131,8 @@ public class DadosUtenteActivity extends AppCompatActivity {
         editTextPeso.setText(pessoa.getPeso() + "");
         spinnerGenero.setSelection(pessoa.getGenero());
         calender.setTime(pessoa.getDataNascimento());
+        editTextData.setText(formate.format(calender.getTime()));
+
 
 
     }
@@ -138,12 +144,12 @@ public class DadosUtenteActivity extends AppCompatActivity {
     }
 
 
-    private void seguinte()
+    private boolean seguinte()
     {
 
         try {
             String nome = editTextName.getText().toString();
-            Integer genero = spinnerGenero.getSelectedItemPosition() - 1;
+            Integer genero = spinnerGenero.getSelectedItemPosition();
             int altura = Integer.parseInt(editTextAltura.getText().toString());
             int peso = Integer.parseInt(editTextPeso.getText().toString());
 
@@ -173,25 +179,38 @@ public class DadosUtenteActivity extends AppCompatActivity {
                             } else {
                                 if ((spinnerGenero.getSelectedItemPosition() - 1) < 0) {
                                     Toast.makeText(this, "Selecione um genero", Toast.LENGTH_SHORT).show();
+
                                 } else {
                                     Date date = calender.getTime();
                                     if (tipo == 0) {//ADICIONAR
                                         GestaoUtentes.getInstance().addPessoa(nome, date, genero, altura, peso);
                                         Toast.makeText(this, "Utente adicionado com sucesso ", Toast.LENGTH_SHORT).show();
+                                        this.finish();
+                                        return true;
                                     } else{
-                                        GestaoUtentes.getInstance().alterarPessoa(pessoa.getId(),nome, date, genero, altura, peso);
+                                        GestaoUtentes.getInstance().alterarPessoa(pessoa.getId(), nome, date, genero, altura, peso);
                                         Toast.makeText(this, "Utente alterado com sucesso ", Toast.LENGTH_SHORT).show();
+                                        this.finish();
+                                        return true;
+
                                     }
-                                    this.finish();
+
+
                                 }
+
                             }
                         }
                     }
                 }
             }
+
         } catch (Exception ex) {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(this,"Preencha todos os campos", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            return false;
         }
+        return false;
     }
 
 
@@ -201,18 +220,21 @@ public class DadosUtenteActivity extends AppCompatActivity {
         editTextName.setEnabled(true);
         editTextAltura.setEnabled(true);
         editTextPeso.setEnabled(true);
-        spinnerGenero.setEnabled(true);
+        spinnerGenero.setClickable(true);
         editTextData.setEnabled(true);
+        spinnerGenero.setEnabled(true);
+
     }
 
 
     public void clickGuardar(View view)
     {
-        seguinte();
-        botaoGuardar.setVisibility(View.GONE);
-        botaoEditar.setVisibility(View.VISIBLE);
-        botaoSelecionar.setVisibility(View.VISIBLE);
-        botaoApagar.setVisibility(View.VISIBLE);
+        if(seguinte()) {
+            botaoGuardar.setVisibility(View.GONE);
+            botaoEditar.setVisibility(View.VISIBLE);
+            botaoSelecionar.setVisibility(View.VISIBLE);
+            botaoApagar.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -244,7 +266,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
 
 public void realizarAvaliacao(View view){
     Intent intent = new Intent(this, EscolhaAvaliacoesActivity.class);
-    intent.putExtra("pessoa",pessoa);
+    intent.putExtra("idUtente",pessoa.getId());
     startActivity(intent);
 
 }

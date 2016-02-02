@@ -3,7 +3,6 @@ package dei.estg.ipleiria.pt.ergodigital;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,6 +12,9 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
+import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
 
 public class SistemaKimLevantarActivity extends AppCompatActivity {
     Spinner spinner1;
@@ -25,13 +27,16 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
     RadioButton radioButton1;
     RadioButton radioButton2;
     RadioButton radioButton3;
-
+    int genero=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sistema_kim_levantar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
         spinner1 = (Spinner) findViewById(R.id.cbKimTipoDeTrabalho);
 
@@ -50,8 +55,14 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position > 0)
-                    actualizaAdapterPontuacaoTempo(view, position);
+
+                if (position > 0){
+                    actualizaAdapterPontuacaoTempo(position);
+                }else
+                {
+                    spinner2.setAdapter(null);
+                }
+
 
 
             }
@@ -68,9 +79,20 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
         spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position > 0)
-                    actualizaAdapterPontuacaoCarga(view, position);
+                TextView textviewGenero = (TextView) findViewById(R.id.txtViewKimLevantarGenero);
 
+                if (genero < 0) {
+                    if (position > 0) {
+                        actualizaAdapterPontuacaoCarga(position);
+                    } else {
+                        spinner4.setAdapter(null);
+                    }
+                }else
+                {
+                    textviewGenero.setVisibility(View.GONE);
+                    spinner3.setVisibility(View.GONE);
+                    actualizaAdapterPontuacaoCarga(genero);
+                }
             }
 
             @Override
@@ -114,11 +136,26 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
                 click_analisar();
             }
         });
+
+
+
+        if (getIntent().hasExtra("idUtente")) {
+            Bundle extras = getIntent().getExtras();
+            int valor = extras.getInt("idUtente");
+            if(valor>0) {
+                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
+                genero=pessoa.getGenero();
+                actualizaAdapterPontuacaoCarga(genero);
+            }
+        }
+
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
-    private void actualizaAdapterPontuacaoTempo(View view, int position) {
+    private void actualizaAdapterPontuacaoTempo(int position) {
 
 
         ArrayAdapter<CharSequence> adapter = null;
@@ -145,7 +182,7 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
 
     }
 
-    private void actualizaAdapterPontuacaoCarga(View view, int position) {
+    private void actualizaAdapterPontuacaoCarga(int position) {
 
 
         ArrayAdapter<CharSequence> adapter = null;

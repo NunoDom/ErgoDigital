@@ -2,20 +2,21 @@ package dei.estg.ipleiria.pt.ergodigital;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 
 public class RulaActivityResultado extends AppCompatActivity {
-
-    private GestureDetectorCompat gestureDetectorCompat;
-
+    Consulta consulta;
+    int id=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,54 +24,51 @@ public class RulaActivityResultado extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        TextView text2ndActivity = new TextView(this);
-        text2ndActivity.setText("Second Activity");
-        setContentView(text2ndActivity);
-
-        gestureDetectorCompat = new GestureDetectorCompat(this, new My2ndGestureListener());
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
+
+        if (getIntent().hasExtra("consultas")) {
+            Bundle extras = getIntent().getExtras();
+            consulta = (Consulta)extras.getSerializable("consultas");
+            id=1;
+        }
+        if (getIntent().hasExtra("resultado")) {
+            Bundle extras = getIntent().getExtras();
+            consulta = (Consulta)extras.getSerializable("resultado");
+            id=1;
+        }
+
+        updateAdaptador(id);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    private void updateAdaptador(int id) {
+        ListView listView = (ListView) findViewById(R.id.listViewResultados);
+        ArrayAdapter<?> adapter = null;
+        switch(id){
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        this.gestureDetectorCompat.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
+            case 0://ADAPTADOR TODAS AS CONSULTAS
+            ArrayList<Consulta> consultas = new ArrayList<>(GestaoUtentes.getInstance().getListaConsultas());
+            adapter = new ArrayAdapter<Consulta>(RulaActivityResultado.this, android.R.layout.simple_list_item_1, consultas);
+            listView.setAdapter(adapter);
+                break;
 
-    class My2ndGestureListener extends GestureDetector.SimpleOnGestureListener {
-        //handle 'swipe right' action only
+            case 1://ADAPTADOR RESULTADO DA AVALIZACAO
+                ArrayList<Resultado> resultado = new ArrayList<>();
+                ArrayList<String> consultaArray= new ArrayList<>();
+                consultaArray.add("Consulta ID"+consulta.getId());
+                adapter = new ArrayAdapter<>(RulaActivityResultado.this, android.R.layout.simple_list_item_1, resultado);
 
-        @Override
-        public boolean onFling(MotionEvent event1, MotionEvent event2,
-                               float velocityX, float velocityY) {
+                listView.setAdapter(adapter);
+                break;
 
-         /*
-         Toast.makeText(getBaseContext(),
-          event1.toString() + "\n\n" +event2.toString(),
-          Toast.LENGTH_SHORT).show();
-         */
-
-            if (event2.getX() > event1.getX()) {
-                Toast.makeText(getBaseContext(),
-                        "Swipe right - finish()",
-                        Toast.LENGTH_SHORT).show();
-
-                finish();
-            }
-
-            return true;
         }
+
     }
+
 }

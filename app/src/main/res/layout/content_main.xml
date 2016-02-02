@@ -12,35 +12,91 @@
     android:gravity="center">
 
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicionar Utentes"
-        android:id="@+id/button9"
-        android:onClick="callAddUtentes" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="315dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lista Utentes"
-        android:id="@+id/button8"
-        android:layout_gravity="center_horizontal"
-        android:onClick="callListaUtentes" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Ergo Digital"
+            android:id="@+id/textView42"
+            android:layout_marginTop="50dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar Pessoas"
-        android:id="@+id/button10"
-        android:layout_gravity="center_horizontal"
-        android:onClick="callGuardar" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicionar Utentes"
+            android:id="@+id/button9"
+            android:onClick="callAddUtentes"
+            android:layout_marginTop="40dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LER Pessoas"
-        android:id="@+id/button11"
-        android:layout_gravity="center_horizontal"
-        android:onClick="callLer" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView39" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Lista Utentes"
+            android:id="@+id/button8"
+            android:layout_gravity="center_horizontal"
+            android:onClick="callListaUtentes" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView40" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar Pessoas"
+            android:id="@+id/button10"
+            android:layout_gravity="center_horizontal"
+            android:onClick="callGuardar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView41" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="LER Pessoas"
+            android:id="@+id/button11"
+            android:layout_gravity="center_horizontal"
+            android:onClick="callLer" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView43" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Avaliação s/registo"
+            android:id="@+id/button12"
+            android:layout_gravity="center_horizontal"
+            android:onClick="callAvaliacaoSRegisto" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="consultas"
+            android:id="@+id/button14"
+            android:layout_gravity="center_horizontal"
+            android:onClick="callListaConsultas" />
+    </LinearLayout>
 </LinearLayout>

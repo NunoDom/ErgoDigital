@@ -2,12 +2,13 @@ package dei.estg.ipleiria.pt.ergodigital;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import java.io.FileInputStream;
@@ -16,8 +17,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 
@@ -31,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //addUtentes();
-        //lerInternamente();
+        lerInternamente();
+        configuracoesUtilizador();
     }
 
     @Override
@@ -64,7 +64,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+private void configuracoesUtilizador()
+{
+    SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+    String mailPref = sharedPref.getString("mail", "");
 
+    if(mailPref.equals("")) {
+
+        Intent intent = new Intent(this, UserSettingsActivity.class);
+        startActivity(intent);
+
+
+
+}}
 
 
     @Override
@@ -75,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this,ListaPessoasActivity.class);
-            startActivity(intent);
-            return true;
-        }
+       // if (id == R.id.action_settings) {
+       //     Intent intent = new Intent(this,ListaPessoasActivity.class);
+        //    startActivity(intent);
+        //    return true;
+       // }
 
         return super.onOptionsItemSelected(item);
     }
@@ -99,19 +111,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }       //gerir.addPessoa(pessoa);
-    public void addUtentes() {
+    }
 
-        GregorianCalendar data = new GregorianCalendar(1989,5,12);
-        Date date=data.getTime();
-        GregorianCalendar data1 = new GregorianCalendar(1989,9,12);
-        Date date1=data.getTime();
+    public void callAvaliacaoSRegisto(View view) {
 
-
-        GestaoUtentes.getInstance().addPessoa("Nuno Domingues", date, 0, 170, 85);
-        GestaoUtentes.getInstance().addPessoa("Tiago Pinto", date1, 0, 180, 95);
-
-
+        Intent intent = new Intent(this, EscolhaAvaliacoesActivity.class);
+        startActivity(intent);
     }
 
 
@@ -135,6 +140,17 @@ public class MainActivity extends AppCompatActivity {
 
         lerInternamente();
     }
+
+    public void callListaConsultas(View view) {
+
+
+        Intent intent = new Intent(this, RulaActivityResultado.class);
+        intent.putExtra("consulta",GestaoUtentes.getInstance().getListaConsultas().get(0));
+        startActivity(intent);
+    }
+
+
+
 
 
     private void lerInternamente() {

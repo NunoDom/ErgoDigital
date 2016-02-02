@@ -16,14 +16,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="Frequência/Peso Carga"
             android:id="@+id/textView34"
             android:autoText="false" />
 
@@ -39,14 +40,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="Distncia entre a mão e a região lombar"
             android:id="@+id/textView54" />
 
         <ImageView
@@ -61,14 +63,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="Região de elevação vertical"
             android:id="@+id/textView55" />
 
         <ImageView
@@ -83,14 +86,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="Torção do tronco e inclinação lateral"
             android:id="@+id/textView56" />
 
         <ImageView
@@ -105,14 +109,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="Contrangimentos de posição"
             android:id="@+id/textView57" />
 
         <ImageView
@@ -127,8 +132,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -149,8 +155,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -171,8 +178,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -193,8 +201,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_marginTop="1dp">
+        android:gravity="center|right"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,11 +1,13 @@
 package dei.estg.ipleiria.pt.ergodigital.Model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by Nuno on 13/10/2015.
  */
-public class Consulta {
+public class Consulta implements Serializable{
     private int id;
     private Pessoa pessoa;
     private Date dataHora;
@@ -15,6 +17,21 @@ public class Consulta {
     private int tempoTarefa;
     private int horasTrabalhoDiario;
     private String observacoes;
+    private ArrayList<Resultado> listaResultados;
+    public ArrayList<Resultado> getListaResultados() {
+        return listaResultados;
+    }
+
+    public void setListaResultados(ArrayList<Resultado> listaResultados) {
+        this.listaResultados = listaResultados;
+    }
+
+
+
+
+    public void addResultado(Resultado resultado) {
+        listaResultados.add(resultado);
+    }
 
 
     public Consulta(int id, Pessoa pessoa, Date dataHora, String turno, String seccao, String posto, int tempoTarefa, int horasTrabalhoDiario, String observacoes) {
@@ -30,6 +47,7 @@ public class Consulta {
     }
 
     public Consulta(int id) {
+        listaResultados= new ArrayList<Resultado>();
         this.id = id;
     }
 
@@ -110,17 +128,12 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return "Consulta{" +
-                "id=" + id +
-                ", pessoa=" + pessoa +
-                ", dataHora=" + dataHora +
-                ", turno='" + turno + '\'' +
-                ", seccao='" + seccao + '\'' +
-                ", posto='" + posto + '\'' +
-                ", tempoTarefa=" + tempoTarefa +
-                ", horasTrabalhoDiario=" + horasTrabalhoDiario +
-                ", observacoes='" + observacoes + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID: "+id);
+        for (Resultado value : listaResultados) {
+            sb.append(value);
+        }
+        return sb.toString();
     }
 
 }

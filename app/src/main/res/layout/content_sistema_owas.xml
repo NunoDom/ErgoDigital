@@ -7,7 +7,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_sistema_owas"
     tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaOwasActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/layoutOWAS">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
@@ -137,18 +138,24 @@
                         android:layout_weight="0.04"
                         android:spinnerMode="dropdown" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Analisar"
-                        android:id="@+id/btnAnalisar"
-                        android:onClick="click"
-                        android:visibility="gone" />
-
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="fill_parent"
                         android:layout_height="80dp"></LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Button"
+                        android:id="@+id/button13"
+                        android:onClick="click2" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enviar Mail"
+                        android:id="@+id/button17"
+                        android:onClick="sendEmail" />
 
                 </RadioGroup>
 

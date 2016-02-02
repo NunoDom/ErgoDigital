@@ -95,6 +95,7 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
                 }else
                     {
                         txtViewKimEmpurarEscalaTempoTitulo.setText("Numero de Vezes/Distancia Total");
+                        cbKimEmpurarEscalaTempo.setAdapter(null);
 
                     }
                 }
@@ -114,6 +115,8 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position==1) { //SER FOR ROLAMENTO
                     cbKimEmpurarTipoCarga.setVisibility(View.VISIBLE);
+                    cbKimEmpurarTipoCarga.setSelection(0);
+                    actualizaAdapterNumeroVezes(0,1);
                     txtViewKimEmpurarTipoCargaTitulo.setVisibility(View.VISIBLE);
                     cbKimEmpurarPesoCarga.setVisibility(View.VISIBLE);
 

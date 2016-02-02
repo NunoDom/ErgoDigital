@@ -46,6 +46,7 @@ public class ListaPessoasActivity extends AppCompatActivity {
                 Pessoa pessoa = pessoas.get(position);
                 intent.putExtra("pessoa",pessoa);
                 startActivity(intent);
+                updateAdaptador();
             }
         });
 
@@ -56,6 +57,13 @@ public class ListaPessoasActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+
+    @Override
+    protected void onResume() {
+        updateAdaptador();
+        super.onResume();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -64,26 +72,11 @@ public class ListaPessoasActivity extends AppCompatActivity {
     }
 
 
-    public void callOWAS(View view) {
-
-        Intent intent = new Intent(this, SistemaOwasActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void callRULA(View view) {
-
-        Intent intent = new Intent(this, SistemaRulaActivity.class);
-        startActivity(intent);
-
-    }
-
-
     private void updateAdaptador() {
 
         ArrayList<Pessoa> resultados = new ArrayList<Pessoa>(GestaoUtentes.getInstance().getListaPessoas());
-        ListView listView = (ListView) findViewById(R.id.listViewListaPessoas);
 
+        ListView listView = (ListView) findViewById(R.id.listViewListaPessoas);
         ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(ListaPessoasActivity.this, android.R.layout.simple_list_item_1, resultados);
         listView.setAdapter(adapter);
 
