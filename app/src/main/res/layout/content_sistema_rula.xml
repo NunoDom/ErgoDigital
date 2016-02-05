@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -9,10 +9,6 @@
     tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity"
     android:orientation="vertical">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/ScrollView01"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -30,70 +26,44 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/cbRulaLado"
                 android:layout_weight="0.59"
-                android:layout_gravity="center"
                 android:gravity="center|center_vertical"
                 android:spinnerMode="dropdown"
                 android:entries="@array/Lados"
                 android:focusableInTouchMode="false"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:layout_gravity="right" />
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="680dp"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:layout_weight="0.59"
                 android:weightSum="1">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-
-                    <ImageView
-                        android:layout_width="124dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ivRULAbraco"
-                        android:src="@drawable/ic_no_image_squad"
-                        android:layout_weight="0.17" />
-
-                    <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ivRULAantebraco"
-                        android:src="@drawable/ic_no_image_squad"
-                        android:layout_weight="0.14"
-                        android:layout_marginTop="40dp" />
-
-                    <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ivRULApunho"
-                        android:src="@drawable/ic_no_image_squad"
-                        android:layout_weight="0.14" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp">
 
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="654dp"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ivRULAbraco"
+                        android:src="@drawable/ic_no_image_squad" />
+
+                    <LinearLayout
                         android:orientation="vertical"
-                        android:measureWithLargestChild="false"
-                        android:longClickable="false"
-                        android:weightSum="1"
-                        android:gravity="top|center_horizontal">
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="Braço"
-                            android:id="@+id/tvRULAbraco" />
+                            android:id="@+id/textView7" />
 
                         <Spinner
                             android:layout_width="fill_parent"
@@ -106,7 +76,7 @@
 
                         <RadioGroup
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content" >
 
                             <CheckBox
                                 android:layout_width="fill_parent"
@@ -132,6 +102,26 @@
                             android:text="Se o ombro estiver apoiado"
                             android:id="@+id/chckboxRulaBraco3"
                             android:layout_gravity="left" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ivRULAantebraco"
+                        android:src="@drawable/ic_no_image_squad" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -156,9 +146,30 @@
                             android:text="Se braço cruzar a linha média do corpo, ou se situar fora da linha a mais de 45º"
                             android:id="@+id/chckboxRulaABraco1"
                             android:layout_gravity="left" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ivRULApunho"
+                        android:src="@drawable/ic_no_image_squad" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="Punho"
@@ -181,43 +192,50 @@
                             android:id="@+id/chckboxRulaPunho1"
                             android:layout_weight="0.25"
                             android:layout_gravity="left|top" />
+                    </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Giro do Punho"
-                            android:id="@+id/tvRulaGiroPunho"
-                            android:gravity="bottom" />
+                </LinearLayout>
 
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/cbRULA_giroPunho"
-                            android:spinnerMode="dropdown"
-                            android:entries="@array/RULAGiroPunho" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
 
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Analisar"
-                            android:id="@+id/btnSeguinte"
-                            android:onClick="click"
-                            android:visibility="gone" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Giro do Punho"
+                        android:id="@+id/tvRulaGiroPunho"
+                        android:gravity="bottom" />
 
-                    </RadioGroup>
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cbRULA_giroPunho"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/RULAGiroPunho" />
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Analisar"
+                        android:id="@+id/btnSeguinte"
+                        android:onClick="click"
+                        android:visibility="gone"
+                        android:layout_gravity="right" />
                 </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
 
-
-
-
-
-
-
-</LinearLayout>
+</ScrollView>

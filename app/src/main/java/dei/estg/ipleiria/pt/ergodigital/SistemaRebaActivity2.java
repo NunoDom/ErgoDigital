@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -12,15 +11,14 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
-import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaREBA;
 
 public class SistemaRebaActivity2 extends AppCompatActivity {
 
-
+    Consulta consulta;
     int resultadoA=-1;
 
     @Override
@@ -30,11 +28,12 @@ public class SistemaRebaActivity2 extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().hasExtra("ResultadoA")) {
-            Bundle extras = getIntent().getExtras();
-            resultadoA = extras.getInt("ResultadoA");
-        }
 
+        if (getIntent().hasExtra("consulta")) {
+            Bundle extras = getIntent().getExtras();
+            consulta = (Consulta)extras.getSerializable("consulta");
+            resultadoA = Integer.parseInt(consulta.getListaResultados().get(consulta.getListaResultados().size()-1).getValor());
+        }
         Spinner spinner1 = (Spinner) findViewById(R.id.cbRebaBraco);
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -120,7 +119,6 @@ public class SistemaRebaActivity2 extends AppCompatActivity {
     private void analisar()
     {
 
-
         TabelaReferenciaREBA tab = new TabelaReferenciaREBA();
 
         Spinner spinner1 = (Spinner) findViewById(R.id.cbRebaBraco);
@@ -136,6 +134,7 @@ public class SistemaRebaActivity2 extends AppCompatActivity {
         int braco = spinner1.getSelectedItemPosition() + 1;
         int antebraco = spinner2.getSelectedItemPosition() + 1;
         int pulso = spinner3.getSelectedItemPosition() + 1;
+        int pega =spinner3.getSelectedItemPosition();
 
         if (checkBox1.isChecked()) {
             braco += 1;
@@ -154,16 +153,30 @@ public class SistemaRebaActivity2 extends AppCompatActivity {
 
 
         Integer resultadoB = tab.devolveTabelaB(braco, antebraco, pulso);
-        resultadoB += spinner4.getSelectedItemPosition();
+        resultadoB += pega;
 
         int resultadoC = tab.devolveTabelaC(resultadoA, resultadoB);
 
-        //Intent intent = new Intent(getApplicationContext(),SistemaRebaActivity3.class);
-        //intent.putExtra("ResultadoFinal",resultadoC);
-        //startActivity(intent);
 
-        Toast.makeText(getApplicationContext(), "RESULTADO A: " + resultadoA + "\nRESULTADO B: " + resultadoB + "\nRESULTADO FINAL: " + resultadoC, Toast.LENGTH_LONG).show();
+        Resultado resultadoBraco = new Resultado("Braço:",braco+"- "+spinner1.getSelectedItem().toString());
+        Resultado resultadoAntebraco = new Resultado("Antebraço:",antebraco+"- "+spinner2.getSelectedItem().toString());
+        Resultado resultadoPulso = new Resultado("Pulso: ",+pulso+"- "+spinner3.getSelectedItem().toString());
+        Resultado resultadPega = new Resultado("Pega: ",+pega+"- "+spinner4.getSelectedItem().toString());
+        Resultado resultadoBfinal = new Resultado("Resultado B \n", resultadoB+"");
+        Resultado resultadoFinal = new Resultado("Resultado da Avaliação \n", resultadoC+"");
 
+        consulta.addResultado(resultadoBraco);
+        consulta.addResultado(resultadoAntebraco);
+        consulta.addResultado(resultadoPulso);
+        consulta.addResultado(resultadPega);
+        consulta.addResultado(resultadoFinal);
+
+        //Toast.makeText(getApplicationContext(), "RESULTADO A: " + resultadoA + "\nRESULTADO B: " + resultadoB + "\nRESULTADO FINAL: " + resultadoC, Toast.LENGTH_LONG).show();
+
+
+        Intent intent= new Intent(this,ActivityResultado.class);
+        intent.putExtra("consulta",consulta);
+        startActivity(intent);
 
     }
 }

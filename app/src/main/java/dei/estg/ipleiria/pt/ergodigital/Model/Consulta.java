@@ -8,6 +8,9 @@ import java.util.Date;
  * Created by Nuno on 13/10/2015.
  */
 public class Consulta implements Serializable{
+
+    private static int Identificador=1;
+
     private int id;
     private Pessoa pessoa;
     private Date dataHora;
@@ -18,12 +21,12 @@ public class Consulta implements Serializable{
     private int horasTrabalhoDiario;
     private String observacoes;
     private ArrayList<Resultado> listaResultados;
-    public ArrayList<Resultado> getListaResultados() {
-        return listaResultados;
-    }
+    private String ferramenta;
 
-    public void setListaResultados(ArrayList<Resultado> listaResultados) {
-        this.listaResultados = listaResultados;
+
+    public ArrayList<Resultado> getListaResultados()
+    {
+        return listaResultados;
     }
 
 
@@ -34,8 +37,9 @@ public class Consulta implements Serializable{
     }
 
 
-    public Consulta(int id, Pessoa pessoa, Date dataHora, String turno, String seccao, String posto, int tempoTarefa, int horasTrabalhoDiario, String observacoes) {
-        this.id = id;
+    public Consulta(Pessoa pessoa, Date dataHora, String turno, String seccao, String posto, int tempoTarefa, int horasTrabalhoDiario, String observacoes,String ferramenta) {
+        listaResultados= new ArrayList<Resultado>();
+        this.id = Identificador++;
         this.pessoa = pessoa;
         this.dataHora = dataHora;
         this.turno = turno;
@@ -44,11 +48,12 @@ public class Consulta implements Serializable{
         this.tempoTarefa = tempoTarefa;
         this.horasTrabalhoDiario = horasTrabalhoDiario;
         this.observacoes = observacoes;
+        this.ferramenta =ferramenta;
     }
 
-    public Consulta(int id) {
+    public Consulta() {
         listaResultados= new ArrayList<Resultado>();
-        this.id = id;
+        this.id = Identificador++;
     }
 
 
@@ -136,4 +141,11 @@ public class Consulta implements Serializable{
         return sb.toString();
     }
 
+    public void setFerramenta(String ferramenta) {
+        this.ferramenta = ferramenta;
+    }
+
+    public String getFerramenta() {
+        return ferramenta;
+    }
 }

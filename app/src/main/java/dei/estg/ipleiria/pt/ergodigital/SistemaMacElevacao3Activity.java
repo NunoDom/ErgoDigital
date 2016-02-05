@@ -4,22 +4,21 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 
 
 public class SistemaMacElevacao3Activity extends AppCompatActivity {
 
+    Consulta consulta;
     int resultadoA;
     int resultadoB;
     int resultadoC;
@@ -39,6 +38,12 @@ public class SistemaMacElevacao3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_sistema_mac_elevacao3);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (getIntent().hasExtra("consulta")) {
+            Bundle extras = getIntent().getExtras();
+            consulta = (Consulta)extras.getSerializable("consulta");
+        }
+
 
 
         if (getIntent().hasExtra("resultadoA")) {

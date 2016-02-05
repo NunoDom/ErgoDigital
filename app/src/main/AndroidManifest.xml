@@ -106,7 +106,7 @@
                 android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity2" />
         </activity>
         <activity
-            android:name=".RulaActivityResultado"
+            android:name=".ActivityResultado"
             android:label="@string/title_activity_rula_activity_result"
             android:parentActivityName=".SistemaRulaActivity3"
             android:theme="@style/AppTheme.NoActionBar" >

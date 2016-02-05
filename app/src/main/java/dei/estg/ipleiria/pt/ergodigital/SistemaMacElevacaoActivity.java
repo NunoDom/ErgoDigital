@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -18,8 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+
 public class SistemaMacElevacaoActivity extends AppCompatActivity {
 
+    Consulta consulta;
     Integer resultadoA;
     Integer resultadoB;
 
@@ -30,6 +32,7 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sistema_mac_elevacao);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -37,6 +40,11 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         radioGroup= (RadioGroup)findViewById(R.id.rgGamElevacaoDistanciaMaos);
+
+        if (getIntent().hasExtra("consulta")) {
+            Bundle extras = getIntent().getExtras();
+            consulta = (Consulta)extras.getSerializable("consulta");
+        }
 
 
 

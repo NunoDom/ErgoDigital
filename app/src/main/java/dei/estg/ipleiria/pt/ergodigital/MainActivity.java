@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,17 +67,21 @@ public class MainActivity extends AppCompatActivity {
 
 private void configuracoesUtilizador()
 {
-    SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
-    String mailPref = sharedPref.getString("mail", "");
 
-    if(mailPref.equals("")) {
 
+    SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+    String nomeUtilizador = mPrefs.getString("nomeUtilizador", "");
+    String mail = mPrefs.getString("mail", "");
+    if (nomeUtilizador.equals("") && nomeUtilizador.equals("")){
         Intent intent = new Intent(this, UserSettingsActivity.class);
         startActivity(intent);
+    } else {
+       // Toast toast =Toast.makeText(this, "Bem Vindo "+nomeUtilizador, Toast.LENGTH_SHORT);
+        //toast.setGravity(Gravity.TOP, 0, 300);
+        //toast.show();
 
-
-
-}}
+    }
+}
 
 
     @Override
@@ -87,11 +92,11 @@ private void configuracoesUtilizador()
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-       // if (id == R.id.action_settings) {
-       //     Intent intent = new Intent(this,ListaPessoasActivity.class);
-        //    startActivity(intent);
-        //    return true;
-       // }
+       if (id == R.id.action_userSettings) {
+            Intent intent = new Intent(this,UserSettingsActivity.class);
+            startActivity(intent);
+            return true;
+       }
 
         return super.onOptionsItemSelected(item);
     }
@@ -116,6 +121,7 @@ private void configuracoesUtilizador()
     public void callAvaliacaoSRegisto(View view) {
 
         Intent intent = new Intent(this, EscolhaAvaliacoesActivity.class);
+        intent.putExtra("consulta",new Consulta());
         startActivity(intent);
     }
 
@@ -144,7 +150,7 @@ private void configuracoesUtilizador()
     public void callListaConsultas(View view) {
 
 
-        Intent intent = new Intent(this, RulaActivityResultado.class);
+        Intent intent = new Intent(this, ActivityResultado.class);
         intent.putExtra("consulta",GestaoUtentes.getInstance().getListaConsultas().get(0));
         startActivity(intent);
     }

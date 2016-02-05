@@ -2,18 +2,15 @@ package dei.estg.ipleiria.pt.ergodigital;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
-import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 
 public class SistemaKimMainActivity extends AppCompatActivity {
 
-    int idUtente=-1;
+    Consulta consulta;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +26,9 @@ public class SistemaKimMainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
-        if (getIntent().hasExtra("idUtente")) {
+        if (getIntent().hasExtra("consulta")) {
             Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
-                idUtente = pessoa.getId();
-            }
+            consulta = (Consulta)extras.getSerializable("consulta");
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -44,7 +37,7 @@ public class SistemaKimMainActivity extends AppCompatActivity {
     public void callKim_LevantarActivity(View view){
 
         Intent intent = new Intent(this, SistemaKimLevantarActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }
@@ -52,7 +45,7 @@ public class SistemaKimMainActivity extends AppCompatActivity {
     public void callKimEmpurarActivity(View view){
 
         Intent intent = new Intent(this, SistemaKimEmpurrarActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }

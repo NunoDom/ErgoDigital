@@ -4,27 +4,23 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
-import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
-import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaOWAS;
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaRULA;
 
 public class SistemaRulaActivity extends AppCompatActivity {
 
-    int idUtente=-1;
+    Consulta consulta;
     Spinner spinner1;
     Spinner spinner2;
     Spinner spinner3;
@@ -40,14 +36,14 @@ public class SistemaRulaActivity extends AppCompatActivity {
 
         spinner5 = (Spinner) findViewById(R.id.cbRulaLado);
 
-        if (getIntent().hasExtra("idUtente")) {
+        if (getIntent().hasExtra("consulta")) {
             Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
-                idUtente = pessoa.getId();
-            }
+            consulta = (Consulta)extras.getSerializable("consulta");
+        }else
+        {
+         consulta= new Consulta();
         }
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.rula_fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -177,11 +173,11 @@ private void controlCheckBoxBraco(int posicao)
         //Spinner spinner4= (Spinner)findViewById(R.id.cbRULA_giroPunho);
         //Spinner spinner5= (Spinner)findViewById(R.id.cbRulaLado);
 
-        int braco = (int)spinner1.getSelectedItemId()+1;
-        int antebraco = (int)spinner2.getSelectedItemId()+1;
-        int punho = (int)spinner3.getSelectedItemId()+1;
-        int giro = (int)spinner4.getSelectedItemId()+1;
-        int lado = (int)spinner5.getSelectedItemId();
+        int braco = spinner1.getSelectedItemPosition()+1;
+        int antebraco = spinner2.getSelectedItemPosition()+1;
+        int punho = spinner3.getSelectedItemPosition()+1;
+        int giro = spinner4.getSelectedItemPosition()+1;
+        int lado = spinner5.getSelectedItemPosition();
 
 
 
@@ -243,7 +239,7 @@ private void controlCheckBoxBraco(int posicao)
                     imagePunho.setImageResource(R.drawable.ic_rula_rw2);
                     break;
                 case 3:
-                    imagePunho.setImageResource(R.drawable.ic_rula_rw3);
+                    imagePunho.setImageResource(R.drawable.ic_rula_rw4);
                     break;
                 case 4:
                     imagePunho.setImageResource(R.drawable.ic_rula_rw4);
@@ -345,9 +341,35 @@ private void controlCheckBoxBraco(int posicao)
                 }
 
                 if (braco <= 6 && antebraco <= 3 && punho <= 4 && giro <= 2) {
+
+
+
+
+                    Resultado resultadoLado = new Resultado("", spinner5.getSelectedItem().toString()+"");
+                    Resultado resultadoBraco = new Resultado("Braço: ",braco+"- "+spinner1.getSelectedItem().toString());
+                    Resultado resultadoAntebraco = new Resultado("AnteBracos: ",antebraco+"- "+spinner2.getSelectedItem().toString());
+                    Resultado resultadoPunho = new Resultado("Punho: ",+punho+"- "+spinner3.getSelectedItem().toString());
+                    Resultado resultadoGiro = new Resultado("Rotação do punho: ",+giro+"- "+spinner4.getSelectedItem().toString());
+
+                    consulta.setFerramenta("RULA");
+                    consulta.addResultado(resultadoLado);
+                    consulta.addResultado(resultadoBraco);
+                    consulta.addResultado(resultadoAntebraco);
+                    consulta.addResultado(resultadoPunho);
+                    consulta.addResultado(resultadoGiro);
+
+
+                    if(consulta.getPessoa()!=null) {
+
+                        consulta.getPessoa().addConsulta(consulta);
+                    }
+                    Intent intent= new Intent(this,SistemaRulaActivity2.class);
+                    intent.putExtra("consulta", consulta);
+                   // startActivity(intent);
+
                     resultado = tab.devolveTabelaA(braco, antebraco, punho, giro);
-                    Intent intent = new Intent(this, SistemaRulaActivity2.class);
-                    intent.putExtra("Lado", lado);
+                    //Intent intent = new Intent(this, SistemaRulaActivity2.class);
+                    //intent.putExtra("Lado", lado);
                     intent.putExtra("ResultadoA", resultado);
                     startActivity(intent);
                     //finish();

@@ -71,6 +71,11 @@
     </string-array>
 
 
+    <string name="ResultadoA"><b>Resultado A:</b></string>
+
+
+
+
     //fgh
 
     <string-array name="RULAbraco">
@@ -145,10 +150,10 @@
     //REBA
 
     <string-array name="RebaPega">
-        <item>Boa - Pega bem ajustada e pega de potência</item>
-        <item>Aceitável - Pega aceitável mas não é ideal ou a pega é aceitável por outra parte do corpo</item>
-        <item>Má -  Pega não aceitável apesar de possível</item>
-        <item>Inaceitável - Difícil e inseguro, sem pegas ou pega inaceitável usando outras partes do corpo</item>
+        <item>Boa, Pega bem ajustada e pega de potência</item>
+        <item>Aceitável, Pega aceitável mas não é ideal ou a pega é aceitável por outra parte do corpo</item>
+        <item>Má, Pega não aceitável apesar de possível</item>
+        <item>Inaceitável, Difícil e inseguro, sem pegas ou pega inaceitável usando outras partes do corpo</item>
     </string-array>
     <string-array name="RebaForca">
         <item>Carga inferior a 5Kg</item>

@@ -26,7 +26,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="textCapWords|textPersonName"
             android:ems="10"
             android:id="@+id/editTextUtenteNome"
             android:enabled="false" />
@@ -140,13 +140,13 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Adicionar"
             android:id="@+id/bntDadosPessoaAdicionar"
@@ -154,7 +154,7 @@
             android:onClick="clickAdicionar" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar"
             android:id="@+id/bntDadosPessoaGuardar"
@@ -162,7 +162,7 @@
             android:onClick="clickGuardar" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Editar"
             android:id="@+id/bntDadosPessoaEditar"
@@ -170,7 +170,7 @@
             android:visibility="gone" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Apagar"
             android:id="@+id/bntDadosPessoaApagar"
@@ -178,12 +178,21 @@
             android:visibility="gone" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Realizar Avaliação"
             android:id="@+id/bntDadosPessoaRealizarAvaliacao"
             android:onClick="realizarAvaliacao"
             android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hístorico de Consultas"
+            android:id="@+id/btnDadosPessoaHistoricoConsultas"
+            android:visibility="gone"
+            android:onClick="btnClickHistoricoConsultas"
+            android:nestedScrollingEnabled="true" />
 
     </LinearLayout>
 

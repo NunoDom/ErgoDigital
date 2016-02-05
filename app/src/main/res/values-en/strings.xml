@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ErgoDigital</string>
+
+    <string name="textBtnCH">Movimentação de Cargas(ingles)</string>
+    <string name="textBtnPA">Avaliação Postural(ingles)</string>
+    <string name="textBtnRM">Movimento Repetitivo(ingles)</string>
+    <string name="textTitle">Tipos de Avaliações Ergonomicas(ingles)</string>
+
+
+
+</resources>

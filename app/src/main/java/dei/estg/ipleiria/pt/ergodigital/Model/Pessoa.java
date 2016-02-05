@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 /**
  * Created by Nuno on 13/10/2015.
@@ -22,17 +20,23 @@ public class Pessoa  implements Serializable{
     private int altura;
     private int peso;
     private ArrayList<FuncaoEmpresa> HistoricoFuncoesEmp;
-    private List<Consulta> consultas;
+    private ArrayList<Consulta> consultas;
 
 
 
     public Pessoa(String nomeCompleto, Date dataNascimento, Integer genero, int altura, int peso) {
+        consultas = new ArrayList<>();
         this.id=Identificador++;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.genero = genero;
         this.altura = altura;
         this.peso = peso;
+    }
+    public Pessoa()
+    {
+        HistoricoFuncoesEmp = new ArrayList<FuncaoEmpresa>();
+        consultas= new ArrayList<Consulta>();
     }
 
 
@@ -137,12 +141,16 @@ public class Pessoa  implements Serializable{
     }
 
 
+    public void addConsulta(Consulta consulta)
+    {
+        consultas.add(consulta);
+    }
 
-    public List<Consulta> getConsultas() {
+    public ArrayList<Consulta> getConsultas() {
         return consultas;
     }
 
-    public void setConsultas(List<Consulta> consultas) {
+    public void setConsultas(ArrayList<Consulta> consultas) {
         this.consultas = consultas;
     }
 

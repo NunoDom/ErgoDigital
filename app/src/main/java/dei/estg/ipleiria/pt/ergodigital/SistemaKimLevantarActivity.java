@@ -1,5 +1,6 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,12 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 
 public class SistemaKimLevantarActivity extends AppCompatActivity {
+    String condicaoTrabalho;
     Spinner spinner1;
     Spinner spinner2;
     Spinner spinner3;
@@ -27,6 +30,7 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
     RadioButton radioButton1;
     RadioButton radioButton2;
     RadioButton radioButton3;
+    Consulta consulta;
     int genero=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,28 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sistema_kim_levantar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        if (getIntent().hasExtra("idUtente")) {
+            Bundle extras = getIntent().getExtras();
+            int valor = extras.getInt("idUtente");
+            if(valor>0) {
+                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
+                genero=pessoa.getGenero();
+                actualizaAdapterPontuacaoCarga(genero);
+            }
+        }
+
+        if (getIntent().hasExtra("consulta")) {
+            Bundle extras = getIntent().getExtras();
+            consulta = (Consulta)extras.getSerializable("consulta");
+            if (consulta.getPessoa() != null){
+                    Pessoa pessoa = consulta.getPessoa();
+                    genero=pessoa.getGenero();
+                    actualizaAdapterPontuacaoCarga(genero);
+                }
+            }
+
 
 
 
@@ -139,15 +165,7 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
 
 
 
-        if (getIntent().hasExtra("idUtente")) {
-            Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
-                genero=pessoa.getGenero();
-                actualizaAdapterPontuacaoCarga(genero);
-            }
-        }
+
 
 
 
@@ -275,16 +293,20 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
             }
 
 
+
         if(radioButton1.isChecked())
         {
+            condicaoTrabalho=radioButton1.getText().toString();
             pontuacaoCondicosTrabalho=0;
         }
         if(radioButton2.isChecked())
         {
+            condicaoTrabalho=radioButton2.getText().toString();
             pontuacaoCondicosTrabalho=1;
         }
         if(radioButton3.isChecked())
         {
+            condicaoTrabalho=radioButton3.getText().toString();
             pontuacaoCondicosTrabalho=2;
         }
         }
@@ -309,7 +331,30 @@ resultadoFinal=(pontuacaoCarga+pontuacaoPosicao+pontuacaoCondicosTrabalho)*pontu
             }
 
 
-        Toast.makeText(this,mensagem,Toast.LENGTH_SHORT).show();
+
+        Resultado resultadoCarga = new Resultado("Carga: ",pontuacaoCarga+"- "+spinner4.getSelectedItem().toString());
+        Resultado resultadoPosicao = new Resultado("Posição: ",pontuacaoPosicao+"- "+spinner5.getSelectedItem().toString());
+        Resultado resultadoCondicosTrabalho = new Resultado("Condições de Trabalho: ",+pontuacaoCondicosTrabalho+"- "+condicaoTrabalho);
+        Resultado resultadoPontuacaoTempo = new Resultado("Tempo: ",+pontuacaoTempo+"- "+spinner2.getSelectedItem().toString());
+        Resultado resultadoTotal = new Resultado("Resultado da Avaliação ", resultadoFinal+"- "+mensagem);
+
+        consulta.addResultado(resultadoCarga);
+        consulta.addResultado(resultadoPosicao);
+        consulta.addResultado(resultadoCondicosTrabalho);
+        consulta.addResultado(resultadoPontuacaoTempo);
+        consulta.addResultado(resultadoTotal);
+
+        if(consulta.getPessoa()!=null) {
+            consulta.getPessoa().addConsulta(consulta);
+        }
+        Intent intent= new Intent(this,ActivityResultado.class);
+        intent.putExtra("consulta", consulta);
+        startActivity(intent);
+
+
+
+
+        //Toast.makeText(this,mensagem,Toast.LENGTH_SHORT).show();
 
 
     }

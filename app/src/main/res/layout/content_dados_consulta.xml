@@ -32,12 +32,13 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Turno:"
-                android:id="@+id/textView7" />
+                android:id="@+id/txtViewConsultaTurno" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText3" />
+                android:id="@+id/editTextConsultaTurno"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,13 +50,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Seccção de Tranalho"
+                android:text="Seccção de Trabalho"
                 android:id="@+id/textView14" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText4" />
+                android:id="@+id/editTextConsultaSeccao"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -73,7 +75,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText5" />
+                android:id="@+id/editTextConsultaPostoTrabalho"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -91,7 +94,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText6" />
+                android:id="@+id/editTextConsultaTempoTrabalho"
+                android:inputType="text|number" />
         </LinearLayout>
 
         <LinearLayout
@@ -109,7 +113,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText7" />
+                android:id="@+id/editTextConsultaTrabalhoDiario"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -126,8 +131,8 @@
 
             <EditText
                 android:layout_width="fill_parent"
-                android:layout_height="100dp"
-                android:id="@+id/editText8"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextConsultaObservacoes"
                 android:inputType="textMultiLine" />
 
         </LinearLayout>
@@ -142,7 +147,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Realizar avaliação"
-                android:id="@+id/button15" />
+                android:id="@+id/button15"
+                android:onClick="clickRealizarAvaliacao" />
         </LinearLayout>
 
     </LinearLayout>

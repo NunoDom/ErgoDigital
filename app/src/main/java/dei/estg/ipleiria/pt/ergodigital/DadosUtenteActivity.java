@@ -3,7 +3,6 @@ package dei.estg.ipleiria.pt.ergodigital;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -15,10 +14,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
 
@@ -30,6 +31,8 @@ public class DadosUtenteActivity extends AppCompatActivity {
     Button botaoSelecionar;
     Button botaoApagar;
     Button botaoAdicionar;
+    Button botaoHistoricoUtente;
+
     Pessoa pessoa;
     EditText editTextName;
     EditText editTextData;
@@ -60,6 +63,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
         botaoSelecionar=(Button)findViewById(R.id.bntDadosPessoaRealizarAvaliacao);
         botaoApagar=(Button)findViewById(R.id.bntDadosPessoaApagar);
         botaoAdicionar=(Button)findViewById(R.id.bntDadosPessoaAdicionar);
+        botaoHistoricoUtente=(Button)findViewById(R.id.btnDadosPessoaHistoricoConsultas);
         spinnerGenero.setEnabled(false);
 
 
@@ -72,6 +76,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
             botaoEditar.setVisibility(View.VISIBLE);
             botaoSelecionar.setVisibility(View.VISIBLE);
             botaoApagar.setVisibility(View.VISIBLE);
+            botaoHistoricoUtente.setVisibility(View.VISIBLE);
         }else
         {
             desloquearCampos();
@@ -113,14 +118,6 @@ public class DadosUtenteActivity extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floUtenteAddUtente);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
     }
 
@@ -187,7 +184,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
                                         Toast.makeText(this, "Utente adicionado com sucesso ", Toast.LENGTH_SHORT).show();
                                         this.finish();
                                         return true;
-                                    } else{
+                                    } else{//EDITAR
                                         GestaoUtentes.getInstance().alterarPessoa(pessoa.getId(), nome, date, genero, altura, peso);
                                         Toast.makeText(this, "Utente alterado com sucesso ", Toast.LENGTH_SHORT).show();
                                         this.finish();
@@ -245,6 +242,7 @@ public class DadosUtenteActivity extends AppCompatActivity {
         botaoEditar.setVisibility(View.GONE);
         botaoSelecionar.setVisibility(View.GONE);
         botaoApagar.setVisibility(View.GONE);
+
     }
 
 
@@ -265,12 +263,19 @@ public class DadosUtenteActivity extends AppCompatActivity {
 
 
 public void realizarAvaliacao(View view){
-    Intent intent = new Intent(this, EscolhaAvaliacoesActivity.class);
-    intent.putExtra("idUtente",pessoa.getId());
+    Intent intent = new Intent(this, DadosConsultaActivity.class);
+    intent.putExtra("utente",pessoa);
     startActivity(intent);
 
 }
 
+    public void btnClickHistoricoConsultas(View view)
+    {
+        Intent intent = new Intent(this, ActivityResultado.class);
+        ArrayList<Consulta> consultas = pessoa.getConsultas();
+        intent.putExtra("consultas",consultas);
+        startActivity(intent);
+    }
 
 
 

@@ -8,12 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
-import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 
 public class EscolhaAvaliacoesActivity extends AppCompatActivity {
 
-    int idUtente=-1;
+    Consulta consulta;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +20,9 @@ public class EscolhaAvaliacoesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().hasExtra("idUtente")) {
+        if (getIntent().hasExtra("consulta")) {
             Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
-                idUtente = pessoa.getId();
-            }
+            consulta = (Consulta)extras.getSerializable("consulta");
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -45,7 +40,7 @@ public class EscolhaAvaliacoesActivity extends AppCompatActivity {
     public void callAPActivity(View view) {
 
         Intent intent = new Intent(this, AvaliacaoPosturalActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }
@@ -53,7 +48,7 @@ public class EscolhaAvaliacoesActivity extends AppCompatActivity {
     public void callMCActivity(View view) {
 
         Intent intent = new Intent(this, MovimentacaoDeCargasActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
 

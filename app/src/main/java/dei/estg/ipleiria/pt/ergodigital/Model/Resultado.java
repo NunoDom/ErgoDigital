@@ -34,6 +34,6 @@ public class Resultado implements Serializable{
 
     @Override
     public String toString() {
-        return  "\n"+titulo + " " + valor;
+        return  titulo + " " + valor;
     }
 }

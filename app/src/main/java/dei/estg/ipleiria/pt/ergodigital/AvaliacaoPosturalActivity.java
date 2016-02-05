@@ -10,12 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
-import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 
 public class AvaliacaoPosturalActivity extends AppCompatActivity {
 
-    int idUtente=-1;
+    Consulta consulta;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +22,10 @@ public class AvaliacaoPosturalActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().hasExtra("idUtente")) {
+
+        if (getIntent().hasExtra("consulta")) {
             Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
-                idUtente = pessoa.getId();
-            }
+            consulta = (Consulta)extras.getSerializable("consulta");
         }
 
 
@@ -72,21 +68,21 @@ public class AvaliacaoPosturalActivity extends AppCompatActivity {
     public void callOWAS(View view){
 
         Intent intent = new Intent(this,SistemaOwasActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }
     public void callRULA(View view){
 
         Intent intent = new Intent(this,SistemaRulaActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }
     public void callREBA(View view){
 
         Intent intent = new Intent(this,SistemaRebaActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }

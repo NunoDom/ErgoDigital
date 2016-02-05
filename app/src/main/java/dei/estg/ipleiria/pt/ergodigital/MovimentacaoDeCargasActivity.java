@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
-import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 
 public class MovimentacaoDeCargasActivity extends AppCompatActivity {
 
+    Consulta consulta;
     int idUtente=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +20,9 @@ public class MovimentacaoDeCargasActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        if (getIntent().hasExtra("idUtente")) {
+        if (getIntent().hasExtra("consulta")) {
             Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
-                idUtente = pessoa.getId();
-            }
+            consulta = (Consulta)extras.getSerializable("consulta");
         }
 
     //    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -38,14 +34,6 @@ public class MovimentacaoDeCargasActivity extends AppCompatActivity {
     //        }
     //    });
 
-        if (getIntent().hasExtra("idUtente")) {
-            Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
-                idUtente = pessoa.getId();
-            }
-        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -53,7 +41,7 @@ public class MovimentacaoDeCargasActivity extends AppCompatActivity {
     public void callKIMActivity(View view){
         
         Intent intent = new Intent(this, SistemaKimMainActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }
@@ -61,7 +49,7 @@ public class MovimentacaoDeCargasActivity extends AppCompatActivity {
     public void callMACActivity(View view){
 
         Intent intent = new Intent(this, SistemaMacMainActivity.class);
-        intent.putExtra("idUtente",idUtente);
+        intent.putExtra("consulta",consulta);
         startActivity(intent);
 
     }

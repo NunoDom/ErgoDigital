@@ -23,7 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaOWAS;
 
@@ -44,6 +44,7 @@ public class SistemaOwasActivity extends AppCompatActivity {
 
 
 
+    Consulta consulta;
     Resultado resultadoTorso;
     Resultado resultadoBracos;
     Resultado resultadoPernas;
@@ -55,6 +56,12 @@ public class SistemaOwasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sistema_owas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        if (getIntent().hasExtra("consulta")) {
+            Bundle extras = getIntent().getExtras();
+            consulta = (Consulta)extras.getSerializable("consulta");
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -327,19 +334,32 @@ public void createPDF() throws IOException {
 
     private void clickResultado()
     {
-        GestaoUtentes.getInstance().addConsulta(1);
+        //GestaoUtentes.getInstance().addConsulta("OWAS");
+        //Consulta consulta = GestaoUtentes.getInstance().getListaConsultas().get(1);
+
+        ;//PARA TIRAR
+        //RECEBE A CONSULTA E ADICIONA OS RESULTADOS
+
+
         resultadoTorso = new Resultado("Torso:",torso+"- "+spinner1.getSelectedItem().toString());
         resultadoBracos = new Resultado("Bracos:",bracos+"- "+spinner2.getSelectedItem().toString());
         resultadoPernas = new Resultado("Pernas: ",+pernas+"- "+spinner3.getSelectedItem().toString());
         resultadoForça = new Resultado("Força: ",+forca+"- "+spinner4.getSelectedItem().toString());
         resultadoFinal = new Resultado("Resultado da Avaliação \n", resultadoString+"");
 
-        GestaoUtentes.getInstance().getListaConsultas().get(1).addResultado(resultadoTorso);
-        GestaoUtentes.getInstance().getListaConsultas().get(1).addResultado(resultadoBracos);
-        GestaoUtentes.getInstance().getListaConsultas().get(1).addResultado(resultadoPernas);
-        GestaoUtentes.getInstance().getListaConsultas().get(1).addResultado(resultadoForça);
-        GestaoUtentes.getInstance().getListaConsultas().get(1).addResultado(resultadoFinal);
+        consulta.addResultado(resultadoTorso);
+        consulta.addResultado(resultadoBracos);
+        consulta.addResultado(resultadoPernas);
+        consulta.addResultado(resultadoForça);
+        consulta.addResultado(resultadoFinal);
 
+
+        if(consulta.getPessoa()!=null) {
+            consulta.getPessoa().addConsulta(consulta);
+        }
+        Intent intent= new Intent(this,ActivityResultado.class);
+        intent.putExtra("consulta",consulta);
+        startActivity(intent);
     }
 
     private void sendEmail(View view){

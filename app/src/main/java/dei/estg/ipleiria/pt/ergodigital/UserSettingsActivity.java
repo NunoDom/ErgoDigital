@@ -1,13 +1,12 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserSettingsActivity extends AppCompatActivity {
 
@@ -17,15 +16,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_settings);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //carregarDados();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        carregarDados();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -35,20 +26,35 @@ public class UserSettingsActivity extends AppCompatActivity {
 
     private void carregarDados()
     {
-        SharedPreferences sharedPref = UserSettingsActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("dados", 0);;
         String mailPref = sharedPref.getString("mail", "");
         String nomePref = sharedPref.getString("nomeUtilizador", "");
 
-        if(mailPref.equals("") || nomePref.equals("")){
+        if(!(mailPref.equals("") && nomePref.equals(""))){
+            ((TextView)findViewById(R.id.textViewUserSettingNome)).setText(nomePref);
+            ((TextView)findViewById(R.id.textViewUserSettingMail)).setText(mailPref);
+            }
 
 
-            Bundle extras = getIntent().getExtras();
-            String mail = extras.getString("mail");
-            String nomeUtilizador = extras.getString("nomeUtilizador");
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("mail", mail);
-            editor.putString("mail", nomeUtilizador);
-            editor.commit();
-        }
+    }
+
+
+    public void clickGuardar(View view)
+    {
+/*
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        SharedPreferences.Editor editor2 = mPrefs.edit();
+        editor2.putString("test", "yes");
+        editor2.commit();*/
+
+        SharedPreferences sharedPref = getSharedPreferences("dados", 0);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        String mail = ((TextView)findViewById(R.id.textViewUserSettingMail)).getText().toString();
+        String nomeUtilizador = ((TextView)findViewById(R.id.textViewUserSettingNome)).getText().toString();
+        editor.putString("mail", mail);
+        editor.putString("nomeUtilizador", nomeUtilizador);
+        editor.commit();
+        Toast.makeText(this,"Dados gravados com sucesso",Toast.LENGTH_SHORT).show();
+        finish();
     }
 }

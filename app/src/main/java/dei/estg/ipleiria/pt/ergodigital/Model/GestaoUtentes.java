@@ -44,7 +44,7 @@ private ArrayList<Pessoa> listaPessoas;
 
     public void addConsultas() {
 
-        Consulta consulta = new Consulta(1);
+        Consulta consulta = new Consulta();
         Resultado resultado= new Resultado("OWAS","avaliacaoTeste");
         consulta.addResultado(resultado);
 
@@ -52,8 +52,8 @@ listaConsultas.add(consulta);
     }
 
 
-    public boolean addConsulta(int id){
-        Consulta consulta = new Consulta(id);
+    public boolean addConsulta(){
+        Consulta consulta = new Consulta();
         listaConsultas.add(consulta);
         return true;
     }

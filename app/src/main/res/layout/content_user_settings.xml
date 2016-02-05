@@ -34,7 +34,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/textViewUserSettingNome"
             android:layout_weight="0.65" />
     </LinearLayout>
 
@@ -54,7 +54,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/textViewUserSettingMail"
             android:layout_weight="0.65"
             android:inputType="textEmailAddress" />
 
@@ -69,7 +69,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button16" />
+            android:text="Guardar"
+            android:id="@+id/button16"
+            android:onClick="clickGuardar" />
     </LinearLayout>
 </LinearLayout>

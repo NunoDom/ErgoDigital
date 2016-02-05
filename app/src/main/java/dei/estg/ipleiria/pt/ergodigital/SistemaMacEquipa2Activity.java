@@ -7,8 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+
 public class SistemaMacEquipa2Activity extends AppCompatActivity {
 
+    Consulta consulta;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,11 @@ public class SistemaMacEquipa2Activity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
 
+
+    if (getIntent().hasExtra("consulta")) {
+        Bundle extras = getIntent().getExtras();
+        consulta = (Consulta)extras.getSerializable("consulta");
+    }
+}
 }
