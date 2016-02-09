@@ -34,6 +34,7 @@ public class ActivityResultado extends AppCompatActivity {
         //instanciar lists e variaveis
         consultas = new ArrayList<>();
 
+
         //verifica o extra que recebe no intent
 
         Intent intent =getIntent();
@@ -66,12 +67,14 @@ public class ActivityResultado extends AppCompatActivity {
     @Override
     protected void onPause() {
         //Intent intent= new Intent(this,MainActivity.class);
-       //startActivity(intent);
+       finish();
         super.onPause();
     }
 
     private void updateAdaptador(int id) {
+
         ListView listView = (ListView) findViewById(R.id.listViewResultados);
+        listView.setAdapter(null);
         ArrayAdapter<?> adapter = null;
         switch(id){
 
