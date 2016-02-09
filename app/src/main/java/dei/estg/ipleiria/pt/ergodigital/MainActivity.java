@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 
 public class MainActivity extends AppCompatActivity {
@@ -96,6 +95,13 @@ private void configuracoesUtilizador()
             Intent intent = new Intent(this,UserSettingsActivity.class);
             startActivity(intent);
             return true;
+       }else
+       {
+           if (id == R.id.action_userSettings) {
+               Intent intent = new Intent(this,UserSettingsActivity.class);
+               startActivity(intent);
+               return true;
+           }
        }
 
         return super.onOptionsItemSelected(item);
@@ -120,8 +126,8 @@ private void configuracoesUtilizador()
 
     public void callAvaliacaoSRegisto(View view) {
 
-        Intent intent = new Intent(this, EscolhaAvaliacoesActivity.class);
-        intent.putExtra("consulta",new Consulta());
+        //Intent intent = new Intent(this, EscolhaAvaliacoesActivity.class);
+        Intent intent = new Intent(this, DadosConsultaActivity.class);
         startActivity(intent);
     }
 

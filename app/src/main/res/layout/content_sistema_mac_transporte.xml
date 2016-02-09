@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/imagemGraficoTransporte"
                     android:layout_weight="0.2"
-                    android:src="@drawable/ic_no_image_rec"
+                    android:src="@drawable/ic_mac_graf_transporte"
                     android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
@@ -119,28 +119,28 @@
                 android:id="@+id/rgGamTransporteDistanciaMaos" >
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos1"
                     android:id="@+id/rbGamTransporteDistanciaMaos1" />
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos2"
                     android:id="@+id/rbGamTransporteDistanciaMaos2" />
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos3"
                     android:id="@+id/rbGamTransporteDistanciaMaos3" />
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos4"

@@ -2,13 +2,14 @@ package dei.estg.ipleiria.pt.ergodigital;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,6 +76,36 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
         rbKimEmpurarCondicaoTrabalho4= (RadioButton)findViewById(R.id.rbKimEmpurarCondicaoTrabalho4);
 
 
+
+
+        RadioGroup rgKimEmpurarPosicaoTrabalho = (RadioGroup)findViewById(R.id.rgKimEmpurarPosicaoTrabalho);
+
+        rgKimEmpurarPosicaoTrabalho.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            ImageView image = (ImageView)findViewById(R.id.iv_kim_empurar_posicao);
+
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int p1 = rbKimEmpurarPosicaoTrabalho1.getId();
+                int p2 = rbKimEmpurarPosicaoTrabalho2.getId();
+                int p3 = rbKimEmpurarPosicaoTrabalho3.getId();
+                int p4 = rbKimEmpurarPosicaoTrabalho4.getId();
+
+                if (checkedId == p1) {
+                    image.setImageResource(R.drawable.ic_kim_ep_1);
+                }
+                if (checkedId == p2) {
+                    image.setImageResource(R.drawable.ic_kim_ep_2);
+                }
+                if (checkedId == p3) {
+                    image.setImageResource(R.drawable.ic_kim_ep_3);
+                }
+                if (checkedId == p4) {
+                    image.setImageResource(R.drawable.ic_kim_ep_4);
+                }
+
+            }
+        });
 
         cbKimEmpurarTipoOperacao.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

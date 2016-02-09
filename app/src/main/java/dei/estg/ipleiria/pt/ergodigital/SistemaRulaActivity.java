@@ -1,6 +1,8 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,11 +12,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaRULA;
 
@@ -26,6 +30,7 @@ public class SistemaRulaActivity extends AppCompatActivity {
     Spinner spinner3;
     Spinner spinner4;
     Spinner spinner5;
+    static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +39,12 @@ public class SistemaRulaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        spinner5 = (Spinner) findViewById(R.id.cbRulaLado);
 
-        if (getIntent().hasExtra("consulta")) {
-            Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
-        }else
-        {
-         consulta= new Consulta();
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        int idConsulta = mPrefs.getInt("idConsulta", -1);
+
+        if (idConsulta>0){
+            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
         }
 
 
@@ -50,8 +53,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 click(view);
-                //Intent intent = new Intent(SistemaRulaActivity.this,Pop.class);
-                //startActivity(intent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -69,7 +70,6 @@ public class SistemaRulaActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 controlCheckBoxBraco(position);
                 actualizarImagens();
-
 
             }
 
@@ -120,12 +120,24 @@ public class SistemaRulaActivity extends AppCompatActivity {
         spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                LinearLayout layoutRula1Activity = (LinearLayout) findViewById(R.id.layoutRula1Activity);
+                if (position == 0)//SE NÃO HOUVER ESCOLHA DO LADO NÃO APARECE OS RESTO DOS DADOS PARA PRENCHIMENTO
+                {
+                    layoutRula1Activity.setVisibility(View.GONE);
+                }else//position > 0)//SE HOUVER A ESCOLHA DE UM LADO
+                {
+                    layoutRula1Activity.setVisibility(View.VISIBLE);
 
-                TextView spinnerText = (TextView) parent.getChildAt(0);
-                spinnerText.setTextColor(Color.BLACK);
-                spinner5.setFocusable(false);
-                spinner5.setFocusableInTouchMode(false);
-                spinner5.clearFocus();
+                    if (spinner5.isFocused()) {
+                        TextView spinnerText = (TextView) parent.getChildAt(0);
+                        spinnerText.setTextColor(Color.BLACK);
+                        spinner5.setFocusable(false);
+                        spinner5.setFocusableInTouchMode(false);
+                        spinner5.clearFocus();
+
+                    }
+
+               }
                 actualizarImagens();
             }
 
@@ -136,7 +148,9 @@ public class SistemaRulaActivity extends AppCompatActivity {
         });
 
     }
-private void controlCheckBoxBraco(int posicao)
+
+
+    private void controlCheckBoxBraco(int posicao)
     {
         CheckBox ch1= (CheckBox) findViewById(R.id.chckboxRulaBraco1);
         CheckBox ch2= (CheckBox) findViewById(R.id.chckboxRulaBraco2);
@@ -166,57 +180,31 @@ private void controlCheckBoxBraco(int posicao)
         ImageView imageAntebraco = (ImageView)findViewById(R.id.ivRULAantebraco);
         ImageView imagePunho =(ImageView)findViewById(R.id.ivRULApunho);
 
-
-        //Spinner spinner1= (Spinner)findViewById(R.id.cbRULAbraco);
-        //Spinner spinner2= (Spinner)findViewById(R.id.cbRULAantebraco);
-        //Spinner spinner3= (Spinner)findViewById(R.id.cbRulaPunho);
-        //Spinner spinner4= (Spinner)findViewById(R.id.cbRULA_giroPunho);
-        //Spinner spinner5= (Spinner)findViewById(R.id.cbRulaLado);
-
         int braco = spinner1.getSelectedItemPosition()+1;
         int antebraco = spinner2.getSelectedItemPosition()+1;
         int punho = spinner3.getSelectedItemPosition()+1;
-        int giro = spinner4.getSelectedItemPosition()+1;
         int lado = spinner5.getSelectedItemPosition();
 
+        if (lado==1) {
 
+            switch (braco) {
+                case 1:
+                    imageBraco.setImageResource(R.drawable.ic_rula_rua1);
+                    break;
+                case 2:
+                    imageBraco.setImageResource(R.drawable.ic_rula_rua2);
+                    break;
+                case 3:
+                    imageBraco.setImageResource(R.drawable.ic_rula_rua3);
+                    break;
+                case 4:
+                    imageBraco.setImageResource(R.drawable.ic_rula_rua4);
+                    break;
+                case 5:
+                    imageBraco.setImageResource(R.drawable.ic_rula_rua5);
+                    break;
 
-        if (lado==1){
-                    switch (braco) {
-                        case 1:
-                            imageBraco.setImageResource(R.drawable.ic_rula_rua1);
-                            //ch1.setEnabled(true);
-                            //ch2.setEnabled(false);
-                            //ch3.setEnabled(false);
-                            break;
-                        case 2:
-                            imageBraco.setImageResource(R.drawable.ic_rula_rua2);
-                            //ch1.setEnabled(true);
-                            //ch2.setEnabled(true);
-                            //ch3.setEnabled(true);
-                            break;
-                        case 3:
-                            imageBraco.setImageResource(R.drawable.ic_rula_rua3);
-                            //ch1.setEnabled(true);
-                            //ch2.setEnabled(true);
-                            //ch3.setEnabled(true);
-                            break;
-                        case 4:
-                            imageBraco.setImageResource(R.drawable.ic_rula_rua4);
-                            //ch1.setEnabled(true);
-                            //ch2.setEnabled(true);
-                            //ch3.setEnabled(true);
-                            break;
-                        case 5:
-                            imageBraco.setImageResource(R.drawable.ic_rula_rua5);
-                            //ch1.setEnabled(true);
-                            //ch2.setEnabled(true);
-                            //ch3.setEnabled(true);
-                            break;
-
-                    }
-
-
+            }
 
 
             switch (antebraco) {
@@ -239,10 +227,7 @@ private void controlCheckBoxBraco(int posicao)
                     imagePunho.setImageResource(R.drawable.ic_rula_rw2);
                     break;
                 case 3:
-                    imagePunho.setImageResource(R.drawable.ic_rula_rw4);
-                    break;
-                case 4:
-                    imagePunho.setImageResource(R.drawable.ic_rula_rw4);
+                    imagePunho.setImageResource(R.drawable.ic_rula_rw3);
                     break;
 
             }
@@ -303,17 +288,12 @@ private void controlCheckBoxBraco(int posicao)
             int resultado;
 
             TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
-            Spinner spinner1 = (Spinner) findViewById(R.id.cbRULAbraco);
-            Spinner spinner2 = (Spinner) findViewById(R.id.cbRULAantebraco);
-            Spinner spinner3 = (Spinner) findViewById(R.id.cbRulaPunho);
-            Spinner spinner4 = (Spinner) findViewById(R.id.cbRULA_giroPunho);
-
 
             int braco = (int) spinner1.getSelectedItemId() + 1;
             int antebraco = (int) spinner2.getSelectedItemId() + 1;
             int punho = (int) spinner3.getSelectedItemId() + 1;
             int giro = (int) spinner4.getSelectedItemId() + 1;
-            int lado = (int) spinner5.getSelectedItemId() - 1;
+            //int lado = (int) spinner5.getSelectedItemId() - 1;
 
 
             if (braco > 0 && antebraco > 0 && punho > 0 && giro > 0) {
@@ -351,28 +331,35 @@ private void controlCheckBoxBraco(int posicao)
                     Resultado resultadoPunho = new Resultado("Punho: ",+punho+"- "+spinner3.getSelectedItem().toString());
                     Resultado resultadoGiro = new Resultado("Rotação do punho: ",+giro+"- "+spinner4.getSelectedItem().toString());
 
-                    consulta.setFerramenta("RULA");
-                    consulta.addResultado(resultadoLado);
-                    consulta.addResultado(resultadoBraco);
-                    consulta.addResultado(resultadoAntebraco);
-                    consulta.addResultado(resultadoPunho);
-                    consulta.addResultado(resultadoGiro);
+                    Resultado[] avaliacao = new Resultado[11];
+
+                    //consulta.setFerramenta("RULA");
+                   // consulta.addResultado(resultadoLado);
+                    //consulta.addResultado(resultadoBraco);
+                    //consulta.addResultado(resultadoAntebraco);
+                   // consulta.addResultado(resultadoPunho);
+                    //consulta.addResultado(resultadoGiro);
+
+                    avaliacao[0]=resultadoLado;
+                    avaliacao[1]=resultadoBraco;
+                    avaliacao[2]=resultadoAntebraco;
+                    avaliacao[3]=resultadoPunho;
+                    avaliacao[4]=resultadoGiro;
 
 
-                    if(consulta.getPessoa()!=null) {
+                   // if(consulta.getPessoa()!=null) {
 
-                        consulta.getPessoa().addConsulta(consulta);
-                    }
+                    //    consulta.getPessoa().addConsulta(consulta);
+                  //  }
                     Intent intent= new Intent(this,SistemaRulaActivity2.class);
-                    intent.putExtra("consulta", consulta);
+                    intent.putExtra("avaliacao", avaliacao);
                    // startActivity(intent);
 
                     resultado = tab.devolveTabelaA(braco, antebraco, punho, giro);
                     //Intent intent = new Intent(this, SistemaRulaActivity2.class);
                     //intent.putExtra("Lado", lado);
                     intent.putExtra("ResultadoA", resultado);
-                    startActivity(intent);
-                    //finish();
+                    startActivityForResult(intent, 1);
 
                 } else {
                     Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();
@@ -387,8 +374,6 @@ private void controlCheckBoxBraco(int posicao)
 
         }
     }
-
-
 
     public boolean verificaCampos()
     {
@@ -407,6 +392,17 @@ private void controlCheckBoxBraco(int posicao)
 
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent returnIntent = new Intent();
+                setResult(AvaliacaoPosturalActivity.RESULT_OK, returnIntent);
+                finish();
+            }
+        }
+    }
 
     public void OnClickChckboxBraco1(View view) {
         CheckBox ch2= (CheckBox) findViewById(R.id.chckboxRulaBraco2);

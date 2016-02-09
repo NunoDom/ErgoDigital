@@ -18,14 +18,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,6 +34,7 @@
             android:name=".ListaPessoasActivity"
             android:label="@string/title_activity_lista_pessoas"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -42,6 +44,7 @@
             android:name=".AvaliacaoPosturalActivity"
             android:label="@string/title_activity_avaliacao_postural"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -51,6 +54,7 @@
             android:name=".SistemaRulaActivity"
             android:label="@string/title_activity_sistema_rula"
             android:parentActivityName=".AvaliacaoPosturalActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -60,6 +64,7 @@
             android:name=".SistemaOwasActivity"
             android:label="@string/title_activity_sistema_owas"
             android:parentActivityName=".AvaliacaoPosturalActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -73,6 +78,7 @@
             android:name=".SistemaRebaActivity"
             android:label="@string/title_activity_sistema_reba"
             android:parentActivityName=".AvaliacaoPosturalActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -81,6 +87,7 @@
         <activity
             android:name=".SistemaRebaActivity2"
             android:label="@string/title_activity_sistema_reba2"
+            android:screenOrientation="portrait"
             android:parentActivityName=".SistemaRebaActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -90,6 +97,7 @@
         <activity
             android:name=".SistemaRulaActivity2"
             android:label="@string/title_activity_sistema_rula2"
+            android:screenOrientation="portrait"
             android:parentActivityName=".SistemaRulaActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -99,6 +107,7 @@
         <activity
             android:name=".SistemaRulaActivity3"
             android:label="@string/title_activity_sistema_rula3"
+            android:screenOrientation="portrait"
             android:parentActivityName=".SistemaRulaActivity2"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -108,6 +117,7 @@
         <activity
             android:name=".ActivityResultado"
             android:label="@string/title_activity_rula_activity_result"
+            android:screenOrientation="portrait"
             android:parentActivityName=".SistemaRulaActivity3"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -117,6 +127,7 @@
         <activity
             android:name=".MovimentacaoDeCargasActivity"
             android:label="@string/title_activity_movimentacao_de_cargas"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -126,6 +137,7 @@
         <activity
             android:name=".SistemaKimLevantarActivity"
             android:label="@string/title_activity_sistema_kim"
+            android:screenOrientation="portrait"
             android:parentActivityName=".SistemaKimMainActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -135,6 +147,7 @@
         <activity
             android:name=".SistemaMacElevacaoActivity"
             android:label="@string/title_activity_sistema_mac"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MovimentacaoDeCargasActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -144,6 +157,7 @@
         <activity
             android:name=".SistemaKimMainActivity"
             android:label="@string/title_activity_sistema_kim_escolha"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MovimentacaoDeCargasActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
@@ -153,12 +167,14 @@
         <activity
             android:name=".SistemaMacMainActivity"
             android:label="@string/title_activity_sistema_mac_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".SistemaKimEmpurrarActivity"
             android:label="@string/title_activity_sistema_kim_empurrar"
             android:parentActivityName=".SistemaKimMainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -168,6 +184,7 @@
             android:name=".SistemaMacTransporteActivity"
             android:label="@string/title_activity_sistema_mac_transporte"
             android:parentActivityName=".SistemaMacMainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -177,6 +194,7 @@
             android:name=".SistemaMacEquipaActivity"
             android:label="@string/title_activity_sistema_mac_equipa"
             android:parentActivityName=".SistemaMacMainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -186,6 +204,7 @@
             android:name=".SistemaMacElevacao2Activity"
             android:label="@string/title_activity_sistema_mac_elevacao2"
             android:parentActivityName=".SistemaMacElevacaoActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -195,6 +214,7 @@
             android:name=".SistemaMacElevacao3Activity"
             android:label="@string/title_activity_sistema_mac_elevancao3"
             android:parentActivityName=".SistemaMacElevacao2Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -204,6 +224,7 @@
             android:name=".SistemaMacTransporte3Activity"
             android:label="@string/title_activity_sistema_mac_transporte3"
             android:parentActivityName=".SistemaMacTransporte2Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -222,6 +243,7 @@
             android:name=".SistemaMacEquipa3Activity"
             android:label="@string/title_activity_sistema_mac_equipa3"
             android:parentActivityName=".SistemaMacEquipa2Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -231,6 +253,7 @@
             android:name=".SistemaMacTransporte2Activity"
             android:label="@string/title_activity_sistema_mac_transporte2"
             android:parentActivityName=".SistemaMacTransporteActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -240,6 +263,7 @@
             android:name=".SistemaMacElevacaoResultActivity"
             android:label="@string/title_activity_sistema_mac_elevacao_result"
             android:parentActivityName=".SistemaMacElevacao3Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -249,6 +273,7 @@
             android:name=".UserSettingsActivity"
             android:label="@string/title_activity_user_settings"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -258,6 +283,7 @@
             android:name=".EscolhaAvaliacoesActivity"
             android:label="@string/title_activity_escolha_avaliacoes"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -267,6 +293,7 @@
             android:name=".DadosUtenteActivity"
             android:label="@string/title_activity_dados_utente"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -275,11 +302,17 @@
         <activity
             android:name=".DadosConsultaActivity"
             android:label="@string/title_activity_dados_consulta"
+            android:screenOrientation="portrait"
             android:parentActivityName=".DadosUtenteActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dei.estg.ipleiria.pt.ergodigital.DadosUtenteActivity" />
+        </activity>
+        <activity
+            android:name=".SobreActivity"
+            android:label="@string/title_activity_sobre"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 

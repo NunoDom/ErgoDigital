@@ -1,5 +1,6 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,13 +13,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaRULA;
 
 public class SistemaRulaActivity2 extends AppCompatActivity {
 
-    Consulta consulta;
+    Resultado[] avaliacao;
     int ResultadoA;
     int Lado;
     int ResultadoB;
@@ -31,9 +31,9 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        if ((getIntent().hasExtra("consulta"))&&(getIntent().hasExtra("ResultadoA"))) {
+        if ((getIntent().hasExtra("avaliacao"))&&(getIntent().hasExtra("ResultadoA"))) {
             Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
+            avaliacao = (Resultado[])extras.getSerializable("avaliacao");
             ResultadoA=extras.getInt("ResultadoA");
         }else{
             Toast.makeText(getApplicationContext(), "ERRO: 201", Toast.LENGTH_SHORT).show();
@@ -44,7 +44,9 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 actualizaResultados();
+                //sair();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -113,8 +115,43 @@ public class SistemaRulaActivity2 extends AppCompatActivity {
 
     }
 
+private void sair()
+{
+    //Intent intent = this.getIntent();
+    //intent.putExtra("SOMETHING", "EXTRAS");
+    //this.setResult(RESULT_OK, intent);
+    finish();
+}
 
-public void actualizaResultados()
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent returnIntent = new Intent();
+                setResult(SistemaRulaActivity.RESULT_OK, returnIntent);
+                finish();
+            }
+        }
+
+
+
+    }
+
+    @Override
+    protected void onPause() {
+      //  Intent intent = this.getIntent();
+        //intent.putExtra("SOMETHING", "EXTRAS");
+      //  this.setResult(1, intent);
+        //finish();
+
+      //  Toast.makeText(this,"ON PAUSE",Toast.LENGTH_SHORT).show();
+
+        super.onPause();
+        //Toast.makeText(this,"2",Toast.LENGTH_SHORT).show();
+    }
+
+    public void actualizaResultados()
 {   TabelaReferenciaRULA tab = new TabelaReferenciaRULA();
     Spinner spinner1 = (Spinner) findViewById(R.id.cbRulaPescoco);
     Spinner spinner2 = (Spinner) findViewById(R.id.cbRulaTronco);
@@ -147,26 +184,25 @@ public void actualizaResultados()
         tronco+=1;
     }
 
-    Toast.makeText(getApplicationContext(), "Pescoco : "+pescoco, Toast.LENGTH_SHORT).show();
-    Toast.makeText(getApplicationContext(), "Tronco : "+tronco, Toast.LENGTH_SHORT).show();
-    Toast.makeText(getApplicationContext(), "Pernas : "+pernas, Toast.LENGTH_SHORT).show();
+    //Toast.makeText(getApplicationContext(), "Pescoco : "+pescoco, Toast.LENGTH_SHORT).show();
+    //Toast.makeText(getApplicationContext(), "Tronco : "+tronco, Toast.LENGTH_SHORT).show();
+    //Toast.makeText(getApplicationContext(), "Pernas : "+pernas, Toast.LENGTH_SHORT).show();
     ResultadoB=tab.devolveTabelaB(pescoco,tronco,pernas);
 
 
-    Resultado resultadoPescoco = new Resultado("Pescoco: ", spinner1.getSelectedItem().toString()+"");
+    Resultado resultadoPescoco = new Resultado("Pescoco: ",pescoco+"- "+ spinner1.getSelectedItem().toString()+"");
     Resultado resultadoTronco= new Resultado("Tronco: ",tronco+"- "+spinner2.getSelectedItem().toString());
     Resultado resultadoPernas = new Resultado("Pernas: ",pernas+"- "+spinner3.getSelectedItem().toString());
 
-    consulta.addResultado(resultadoPescoco);
-    consulta.addResultado(resultadoTronco);
-    consulta.addResultado(resultadoPernas);
+    avaliacao[5]=resultadoPescoco;
+    avaliacao[6]=resultadoTronco;
+    avaliacao[7]=resultadoPernas;
 
     Intent intent = new Intent(SistemaRulaActivity2.this, SistemaRulaActivity3.class);
-    intent.putExtra("consulta",consulta);
+    intent.putExtra("avaliacao",avaliacao);
     intent.putExtra("ResultadoA",ResultadoA);
     intent.putExtra("ResultadoB", ResultadoB);
-    intent.putExtra("Lado", Lado);
-    startActivity(intent);
+    startActivityForResult(intent, 1);
 
 
 

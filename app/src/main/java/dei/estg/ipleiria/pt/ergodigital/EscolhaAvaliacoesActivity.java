@@ -1,9 +1,8 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -20,36 +19,31 @@ public class EscolhaAvaliacoesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().hasExtra("consulta")) {
-            Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
-        }
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                finish();
+            }
+        }
+    }
 
     public void callAPActivity(View view) {
 
         Intent intent = new Intent(this, AvaliacaoPosturalActivity.class);
-        intent.putExtra("consulta",consulta);
-        startActivity(intent);
+        //intent.putExtra("consulta",consulta);
+        startActivityForResult(intent,1);
 
     }
 
     public void callMCActivity(View view) {
 
         Intent intent = new Intent(this, MovimentacaoDeCargasActivity.class);
-        intent.putExtra("consulta",consulta);
-        startActivity(intent);
+        //intent.putExtra("consulta",consulta);
+        startActivityForResult(intent,1);
 
 
     }

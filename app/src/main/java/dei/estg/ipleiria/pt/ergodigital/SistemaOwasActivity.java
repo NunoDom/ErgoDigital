@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
 import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaOWAS;
 
@@ -58,9 +59,16 @@ public class SistemaOwasActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        if (getIntent().hasExtra("consulta")) {
-            Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
+        //if (getIntent().hasExtra("consulta")) {
+        //    Bundle extras = getIntent().getExtras();
+        //    consulta = (Consulta)extras.getSerializable("consulta");
+       // }
+
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        int idConsulta = mPrefs.getInt("idConsulta", -1);
+
+        if (idConsulta>0){
+            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -91,16 +99,16 @@ public class SistemaOwasActivity extends AppCompatActivity {
                 ImageView image = (ImageView)findViewById(R.id.ivTorso);
                 switch (torso) {
                     case 1:
-                        image.setImageResource(R.drawable.ic_t1);
+                        image.setImageResource(R.drawable.ic_owas_t1);
                         break;
                     case 2:
-                        image.setImageResource(R.drawable.ic_t2);
+                        image.setImageResource(R.drawable.ic_owas_t2);
                         break;
                     case 3:
-                        image.setImageResource(R.drawable.ic_t3);
+                        image.setImageResource(R.drawable.ic_owas_t3);
                         break;
                     case 4:
-                        image.setImageResource(R.drawable.ic_t4);
+                        image.setImageResource(R.drawable.ic_owas_t4);
                         break;
                 }
             }
@@ -121,13 +129,13 @@ public class SistemaOwasActivity extends AppCompatActivity {
                 ImageView image = (ImageView) findViewById(R.id.ivBracos);
                 switch (bracos) {
                     case 1:
-                        image.setImageResource(R.drawable.ic_b1);
+                        image.setImageResource(R.drawable.ic_owas_b1);
                         break;
                     case 2:
-                        image.setImageResource(R.drawable.ic_b2);
+                        image.setImageResource(R.drawable.ic_owas_b2);
                         break;
                     case 3:
-                        image.setImageResource(R.drawable.ic_b3);
+                        image.setImageResource(R.drawable.ic_owas_b3);
                         break;
                 }
 
@@ -147,25 +155,25 @@ public class SistemaOwasActivity extends AppCompatActivity {
                 ImageView image = (ImageView) findViewById(R.id.ivPernas);
                 switch (pernas) {
                     case 1:
-                        image.setImageResource(R.drawable.ic_p1);
+                        image.setImageResource(R.drawable.ic_owas_p1);
                         break;
                     case 2:
-                        image.setImageResource(R.drawable.ic_p2);
+                        image.setImageResource(R.drawable.ic_owas_p2);
                         break;
                     case 3:
-                        image.setImageResource(R.drawable.ic_p3);
+                        image.setImageResource(R.drawable.ic_owas_p3);
                         break;
                     case 4:
-                        image.setImageResource(R.drawable.ic_p4);
+                        image.setImageResource(R.drawable.ic_owas_p4);
                         break;
                     case 5:
-                        image.setImageResource(R.drawable.ic_p5);
+                        image.setImageResource(R.drawable.ic_owas_p5);
                         break;
                     case 6:
-                        image.setImageResource(R.drawable.ic_p6);
+                        image.setImageResource(R.drawable.ic_owas_p6);
                         break;
                     case 7:
-                        image.setImageResource(R.drawable.ic_p7);
+                        image.setImageResource(R.drawable.ic_owas_p7);
                         break;
                 }
             }
@@ -357,9 +365,13 @@ public void createPDF() throws IOException {
         if(consulta.getPessoa()!=null) {
             consulta.getPessoa().addConsulta(consulta);
         }
+
+
+
         Intent intent= new Intent(this,ActivityResultado.class);
         intent.putExtra("consulta",consulta);
         startActivity(intent);
+        finish();
     }
 
     private void sendEmail(View view){

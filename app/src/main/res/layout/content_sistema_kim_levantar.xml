@@ -153,6 +153,13 @@
                     android:gravity="center"
                     android:layout_gravity="left" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_kim_levantar_carga"
+                    android:src="@drawable/ic_kim_lbt_1"
+                    android:layout_gravity="center_horizontal" />
+
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"

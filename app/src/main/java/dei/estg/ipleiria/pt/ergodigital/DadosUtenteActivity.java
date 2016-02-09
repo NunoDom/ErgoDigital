@@ -2,6 +2,7 @@ package dei.estg.ipleiria.pt.ergodigital;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -264,8 +265,13 @@ public class DadosUtenteActivity extends AppCompatActivity {
 
 public void realizarAvaliacao(View view){
     Intent intent = new Intent(this, DadosConsultaActivity.class);
-    intent.putExtra("utente",pessoa);
+
+    SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+    SharedPreferences.Editor editor = mPrefs.edit();
+    editor.putInt("idUtente", pessoa.getId());
+    editor.commit();
     startActivity(intent);
+    finish();
 
 }
 

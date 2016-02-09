@@ -135,9 +135,6 @@ public class Consulta implements Serializable{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("ID: "+id);
-        for (Resultado value : listaResultados) {
-            sb.append(value);
-        }
         return sb.toString();
     }
 

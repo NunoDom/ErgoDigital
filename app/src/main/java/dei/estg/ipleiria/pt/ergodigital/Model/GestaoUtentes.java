@@ -52,8 +52,7 @@ listaConsultas.add(consulta);
     }
 
 
-    public boolean addConsulta(){
-        Consulta consulta = new Consulta();
+    public boolean addConsulta(Consulta consulta){
         listaConsultas.add(consulta);
         return true;
     }
@@ -90,6 +89,17 @@ listaConsultas.add(consulta);
 
     public Pessoa getPessoa(int id) {
         for (Pessoa i:listaPessoas) {
+            if(i.getId()==id)
+            {
+                return i;
+            }
+        }
+        return null;
+    }
+
+
+    public Consulta getConsulta(int id) {
+        for (Consulta i:listaConsultas) {
             if(i.getId()==id)
             {
                 return i;

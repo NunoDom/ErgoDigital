@@ -181,7 +181,7 @@
     <string-array name="RebaBraco">
         <item>Extensão 20\u00B0 a Flexão 20\u00B0</item>
         <item>Extensão > 20\u00B0 ou Flexão 20\u00B0 a 45\u00B0</item>
-        <item>Flexão 45\u00B0 a 60\u00B0</item>
+        <item>Flexão 45\u00B0 a 90\u00B0</item>
         <item>Flexão > 90\u00B0</item>
     </string-array>
     <string-array name="RebaAntebraco">
@@ -517,6 +517,8 @@ PASSO 1
 
 
 
+<string name="sobre"> ErgoDigital é uma aplicação para avaliação ergonómica desenvolvida no âmbito do projecto final de curso de informática para a saúde.
+\nDesenvolvida por:\nNuno Domingues e\n Tiago Pinto,\n\ncom o apoio dos Exmos. Orientadores:\nDoutora Rita Ascenso\nDoutora Eunice Oliveira\nDoutor Henrique Almeida.\n\nAgredecimentos especiais à\n Doutora Catarina Reis,\n\ne ao colega Ivan Dunets</string>
 
 
 
@@ -525,7 +527,7 @@ PASSO 1
     <string name="title_activity_sistema_reba2">Sistema Reba</string>
     <string name="title_activity_sistema_rula2">Sistema Rula</string>
     <string name="title_activity_sistema_rula3">Sistema Rula</string>
-    <string name="title_activity_rula_activity_result">Rula Resultado</string>
+    <string name="title_activity_rula_activity_result">Kim Resultado</string>
     <string name="title_activity_movimentacao_de_cargas">Movimentacao de Cargas</string>
     <string name="title_activity_sistema_kim">Sistema Kim</string>
     <string name="title_activity_sistema_mac">Sistema Mac</string>
@@ -547,5 +549,6 @@ PASSO 1
     <string name="title_activity_escolha_avaliacoes">Ferramentas de Avaliacoes</string>
     <string name="title_activity_dados_utente">Ficha de Utente</string>
     <string name="title_activity_dados_consulta">DadosConsultaActivity</string>
+    <string name="title_activity_sobre">Sobre</string>
 
 </resources>

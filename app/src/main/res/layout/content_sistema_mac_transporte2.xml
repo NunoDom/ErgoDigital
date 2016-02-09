@@ -45,7 +45,7 @@
                     android:id="@+id/rgGamTransporteVertical" >
 
                     <RadioButton
-                        android:drawableLeft="@drawable/ic_no_image_rec"
+                        android:drawableLeft="@drawable/ic_mac_ot1"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/rbGamTransporteVertical1"
@@ -53,14 +53,14 @@
                         android:text="@string/GamElevacaoVertical1" />
 
                     <RadioButton
-                        android:drawableLeft="@drawable/ic_no_image_rec"
+                        android:drawableLeft="@drawable/ic_mac_ot2"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/GamElevacaoVertical2"
                         android:id="@+id/rbGamTransporteVertical2" />
 
                     <RadioButton
-                        android:drawableLeft="@drawable/ic_no_image_rec"
+                        android:drawableLeft="@drawable/ic_mac_ot3"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/GamElevacaoVertical3"

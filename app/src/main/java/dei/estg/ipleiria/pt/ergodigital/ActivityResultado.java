@@ -1,12 +1,11 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -27,17 +26,13 @@ public class ActivityResultado extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putInt("idUtente", -1);
+        editor.commit();
 
         //instanciar lists e variaveis
         consultas = new ArrayList<>();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-
 
         //verifica o extra que recebe no intent
 
@@ -70,8 +65,8 @@ public class ActivityResultado extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        Intent intent= new Intent(this,MainActivity.class);
-        startActivity(intent);
+        //Intent intent= new Intent(this,MainActivity.class);
+       //startActivity(intent);
         super.onPause();
     }
 
@@ -87,11 +82,11 @@ public class ActivityResultado extends AppCompatActivity {
                 break;
 
             case 2://ADAPTADOR RESULTADO DA AVALIZACAO, RECEBE UMA CONSULTA E MOSTRA TODOS OS RESULTADOS
-
+                ArrayAdapter<?> adapter2 = null;
                 ArrayList<Resultado> resultados = new ArrayList<>();
                 resultados = consulta.getListaResultados();
-                adapter = new ArrayAdapter<>(ActivityResultado.this, android.R.layout.simple_list_item_1, resultados);
-                listView.setAdapter(adapter);
+                adapter2 = new ArrayAdapter<Resultado>(ActivityResultado.this, android.R.layout.simple_list_item_1, resultados);
+                listView.setAdapter(adapter2);
                 break;
 
 

@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -129,18 +130,25 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
 
 
         spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            ImageView image = (ImageView)findViewById(R.id.iv_kim_levantar_carga);
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 1:
+                        image.setImageResource(R.drawable.ic_kim_lbt_1);
                         textview2.setText(getString(R.string.KimDescricaoPosicaoTrabalho1));
                         break;
-
                     case 2:
+                        image.setImageResource(R.drawable.ic_kim_lbt_2);
                         textview2.setText(getString(R.string.KimDescricaoPosicaoTrabalho2));
                         break;
-
                     case 3:
+                        image.setImageResource(R.drawable.ic_kim_lbt_3);
+                        textview2.setText(getString(R.string.KimDescricaoPosicaoTrabalho3));
+                        break;
+                    case 4:
+                        image.setImageResource(R.drawable.ic_kim_lbt_4);
                         textview2.setText(getString(R.string.KimDescricaoPosicaoTrabalho3));
                         break;
 

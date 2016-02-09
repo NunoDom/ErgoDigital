@@ -42,7 +42,7 @@
                     android:layout_gravity="center" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/cbGamEquipaPontuacaoFrequenciaPesoNumeroPessoas"
                     android:entries="@array/GamEquipaPontuacaoFrequenciaPesoPessoas" />
@@ -63,9 +63,10 @@
                     android:layout_gravity="center" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cbGamEquipaPontuacaoFrequenciaPesoPesoCarga" />
+                    android:id="@+id/cbGamEquipaPontuacaoFrequenciaPesoPesoCarga"
+                    android:gravity="right" />
             </LinearLayout>
 
         </LinearLayout>
@@ -89,28 +90,28 @@
                 android:id="@+id/rgGamEquipaDistanciaMaos" >
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos1"
                     android:id="@+id/rbGamEquipaDistanciaMaos1" />
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos2"
                     android:id="@+id/rbGamEquipaDistanciaMaos2" />
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos3"
                     android:id="@+id/rbGamEquipaDistanciaMaos3" />
 
                 <RadioButton
-                    android:drawableLeft="@drawable/ic_no_image_rec"
+                    android:drawableLeft="@drawable/ic_mac_oe_dmrl4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoDistanciaMaos4"

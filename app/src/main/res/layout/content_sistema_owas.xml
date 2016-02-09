@@ -26,49 +26,27 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="680dp"
             android:layout_weight="0.59">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/ivTorso"
-                    android:src="@drawable/ic_t1" />
+                    android:src="@drawable/ic_owas_t1" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ivBracos"
-                    android:src="@drawable/ic_t2" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ivPernas"
-                    android:src="@drawable/ic_t3" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="654dp"
+                <LinearLayout
                     android:orientation="vertical"
-                    android:measureWithLargestChild="false"
-                    android:longClickable="false"
-                    android:weightSum="1"
-                    android:gravity="top|center_horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -86,6 +64,26 @@
                         android:entries="@array/OWAStorso"
                         android:layout_weight="0.04"
                         android:nestedScrollingEnabled="false" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivBracos"
+                    android:src="@drawable/ic_owas_b1" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -93,7 +91,6 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Braços"
                         android:id="@+id/tvBracos"
-                        android:layout_weight="0.25"
                         android:gravity="bottom" />
 
                     <Spinner
@@ -103,14 +100,33 @@
                         android:entries="@array/OWASbracos"
                         android:layout_weight="0.04"
                         android:spinnerMode="dropdown" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivPernas"
+                    android:src="@drawable/ic_owas_p1" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Pernas"
                         android:id="@+id/tvPernas"
-                        android:layout_weight="0.27"
                         android:gravity="bottom" />
 
                     <Spinner
@@ -120,23 +136,36 @@
                         android:layout_weight="0.04"
                         android:entries="@array/OWASpernas"
                         android:spinnerMode="dropdown" />
+                </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Força"
-                        android:id="@+id/tvForca"
-                        android:layout_weight="0.29"
-                        android:gravity="bottom" />
+            </LinearLayout>
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/cbForca"
-                        android:entries="@array/OWASforca"
-                        android:layout_weight="0.04"
-                        android:spinnerMode="dropdown" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Força"
+                    android:id="@+id/tvForca"
+                    android:gravity="bottom" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cbForca"
+                    android:entries="@array/OWASforca"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="0.04" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -156,8 +185,7 @@
                         android:text="Enviar Mail"
                         android:id="@+id/button17"
                         android:onClick="sendEmail" />
-
-                </RadioGroup>
+                </LinearLayout>
 
             </LinearLayout>
 
