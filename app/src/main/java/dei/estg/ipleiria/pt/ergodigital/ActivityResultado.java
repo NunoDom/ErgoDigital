@@ -71,13 +71,16 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
         switch(id)
         {
-            case 1: Consulta consultaLocal = consultas.get(position);
-                if(consultaLocal.getFerramenta().equals("MAC")){
-                    Intent intent1 = new Intent(ActivityResultado.this,SistemaMacElevacaoResultActivity.class);
-                    intent1.putExtra("consulta", consultaLocal);
-                    startActivity(intent1);
-                    finish();
+            case 1:
+                Consulta consultaLocal = consultas.get(position);
+                if(consultaLocal!= null) {
+                    if (consultaLocal.getFerramenta().equals("MAC")) {
+                        Intent intent1 = new Intent(ActivityResultado.this, SistemaMacElevacaoResultActivity.class);
+                        intent1.putExtra("consulta", consultaLocal);
+                        startActivity(intent1);
+                        finish();
 
+                    }
                 }
                 break;
         }

@@ -700,9 +700,10 @@
 
 
 <string name="sobre"> ErgoDigital é uma aplicação para avaliação ergonómica desenvolvida no âmbito do projecto final de curso de informática para a saúde.
-\nDesenvolvida por:\nNuno Domingues e\n Tiago Pinto,\n\ncom o apoio dos Exmos. Orientadores:\nDoutora Rita Ascenso\nDoutora Eunice Oliveira\nDoutor Henrique Almeida.\n\nAgredecimentos especiais à\n Doutora Catarina Reis,\n\ne ao colega Ivan Dunets</string>
+\nDesenvolvida por:\nNuno Domingues e\n Tiago Pinto,\n\ncom o apoio dos Professores:\nRita Ascenso\Eunice Oliveira\nHenrique Almeida.\n\nAgradecimentos especiais à\n Professora Catarina Reis,\n\ne ao colega Ivan Dunets</string>
 
 
+    <string name="sobre_versao">V.1.0</string>
 
 
 
