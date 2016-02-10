@@ -1,5 +1,8 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -8,16 +11,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
+import dei.estg.ipleiria.pt.ergodigital.Model.Pessoa;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 import dei.estg.ipleiria.pt.ergodigital.TabelasDeReferencia.TabelaReferenciaKIM;
 
 public class SistemaKimEmpurrarActivity extends AppCompatActivity {
 
+    int genero;
+    Consulta consulta;
     double camiaoTranporte;
     int precisaoPosicaoVelocidade;
     int pontosAvaliacaoPosicao;
@@ -26,6 +36,7 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
     double indiceGenero;
     double notaRisco;
 
+    Spinner spinnerGenero;
     Spinner cbKimEmpurarTipoOperacao;
     Spinner cbKimEmpurarEscalaTempo;
     Spinner cbKimEmpurarTipoCarga;
@@ -54,7 +65,22 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        int idConsulta = mPrefs.getInt("idConsulta", -1);
+        if (idConsulta>0){
+            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
+            int idUtente= mPrefs.getInt("idUtente", -1);
+            if(idUtente>0){
+                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(idConsulta);
+                genero=pessoa.getGenero();
+                actualizaAdapterGenero();
+            }
+        }else
+        {
+            Toast.makeText(getApplicationContext(), "ERRO 404: Consulta id not found", Toast.LENGTH_SHORT).show();
+        }
 
+        spinnerGenero =  (Spinner)findViewById(R.id.cbKimEmpurarGenero);
         cbKimEmpurarPesoCarga = (Spinner)findViewById(R.id.cbKimEmpurarPesoCarga);
         cbKimEmpurarTipoMovimentoMassa= (Spinner)findViewById(R.id.cbKimEmpurarTipoMovimentoMassa);
         cbKimEmpurarTipoOperacao= (Spinner)findViewById(R.id.cbKimEmpurarTipoOperacao);
@@ -125,7 +151,7 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
                     cbKimEmpurarEscalaTempo.setAdapter(adapter);
                 }else
                     {
-                        txtViewKimEmpurarEscalaTempoTitulo.setText("Numero de Vezes/Distancia Total");
+                        txtViewKimEmpurarEscalaTempoTitulo.setText(getString(R.string.txtViewKimEmpurarEscalaTempoTitulo));
                         cbKimEmpurarEscalaTempo.setAdapter(null);
 
                     }
@@ -198,32 +224,14 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                click_analisar(view);
-                String mensagem="";
-                if(notaRisco<10) {
-                    mensagem = "Situaçao carga baixa, improvável o aparecimento de sobrecarga física";
-
-                }
-                if(notaRisco>=10 && notaRisco<25)
-                {
-                    mensagem="Situaçao de aumento de carga, provável sobrecarga física para pessoas com menos força. Para este grupo, é util um reavaliação do local de trabalho";
-                }
-                if(notaRisco>=25 && notaRisco<50)
-                {
-                    mensagem="Situaçao de elvado aumento de carga, também provavel sobrecarga física para pessoas normais.É recomendado a reavaliação do local de trabalho";
-                }
-                if(notaRisco>=50)
-                {
-                    mensagem="Situaçao de carga elevada, é provavel o aparecimento de sobrecarga física.É necessário a reavaliação do local de trabalho";
-                }
-
-
-                Toast.makeText(SistemaKimEmpurrarActivity.this,mensagem,Toast.LENGTH_SHORT).show();
-
+                if(verificarCampos())
+                click_analisar();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+
 
     private void actualizaAdapterNumeroVezes(int position, int tipo)
     {
@@ -263,7 +271,7 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
     }
 
 
-private void click_analisar(View view) {
+private void click_analisar() {
 
 
     switch (cbKimEmpurarEscalaTempo.getSelectedItemPosition()) {
@@ -296,7 +304,7 @@ private void click_analisar(View view) {
 
         camiaoTranporte = tab.devolve(a+1,b+1);
 
-    } else {
+    } else { //deslizamento
         if (tipo == 2) {
             switch (cbKimEmpurarPesoCarga.getSelectedItemPosition()) {
                 case 0:
@@ -313,8 +321,10 @@ private void click_analisar(View view) {
     }
 
     RadioButton radioButtonPrecisaoVelocidadeMovimento1 = (RadioButton) findViewById(R.id.rbKimEmpurarPrecisaoVelocidadeMovimentoRadioButton1);
+    RadioButton radioButtonPrecisaoVelocidadeMovimento2 = (RadioButton) findViewById(R.id.rbKimEmpurarPrecisaoVelocidadeMovimentoRadioButton2);
 
     RadioButton radioButtonKimEmpurarPrecisaoPosicao1 = (RadioButton) findViewById(R.id.rbKimEmpurarPrecisaoPosicaoRadioButton1);
+    RadioButton radioButtonKimEmpurarPrecisaoPosicao2 = (RadioButton) findViewById(R.id.rbKimEmpurarPrecisaoPosicaoRadioButton2);
 
     if (radioButtonPrecisaoVelocidadeMovimento1.isChecked()) {
 
@@ -340,48 +350,56 @@ private void click_analisar(View view) {
     }
 
 
-
+    String descricaoPosicaoTrabalho="";
     if (rbKimEmpurarPosicaoTrabalho1.isChecked())
     {
+        descricaoPosicaoTrabalho=rbKimEmpurarPosicaoTrabalho1.getText().toString();
         pontosAvaliacaoPosicao=1;
     }
     if (rbKimEmpurarPosicaoTrabalho2.isChecked())
     {
+        descricaoPosicaoTrabalho=rbKimEmpurarPosicaoTrabalho2.getText().toString();
         pontosAvaliacaoPosicao=2;
     }
     if (rbKimEmpurarPosicaoTrabalho3.isChecked())
     {
+        descricaoPosicaoTrabalho=rbKimEmpurarPosicaoTrabalho3.getText().toString();
         pontosAvaliacaoPosicao=4;
     }
     if (rbKimEmpurarPosicaoTrabalho4.isChecked())
     {
+        descricaoPosicaoTrabalho=rbKimEmpurarPosicaoTrabalho4.getText().toString();
         pontosAvaliacaoPosicao=8;
     }
 
 
-
+    String descricaoCondicoesTrabalho="";
     if (rbKimEmpurarCondicaoTrabalho1.isChecked())
     {
+        descricaoCondicoesTrabalho=rbKimEmpurarCondicaoTrabalho1.getText().toString();
         pontosCondicaoTrabalho=1;
     }
     if (rbKimEmpurarCondicaoTrabalho2.isChecked())
     {
+        descricaoCondicoesTrabalho=rbKimEmpurarCondicaoTrabalho2.getText().toString();
         pontosCondicaoTrabalho=2;
     }
     if (rbKimEmpurarCondicaoTrabalho3.isChecked())
     {
+        descricaoCondicoesTrabalho=rbKimEmpurarCondicaoTrabalho3.getText().toString();
         pontosCondicaoTrabalho=4;
     }
     if (rbKimEmpurarCondicaoTrabalho4.isChecked())
     {
+        descricaoCondicoesTrabalho=rbKimEmpurarCondicaoTrabalho4.getText().toString();
         pontosCondicaoTrabalho=8;
     }
 
 
-    Spinner spinnerGenero =  (Spinner)findViewById(R.id.cbKimEmpurarGenero);
+
     if(spinnerGenero.getSelectedItemPosition()==1)
     {
-indiceGenero=1;
+        indiceGenero=1;
 
     }
     if(spinnerGenero.getSelectedItemPosition()==2)
@@ -391,15 +409,197 @@ indiceGenero=1;
 
     notaRisco = (camiaoTranporte+precisaoPosicaoVelocidade+pontosAvaliacaoPosicao+pontosCondicaoTrabalho)*pontosAvaliacaoTempo*indiceGenero;
     Toast.makeText(getApplicationContext(),"B: "+camiaoTranporte+"\nC: "+precisaoPosicaoVelocidade+"\nD "+pontosAvaliacaoPosicao+"\nE" +pontosCondicaoTrabalho+"\nx A "+pontosAvaliacaoTempo+"\nx Genero: "+indiceGenero+"\nResultado Final: "+notaRisco,Toast.LENGTH_LONG).show();
+
+
+
+
+
+    String mensagem="";
+    if(notaRisco<10) {
+        mensagem =getString(R.string.KimEmpurarResultado1);
+
+    }
+    if(notaRisco>=10 && notaRisco<25)
+    {
+        mensagem=getString(R.string.KimEmpurarResultado2);
+    }
+    if(notaRisco>=25 && notaRisco<50)
+    {
+        mensagem=getString(R.string.KimEmpurarResultado3);
+    }
+    if(notaRisco>=50)
+    {
+        mensagem=getString(R.string.KimEmpurarResultado4);
+    }
+
+
+    Toast.makeText(SistemaKimEmpurrarActivity.this,mensagem,Toast.LENGTH_SHORT).show();
+
+    TextView textViewPontuacaoTitulo = (TextView)findViewById(R.id.txtViewKimEmpurarPontuacaoTitulo);
+    TextView txtViewPontuacaoMassaTitulo = (TextView)findViewById(R.id.txtViewKimEmpurarPontuacaoMassaTitulo);
+    TextView txtViewPontucacaoPrecisaoTitulo = (TextView)findViewById(R.id.txtViewKimEmpurarPontucacaoPrecisaoTitulo);
+    TextView txtViewPosicaoTrabalhoTitulo = (TextView)findViewById(R.id.txtViewKimEmpurarPosicaoTrabalhoTitulo);
+    TextView txtViewCondicaoTrabalhoTitulo = (TextView)findViewById(R.id.txtViewKimEmpurarCondicaoTrabalhoTitulo);
+    TextView textViewTipoDeTrabalho = (TextView)findViewById(R.id.tvKimLevantarTipoDeTrabalho);
+
+
+
+    Resultado resultadoPontuacaoTempo = new Resultado(textViewPontuacaoTitulo.getText().toString()+": ",pontosAvaliacaoTempo+"- "+cbKimEmpurarEscalaTempo.getSelectedItem().toString());
+
+
+
+ String aaaa =txtViewPontuacaoMassaTitulo.getText().toString();
+
+    Resultado resultadoPontuacaoMassa = new Resultado(txtViewPontuacaoMassaTitulo.getText().toString()+": ",camiaoTranporte+"- "+cbKimEmpurarPesoCarga.getSelectedItem().toString());
+
+
+
+
+    Resultado resultadoPrecisao;
+    if(radioButtonKimEmpurarPrecisaoPosicao1.isChecked()) {
+        if(radioButtonPrecisaoVelocidadeMovimento1.isChecked()) {
+            resultadoPrecisao = new Resultado(txtViewPontucacaoPrecisaoTitulo.getText().toString() + ": ", precisaoPosicaoVelocidade + "- "+radioButtonKimEmpurarPrecisaoPosicao1.getText().toString()+" "+ radioButtonPrecisaoVelocidadeMovimento1.getText().toString());
+        }else
+        {
+            resultadoPrecisao = new Resultado(txtViewPontucacaoPrecisaoTitulo.getText().toString() + ": ", precisaoPosicaoVelocidade + "- "+radioButtonKimEmpurarPrecisaoPosicao1.getText().toString()+" "+ radioButtonPrecisaoVelocidadeMovimento2.getText().toString());
+        }
+    }else{
+
+        if(radioButtonPrecisaoVelocidadeMovimento1.isChecked()) {
+           resultadoPrecisao = new Resultado(txtViewPontucacaoPrecisaoTitulo.getText().toString() + ": ", precisaoPosicaoVelocidade + "- "+radioButtonKimEmpurarPrecisaoPosicao2.getText().toString()+" "+ radioButtonPrecisaoVelocidadeMovimento1.getText().toString());
+        }else {
+           resultadoPrecisao = new Resultado(txtViewPontucacaoPrecisaoTitulo.getText().toString() + ": ", precisaoPosicaoVelocidade + "- " + radioButtonKimEmpurarPrecisaoPosicao2.getText().toString() + " " + radioButtonPrecisaoVelocidadeMovimento2.getText().toString());
+        }
+    }
+
+    Resultado resultadoPosiçaoTrabalho = new Resultado(txtViewPosicaoTrabalhoTitulo.getText().toString()+": ",+pontosAvaliacaoPosicao+"- "+descricaoPosicaoTrabalho);
+    Resultado resultadoCondicoesTrabalho = new Resultado(txtViewCondicaoTrabalhoTitulo.getText().toString()+": ",+pontosCondicaoTrabalho+"- "+descricaoCondicoesTrabalho);
+    Resultado resultadoTotal = new Resultado(getString(R.string.ResultadoAvaliacao)+": ", notaRisco+"- "+mensagem);
+
+
+    consulta.addResultado(resultadoPontuacaoTempo);
+    consulta.addResultado(resultadoPontuacaoMassa);
+    consulta.addResultado(resultadoPrecisao);
+    consulta.addResultado(resultadoPosiçaoTrabalho);
+    consulta.addResultado(resultadoCondicoesTrabalho);
+    consulta.addResultado(resultadoTotal);
+
+    if(consulta.getPessoa()!=null) {
+        consulta.getPessoa().addConsulta(consulta);
+    }
+    consulta.setFerramenta("KIM");
+    Intent intent= new Intent(this,ActivityResultado.class);
+    intent.putExtra("consulta", consulta);
+    startActivity(intent);
+
+
+    Intent returnIntent = new Intent();
+    setResult(SistemaRebaActivity.RESULT_OK, returnIntent);
+    finish();
+
 }
 
 
 
-    //<item>Tronco direito, não torcido</item>
-    ////<item>Tronco ligeiramente dobrado para a frente ou ligeiramente torcido(puxar com um dos lados) </item>
-    //<item>Corpo baixo inclinado em direcao do movimento,dobrado ajoelhado inclinado </item>
-    //<item>Combinação de corpo inclinado e torcido </item>
+    private boolean verificarCampos() {
+
+
+        if (cbKimEmpurarTipoOperacao.getSelectedItemPosition() == 0) {
+            TextView spinnerText = (TextView)cbKimEmpurarTipoOperacao.getChildAt(0);
+            spinnerText.setTextColor(Color.RED);
+            cbKimEmpurarTipoOperacao.setFocusable(true);
+            cbKimEmpurarTipoOperacao.setFocusableInTouchMode(true);
+            cbKimEmpurarTipoOperacao.requestFocus();
+
+            return false;
+        }
+
+        if (spinnerGenero.getSelectedItemPosition() == 0) {
+            TextView tvKimEmpurarGenero = (TextView)findViewById(R.id.tvKimEmpurarGenero);
+            tvKimEmpurarGenero.setTextColor(Color.RED);
+            spinnerGenero.setFocusable(true);
+            spinnerGenero.setFocusableInTouchMode(true);
+            spinnerGenero.requestFocus();
+
+            return false;
+        }
+
+        if (cbKimEmpurarTipoMovimentoMassa.getSelectedItemPosition() == 0) {
+
+            TextView spinnerText = (TextView)cbKimEmpurarTipoMovimentoMassa.getChildAt(0);
+            spinnerText.setTextColor(Color.RED);
+            cbKimEmpurarTipoMovimentoMassa.setFocusable(true);
+            cbKimEmpurarTipoMovimentoMassa.setFocusableInTouchMode(true);
+            cbKimEmpurarTipoMovimentoMassa.requestFocus();
+
+            return false;
+        }
 
 
 
+
+
+        RadioGroup rgKimEmpurarPrecisaoVelocidadeMovimento = (RadioGroup)findViewById(R.id.rgKimEmpurarPrecisaoVelocidadeMovimento);
+
+        if (rgKimEmpurarPrecisaoVelocidadeMovimento.getCheckedRadioButtonId()< 0) {
+            TextView spinnerText = (TextView)findViewById(R.id.tvKimEmpurarVelocidadeMovimentoTitulo);
+            spinnerText.setTextColor(Color.RED);
+            spinnerText.setFocusable(true);
+            spinnerText.setFocusableInTouchMode(true);
+            spinnerText.requestFocus();
+
+            return false;
+        }
+
+        RadioGroup rgKimEmpurarPrecisaoPosicao = (RadioGroup)findViewById(R.id.rgKimEmpurarPrecisaoPosicao);
+
+        if (rgKimEmpurarPrecisaoPosicao.getCheckedRadioButtonId()< 0) {
+            TextView spinnerText = (TextView)findViewById(R.id.textViewKimEmpurarPosicaoTrabalhoTitulo);
+            spinnerText.setTextColor(Color.RED);
+            spinnerText.setFocusable(true);
+            spinnerText.setFocusableInTouchMode(true);
+            spinnerText.requestFocus();
+
+            return false;
+        }
+
+        RadioGroup rgKimEmpurarPosicaoTrabalho = (RadioGroup)findViewById(R.id.rgKimEmpurarPosicaoTrabalho);
+
+        if (rgKimEmpurarPosicaoTrabalho.getCheckedRadioButtonId()< 0) {
+            TextView spinnerText = (TextView)findViewById(R.id.txtViewKimEmpurarPosicaoTrabalhoTitulo);
+            spinnerText.setTextColor(Color.RED);
+            spinnerText.setFocusable(true);
+            spinnerText.setFocusableInTouchMode(true);
+            spinnerText.requestFocus();
+
+            return false;
+        }
+
+
+        RadioGroup  rgKimEmpurarCondicaoTrabalho = (RadioGroup)findViewById(R.id.rgKimEmpurarCondicaoTrabalho);
+
+        if (rgKimEmpurarCondicaoTrabalho.getCheckedRadioButtonId()< 0) {
+            TextView spinnerText = (TextView)findViewById(R.id.txtViewKimEmpurarCondicaoTrabalhoTitulo);
+            spinnerText.setTextColor(Color.RED);
+            spinnerText.setFocusable(true);
+            spinnerText.setFocusableInTouchMode(true);
+            spinnerText.requestFocus();
+
+            return false;
+        }
+
+        return true;
+    }
+    private void actualizaAdapterGenero() {
+        LinearLayout layout = (LinearLayout) findViewById(R.id.layoutKimEmpurarGenero);
+        if(genero>0) {
+
+            spinnerGenero.setSelection(genero);
+            layout.setVisibility(View.GONE);
+        }else
+        {
+            layout.setVisibility(View.VISIBLE);
+        }
+
+    }
 }

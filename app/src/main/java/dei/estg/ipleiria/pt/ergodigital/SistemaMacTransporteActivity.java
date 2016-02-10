@@ -1,15 +1,12 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -18,13 +15,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 
 public class SistemaMacTransporteActivity extends AppCompatActivity {
 
-    Integer resultadoA;
-    Integer resultadoB;
+    Resultado[] resultados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +30,7 @@ public class SistemaMacTransporteActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        resultados = new Resultado[11];
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,12 +38,9 @@ public class SistemaMacTransporteActivity extends AppCompatActivity {
                 if (verificaCampos(view)) {
 
                     calcularResultados(view);
-                    Toast.makeText(SistemaMacTransporteActivity.this, "Resultado A: " + resultadoA + "\nResultado B: " + resultadoB, Toast.LENGTH_LONG).show();
-
                     Intent intent = new Intent(SistemaMacTransporteActivity.this, SistemaMacTransporte2Activity.class);
-                    intent.putExtra("resultadoA", resultadoA);
-                    intent.putExtra("resultadoB", resultadoB);
-                    startActivity(intent);
+                    intent.putExtra("resultados", resultados);
+                    startActivityForResult(intent, 1);
                 }
             }
         });
@@ -65,6 +60,16 @@ public class SistemaMacTransporteActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent returnIntent = new Intent();
+                setResult(SistemaMacMainActivity.RESULT_OK, returnIntent);
+                finish();
+            }
+        }
+    }
 
     private void clickToggleButtonGrafico(Boolean estado)
     {
@@ -112,10 +117,10 @@ public class SistemaMacTransporteActivity extends AppCompatActivity {
 
         switch(spinner1.getSelectedItemPosition())
         {
-            case 0: resultadoA=0; break;
-            case 1: resultadoA=4; break;
-            case 2: resultadoA=6; break;
-            case 3: resultadoA=10; break;
+            case 0: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Green"); break;
+            case 1: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Amber"); break;
+            case 2: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Red"); break;
+            case 3: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Purple"); break;
         }
         RadioButton radioButton1 = (RadioButton) findViewById(R.id.rbGamTransporteDistanciaMaos1);
         RadioButton radioButton2 = (RadioButton) findViewById(R.id.rbGamTransporteDistanciaMaos2);
@@ -123,16 +128,16 @@ public class SistemaMacTransporteActivity extends AppCompatActivity {
         RadioButton radioButton4 = (RadioButton) findViewById(R.id.rbGamTransporteDistanciaMaos4);
 
         if (radioButton1.isChecked()) {
-            resultadoB = 0;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Green");
         }
         if (radioButton2.isChecked()) {
-            resultadoB = 3;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Amber");
         }
         if (radioButton3.isChecked()) {
-            resultadoB = 3;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Red");
         }
         if (radioButton4.isChecked()) {
-            resultadoB = 6;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoDistanciaMaosTitulo),"Purple");
         }
 
 

@@ -1,6 +1,7 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,8 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
@@ -31,6 +34,7 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
     RadioButton radioButton1;
     RadioButton radioButton2;
     RadioButton radioButton3;
+    RadioGroup rgKimLevantarCondicoesTrabalho;
     Consulta consulta;
     int genero=-1;
     @Override
@@ -41,32 +45,26 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        if (getIntent().hasExtra("idUtente")) {
-            Bundle extras = getIntent().getExtras();
-            int valor = extras.getInt("idUtente");
-            if(valor>0) {
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(extras.getInt("idUtente"));
+
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        int idConsulta = mPrefs.getInt("idConsulta", -1);
+        if (idConsulta>0){
+            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
+            int idUtente= mPrefs.getInt("idUtente", -1);
+            if(idUtente>0){
+                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(idConsulta);
                 genero=pessoa.getGenero();
                 actualizaAdapterPontuacaoCarga(genero);
             }
+        }else
+        {
+            Toast.makeText(getApplicationContext(), "ERRO 404: Consulta id not found", Toast.LENGTH_SHORT).show();
         }
 
-        if (getIntent().hasExtra("consulta")) {
-            Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
-            if (consulta.getPessoa() != null){
-                    Pessoa pessoa = consulta.getPessoa();
-                    genero=pessoa.getGenero();
-                    actualizaAdapterPontuacaoCarga(genero);
-                }
-            }
 
 
-
-
-
+        rgKimLevantarCondicoesTrabalho =(RadioGroup) findViewById(R.id.rgKimLevantarCondicoesTrabalho);
         spinner1 = (Spinner) findViewById(R.id.cbKimTipoDeTrabalho);
-
         spinner2 = (Spinner) findViewById(R.id.cbKimDuracaoRepeticao);
         spinner3 = (Spinner) findViewById(R.id.cbKimSexo);
         spinner4 = (Spinner) findViewById(R.id.cbKimLevantarPontucaoCarga);
@@ -74,9 +72,9 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
         textview1 = (TextView) findViewById(R.id.txtViewTempoActividade);
         textview2 = (TextView) findViewById(R.id.textviewDescricaoPosicaoTrabalho);
 
-        radioButton1 = (RadioButton) findViewById(R.id.radioButton);
-        radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
-        radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
+        radioButton1 = (RadioButton) findViewById(R.id.rbKimLevantarCondicoesTrabalho1);
+        radioButton2 = (RadioButton) findViewById(R.id.rbKimLevantarCondicoesTrabalho2);
+        radioButton3 = (RadioButton) findViewById(R.id.rbKimLevantarCondicoesTrabalho3);
 
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -116,6 +114,7 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
                     }
                 }else
                 {
+                    spinner3.setSelection(genero);
                     textviewGenero.setVisibility(View.GONE);
                     spinner3.setVisibility(View.GONE);
                     actualizaAdapterPontuacaoCarga(genero);
@@ -163,11 +162,26 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
         });
 
 
+        rgKimLevantarCondicoesTrabalho.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId>0) {
+                    TextView spinnerText = (TextView)findViewById(R.id.tvKimLevantarCondicoesTrabalho);
+                    spinnerText.setTextColor(Color.BLACK);
+                    spinnerText.setFocusable(false);
+                    spinnerText.setFocusableInTouchMode(false);
+                    spinnerText.clearFocus();
+                }
+            }
+        });
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                click_analisar();
+                if(verificarCampos()) {
+                    click_analisar();
+                }
             }
         });
 
@@ -223,7 +237,6 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
 
         }
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
         spinner4.setAdapter(adapter);
 
     }
@@ -322,20 +335,20 @@ resultadoFinal=(pontuacaoCarga+pontuacaoPosicao+pontuacaoCondicosTrabalho)*pontu
 
         String mensagem="";
         if(resultadoFinal<10) {
-            mensagem = "Situaçao carga baixa, improvável o aparecimento de sobrecarga física";
+            mensagem = getString(R.string.KimLevantarResultadoFinal1);
 
         }
             if(resultadoFinal>=10 && resultadoFinal<25)
             {
-                mensagem="Situaçao de aumento de carga, provável sobrecarga física para pessoas com menos força. Para este grupo, é util um reavaliação do local de trabalho";
+                mensagem=getString(R.string.KimLevantarResultadoFinal2);
             }
             if(resultadoFinal>=25 && resultadoFinal<50)
             {
-                mensagem="Situaçao de elvado aumento de carga, também provavel sobrecarga física para pessoas normais.É recomendado a reavaliação do local de trabalho";
+                mensagem=getString(R.string.KimLevantarResultadoFinal3);
             }
             if(resultadoFinal>=50)
             {
-                mensagem="Situaçao de carga elevada, é provavel o aparecimento de sobrecarga física.É necessário a reavaliação do local de trabalho";
+                mensagem=getString(R.string.KimLevantarResultadoFinal4);
             }
 
 
@@ -355,27 +368,55 @@ resultadoFinal=(pontuacaoCarga+pontuacaoPosicao+pontuacaoCondicosTrabalho)*pontu
         if(consulta.getPessoa()!=null) {
             consulta.getPessoa().addConsulta(consulta);
         }
+        consulta.setFerramenta("KIM-LEVANTAR");
         Intent intent= new Intent(this,ActivityResultado.class);
         intent.putExtra("consulta", consulta);
         startActivity(intent);
 
 
-
-
-        //Toast.makeText(this,mensagem,Toast.LENGTH_SHORT).show();
-
-
+        Intent returnIntent = new Intent();
+        setResult(SistemaRebaActivity.RESULT_OK, returnIntent);
+        finish();
     }
 
 
     private boolean verificarCampos() {
         if (spinner1.getSelectedItemPosition() == 0) {
-
             TextView spinnerText = (TextView)spinner1.getChildAt(0);
             spinnerText.setTextColor(Color.RED);
             spinner1.setFocusable(true);
             spinner1.setFocusableInTouchMode(true);
             spinner1.requestFocus();
+
+            return false;
+        }
+        if (spinner3.getSelectedItemPosition() == 0) {
+
+            TextView spinnerText = (TextView)spinner3.getChildAt(0);
+            spinnerText.setTextColor(Color.RED);
+            spinner3.setFocusable(true);
+            spinner3.setFocusableInTouchMode(true);
+            spinner3.requestFocus();
+
+            return false;
+        }
+        if (spinner5.getSelectedItemPosition() == 0) {
+
+            TextView spinnerText = (TextView)spinner5.getChildAt(0);
+            spinnerText.setTextColor(Color.RED);
+            spinner5.setFocusable(true);
+            spinner5.setFocusableInTouchMode(true);
+            spinner5.requestFocus();
+
+            return false;
+        }
+
+        if (rgKimLevantarCondicoesTrabalho.getCheckedRadioButtonId()< 0) {
+            TextView spinnerText = (TextView)findViewById(R.id.tvKimLevantarCondicoesTrabalho);
+            spinnerText.setTextColor(Color.RED);
+            spinnerText.setFocusable(true);
+            spinnerText.setFocusableInTouchMode(true);
+            spinnerText.requestFocus();
 
             return false;
         }

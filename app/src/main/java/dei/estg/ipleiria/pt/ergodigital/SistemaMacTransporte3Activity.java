@@ -1,10 +1,10 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,17 +13,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
+
 public class SistemaMacTransporte3Activity extends AppCompatActivity {
 
-    int resultadoA;
-    int resultadoB;
-    int resultadoC;
-    int resultadoD;
-    int resultadoE;
-    int resultadoF;
-    int resultadoG;
-    int resultadoH;
-    int resultadoI;
+    Consulta consulta;
+    Resultado[] resultados;
     RadioGroup radioGroup1;
     RadioGroup radioGroup2;
     RadioGroup radioGroup3;
@@ -36,13 +33,12 @@ public class SistemaMacTransporte3Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().hasExtra("resultadoA")) {
+        if (getIntent().hasExtra("resultados")) {
             Bundle extras = getIntent().getExtras();
-            resultadoA = extras.getInt("resultadoA");
-            resultadoB = extras.getInt("resultadoB");
-            resultadoC = extras.getInt("resultadoC");
-            resultadoD = extras.getInt("resultadoD");
-            resultadoE = extras.getInt("resultadoE");
+            resultados = (Resultado[])extras.getSerializable("resultados");
+        }else
+        {
+            Toast.makeText(SistemaMacTransporte3Activity.this,"Missing resultados",Toast.LENGTH_LONG).show();
         }
 
         radioGroup1= (RadioGroup)findViewById(R.id.rgGamTransporteSuperficiePavimento);
@@ -57,22 +53,35 @@ public class SistemaMacTransporte3Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if(verificaCampos(view)) {
 
-                    calcularResultados(view);
+                    calcularResultados();
+                    SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+                    int idConsulta = mPrefs.getInt("idConsulta", -1);
 
-                    Toast.makeText(SistemaMacTransporte3Activity.this, "Resultado A:" + resultadoA + "\nResultado B:" + resultadoB + "\nResultado C:" + resultadoC + "\nResultado D:" + resultadoD + "\nResultado E:" + resultadoE + "\nResultado F:" + resultadoF + "\nResultado G:" + resultadoG + "\nResultado H:" + resultadoH+ "\nResultado I:" + resultadoI, Toast.LENGTH_LONG).show();
+                    if (idConsulta>0){
+                        consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
+
+                        for (int c=0;c<resultados.length;c++){
+                            if(resultados[c]!=null) {
+                                Resultado resultado = new Resultado((resultados[c].getTitulo()), (resultados[c].getValor()));
+                                consulta.addResultado(resultado);
+                            }
+                        }
+
+                        if(consulta.getPessoa()!=null) {
+                            consulta.getPessoa().addConsulta(consulta);
+                        }
+                        consulta.setFerramenta("MAC");
+                    }
+
+
 
                     Intent intent = new Intent(getApplicationContext(), SistemaMacElevacaoResultActivity.class);
-                    intent.putExtra("resultadoA",resultadoA);
-                    intent.putExtra("resultadoB",resultadoB);
-                    intent.putExtra("resultadoC",resultadoC);
-                    intent.putExtra("resultadoD", resultadoD);
-                    intent.putExtra("resultadoE", resultadoE);
-                    intent.putExtra("resultadoF", resultadoF);
-                    intent.putExtra("resultadoG", resultadoG);
-                    intent.putExtra("resultadoH", resultadoH);
-                    intent.putExtra("resultadoI", resultadoI);
-
+                    intent.putExtra("resultados",resultados);
                     startActivity(intent);
+
+                    Intent returnIntent = new Intent();
+                    setResult(SistemaMacElevacao2Activity.RESULT_OK, returnIntent);
+                    finish();
 
                 }
             }
@@ -87,84 +96,74 @@ public class SistemaMacTransporte3Activity extends AppCompatActivity {
 
 
 
-    private void calcularResultados(View view) {
-        RadioButton radioButton1 = (RadioButton)findViewById(R.id.rbGamTransporteSuperficiePavimento1);
-        RadioButton radioButton2 = (RadioButton)findViewById(R.id.rbGamTransporteSuperficiePavimento2);
-        RadioButton radioButton3 = (RadioButton)findViewById(R.id.rbGamTransporteSuperficiePavimento3);
+    private void calcularResultados() {
+        RadioButton radioButton1 = (RadioButton) findViewById(R.id.rbGamTransporteSuperficiePavimento1);
+        RadioButton radioButton2 = (RadioButton) findViewById(R.id.rbGamTransporteSuperficiePavimento2);
+        RadioButton radioButton3 = (RadioButton) findViewById(R.id.rbGamTransporteSuperficiePavimento3);
 
-        if(radioButton1.isChecked())
-        {
-            resultadoF=0;
-        }else {
-            if (radioButton2.isChecked()) {
-
-                resultadoF=1;
-            } else {
-                if (radioButton3.isChecked()) {
-                    resultadoF=2;
-                }
-            }
+        if (radioButton1.isChecked()) {
+            resultados[6] = new Resultado(getString(R.string.GamElevacaoSuperficiePavimentoTitulo),"Green");
         }
+        if (radioButton2.isChecked()) {
 
-        RadioButton radioButton4 = (RadioButton)findViewById(R.id.rbGamTransporteOutrosFactoresOpcao1);
-        RadioButton radioButton5 = (RadioButton)findViewById(R.id.rbGamTransporteOutrosFactoresOpcao2);
-
-        if(radioButton4.isChecked())
-        {
-            resultadoH=1;
-        }else {
-            if (radioButton5.isChecked()) {
-
-                resultadoH=2;
-            }
+            resultados[6] = new Resultado(getString(R.string.GamElevacaoSuperficiePavimentoTitulo),"Ambar");
+            ;
+        }
+        if (radioButton3.isChecked()) {
+            resultados[6] = new Resultado(getString(R.string.GamElevacaoSuperficiePavimentoTitulo),"Red");
         }
 
 
+        RadioButton radioButton4 = (RadioButton) findViewById(R.id.rbGamTransporteOutrosFactoresOpcao0);
+        RadioButton radioButton5 = (RadioButton) findViewById(R.id.rbGamTransporteOutrosFactoresOpcao1);
+        RadioButton radioButton6 = (RadioButton) findViewById(R.id.rbGamTransporteOutrosFactoresOpcao2);
 
+        if (radioButton4.isChecked()) {
+            resultados[7] = new Resultado(getString(R.string.GamElevacaoOutrosFactoresTitulo), "Green");
+        }
+        if (radioButton5.isChecked()) {
 
+            resultados[7] = new Resultado(getString(R.string.GamElevacaoOutrosFactoresTitulo), "Ambar");
+        }
+        if (radioButton6.isChecked()) {
 
-        RadioButton radioButton6 = (RadioButton)findViewById(R.id.rbGamTransporteDistancia1);
-        RadioButton radioButton7 = (RadioButton)findViewById(R.id.rbGamTransporteDistancia2);
-        RadioButton radioButton8 = (RadioButton)findViewById(R.id.rbGamTransporteDistancia3);
-
-        if(radioButton6.isChecked())
-        {
-            resultadoG=0;
-        }else {
-            if (radioButton7.isChecked()) {
-
-                resultadoG=1;
-            } else {
-                if (radioButton8.isChecked()) {
-                    resultadoG=2;
-                }
-            }
+            resultados[7] = new Resultado(getString(R.string.GamElevacaoOutrosFactoresTitulo), "Red");
         }
 
-        RadioButton radioButton9 = (RadioButton)findViewById(R.id.rbGamTransporteObstaculos1);
-        RadioButton radioButton10 = (RadioButton)findViewById(R.id.rbGamTransporteObstaculos2);
-        RadioButton radioButton11= (RadioButton)findViewById(R.id.rbGamTransporteObstaculos3);
-        RadioButton radioButton12 = (RadioButton)findViewById(R.id.rbGamTransporteObstaculos4);
 
-        if(radioButton9.isChecked())
-        {
-            resultadoG=0;
-        }else {
-            if (radioButton10.isChecked()) {
+        RadioButton radioButton7 = (RadioButton) findViewById(R.id.rbGamTransporteDistancia1);
+        RadioButton radioButton8 = (RadioButton) findViewById(R.id.rbGamTransporteDistancia2);
+        RadioButton radioButton9 = (RadioButton) findViewById(R.id.rbGamTransporteDistancia3);
 
-                resultadoG=2;
-            } else {
-                if (radioButton11.isChecked()) {
-                    resultadoG=2;
-                }else{
-                    if(radioButton12.isChecked())
-                    {
-                        resultadoG=4;
-                    }
-                }
-            }
+        if (radioButton7.isChecked()) {
+            resultados[8] = new Resultado(getString(R.string.GamTransporteDistanciaTitulo), "Green");
+        }
+        if (radioButton8.isChecked()) {
+
+            resultados[8] = new Resultado(getString(R.string.GamTransporteDistanciaTitulo), "Ambar");
+        }
+        if (radioButton9.isChecked()) {
+            resultados[8] = new Resultado(getString(R.string.GamTransporteDistanciaTitulo), "Red");
         }
 
+
+        RadioButton radioButton10 = (RadioButton) findViewById(R.id.rbGamTransporteObstaculos1);
+        RadioButton radioButton11 = (RadioButton) findViewById(R.id.rbGamTransporteObstaculos2);
+        RadioButton radioButton12 = (RadioButton) findViewById(R.id.rbGamTransporteObstaculos3);
+        RadioButton radioButton13 = (RadioButton) findViewById(R.id.rbGamTransporteObstaculos4);
+
+        if (radioButton10.isChecked()) {
+            resultados[9] = new Resultado(getString(R.string.GamTransporteObstaculosTitulo), "Green");
+        }
+        if (radioButton11.isChecked()) {
+            resultados[9] = new Resultado(getString(R.string.GamTransporteObstaculosTitulo), "Ambar");
+        }
+        if (radioButton12.isChecked()) {
+            resultados[9] = new Resultado(getString(R.string.GamTransporteObstaculosTitulo), "Red");
+        }
+        if (radioButton13.isChecked()) {
+            resultados[9] = new Resultado(getString(R.string.GamTransporteObstaculosTitulo), "Purple");
+        }
 
 
     }

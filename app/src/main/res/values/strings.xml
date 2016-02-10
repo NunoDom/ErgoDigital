@@ -1,6 +1,37 @@
 <resources>
+
+    //////////////////////////////////ARRAYS GENERICOS////////////////////////
+
+    <string-array name="Lados">
+        <item>--SELECIONE UM LADO--</item>
+        <item>Lado Direito</item>
+        <item>Lado Esquerdo</item>
+    </string-array>
+
+
+    <string name="genero">Género</string>
+
+
+
+    //    <string-array name="ArrayGenero">
+    <item>--SELECIONE O GÉNERO--</item>
+    <item>Homem</item>
+    <item>Mulher</item>
+</string-array>g-array>
+    <string name="ResultadoA"><b>Resultado A:</b></string>
+
+    <string name="ResultadoAvaliacao">Resultado da Avaliação"</string>
+
+
+
+
+
+
+
+
     <string name="app_name">ErgoDigital</string>
     <string name="action_settings">Settings</string>
+    <string name="action_sobre">Sobre</string>
     <string name="title_activity_lista_pessoas">Lista Pessoas</string>
     <string name="title_activity_avaliacao_postural">Avaliacao Postural</string>
 
@@ -27,12 +58,16 @@
     <string name="PEA_btn_reba">Sistema REBA</string>
     <string name="PEA_btn_reba_descricao">(Rapid Entire Body Assessement)</string>
 
-    <string name="title_activity_system_owas">Sistema OWAS</string>
-    <string name="title_activity_sistema_rula">Sistema Rula</string>
+
+
     <string name="title_activity_sistema_owas">Sistema Owas</string>
 
 
 
+/////////////////////////ACTIVITY OWAS////////////////////////////////
+    <string name="title_activity_system_owas">Sistema OWAS</string>
+
+    <string name="tvOwasTorso">Torso</string>
     <string-array name="OWAStorso">
         <item>Reto</item>
         <item>Inclinado</item>
@@ -40,12 +75,15 @@
         <item>Inclinado e Torcido</item>
     </string-array>
 
+    <string name="tvOwasBracos">Braços</string>
     <string-array name="OWASbracos">
         <item>Dois braços para baixo</item>
         <item>Um braço para cima</item>
         <item>Dois braços para cima</item>
     </string-array>
 
+
+    <string name="tvOwasPernas">Pernas</string>
     <string-array name="OWASpernas">
         <item>Duas pernas retas</item>
         <item>Uma perna reta</item>
@@ -56,28 +94,30 @@
         <item>Duas pernas suspensas</item>
     </string-array>
 
+    <string name="tvOwasForca">Força</string>
     <string-array name="OWASforca">
         <item>Até a 10Kg</item>
         <item>de 10Kg a 20Kg </item>
         <item>Superior a 20Kg</item>
     </string-array>
 
-//GENERICOS
 
-    <string-array name="Lados">
-        <item>--SELECIONE UM LADO--</item>
-        <item>Lado Direito</item>
-        <item>Lado Esquerdo</item>
-    </string-array>
+    <string name="OwasResultado1">Não necessita de medidas corretivas</string>
+    <string name="OwasResultado2">São necessárias medidas corretivas em um futuro próximo</string>
+    <string name="OwasResultado3">São necessárias medidas corretivas o quanto possível</string>
+    <string name="OwasResultado4">São necessárias medidas corretivas imediatas</string>
 
 
-    <string name="ResultadoA"><b>Resultado A:</b></string>
+    /////////////////////////ACTIVITY RULA////////////////////////////////
+    <string name="title_activity_sistema_rula">Sistema Rula</string>
+    <string name="title_activity_sistema_rula2">Sistema Rula</string>
+    <string name="title_activity_sistema_rula3">Sistema Rula</string>
 
 
 
 
-    //fgh
-
+    //lados generico
+    <string name="tvRulaBraco">Braço</string>
     <string-array name="RULAbraco">
         <item>Ângulo de +20\u00B0 a -20\u00B0 </item>
         <item>Ângulo -20\u00B0 em ext.</item>
@@ -85,31 +125,44 @@
         <item>Ângulo de +45\u00B0 a +90\u00B0</item>
         <item>Ângulo superior a +90\u00B0</item>
     </string-array>
-    <string-array name="RULAbraco_Correcao">
-        <item>Sem correção</item>
-        <item>Ombro levantado ou abdução</item>
-        <item>Apoiado</item>
-    </string-array>
+    chckboxRulaBraco1 <string name="chckboxRulaBraco1">Se o ombro estiver levantado</string>
+    chckboxRulaBraco1 <string name="chckboxRulaBraco2">Se o ombro estiver em abdução</string>
+    chckboxRulaBraco3 <string name="chckboxRulaBraco3">Se o ombro estiver apoiado</string>
 
+    tvRULAantebraco<string name="tvRULAantebraco">Antebraço</string>
     <string-array name="RULAantebraco">
         <item>Ângulo de +60\u00B0 a +100\u00B0</item>
         <item>Ângulos de 0 a +60\u00B0 ou superior a +100\u00B0</item>
     </string-array>
+    <string name="chckboxRulaABraco1">Se braço cruzar a linha média do corpo, ou se situar fora da linha a mais de 45\u00B0</string>
 
-    <string-array name="RulaPontosDeForcaCarga">
-        <item>Inferir a 2Kg</item>
-        <item>De 2Kg a 10 Kg (itermitente)</item>
-        <item>De 2Kg a 10 Kg (estático ou repetido)</item>
-        <item>Superior a 10Kg ou repetida ou de impacto</item>
+
+    <string name="tvRulaPunho">Punho</string>
+    <string-array name="RULApunho">
+        <item>Ângulo igual a 0\u00B0</item>
+        <item>Ângulo de +15\u00B0 a -15\u00B0</item>
+        <item>Ângulo superior a +15\u00B0 ou inferior a &lt;-15\u00B0</item>
+    </string-array>
+    <string name="chckboxRulaPunho1">Se desviado da linha neutra</string>
+
+
+    <string name="tvRulaGiroPunho">Giro do Punho</string>
+    <string-array name="RULAGiroPunho">
+        <item>Principalmente na metade da amplitude de giro do punho</item>
+        <item>No inicio ou final da amplitude de giro do punho</item>
     </string-array>
 
+    <string name="tvRulaPosicaoPescoco">Posição do Pescoço</string>
     <string-array name="RulaPescoco">
         <item>Ângulo de 0\u00B0 a +10\u00B0</item>
         <item>Ângulo de +10\u00B0 a +20\u00B0</item>
         <item>Ângulo superior a +20\u00B0</item>
         <item>Em extensão</item>
     </string-array>
+    <string name="chckboxRulaPescoco1">Se existir rotação</string>
+    <string name="chckboxRulaPescoco2">Se existir inclinação</string>
 
+    <string name="tvRulaPosicaoTronco">Posição do Tronco</string>
     <string-array name="RulaTronco">
         <item>Ângulo igual a 0\u00B0</item>
         <item>Ângulo e 0\u00B0 a +20\u00B0</item>
@@ -117,95 +170,199 @@
         <item>Ângulo superior a +60\u00B0</item>
     </string-array>
 
+    <string name="chckboxRulaTronco1">Se torçao do tronco</string>
+    <string name="chckboxRulaTronco2">Se inclinação do corpo</string>
 
 
-
+    <string name="tvRulaPosicaoPernas">Posição das Pernas</string>
     <string-array name="RulaPernas">
         <item>Se pernas e os pés estão bem apoiados e equilibrados</item>
         <item>Se as pernas e os pés não estão correctamente apoiados e equilibrados</item>
     </string-array>
 
+    <string name="tvRulaPontosMusculatura">Pontos de Musculatura:</string>
+    <string name="checkBoxPontosMusculatura">Se postura é principalmente estática ou se actividade repetitiva</string>
 
-    <string-array name="RULAantebraco_Correcao">
-        <item>Sem correcao</item>
-        <item>Se cruzar linha do corpo</item>
-        <item>fora da linha  a mais de 45\u00B0</item>
+    <string name="nenhumPontosMusculatura">Não apresenta defeito</string>
+
+    <string name="tvPontosForca">Pontos de força ou carga</string>
+    <string-array name="RulaPontosDeForcaCarga">
+        <item>Inferir a 2Kg</item>
+        <item>De 2Kg a 10 Kg (itermitente)</item>
+        <item>De 2Kg a 10 Kg (estático ou repetido)</item>
+        <item>Superior a 10Kg ou repetida ou de impacto</item>
     </string-array>
 
-    <string-array name="RULApunho">
-        <item>Ângulo igual a 0\u00B0</item>
-        <item>Ângulo de +15\u00B0 a -15\u00B0</item>
-        <item>Ângulo superior a +15\u00B0 ou inferior a &lt;-15\u00B0</item>
-    </string-array>
-    <string-array name="RULAGiroPunho">
-        <item>Principalmente na metade da amplitude de giro do punho</item>
-        <item>No inicio ou final da amplitude de giro do punho</item>
-    </string-array>
+
+    //////////////////////////////////////////////////////////////////////
+
+
+    /////////////////////////ACTIVITY REBA////////////////////////////////
+
     <string name="title_activity_sistema_reba">SistemaRebaActivity</string>
+    <string name="title_activity_sistema_reba2">Sistema Reba</string>
 
-
-
-
-
-    //REBA
-
-    <string-array name="RebaPega">
-        <item>Boa, Pega bem ajustada e pega de potência</item>
-        <item>Aceitável, Pega aceitável mas não é ideal ou a pega é aceitável por outra parte do corpo</item>
-        <item>Má, Pega não aceitável apesar de possível</item>
-        <item>Inaceitável, Difícil e inseguro, sem pegas ou pega inaceitável usando outras partes do corpo</item>
-    </string-array>
-    <string-array name="RebaForca">
-        <item>Carga inferior a 5Kg</item>
-        <item>Carga entre 5Kg e 10Kg</item>
-        <item>Carga superior a 10Kg</item>
-    </string-array>
-
-
-
+    <string name="tvRebaTronco">Tronco</string>
     <string-array name="RebaTronco">
         <item>Erecto</item>
         <item>Flexão  0\u00B0-20\u00B0 ou Extensão 0\u00B0-20\u00B0</item>
         <item>Flexão 20\u00B0-60\u00B0 ou Extensão >20\u00B0</item>
         <item>Flexão > 60\u00B0</item>
     </string-array>
+    <string name="chckboxRebaCorrecaoTronco">Se houver rotação ou flexão do tronco</string>
+
+
+    <string name="tvRebaPescoco">Pescoço</string>
     <string-array name="RebaPescoco">
         <item>Flexão 0\u00B0-20\u00B0</item>
         <item>Flexão ou Extensão >20\u00B0</item>
     </string-array>
+    <string name="chckboxRebaCorrecaoPescoco">Se houver rotação ou flexão lateral do pescoço</string>
+
+
+
+
+    <string name="tvRebaPernas">Pernas</string>
     <string-array name="RebaPernas">
         <item>Peso bilateral, andando ou sentado</item>
         <item>Peso unilateral ou postura instável</item>
     </string-array>
+    <string name="chckboxRebaCorrecaoPernas1">Se flexão dos joelhos entre 30\u00B0 e 60\u00B0</string>
+    <string name="chckboxRebaCorrecaoPernas2">Se a flexão dos joelhos >60º</string>
 
+
+    <string name="tvRebaPontucaoCarga">Pontuação da Carga</string>
+    <string-array name="RebaForca">
+        <item>Carga inferior a 5Kg</item>
+        <item>Carga entre 5Kg e 10Kg</item>
+        <item>Carga superior a 10Kg</item>
+    </string-array>
+    <string name="chckboxRebaCorrecaoCarga">Se choque ou rápido desencadeamento da força</string>
+      Se choque ou rápido desencadeamento da força
+
+
+
+
+    cbRebaLado
+    <string name="tvRebaBraco">Braço</string>
     <string-array name="RebaBraco">
         <item>Extensão 20\u00B0 a Flexão 20\u00B0</item>
         <item>Extensão > 20\u00B0 ou Flexão 20\u00B0 a 45\u00B0</item>
         <item>Flexão 45\u00B0 a 90\u00B0</item>
         <item>Flexão > 90\u00B0</item>
     </string-array>
+    <string name="chckboxRebaCorrecaoBraco">Se houver adução ou rotação de braço</string>
+    <string name="chckboxRebaCorrecaoBraco2">Se elevar o ombro</string>
+    <string name="chckboxRebaCorrecaoBraco3">Se apoiado suportando peso do braço</string>
+
+
+
+    <string name="tvRebaAnteBraco">Antebraço</string>
     <string-array name="RebaAntebraco">
         <item>Flexão 60\u00B0-100\u00B0</item>
         <item>Flexão &lt; 60\u00B0 ou Flexão > 100\u00B0</item>
     </string-array>
+
+
+    <string name="tvRebaPulso">Pulso</string>
     <string-array name="RebaPulso">
         <item>Flexão/Extensão 0\u00B0 - 15\u00B0</item>
         <item>Flexão/Extensão > 15\u00B0</item>
     </string-array>
+    <string name="chckboxRebaCorrecaoPulso">Se houver desvio ou rotação do pulso</string>
 
 
-    //KIM
+
+    <string name="tvRebaPega">Pontuação da Pega</string>
+    <string-array name="RebaPega">
+        <item>Boa, Pega bem ajustada e pega de potência</item>
+        <item>Aceitável, Pega aceitável mas não é ideal ou a pega é aceitável por outra parte do corpo</item>
+        <item>Má, Pega não aceitável apesar de possível</item>
+        <item>Inaceitável, Difícil e inseguro, sem pegas ou pega inaceitável usando outras partes do corpo</item>
+    </string-array>
+
+
+
+    //////////////////////////////////////////////////////////////////////
+
+
+    /////////////////////////ACTIVITY KIM///////////////////////////////
+
+
+
+
     <string name="KimDescricao">Kim - Key Item Method </string>
     <string name="KimLevantarDescricao"> KIM (Levantar, Pegar e Transportar) </string>
     <string name="KimEmpurarDescricao"> KIM (Empurrar e Puxar) </string>
 
+
+    ////ELEVACÃO
+    <string name="tvKimLevantarPontuacaoTrabalho">Pontuação do Trabalho</string>
+    <string name="tvKimLevantarTipoDeTrabalho">Tipo de Trabalho</string>
     <string-array name="KimTipoDeOperação">
         <item>Selecione um tipo:</item>
         <item>Operação de elevação ou deslocamento (menos de 5s)</item>
         <item>Pega (mais de 5s)</item>
         <item>Transporte (mais de 5m)</item>
     </string-array>
-PASSO 1
+
+
+
+
+    <string name="tvKimLevantarPontuacaoCarga">Pontuação da Carga</string>
+
+    <string name="txtViewKimLevantarGenero"></string>
+
+    <string name="tvKimLevantarCargaEfectiva">Carga Efetiva</string>
+
+    <string-array name="KimElevacaoCargaHomens">
+        <item>Menos de 10Kg</item>
+        <item>De 10Kg a 20Kg</item>
+        <item>De 20Kg a 30Kg</item>
+        <item>De 30Kg a 40Kg</item>
+        <item>Mais de 40Kg</item>
+    </string-array>
+    <string-array name="KimElevacaoCargaMulheres">
+        <item>Menos de 5Kg</item>
+        <item>De 5Kg a 10Kg</item>
+        <item>De 10Kg a 15Kg</item>
+        <item>De 15Kg a 25Kg</item>
+        <item>Mais de 25Kg</item>
+    </string-array>
+
+
+
+
+    <string name="tvKimLevantarPosicaoTrabalho">Posição de Trabalho</string>
+    <string name="tvKimLevantarPosicaoCarga">Posição de Carga</string>
+
+    <string-array name="KimElevacaoPosicaoDeCarga">
+        <item>Selecione uma posição</item>
+        <item>Tronco Direito, não torcido</item>
+        <item>Ligeira inclinação para a frente ou torção do tronco</item>
+        <item>Inclinação para baixo ou mais para a frente</item>
+        <item>Inclinação para a frente com torção do tronco em simultâneo</item>
+    </string-array>
+
+
+    <string name="tvKimLevantarDescricaoPosicao">Descrição da Posição</string>
+
+    <string name="KimDescricaoPosicaoTrabalho1">Aquando da elevação, pega, transporte e abaixamento, a carga está próxima do corpo</string>
+    <string name="KimDescricaoPosicaoTrabalho2">Aquando da elevação, pega, transporte e abaixamento, a carga está próxima ou a meio do corpo</string>
+    <string name="KimDescricaoPosicaoTrabalho3">Ligeira inclinação para a frente om torção do tronco em simultâneo
+        Carga longe do corpo ou acima da altura &lt;br do ombro</string>
+
+
+    <string name="tvKimLevantarCondicoesTrabalhoTitulo">Condições de Trabalho</string>
+
+    <string name="rbKimLevantarCondicoesTrabalho1">Boas Condições de Trabalho, por exemplo, espaço suficiente, sem obstaculos fisicos no espaço de trabalho, nivelamento e pavimento sólido, iluminação suficiente, boas condições de fixação</string>
+
+    <string name="rbKimLevantarCondicoesTrabalho2">Espaço para movimento restrito e condições ergonómicas desfavoráveis ex:1 espaço para movimento limitado por área de trabalho demasiado baixa ou alta, inferior a 1,5m2 2:estabilidade da posição prejudicada por pavimento desnivelado ou pavimento mole</string>
+
+    <string name="rbKimLevantarCondicoesTrabalho3">Espaço de movimento demasiado restrito e/ou instabilidade do centro de gravidade da carga. Ex: transferência de pacientes</string>
+
+
+
 
     <string name="KimElevacaoPontuacaoTempoLabel">Número por
         dia de trabalho</string>
@@ -214,10 +371,14 @@ PASSO 1
     <string name="KimTransportePontuacaoTempoLabel">Distância global
         \n no dia de trabalho</string>
 
-    <string name="KimDescricaoPosicaoTrabalho1">Aquando da elevação, pega, transporte e abaixamento, a carga está próxima do corpo</string>
-    <string name="KimDescricaoPosicaoTrabalho2">Aquando da elevação, pega, transporte e abaixamento, a carga está próxima ou a meio do corpo</string>
-    <string name="KimDescricaoPosicaoTrabalho3">Ligeira inclinação para a frente om torção do tronco em simultâneo
-        Carga longe do corpo ou acima da altura &lt;br do ombro</string>
+
+
+
+    <string name="KimLevantarResultadoFinal1">Situaçao carga baixa, improvável o aparecimento de sobrecarga física</string>
+    <string name="KimLevantarResultadoFinal2">Situaçao de aumento de carga, provável sobrecarga física para pessoas com menos força. Para este grupo, é util um reavaliação do local de trabalho</string>
+    <string name="KimLevantarResultadoFinal3">Situaçao de elvado aumento de carga, também provavel sobrecarga física para pessoas normais.É recomendado a reavaliação do local de trabalho</string>
+    <string name="KimLevantarResultadoFinal4">Situaçao de carga elevada, é provavel o aparecimento de sobrecarga física.É necessário a reavaliação do local de trabalho</string>
+
 
 
 
@@ -248,88 +409,28 @@ PASSO 1
     </string-array>
 
 
-
-    //PASSO 2
-    <string-array name="ArrayGenero">
-        <item>--SELECIONE O GÉNERO--</item>
-        <item>Homem</item>
-        <item>Mulher</item>
-    </string-array>
-
-    <string-array name="KimElevacaoCargaHomens">
-        <item>Menos de 10Kg</item>
-        <item>De 10Kg a 20Kg</item>
-        <item>De 20Kg a 30Kg</item>
-        <item>De 30Kg a 40Kg</item>
-        <item>Mais de 40Kg</item>
-    </string-array>
-    <string-array name="KimElevacaoCargaMulheres">
-        <item>Menos de 5Kg</item>
-        <item>De 5Kg a 10Kg</item>
-        <item>De 10Kg a 15Kg</item>
-        <item>De 15Kg a 25Kg</item>
-        <item>Mais de 25Kg</item>
-    </string-array>
-
-    <string-array name="KimElevacaoPosicaoDeCarga">
-        <item>Selecione uma posição</item>
-        <item>Tronco Direito, não torcido</item>
-        <item>Ligeira inclinação para a frente ou torção do tronco</item>
-        <item>Inclinação para baixo ou mais para a frente</item>
-        <item>Inclinação para a frente com torção do tronco em simultâneo</item>
-    </string-array>
-
     <string-array name="KimElevacaoCondicoesDeTrabalho">
         <item>Boas condições de Trabalho</item>
         <item>Espaço de movimento restrito</item>
         <item>Espaço de movimento demasiado restrito</item>
     </string-array>
 
-//KIM EMPURAR
+//////////////////EMPURAR
 
     <string name="KimEmpurarPontuacaoTitulo">Pontuação de Tempo</string>
-    <string name="KimEmpurarPontuacaoMassaTitulo">Pontuação da Massa</string>
 
-
+    <string name="txtViewKimEmpurarTipoOperacaoTitulo">Tipo de Operação</string>
     <string-array name="KimEmpurarTipoOperacao">
         <item>Selecione uma opçao</item>
         <item>Curta distancia ou paragens frequantes</item>
         <item>Longas Distancias</item>
     </string-array>
 
+    <string name="txtViewKimEmpurarEscalaTempoTitulo">Numero de Vezes/Distancia Total</string>
     <string name="KimEmpurarTipoOperacaoNumeroVezes">Número de vezes</string>
     <string name="KimEmpurarTipoOperacaoDistancia">Distancia Total</string>
 
-    <string-array name="KimEmpurarTipoOperacaoLongaDistancia">
-        <item>menos de 300 metros</item>
-        <item>de 300 metros a 1 km</item>
-        <item>de 1 km a 4 km</item>
-        <item>de 4 km a 8 km</item>
-        <item>de 4 km a 16 km</item>
-        <item>mais de 16km</item>
-    </string-array>
-    <string-array name="KimEmpurarTipoOperacaoCurtaDistancia">
-        <item>menos de 10 vezes</item>
-        <item>de 10 a 40 vezes</item>
-        <item>de 40 a 200 vezes</item>
-        <item>de 200 a 500 vezes</item>
-        <item>de 500 a 1000 vezes</item>
-        <item>Mais de 1000 vezes</item>
-    </string-array>
 
-    <string-array name="KimEmpurarTipoMovimentoMassa">
-        <item>Selecione um tipo</item>
-        <item>Rolamento</item>
-        <item>Deslizamento</item>
-    </string-array>
-
-    <string-array name="KimEmpurarMassaMoverAjuda">
-        <item>Sem, a carga é rolada</item>
-        <item>Carrinho de mão</item>
-        <item>Carruagem, rolo, carro de de transporte sem rodas fixas</item>
-        <item>Veículos em carris, mesas transportadoras, carruagens com rodas fixas</item>
-        <item>Manipuladores, corda, balanceiros</item>
-    </string-array>
 
 
     <string-array name="KimEmpurarMassaPesoCarga1">
@@ -375,6 +476,53 @@ PASSO 1
         <item>de 200 a 300 kg </item>
     </string-array>
 
+    <string name="KimEmpurarPontuacaoMassaTitulo">Pontuação da Massa</string>
+
+    <string name="txtViewKimEmpurarTipoMovimentoMassaTitulo">Tipo de Movimento</string>
+
+    <string-array name="KimEmpurarTipoMovimentoMassa">
+        <item>Selecione um tipo</item>
+        <item>Rolamento</item>
+        <item>Deslizamento</item>
+    </string-array>
+
+    <string name="txtViewKimEmpurarTipoCargaTitulo">Tipo de ajuda</string>
+
+
+    <string name="txtViewKimEmpurarPesoCargaTitulo">Numero de Vezes/Distancia Tota</string>
+
+
+    <string name="txtViewKimEmpurarPontucacaoPrecisaoTitulo">Pontuação de Precisão</string>
+
+
+    <string-array name="KimEmpurarTipoOperacaoLongaDistancia">
+        <item>menos de 300 metros</item>
+        <item>de 300 metros a 1 km</item>
+        <item>de 1 km a 4 km</item>
+        <item>de 4 km a 8 km</item>
+        <item>de 4 km a 16 km</item>
+        <item>mais de 16km</item>
+    </string-array>
+    <string-array name="KimEmpurarTipoOperacaoCurtaDistancia">
+        <item>menos de 10 vezes</item>
+        <item>de 10 a 40 vezes</item>
+        <item>de 40 a 200 vezes</item>
+        <item>de 200 a 500 vezes</item>
+        <item>de 500 a 1000 vezes</item>
+        <item>Mais de 1000 vezes</item>
+    </string-array>
+
+
+    <string-array name="KimEmpurarMassaMoverAjuda">
+        <item>Sem, a carga é rolada</item>
+        <item>Carrinho de mão</item>
+        <item>Carruagem, rolo, carro de de transporte sem rodas fixas</item>
+        <item>Veículos em carris, mesas transportadoras, carruagens com rodas fixas</item>
+        <item>Manipuladores, corda, balanceiros</item>
+    </string-array>
+
+
+
     <string-array name="KimEmpurarDeslizamentoPesoCarga">
         <item>menos de 10 kg</item>
         <item>de 10 a 25 kg </item>
@@ -389,8 +537,8 @@ PASSO 1
     <string name="KimEmpurarPosicaoTrabalho4">Combinação de corpo inclinado e torcido</string>
 
     <string name="KimEmpurarPrecisaoPosicaoTitle">Precisão da posição</string>
-    <string name="KimEmpurarPrecisaoPosicaoRadioButton1">Lenta \n-Sem especificação da distância a percorrer \n- a carga pode rolar até para ou ir contra um obstáculo</string>
-    <string name="KimEmpurarPrecisaoPosicaoRadioButton2">Rápida \n-A carga deve ser posicionada e parada de forma precisa \n- distancia a percorrer deve ser respeitada escrupulosamente\n- Mudanças frequentes na direção</string>
+    <string name="KimEmpurarPrecisaoPosicaoRadioButton1">Baixa \n-Sem especificação da distância a percorrer \n- a carga pode rolar até para ou ir contra um obstáculo</string>
+    <string name="KimEmpurarPrecisaoPosicaoRadioButton2">Alta \n-A carga deve ser posicionada e parada de forma precisa \n- distancia a percorrer deve ser respeitada escrupulosamente\n- Mudanças frequentes na direção</string>
 
     <string name="KimEmpurarPrecisaoVelocidadeMovimentoTitle">Velocidade de movimento</string>
     <string name="KimEmpurarPrecisaoVelocidadeMovimentoRadioButton1">lenta (menos de 0.8m/s)</string>
@@ -403,7 +551,17 @@ PASSO 1
     <string name="KimEmpurarCondicoesTrabalho4">Complicadas, degraus, escadas; inclinação superior a 5º; combinação das condições de "Restritas" a "Difíceis"</string>
 
 
-    //GAM ou CAM
+
+    <string name="KimEmpurarResultado1">Situaçao carga baixa, improvável o aparecimento de sobrecarga física</string>
+    <string name="KimEmpurarResultado2">Situaçao de aumento de carga, provável sobrecarga física para pessoas com menos força. Para este grupo, é util um reavaliação do local de trabalho</string>
+    <string name="KimEmpurarResultado3">Situaçao de elvado aumento de carga, também provavel sobrecarga física para pessoas normais.É recomendado a reavaliação do local de trabalho</string>
+    <string name="KimEmpurarResultado4">Situaçao de carga elevada, é provavel o aparecimento de sobrecarga física.É necessário a reavaliação do local de trabalho</string>
+
+
+
+
+/////////////////////////////////////////MAC///////////////////////////////////
+
     <string name="Gam">Consiste em avaliar os factores de risco mais comuns em operações de elevação (levantar e baixar), e transporte (carregar e segurar).</string>
 
     <string name="GamElevacaoFrequenciaPesoCargaTitulo">Frequencia/Peso da carga</string>
@@ -428,7 +586,7 @@ PASSO 1
     <string name="GamElevacaoVerticalTitulo">Região de elevação vertical</string>
     <string name="GamElevacaoVertical1">Acima do joelho e/ou abaixo da altura do cotovelo</string>
     <string name="GamElevacaoVertical2">Acima do joelho e/ou acima da altura do cotovelo</string>
-    <string name="GamElevacaoVertical3">A nível do pavimento ou abaixo</string>
+    <string name="GamElevacaoVertical3">A nível do pavimento ou abaixo\nÀ altura da cabeça ou acima</string>
 
     <string name="GamElevacaoTorcaoTroncoTitulo">Torção do tronco e inclinação lateral</string>
     <string name="GamElevacaoTorcaoTronco1">Sem torção ou inclinação</string>
@@ -438,10 +596,10 @@ PASSO 1
     <string name="GamElevacaoConstrangimentTitulo">Constrangimento de posição</string>
     <string name="GamElevacaoConstrangimentoPosicao1">Se movimentos livres</string>
     <string name="GamElevacaoConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n por exemplo: um transportador com a monocalha excessivamente alto</string>
-    <string name="GamElevacaoConstrangimentoPosicao3">Se a posição for escessivamente restrita \npor exemplo: áreas confinadas tais como compartimentos de bagagem</string>
+    <string name="GamElevacaoConstrangimentoPosicao3">Se a posição for excessivamente restrita \npor exemplo: áreas confinadas tais como compartimentos de bagagem</string>
 
     <string name="GamElevacaoAderenciaCargaTitulo">Aderência à carga</string>
-    <string name="GamElevacaoAderenciaCarga1">Boa\n -Contentores com puxadores ou pegas bem projectadas, adequadas para o efeit\n -Partes soltas permitindo uma pega confortável</string>
+    <string name="GamElevacaoAderenciaCarga1">Boa\n -Contentores com puxadores ou pegas bem projectadas, adequadas para o efeito\n -Partes soltas permitindo uma pega confortável</string>
     <string name="GamElevacaoAderenciaCarga2">Razoável\n -Contentores com puxadores ou pegas fracas\n -Dedos imobilizados a 90º debaixo do contentor</string>
     <string name="GamElevacaoAderenciaCarga3">Fraca\n -Contentores mal projectados.\n -Peças soltas, objectos irrgulares, volumosos ou difíceis de pegar\n -Sacos não rígidos ou cargas imprevisíveis</string>
 
@@ -453,6 +611,7 @@ PASSO 1
     <string name="GamElevacaoOutrosFactoresTitulo">Outros fatores ambientais</string>
     <string name="GamElevacaoOutrosFactoresDescricao">Observe o ambiente de trabalho e pontue com base neste casos:\n  -Temperaruras extremes\n  -Fortes correntes de ar \nCondição de luminusidade: \n      -Escuro\n     -Luminoso,pouco contraste</string>
     <string name="GamElevacaoOutrosFactoresSubtitulo">Numero de fatores de risco</string>
+    <string name="GamElevacaoOutrosFactoresOpcao0">Nenhum</string>
     <string name="GamElevacaoOutrosFactoresOpcao1">Um</string>
     <string name="GamElevacaoOutrosFactoresOpcao2">Varios</string>
 
@@ -460,17 +619,21 @@ PASSO 1
 
 
     <string name="GamTransporteDistanciaTitulo">Distância do Transporte</string>
-    <string name="GamTransporteDistancia1">opcao1</string>
-    <string name="GamTransporteDistancia2">opcao2</string>
-    <string name="GamTransporteDistancia3">opcao3</string>
+    <string name="GamTransporteDistancia1">2m a 4m</string>
+    <string name="GamTransporteDistancia2">4m a 10m</string>
+    <string name="GamTransporteDistancia3">10m ou mais</string>
 
     <string name="GamTransporteObstaculosTitulo">Obstaculos no percurso</string>
-    <string name="GamTransporteObstaculos1">opcao1</string>
-    <string name="GamTransporteObstaculos2">opcao2</string>
-    <string name="GamTransporteObstaculos3">opcao3</string>
-    <string name="GamTransporteObstaculos4">opcao4</string>
+    <string name="GamTransporteObstaculosDescricao">Factores de Risco:\nSe o operdador tiver de transportar a carga numa encosta inclinada e através de portas ou zonas de perigo de tropeçar\nSe a tarefa envolve o transporte de carga pelas escadas acima</string>
 
+    <string name="GamTransporteObstaculos1">Nenhum</string>
+    <string name="GamTransporteObstaculos2">1 fator</string>
+    <string name="GamTransporteObstaculos3">2 factores</string>
+    <string name="GamTransporteObstaculos4">mais de 2</string>
 
+    <string name="GamTransporteConstrangimentoPosicao1">Se movimentos livres</string>
+    <string name="GamTransporteConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n por exemplo: uma passagem estreita faz com que o operador  se vire ou desloque a carga para passar</string>
+    <string name="GamTransporteConstrangimentoPosicao3">Se a posição for excessivamente restrita \npor exemplo:transportar cargas numa posição de inclinação para a frente em áreas com teto baixo como caves</string>
 
 //EQUIPA
 
@@ -517,6 +680,25 @@ PASSO 1
 
 
 
+    <string name="GamEquipaConstrangimentoPosicao1">Se movimentos livres</string>
+    <string name="GamEquipaConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n (por exemplo: espaço entre membros da equipa)\n ou à concepção do posto de trabalho por exemplo: um transportador com monocalha excessivamente alto</string>
+    <string name="GamEquipaConstrangimentoPosicao3">Se a posição for excessivamente restrita \npor exemplo: áreas confinadas tais como compartimentos de bagagem</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <string name="sobre"> ErgoDigital é uma aplicação para avaliação ergonómica desenvolvida no âmbito do projecto final de curso de informática para a saúde.
 \nDesenvolvida por:\nNuno Domingues e\n Tiago Pinto,\n\ncom o apoio dos Exmos. Orientadores:\nDoutora Rita Ascenso\nDoutora Eunice Oliveira\nDoutor Henrique Almeida.\n\nAgredecimentos especiais à\n Doutora Catarina Reis,\n\ne ao colega Ivan Dunets</string>
 
@@ -524,10 +706,9 @@ PASSO 1
 
 
 
-    <string name="title_activity_sistema_reba2">Sistema Reba</string>
-    <string name="title_activity_sistema_rula2">Sistema Rula</string>
-    <string name="title_activity_sistema_rula3">Sistema Rula</string>
-    <string name="title_activity_rula_activity_result">Kim Resultado</string>
+
+
+    <string name="title_activity_rula_activity_result">Resultados</string>
     <string name="title_activity_movimentacao_de_cargas">Movimentacao de Cargas</string>
     <string name="title_activity_sistema_kim">Sistema Kim</string>
     <string name="title_activity_sistema_mac">Sistema Mac</string>
@@ -550,5 +731,6 @@ PASSO 1
     <string name="title_activity_dados_utente">Ficha de Utente</string>
     <string name="title_activity_dados_consulta">DadosConsultaActivity</string>
     <string name="title_activity_sobre">Sobre</string>
+
 
 </resources>

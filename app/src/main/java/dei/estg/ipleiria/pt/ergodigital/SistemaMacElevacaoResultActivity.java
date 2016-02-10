@@ -1,28 +1,19 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.Spinner;
+
+import java.util.ArrayList;
+
+import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 
 public class SistemaMacElevacaoResultActivity extends AppCompatActivity {
 
 
-    int resultadoA=-1;
-    int resultadoB=-1;
-    int resultadoC=-1;
-    int resultadoD=-1;
-    int resultadoE=-1;
-    int resultadoF=-1;
-    int resultadoG=-1;
-    int resultadoH=-1;
-    int resultadoI=-1;
+    Resultado[] resultados;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,29 +23,44 @@ public class SistemaMacElevacaoResultActivity extends AppCompatActivity {
 
 
         Bundle extras = getIntent().getExtras();
-        if (getIntent().hasExtra("resultadoA")) {
-            resultadoA = extras.getInt("resultadoA");
-            resultadoB = extras.getInt("resultadoB");
-            resultadoC = extras.getInt("resultadoC");
-            resultadoD = extras.getInt("resultadoD");
-            resultadoE = extras.getInt("resultadoE");
-            resultadoF = extras.getInt("resultadoF");
-            resultadoG = extras.getInt("resultadoG");
-            resultadoH = extras.getInt("resultadoH");
-        }
-        if (getIntent().hasExtra("resultadoI")){
-        resultadoI = extras.getInt("resultadoI");
+        if (getIntent().hasExtra("resultados")) {
+            resultados = (Resultado[])extras.getSerializable("resultados");
+        }else {
+            if (getIntent().hasExtra("consulta")) {
+                Consulta consulta = (Consulta)extras.getSerializable("consulta");
+                ArrayList<Resultado> resultadosList = consulta.getListaResultados();
+                resultados = new Resultado[11];
+                if(resultadosList.size()==8){
+                    for(int i=0;i<resultadosList.size()-1;i++)
+                    resultados[i]=resultadosList.get(i);
+                }
+                if(resultadosList.size()==9){
+                    if(resultadosList.get(2).equals(getString(R.string.GamElevacaoVerticalTitulo))) {
+                        resultados[0] = resultadosList.get(0);
+                        resultados[1] = resultadosList.get(1);
+                        resultados[3] = resultadosList.get(2);
+                        resultados[4] = resultadosList.get(3);
+                        resultados[5] = resultadosList.get(4);
+                        resultados[6] = resultadosList.get(5);
+                        resultados[7] = resultadosList.get(6);
+                        resultados[8] = resultadosList.get(7);
+                        resultados[9] = resultadosList.get(8);
+                    }else {
+                        resultados[0] = resultadosList.get(0);
+                        resultados[1] = resultadosList.get(1);
+                        resultados[2] = resultadosList.get(2);
+                        resultados[3] = resultadosList.get(3);
+                        resultados[4] = resultadosList.get(4);
+                        resultados[5] = resultadosList.get(5);
+                        resultados[6] = resultadosList.get(6);
+                        resultados[7] = resultadosList.get(7);
+                        resultados[10] = resultadosList.get(8);
+                    }
+                }
+            }
         }
 
         mostrarCores();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mostrarCores();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
@@ -72,36 +78,42 @@ private void mostrarCores()
     ImageView imageViewReasultadoG= (ImageView)findViewById(R.id.imageViewReasultadoG);
     ImageView imageViewReasultadoH= (ImageView)findViewById(R.id.imageViewReasultadoH);
     ImageView imageViewReasultadoI= (ImageView)findViewById(R.id.imageViewReasultadoI);
+    ImageView imageViewReasultadoJ= (ImageView)findViewById(R.id.imageViewReasultadoJ);
+    ImageView imageViewReasultadoK= (ImageView)findViewById(R.id.imageViewReasultadoK);
 
 
-    imageViewReasultadoA.setBackgroundResource(setCor(resultadoA));
-    imageViewReasultadoB.setBackgroundResource(setCor(resultadoB));
-    imageViewReasultadoC.setBackgroundResource(setCor(resultadoC));
-    imageViewReasultadoD.setBackgroundResource(setCor(resultadoD));
-    imageViewReasultadoE.setBackgroundResource(setCor(resultadoE));
-    imageViewReasultadoF.setBackgroundResource(setCor(resultadoF));
-    imageViewReasultadoG.setBackgroundResource(setCor(resultadoG));
-    imageViewReasultadoH.setBackgroundResource(setCor(resultadoH));
-    imageViewReasultadoI.setBackgroundResource(setCor(resultadoI));
+    imageViewReasultadoA.setBackgroundResource(setCor(resultados[0]));
+    imageViewReasultadoB.setBackgroundResource(setCor(resultados[1]));
+    imageViewReasultadoC.setBackgroundResource(setCor(resultados[2]));
+    imageViewReasultadoD.setBackgroundResource(setCor(resultados[3]));
+    imageViewReasultadoE.setBackgroundResource(setCor(resultados[4]));
+    imageViewReasultadoF.setBackgroundResource(setCor(resultados[5]));
+    imageViewReasultadoG.setBackgroundResource(setCor(resultados[6]));
+    imageViewReasultadoH.setBackgroundResource(setCor(resultados[7]));
+    imageViewReasultadoI.setBackgroundResource(setCor(resultados[8]));
+    imageViewReasultadoJ.setBackgroundResource(setCor(resultados[9]));
+    imageViewReasultadoK.setBackgroundResource(setCor(resultados[10]));
 }
 
-    public int setCor(int color)
-    {
+    public int setCor(Resultado resultado) {
+        if (resultado != null) {
+            if (resultado.getValor().equals("Green")) {
+                return R.color.green;
+            }
+            if (resultado.getValor().equals("Ambar")) {
+                return R.color.orange;
+            }
 
-    if(color==0) {
-        return R.color.green;
-    }
-        if(color==1) {
-            return R.color.orange;
-        }
-
-       if(color==2) {
-           return R.color.red;
-       }
-        if(color==3) {
-            return R.color.purple;
-        }
+            if (resultado.getValor().equals("Red")) {
+                return R.color.red;
+            }
+            if (resultado.getValor().equals("Purple")) {
+                return R.color.purple;
+            }
+            return R.color.black;
+        }else{
         return R.color.black;
+        }
     }
 
 

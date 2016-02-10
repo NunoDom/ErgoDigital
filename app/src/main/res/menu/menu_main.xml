@@ -8,4 +8,10 @@
         android:icon="@drawable/ic_setings"
         app:showAsAction="always" />
 
+    <item android:id="@+id/action_sobre"
+        android:title="@string/action_sobre"
+        android:orderInCategory="100"
+        android:icon="@android:drawable/ic_dialog_info"
+        app:showAsAction="always" />
+
 </menu>

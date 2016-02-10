@@ -149,6 +149,13 @@
                 android:text="Realizar avaliação"
                 android:id="@+id/button15"
                 android:onClick="clickRealizarAvaliacao" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                android:id="@+id/button7"
+                android:visibility="gone" />
         </LinearLayout>
 
     </LinearLayout>

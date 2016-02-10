@@ -61,8 +61,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Braço"
-                            android:id="@+id/textView7" />
+                            android:text="@string/tvRulaBraco"
+                            android:id="@+id/tvRulaBraco" />
 
                         <Spinner
                             android:layout_width="fill_parent"
@@ -80,7 +80,7 @@
                             <CheckBox
                                 android:layout_width="fill_parent"
                                 android:layout_height="match_parent"
-                                android:text="Se o ombro estiver levantado"
+                                android:text="@string/chckboxRulaBraco1"
                                 android:id="@+id/chckboxRulaBraco1"
                                 android:layout_gravity="left"
                                 android:onClick="OnClickChckboxBraco1"
@@ -89,7 +89,7 @@
                             <CheckBox
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Se o ombro estiver em abdução"
+                                android:text="@string/chckboxRulaBraco2"
                                 android:id="@+id/chckboxRulaBraco2"
                                 android:layout_gravity="left"
                                 android:onClick="OnClickChckboxBraco2" />
@@ -98,7 +98,7 @@
                         <CheckBox
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:text="Se o ombro estiver apoiado"
+                            android:text="@string/chckboxRulaBraco3"
                             android:id="@+id/chckboxRulaBraco3"
                             android:layout_gravity="left" />
                     </LinearLayout>
@@ -126,7 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Ante Braço"
+                            android:text="@string/tvRULAantebraco"
                             android:id="@+id/tvRULAantebraco"
                             android:gravity="bottom"
                             android:layout_weight="0.10" />
@@ -142,7 +142,7 @@
                         <CheckBox
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:text="Se braço cruzar a linha média do corpo, ou se situar fora da linha a mais de 45º"
+                            android:text="@string/chckboxRulaABraco1"
                             android:id="@+id/chckboxRulaABraco1"
                             android:layout_gravity="left" />
                     </LinearLayout>
@@ -171,7 +171,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Punho"
+                            android:text="@string/tvRulaPunho"
                             android:id="@+id/tvRulaPunho"
                             android:layout_weight="0.14"
                             android:gravity="bottom" />
@@ -187,7 +187,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Se desviado da linha neutra"
+                            android:text="@string/chckboxRulaPunho1"
                             android:id="@+id/chckboxRulaPunho1"
                             android:layout_weight="0.25"
                             android:layout_gravity="left|top" />
@@ -205,7 +205,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Giro do Punho"
+                        android:text="@string/tvRulaGiroPunho"
                         android:id="@+id/tvRulaGiroPunho"
                         android:gravity="bottom" />
 

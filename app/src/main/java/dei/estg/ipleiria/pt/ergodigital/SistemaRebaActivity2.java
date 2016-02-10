@@ -1,6 +1,5 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -150,8 +149,9 @@ public class SistemaRebaActivity2 extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(verificaCampos())
+                    if(verificaCampos()){
                     analisar();
+                    }
                 }
             });
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -177,20 +177,6 @@ public class SistemaRebaActivity2 extends AppCompatActivity {
 
         return true;
 
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-       // super.onActivityResult(requestCode, resultCode, data);
-
-
-        if (requestCode == 1) {
-            if(resultCode == Activity.RESULT_OK){
-                Intent returnIntent = new Intent();
-                setResult(SistemaRulaActivity2.RESULT_OK, returnIntent);
-                finish();
-            }
-        }
     }
 
 
@@ -356,6 +342,7 @@ public class SistemaRebaActivity2 extends AppCompatActivity {
                 consulta.addResultado(resultado);
             }
 
+            consulta.setFerramenta("REBA");
             Intent intent= new Intent(this,ActivityResultado.class);
             intent.putExtra("consulta",consulta);
             startActivity(intent);

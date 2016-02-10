@@ -1,5 +1,6 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,39 +19,31 @@ public class MovimentacaoDeCargasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movimentacao_de_cargas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-        if (getIntent().hasExtra("consulta")) {
-            Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
-        }
-
-    //    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-    //    fab.setOnClickListener(new View.OnClickListener() {
-    //        @Override
-    //        public void onClick(View view) {
-    //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-    //                    .setAction("Action", null).show();
-    //        }
-    //    });
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent returnIntent = new Intent();
+                setResult(EscolhaAvaliacoesActivity.RESULT_OK, returnIntent);
+                finish();
+            }
+        }
     }
 
     public void callKIMActivity(View view){
         
         Intent intent = new Intent(this, SistemaKimMainActivity.class);
-        intent.putExtra("consulta",consulta);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
 
     }
 
     public void callMACActivity(View view){
 
         Intent intent = new Intent(this, SistemaMacMainActivity.class);
-        intent.putExtra("consulta",consulta);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
 
     }
 

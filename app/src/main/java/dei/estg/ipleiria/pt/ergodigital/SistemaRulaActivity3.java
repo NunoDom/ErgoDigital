@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
@@ -58,7 +59,7 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
                 int resultadoD = ResultadoB + Musculatura + Forca;
                 int ResultadoTotal = tab.devolveTabelaC(resultadoC, resultadoD);
 
-                Toast.makeText(getApplicationContext(), "resultadoA: " + resultadoC + "\n resultadoB: " + resultadoD, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(), "resultadoA: " + resultadoC + "\n resultadoB: " + resultadoD, Toast.LENGTH_SHORT).show();
                 String message = "";
                 if (ResultadoTotal == 1 || ResultadoTotal == 2) {
                     message = "Postura aceitável, se não for mantida ou repetida por longos períodos de tempo";
@@ -72,18 +73,30 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
                 if (ResultadoTotal == 7) {
                     message = "Postura a investigar e alterar urgentemente";
                 }
-                Toast.makeText(getApplicationContext(), "Resultado Total : " + ResultadoTotal + "\n " + message, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Resultado Total : " + ResultadoTotal + "\n " + message, Toast.LENGTH_SHORT).show();
+
+
+
+
+                TextView tvMusculatura= (TextView)findViewById(R.id.tvRulaPontosMusculatura);
+                TextView tvForca= (TextView)findViewById(R.id.tvRulaPontosForca);
+
+
+
+
 
                 Resultado resultadoMusculatura;
                 if (Musculatura == 0) {
-                    resultadoMusculatura = new Resultado("Musculatura: ", Musculatura + "- Não apresenta defeito");
+                    resultadoMusculatura = new Resultado(tvMusculatura.getText().toString()+": ", Musculatura + "- "+getString(R.string.nenhumPontosMusculatura));
                 } else {
-                    resultadoMusculatura = new Resultado("Musculatura: ", Musculatura + "- " + checkBoxPontosMusculatura.getText().toString());
+                    resultadoMusculatura = new Resultado(tvMusculatura.getText().toString()+": ", Musculatura + "- " + checkBoxPontosMusculatura.getText().toString());
                 }
 
 
-                Resultado resultadoForcaCarga = new Resultado("Forca ou Carga: ", Forca + "- " + spinner1.getSelectedItem().toString());
-                Resultado resultadoFinal = new Resultado("Resultado Final: ", ResultadoTotal + "- " + message);
+
+
+                Resultado resultadoForcaCarga = new Resultado(tvForca.getText().toString()+": ", Forca + "- " + spinner1.getSelectedItem().toString());
+                Resultado resultadoFinal = new Resultado(getString(R.string.ResultadoAvaliacao)+": ", ResultadoTotal + "- " + message);
 
                 avaliacao[8] = resultadoMusculatura;
                 avaliacao[9] = resultadoForcaCarga;
@@ -105,6 +118,7 @@ public class SistemaRulaActivity3 extends AppCompatActivity {
                         consulta.addResultado(resultado);
                     }
 
+                    consulta.setFerramenta("RULA");
                     Intent intent = new Intent(SistemaRulaActivity3.this, ActivityResultado.class);
                     intent.putExtra("consulta", consulta);
                     startActivity(intent);

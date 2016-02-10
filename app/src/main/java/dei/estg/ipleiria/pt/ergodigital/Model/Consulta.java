@@ -1,7 +1,10 @@
 package dei.estg.ipleiria.pt.ergodigital.Model;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -37,11 +40,12 @@ public class Consulta implements Serializable{
     }
 
 
-    public Consulta(Pessoa pessoa, Date dataHora, String turno, String seccao, String posto, int tempoTarefa, int horasTrabalhoDiario, String observacoes,String ferramenta) {
+    public Consulta(Pessoa pessoa, String turno, String seccao, String posto, int tempoTarefa, int horasTrabalhoDiario, String observacoes,String ferramenta) {
         listaResultados= new ArrayList<Resultado>();
         this.id = Identificador++;
         this.pessoa = pessoa;
-        this.dataHora = dataHora;
+        Calendar i = Calendar.getInstance();
+        this.dataHora = i.getTime();
         this.turno = turno;
         this.seccao = seccao;
         this.posto = posto;
@@ -54,6 +58,8 @@ public class Consulta implements Serializable{
     public Consulta() {
         listaResultados= new ArrayList<Resultado>();
         this.id = Identificador++;
+        Calendar i = Calendar.getInstance();
+        this.dataHora = i.getTime();
     }
 
 
@@ -133,8 +139,9 @@ public class Consulta implements Serializable{
 
     @Override
     public String toString() {
+        DateFormat dateFormat = new SimpleDateFormat();
         StringBuilder sb = new StringBuilder();
-        sb.append("ID: "+id);
+        sb.append("ID: "+id+" "+ferramenta+" "+dateFormat.format(dataHora));
         return sb.toString();
     }
 

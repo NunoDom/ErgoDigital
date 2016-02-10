@@ -132,6 +132,12 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/GamElevacaoOutrosFactoresOpcao0"
+                    android:id="@+id/rbGamElevacaoOutrosFactoresOpcao0" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoOutrosFactoresOpcao1"
                     android:id="@+id/rbGamElevacaoOutrosFactoresOpcao1" />
 
@@ -141,6 +147,7 @@
                     android:text="@string/GamElevacaoOutrosFactoresOpcao2"
                     android:id="@+id/rbGamElevacaoOutrosFactoresOpcao2" />
             </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout

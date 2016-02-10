@@ -18,13 +18,6 @@ public class AvaliacaoPosturalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_avaliacao_postural);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-      //  if (getIntent().hasExtra("consulta")) {
-      //      Bundle extras = getIntent().getExtras();
-       //     consulta = (Consulta)extras.getSerializable("consulta");
-       // }
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

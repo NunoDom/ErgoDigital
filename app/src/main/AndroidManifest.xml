@@ -88,21 +88,14 @@
             android:name=".SistemaRebaActivity2"
             android:label="@string/title_activity_sistema_reba2"
             android:screenOrientation="portrait"
-            android:parentActivityName=".SistemaRebaActivity"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRebaActivity" />
         </activity>
         <activity
             android:name=".SistemaRulaActivity2"
             android:label="@string/title_activity_sistema_rula2"
             android:screenOrientation="portrait"
-            android:parentActivityName=".SistemaRulaActivity"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity" />
+
         </activity>
         <activity
             android:name=".SistemaRulaActivity3"
@@ -110,9 +103,6 @@
             android:screenOrientation="portrait"
             android:parentActivityName=".SistemaRulaActivity2"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaRulaActivity2" />
         </activity>
         <activity
             android:name=".ActivityResultado"
@@ -203,61 +193,37 @@
         <activity
             android:name=".SistemaMacElevacao2Activity"
             android:label="@string/title_activity_sistema_mac_elevacao2"
-            android:parentActivityName=".SistemaMacElevacaoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacElevacaoActivity" />
         </activity>
         <activity
             android:name=".SistemaMacElevacao3Activity"
             android:label="@string/title_activity_sistema_mac_elevancao3"
-            android:parentActivityName=".SistemaMacElevacao2Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacElevacao2Activity" />
         </activity>
         <activity
             android:name=".SistemaMacTransporte3Activity"
             android:label="@string/title_activity_sistema_mac_transporte3"
-            android:parentActivityName=".SistemaMacTransporte2Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacTransporte2Activity" />
         </activity>
         <activity
             android:name=".SistemaMacEquipa2Activity"
             android:label="@string/title_activity_sistema_mac_equipa2"
-            android:parentActivityName=".SistemaMacEquipaActivity"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacEquipaActivity" />
         </activity>
         <activity
             android:name=".SistemaMacEquipa3Activity"
             android:label="@string/title_activity_sistema_mac_equipa3"
-            android:parentActivityName=".SistemaMacEquipa2Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacEquipa2Activity" />
         </activity>
         <activity
             android:name=".SistemaMacTransporte2Activity"
             android:label="@string/title_activity_sistema_mac_transporte2"
-            android:parentActivityName=".SistemaMacTransporteActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dei.estg.ipleiria.pt.ergodigital.SistemaMacTransporteActivity" />
         </activity>
         <activity
             android:name=".SistemaMacElevacaoResultActivity"

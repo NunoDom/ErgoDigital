@@ -234,8 +234,6 @@ public class SistemaRebaActivity extends AppCompatActivity {
         intent.putExtra("resultadoA", resultadoA);
         startActivityForResult(intent, 1);
 
-        startActivityForResult(intent, 1);
-
 
 
     }

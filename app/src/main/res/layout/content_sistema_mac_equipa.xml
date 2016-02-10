@@ -75,7 +75,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout10" >
+            android:id="@+id/layoutGamEquipaDistanciaMaosTitulo" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,5 +118,10 @@
                     android:id="@+id/rbGamEquipaDistanciaMaos4" />
             </RadioGroup>
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"></LinearLayout>
     </LinearLayout>
 </ScrollView>

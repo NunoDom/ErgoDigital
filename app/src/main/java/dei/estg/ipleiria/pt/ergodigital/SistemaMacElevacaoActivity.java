@@ -1,6 +1,8 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,17 +16,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 
 public class SistemaMacElevacaoActivity extends AppCompatActivity {
 
+    Resultado[] resultados;
     Consulta consulta;
-    Integer resultadoA;
-    Integer resultadoB;
-
     Spinner spinnerPontuacao;
     RadioButton radioButtonOpcao1;
     RadioGroup radioGroup;
@@ -41,10 +42,15 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
 
         radioGroup= (RadioGroup)findViewById(R.id.rgGamElevacaoDistanciaMaos);
 
-        if (getIntent().hasExtra("consulta")) {
-            Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
+        resultados = new Resultado[11];
+
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        int idConsulta = mPrefs.getInt("idConsulta", -1);
+
+        if (idConsulta>0){
+            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
         }
+
 
 
 
@@ -55,13 +61,11 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (verificaCampos(view)) {
 
-                    calcularResultados(view);
-                    Toast.makeText(SistemaMacElevacaoActivity.this, "Resultado A: " + resultadoA + "\nResultado B: " + resultadoB, Toast.LENGTH_LONG).show();
+                    calcularResultados();
 
                     Intent intent = new Intent(SistemaMacElevacaoActivity.this, SistemaMacElevacao2Activity.class);
-                    intent.putExtra("resultadoA", resultadoA);
-                    intent.putExtra("resultadoB", resultadoB);
-                    startActivity(intent);
+                    intent.putExtra("resultados", resultados);
+                    startActivityForResult(intent,1);
                 }
             }
         });
@@ -80,7 +84,16 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent returnIntent = new Intent();
+                setResult(SistemaMacMainActivity.RESULT_OK, returnIntent);
+                finish();
+            }
+        }
+    }
 
     private void clickToggleButtonGrafico(Boolean estado)
     {
@@ -124,16 +137,19 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
     }
 
 
-    private void calcularResultados(View view) {
+    private void calcularResultados() {
+
+
+
 
         Spinner spinner1 = (Spinner) findViewById(R.id.cbGamElevacaoPontuacaoFrequenciaPeso);
 
         switch(spinner1.getSelectedItemPosition())
         {
-            case 0: resultadoA=0; break;
-            case 1: resultadoA=4; break;
-            case 2: resultadoA=6; break;
-            case 3: resultadoA=10; break;
+            case 0: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Green"); break;
+            case 1: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Amber"); break;
+            case 2: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Red"); break;
+            case 3: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Purple"); break;
         }
         RadioButton radioButton1 = (RadioButton) findViewById(R.id.rbGamElevacaoDistanciaMaos1);
         RadioButton radioButton2 = (RadioButton) findViewById(R.id.rbGamElevacaoDistanciaMaos2);
@@ -141,16 +157,16 @@ public class SistemaMacElevacaoActivity extends AppCompatActivity {
         RadioButton radioButton4 = (RadioButton) findViewById(R.id.rbGamElevacaoDistanciaMaos4);
 
         if (radioButton1.isChecked()) {
-            resultadoB = 0;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Green");
         }
         if (radioButton2.isChecked()) {
-            resultadoB = 3;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Amber");
         }
         if (radioButton3.isChecked()) {
-            resultadoB = 3;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Red");
         }
         if (radioButton4.isChecked()) {
-            resultadoB = 6;
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoDistanciaMaosTitulo),"Purple");
         }
 
 

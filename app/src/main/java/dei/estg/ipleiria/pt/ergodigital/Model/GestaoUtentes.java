@@ -24,7 +24,6 @@ private ArrayList<Pessoa> listaPessoas;
     {
         listaPessoas= new ArrayList<Pessoa>();
         listaConsultas= new ArrayList<Consulta>();
-        addConsultas();
     }
 
 
@@ -40,15 +39,6 @@ private ArrayList<Pessoa> listaPessoas;
         GestaoUtentes.getInstance().addPessoa("Tiago Pinto", date1, 0, 180, 95);
 
 
-    }
-
-    public void addConsultas() {
-
-        Consulta consulta = new Consulta();
-        Resultado resultado= new Resultado("OWAS","avaliacaoTeste");
-        consulta.addResultado(resultado);
-
-listaConsultas.add(consulta);
     }
 
 

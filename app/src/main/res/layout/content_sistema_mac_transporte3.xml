@@ -91,6 +91,12 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/GamElevacaoOutrosFactoresOpcao0"
+                    android:id="@+id/rbGamTransporteOutrosFactoresOpcao0" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/GamElevacaoOutrosFactoresOpcao1"
                     android:id="@+id/rbGamTransporteOutrosFactoresOpcao1" />
 
@@ -100,6 +106,7 @@
                     android:text="@string/GamElevacaoOutrosFactoresOpcao2"
                     android:id="@+id/rbGamTransporteOutrosFactoresOpcao2" />
             </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
@@ -152,6 +159,13 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/GamTransporteObstaculosTitulo"
                 android:id="@+id/txtViewGamTransporteObstaculosTitulo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/GamTransporteObstaculosDescricao"
+                android:id="@+id/tvGamTransporteObstaculosDescricao" />
 
             <RadioGroup
                 android:layout_width="match_parent"

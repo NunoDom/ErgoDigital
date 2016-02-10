@@ -322,23 +322,21 @@ public class SistemaRulaActivity extends AppCompatActivity {
 
                 if (braco <= 6 && antebraco <= 3 && punho <= 4 && giro <= 2) {
 
+                    TextView tvBraco= (TextView)findViewById(R.id.tvRulaBraco);
+                    TextView tvAntebraco= (TextView)findViewById(R.id.tvRULAantebraco);
+                    TextView tvPunho= (TextView)findViewById(R.id.tvRulaPunho);
+                    TextView tvRotacaoPunho= (TextView)findViewById(R.id.tvRulaGiroPunho);
+
 
 
 
                     Resultado resultadoLado = new Resultado("", spinner5.getSelectedItem().toString()+"");
-                    Resultado resultadoBraco = new Resultado("Braço: ",braco+"- "+spinner1.getSelectedItem().toString());
-                    Resultado resultadoAntebraco = new Resultado("AnteBracos: ",antebraco+"- "+spinner2.getSelectedItem().toString());
-                    Resultado resultadoPunho = new Resultado("Punho: ",+punho+"- "+spinner3.getSelectedItem().toString());
-                    Resultado resultadoGiro = new Resultado("Rotação do punho: ",+giro+"- "+spinner4.getSelectedItem().toString());
+                    Resultado resultadoBraco = new Resultado(tvBraco.getText().toString()+": ",braco+"- "+spinner1.getSelectedItem().toString());
+                    Resultado resultadoAntebraco = new Resultado(tvAntebraco.getText().toString()+": ",antebraco+"- "+spinner2.getSelectedItem().toString());
+                    Resultado resultadoPunho = new Resultado(tvPunho.getText().toString()+": ",+punho+"- "+spinner3.getSelectedItem().toString());
+                    Resultado resultadoGiro = new Resultado(tvRotacaoPunho.getText().toString()+": ",+giro+"- "+spinner4.getSelectedItem().toString());
 
                     Resultado[] avaliacao = new Resultado[11];
-
-                    //consulta.setFerramenta("RULA");
-                   // consulta.addResultado(resultadoLado);
-                    //consulta.addResultado(resultadoBraco);
-                    //consulta.addResultado(resultadoAntebraco);
-                   // consulta.addResultado(resultadoPunho);
-                    //consulta.addResultado(resultadoGiro);
 
                     avaliacao[0]=resultadoLado;
                     avaliacao[1]=resultadoBraco;
@@ -364,7 +362,7 @@ public class SistemaRulaActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "erro", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(getApplicationContext(), "Braco : " + braco + "\nAntebraço : " + antebraco + "\nPunho : " + punho + "\nGiro : " + giro, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Braco : " + braco + "\nAntebraço : " + antebraco + "\nPunho : " + punho + "\nGiro : " + giro, Toast.LENGTH_SHORT).show();
 
 
             } else {

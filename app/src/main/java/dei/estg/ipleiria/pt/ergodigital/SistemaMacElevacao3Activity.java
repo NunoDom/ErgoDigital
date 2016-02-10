@@ -1,10 +1,10 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,24 +14,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
+import dei.estg.ipleiria.pt.ergodigital.Model.GestaoUtentes;
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
 
 
 public class SistemaMacElevacao3Activity extends AppCompatActivity {
 
     Consulta consulta;
-    int resultadoA;
-    int resultadoB;
-    int resultadoC;
-    int resultadoD;
-    int resultadoE;
-    int resultadoF;
-    int resultadoG;
-    int resultadoH;
+    Resultado[] resultados;
     RadioGroup radioGroup1;
     RadioGroup radioGroup2;
     RadioGroup radioGroup3;
 
-    private GestureDetectorCompat gestureDetectorCompat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,20 +33,13 @@ public class SistemaMacElevacao3Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().hasExtra("consulta")) {
+        if (getIntent().hasExtra("resultados")) {
             Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
-        }
-
-
-
-        if (getIntent().hasExtra("resultadoA")) {
-            Bundle extras = getIntent().getExtras();
-            resultadoA = extras.getInt("resultadoA");
-            resultadoB = extras.getInt("resultadoB");
-            resultadoC = extras.getInt("resultadoC");
-            resultadoD = extras.getInt("resultadoD");
-            resultadoE = extras.getInt("resultadoE");
+            resultados = (Resultado[])extras.getSerializable("resultados");
+        }else
+        {
+            Toast.makeText(SistemaMacElevacao3Activity.this,"Missing resultados",Toast.LENGTH_LONG).show();
+            finish();
         }
 
         radioGroup1= (RadioGroup)findViewById(R.id.rgGamElevacaoAderenciaCarga);
@@ -68,22 +55,35 @@ public class SistemaMacElevacao3Activity extends AppCompatActivity {
 
                     calcularResultados(view);
 
-                    Toast.makeText(SistemaMacElevacao3Activity.this,"Resultado A:"+resultadoA+"\nResultado B:"+resultadoB+"\nResultado C:"+resultadoC+"\nResultado D:"+resultadoD+"\nResultado E:"+resultadoE+"\nResultado F:"+resultadoF+"\nResultado G:"+resultadoG+"\nResultado H:"+resultadoH,Toast.LENGTH_LONG).show();
+                    SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+                    int idConsulta = mPrefs.getInt("idConsulta", -1);
+
+                    if (idConsulta>0){
+                        consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
+
+                        for (int c=0;c<resultados.length;c++){
+                            if(resultados[c]!=null) {
+                                Resultado resultado = new Resultado((resultados[c].getTitulo()), (resultados[c].getValor()));
+                                consulta.addResultado(resultado);
+                            }
+                        }
+
+                    if(consulta.getPessoa()!=null) {
+                        consulta.getPessoa().addConsulta(consulta);
+                    }
+                        consulta.setFerramenta("MAC");
+                }
 
 
-                    Toast.makeText(SistemaMacElevacao3Activity.this,"ResultadoC: "+resultadoC+"\nResultadoD: "+resultadoD+"\nResultadoE: "+resultadoE,Toast.LENGTH_LONG).show();
+
                     Intent intent = new Intent(getApplicationContext(), SistemaMacElevacaoResultActivity.class);
-                    intent.putExtra("resultadoA",resultadoA);
-                    intent.putExtra("resultadoB",resultadoB);
-                    intent.putExtra("resultadoC",resultadoC);
-                    intent.putExtra("resultadoD", resultadoD);
-                    intent.putExtra("resultadoE", resultadoE);
-                    intent.putExtra("resultadoF", resultadoF);
-                    intent.putExtra("resultadoG", resultadoG);
-                    intent.putExtra("resultadoH", resultadoH);
-
-
+                    intent.putExtra("resultados",resultados);
                     startActivity(intent);
+
+                    Intent returnIntent = new Intent();
+                    setResult(SistemaMacElevacao2Activity.RESULT_OK, returnIntent);
+                    finish();
+
 
                 }
             }
@@ -105,17 +105,17 @@ public class SistemaMacElevacao3Activity extends AppCompatActivity {
 
         if(radioButton1.isChecked())
         {
-            resultadoF=0;
-        }else {
-            if (radioButton2.isChecked()) {
-
-                resultadoF=1;
-            } else {
-                if (radioButton3.isChecked()) {
-                    resultadoF=2;
-                }
-            }
+            resultados[5]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Green");
         }
+        if (radioButton2.isChecked()) {
+
+            resultados[5]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Ambar");
+        }
+        if (radioButton3.isChecked()) {
+            resultados[5]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Red");
+        }
+
+
 
         RadioButton radioButton4 = (RadioButton)findViewById(R.id.rbGamElevacaoSuperficiePavimento1);
         RadioButton radioButton5 = (RadioButton)findViewById(R.id.rbGamElevacaoSuperficiePavimento2);
@@ -123,28 +123,32 @@ public class SistemaMacElevacao3Activity extends AppCompatActivity {
 
         if(radioButton4.isChecked())
         {
-            resultadoG=0;
-        }else {
-            if (radioButton5.isChecked()) {
-
-                resultadoG=1;
-            } else {
-                if (radioButton6.isChecked()) {
-                    resultadoG=2;
-                }
-            }
+            resultados[6]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Green");
         }
-        RadioButton radioButton7 = (RadioButton)findViewById(R.id.rbGamElevacaoOutrosFactoresOpcao1);
-        RadioButton radioButton8 = (RadioButton)findViewById(R.id.rbGamElevacaoOutrosFactoresOpcao2);
+        if (radioButton5.isChecked()) {
+
+            resultados[6]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Ambar");
+        }
+        if (radioButton6.isChecked()) {
+            resultados[6] = new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo), "Red");
+
+
+        }
+        RadioButton radioButton7 = (RadioButton)findViewById(R.id.rbGamElevacaoOutrosFactoresOpcao0);
+        RadioButton radioButton8 = (RadioButton)findViewById(R.id.rbGamElevacaoOutrosFactoresOpcao1);
+        RadioButton radioButton9 = (RadioButton)findViewById(R.id.rbGamElevacaoOutrosFactoresOpcao2);
 
         if(radioButton7.isChecked())
         {
-            resultadoH=1;
-        }else {
+            resultados[7] = new Resultado(getString(R.string.GamElevacaoOutrosFactoresTitulo), "Green");
+        }
             if (radioButton8.isChecked()) {
 
-                resultadoH=2;
+                resultados[7] = new Resultado(getString(R.string.GamElevacaoOutrosFactoresTitulo), "Ambar");
             }
+        if (radioButton9.isChecked()) {
+
+            resultados[7] = new Resultado(getString(R.string.GamElevacaoOutrosFactoresTitulo), "Red");
         }
 
 

@@ -41,8 +41,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Posição do Pescoço"
-                    android:id="@+id/textView12" />
+                    android:text="@string/tvRulaPosicaoPescoco"
+                    android:id="@+id/tvRulaPosicaoPescoco" />
 
                 <Spinner
                     android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Se existir rotação"
+                    android:text="@string/chckboxRulaPescoco1"
                     android:id="@+id/chckboxRulaPescoco1"
                     android:layout_weight="0.03"
                     android:checked="false" />
@@ -62,7 +62,7 @@
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Se existir inclinação"
+                    android:text="@string/chckboxRulaPescoco2"
                     android:id="@+id/chckboxRulaPescoco2"
                     android:layout_weight="0.03"
                     android:checked="false" />
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Posição do Tronco"
-                    android:id="@+id/textView13" />
+                    android:id="@+id/tvRulaPosicaoTronco" />
 
                 <Spinner
                     android:layout_width="wrap_content"
@@ -106,14 +106,14 @@
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Se torçao do tronco"
+                    android:text="@string/chckboxRulaTronco1"
                     android:id="@+id/chckboxRulaTronco1"
                     android:layout_weight="0.03" />
 
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Se inclinação do corpo"
+                    android:text="@string/chckboxRulaTronco1"
                     android:id="@+id/chckboxRulaTronco2"
                     android:layout_weight="0.03" />
             </LinearLayout>
@@ -130,8 +130,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Posição das Pernas"
-                android:id="@+id/textView15"
+                android:text="@string/tvRulaPosicaoPernas"
+                android:id="@+id/tvRulaPosicaoPernas"
                 android:layout_marginTop="10dp" />
 
             <Spinner

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -58,12 +59,6 @@ public class SistemaOwasActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        //if (getIntent().hasExtra("consulta")) {
-        //    Bundle extras = getIntent().getExtras();
-        //    consulta = (Consulta)extras.getSerializable("consulta");
-       // }
-
         SharedPreferences mPrefs = getSharedPreferences("dados", 0);
         int idConsulta = mPrefs.getInt("idConsulta", -1);
 
@@ -76,15 +71,16 @@ public class SistemaOwasActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                click(view);
+                analisar();
+
 
             }
         });
 
-        spinner1= (Spinner)findViewById(R.id.cbTorso);
-        spinner2= (Spinner)findViewById(R.id.cbBracos);
-        spinner3= (Spinner)findViewById(R.id.cbPernas);
-        spinner4= (Spinner)findViewById(R.id.cbForca);
+        spinner1= (Spinner)findViewById(R.id.cbOwasTorso);
+        spinner2= (Spinner)findViewById(R.id.cbOwasBracos);
+        spinner3= (Spinner)findViewById(R.id.cbOwasPernas);
+        spinner4= (Spinner)findViewById(R.id.cbOwasForca);
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -96,7 +92,7 @@ public class SistemaOwasActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 torso = position+1;
-                ImageView image = (ImageView)findViewById(R.id.ivTorso);
+                ImageView image = (ImageView)findViewById(R.id.ivOwasTorso);
                 switch (torso) {
                     case 1:
                         image.setImageResource(R.drawable.ic_owas_t1);
@@ -126,7 +122,7 @@ public class SistemaOwasActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 bracos = position + 1;
-                ImageView image = (ImageView) findViewById(R.id.ivBracos);
+                ImageView image = (ImageView) findViewById(R.id.ivOwasBracos);
                 switch (bracos) {
                     case 1:
                         image.setImageResource(R.drawable.ic_owas_b1);
@@ -152,7 +148,7 @@ public class SistemaOwasActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 pernas = position + 1;
-                ImageView image = (ImageView) findViewById(R.id.ivPernas);
+                ImageView image = (ImageView) findViewById(R.id.ivOwasPernas);
                 switch (pernas) {
                     case 1:
                         image.setImageResource(R.drawable.ic_owas_p1);
@@ -189,18 +185,6 @@ public class SistemaOwasActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 forca = position + 1;
-                //ImageView image1 = (ImageView) findViewById(R.id.ivracos);
-                /*switch (forca) {
-                    case 1:
-                        image1.setImageResource(R.drawable.ic_p1);
-                        break;
-                    case 2:
-                        image1.setImageResource(R.drawable.ic_p2);
-                        break;
-                    case 3:
-                        image1.setImageResource(R.drawable.ic_p3);
-                        break;
-                }*/
             }
 
             @Override
@@ -210,44 +194,9 @@ public class SistemaOwasActivity extends AppCompatActivity {
         });
     }
 
-    public void click(View view){
-
-        TabelaReferenciaOWAS tab = new TabelaReferenciaOWAS();
-        if (torso>0&&bracos>0&&pernas>0&&forca>0 ) {
-            int resultado = tab.devolve(torso, bracos, pernas, forca);
-
-            switch (resultado) {
-
-                case 1:
+    public void click(){
 
 
-                    Toast.makeText(getApplicationContext(), "resultado = 1, Não necessita de medidas correctivas",
-                            Toast.LENGTH_SHORT).show();
-                    resultadoString="Não necessita de medidas correctivas";
-                    break;
-                case 2:
-
-                    Toast.makeText(getApplicationContext(), "resultado = 2, São necessarias medidas correctivas em um futuro proximo",
-                            Toast.LENGTH_SHORT).show();
-                    resultadoString="São necessarias medidas correctivas em um futuro proximo";
-                    break;
-                case 3:
-
-                    Toast.makeText(getApplicationContext(), "resultado = 3, São necessarias medidas correctivas quanto possivel",
-                            Toast.LENGTH_SHORT).show();
-                    resultadoString="São necessarias medidas correctivas quanto possivel";
-                    break;
-                case 4:
-
-                    Toast.makeText(getApplicationContext(), "resultado = 4,  São necessarias medidas correctivas imediatas",
-                            Toast.LENGTH_SHORT).show();
-                    resultadoString="São necessarias medidas correctivas imediatas";
-                    break;
-
-
-            }
-
-        }
 
     }
 
@@ -259,7 +208,7 @@ public void createPDF() throws IOException {
     String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PDF";
 
     File dir = new File(path);
-    if(!dir.exists())
+    if (!dir.exists())
         dir.mkdirs();
 
     PrintAttributes printAttrs = new PrintAttributes.Builder().
@@ -293,16 +242,15 @@ public void createPDF() throws IOException {
         // Move the canvas for the next view.
         page.getCanvas().translate(0, view.getHeight());
     }*/
-    ViewGroup container = (ViewGroup)findViewById(R.id.layoutOWAS);
+    ViewGroup container = (ViewGroup) findViewById(R.id.layoutOWAS);
 
-    for(int i=0;i<container.getChildCount();i++){
+    for (int i = 0; i < container.getChildCount(); i++) {
         View v = container.getChildAt(i);
         PdfDocument.PageInfo.Builder pageBuilder = new PdfDocument.PageInfo.Builder(v.getWidth(), v.getHeight(), i);
         PdfDocument.Page page = document.startPage(pageBuilder.create());
         v.draw(page.getCanvas());
         document.finishPage(page);
     }
-
 
 
     //View v = layout.draw();
@@ -313,7 +261,7 @@ public void createPDF() throws IOException {
 
     // finish the page
     //document.finishPage(page);
-    File file = new File(path, "filename"+System.currentTimeMillis()+".pdf");
+    File file = new File(path, "filename" + System.currentTimeMillis() + ".pdf");
     os = new FileOutputStream(file);
     document.writeTo(os);
     document.close();
@@ -321,39 +269,59 @@ public void createPDF() throws IOException {
 
     // close the document
     document.close();
-
-
-
 }
 
 
-    public void click2(View view)
-    {   click(view);
-        clickResultado();
-        /*try {
-            createPDF();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-    }
 
-
-
-
-    private void clickResultado()
+    private void analisar()
     {
+
+        TabelaReferenciaOWAS tab = new TabelaReferenciaOWAS();
+        if (torso>0&&bracos>0&&pernas>0&&forca>0 ) {
+            int resultado = tab.devolve(torso, bracos, pernas, forca);
+
+            switch (resultado) {
+
+                case 1:
+
+                    resultadoString= getString(R.string.OwasResultado1);
+                    break;
+                case 2:
+
+                    resultadoString= getString(R.string.OwasResultado2);
+                    break;
+                case 3:
+
+                    resultadoString= getString(R.string.OwasResultado3);
+                    break;
+                case 4:
+
+                    resultadoString= getString(R.string.OwasResultado4);
+                    break;
+
+
+            }
+
+        }
+
+
+
         //GestaoUtentes.getInstance().addConsulta("OWAS");
         //Consulta consulta = GestaoUtentes.getInstance().getListaConsultas().get(1);
 
         ;//PARA TIRAR
         //RECEBE A CONSULTA E ADICIONA OS RESULTADOS
 
+        TextView textViewTorso = (TextView)findViewById(R.id.tvOwasTorso);
+        TextView textViewBracos = (TextView)findViewById(R.id.tvOwasBracos);
+        TextView textViewPernas = (TextView)findViewById(R.id.tvOwasPernas);
+        TextView textViewForca = (TextView)findViewById(R.id.tvOwasForca);
 
-        resultadoTorso = new Resultado("Torso:",torso+"- "+spinner1.getSelectedItem().toString());
-        resultadoBracos = new Resultado("Bracos:",bracos+"- "+spinner2.getSelectedItem().toString());
-        resultadoPernas = new Resultado("Pernas: ",+pernas+"- "+spinner3.getSelectedItem().toString());
-        resultadoForça = new Resultado("Força: ",+forca+"- "+spinner4.getSelectedItem().toString());
-        resultadoFinal = new Resultado("Resultado da Avaliação \n", resultadoString+"");
+        resultadoTorso = new Resultado(textViewTorso.getText().toString()+":",torso+"- "+spinner1.getSelectedItem().toString());
+        resultadoBracos = new Resultado(textViewTorso.getText().toString()+":",bracos+"- "+spinner2.getSelectedItem().toString());
+        resultadoPernas = new Resultado(textViewTorso.getText().toString()+": ",+pernas+"- "+spinner3.getSelectedItem().toString());
+        resultadoForça = new Resultado(textViewTorso.getText().toString()+": ",+forca+"- "+spinner4.getSelectedItem().toString());
+        resultadoFinal = new Resultado(getString(R.string.ResultadoAvaliacao)+"\n", resultadoString+"");
 
         consulta.addResultado(resultadoTorso);
         consulta.addResultado(resultadoBracos);
@@ -367,12 +335,36 @@ public void createPDF() throws IOException {
         }
 
 
+        consulta.setFerramenta("OWAS");
 
         Intent intent= new Intent(this,ActivityResultado.class);
-        intent.putExtra("consulta",consulta);
+        intent.putExtra("consulta", consulta);
         startActivity(intent);
+
+
+
+        Intent returnIntent = new Intent();
+        setResult(SistemaRebaActivity.RESULT_OK, returnIntent);
         finish();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void sendEmail(View view){
 

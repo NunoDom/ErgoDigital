@@ -100,7 +100,14 @@ public class Pessoa  implements Serializable{
         String[] separated = nomeCompleto.split(" ");
         int max =separated.length-1;
         separated[max]= separated[max].trim();
+        if(max==0){
+            return "";
+        }else
+        {
+
+
         return separated[max];
+        }
     }
     public String getNomeMeio() {
 

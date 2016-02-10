@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
@@ -190,9 +191,14 @@ private void sair()
     ResultadoB=tab.devolveTabelaB(pescoco,tronco,pernas);
 
 
-    Resultado resultadoPescoco = new Resultado("Pescoco: ",pescoco+"- "+ spinner1.getSelectedItem().toString()+"");
-    Resultado resultadoTronco= new Resultado("Tronco: ",tronco+"- "+spinner2.getSelectedItem().toString());
-    Resultado resultadoPernas = new Resultado("Pernas: ",pernas+"- "+spinner3.getSelectedItem().toString());
+    TextView tvPescoco= (TextView)findViewById(R.id.tvRulaPosicaoPescoco);
+    TextView tvTronco= (TextView)findViewById(R.id.tvRulaPosicaoTronco);
+    TextView tvPernas= (TextView)findViewById(R.id.tvRulaPosicaoPernas);
+
+
+    Resultado resultadoPescoco = new Resultado(tvPescoco.getText().toString()+": ",pescoco+"- "+ spinner1.getSelectedItem().toString()+"");
+    Resultado resultadoTronco= new Resultado(tvTronco.getText().toString()+": ",tronco+"- "+spinner2.getSelectedItem().toString());
+    Resultado resultadoPernas = new Resultado(tvPernas.getText().toString()+": ",pernas+"- "+spinner3.getSelectedItem().toString());
 
     avaliacao[5]=resultadoPescoco;
     avaliacao[6]=resultadoTronco;

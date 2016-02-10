@@ -1,5 +1,6 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,36 +18,32 @@ public class SistemaKimMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sistema_kim_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-        if (getIntent().hasExtra("consulta")) {
-            Bundle extras = getIntent().getExtras();
-            consulta = (Consulta)extras.getSerializable("consulta");
-        }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent returnIntent = new Intent();
+                setResult(MovimentacaoDeCargasActivity.RESULT_OK, returnIntent);
+                finish();
+            }
+        }
+    }
+
     public void callKim_LevantarActivity(View view){
 
         Intent intent = new Intent(this, SistemaKimLevantarActivity.class);
-        intent.putExtra("consulta",consulta);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
 
     }
 
     public void callKimEmpurarActivity(View view){
 
         Intent intent = new Intent(this, SistemaKimEmpurrarActivity.class);
-        intent.putExtra("consulta",consulta);
-        startActivity(intent);
+        startActivityForResult(intent,1);
 
     }
 

@@ -1,10 +1,10 @@
 package dei.estg.ipleiria.pt.ergodigital;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,16 +14,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import dei.estg.ipleiria.pt.ergodigital.Model.Resultado;
+
 public class SistemaMacTransporte2Activity extends AppCompatActivity {
 
-    int resultadoA;
-    int resultadoB;
-    int resultadoC;
-    int resultadoD;
-    int resultadoE;
-
-
-
+    Resultado[] resultados;
     RadioGroup radioGroup1;
     RadioGroup radioGroup2;
     RadioGroup radioGroup3;
@@ -35,10 +30,12 @@ public class SistemaMacTransporte2Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().hasExtra("resultadoA")) {
+        if (getIntent().hasExtra("resultados")) {
             Bundle extras = getIntent().getExtras();
-            resultadoA = extras.getInt("resultadoA");
-            resultadoB = extras.getInt("resultadoB");
+            resultados = (Resultado[])extras.getSerializable("resultados");
+        }else
+        {
+            Toast.makeText(SistemaMacTransporte2Activity.this,"Missing resultados",Toast.LENGTH_LONG).show();
         }
 
         radioGroup1= (RadioGroup)findViewById(R.id.rgGamTransporteVertical);
@@ -53,23 +50,25 @@ public class SistemaMacTransporte2Activity extends AppCompatActivity {
                 if(verificaCampos(view)) {
 
                     calcularResultados(view);
-
-                    Toast.makeText(SistemaMacTransporte2Activity.this, "ResultadoC: " + resultadoC + "\nResultadoD: " + resultadoD + "\nResultadoE: " + resultadoE, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SistemaMacTransporte2Activity.this, SistemaMacTransporte3Activity.class);
-                    intent.putExtra("resultadoA",resultadoA);
-                    intent.putExtra("resultadoB",resultadoB);
-                    intent.putExtra("resultadoC",resultadoC);
-                    intent.putExtra("resultadoD",resultadoD);
-                    intent.putExtra("resultadoE",resultadoE);
-
-                    startActivity(intent);
+                    intent.putExtra("resultados",resultados);
+                    startActivityForResult(intent, 1);
                 }
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent returnIntent = new Intent();
+                setResult(SistemaMacTransporteActivity.RESULT_OK, returnIntent);
+                finish();
+            }
+        }
+    }
 
     private void calcularResultados(View view) {
         RadioButton radioButton1 = (RadioButton) findViewById(R.id.rbGamTransporteVertical1);
@@ -77,14 +76,14 @@ public class SistemaMacTransporte2Activity extends AppCompatActivity {
         RadioButton radioButton3 = (RadioButton) findViewById(R.id.rbGamTransporteVertical3);
 
         if (radioButton1.isChecked()) {
-            resultadoC = 0;
+            resultados[2]=new Resultado(getString(R.string.GamElevacaoVerticalTitulo),"Green");
         }
         if (radioButton2.isChecked()) {
 
-            resultadoC = 1;
+            resultados[2]=new Resultado(getString(R.string.GamElevacaoVerticalTitulo),"Ambar");
         }
         if (radioButton3.isChecked()) {
-            resultadoC = 3;
+            resultados[2]=new Resultado(getString(R.string.GamElevacaoVerticalTitulo),"Red");
         }
 
 
@@ -93,14 +92,14 @@ public class SistemaMacTransporte2Activity extends AppCompatActivity {
         RadioButton radioButton6 = (RadioButton) findViewById(R.id.rbGamTransporteConstrangimentoPosicao3);
 
         if (radioButton4.isChecked()) {
-            resultadoD = 0;
+            resultados[4]=new Resultado(getString(R.string.GamElevacaoConstrangimentTitulo),"Green");
         }
         if (radioButton5.isChecked()) {
 
-            resultadoD = 1;
+            resultados[4]=new Resultado(getString(R.string.GamElevacaoConstrangimentTitulo),"Ambar");
         }
         if (radioButton6.isChecked()) {
-            resultadoD = 2;
+            resultados[4]=new Resultado(getString(R.string.GamElevacaoConstrangimentTitulo),"Red");
         }
 
 
@@ -108,15 +107,16 @@ public class SistemaMacTransporte2Activity extends AppCompatActivity {
         RadioButton radioButton8 = (RadioButton) findViewById(R.id.rbGamTransporteAderenciaCarga2);
         RadioButton radioButton9 = (RadioButton) findViewById(R.id.rbGamTransporteAderenciaCarga3);
 
-        if (radioButton7.isChecked()) {
-            resultadoE = 0;
+        if(radioButton7.isChecked())
+        {
+            resultados[5]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Green");
         }
         if (radioButton8.isChecked()) {
 
-            resultadoE = 1;
+            resultados[5]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Ambar");
         }
         if (radioButton9.isChecked()) {
-            resultadoE = 3;
+            resultados[5]=new Resultado(getString(R.string.GamElevacaoAderenciaCargaTitulo),"Red");
         }
 
 
@@ -127,7 +127,6 @@ public class SistemaMacTransporte2Activity extends AppCompatActivity {
     {
         if (radioGroup1.getCheckedRadioButtonId() < 0)
         {
-
             LinearLayout linearLayout = (LinearLayout)findViewById(R.id.layoutGamTransporteVertical);
             TextView linha = (TextView)linearLayout.getChildAt(0);
             linha.setTextColor(Color.RED);

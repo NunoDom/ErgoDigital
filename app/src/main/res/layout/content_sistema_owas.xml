@@ -27,8 +27,8 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="680dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.59">
 
             <LinearLayout
@@ -40,7 +40,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ivTorso"
+                    android:id="@+id/ivOwasTorso"
                     android:src="@drawable/ic_owas_t1" />
 
                 <LinearLayout
@@ -52,13 +52,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Torso"
-                        android:id="@+id/tvTorso" />
+                        android:text="@string/tvOwasTorso"
+                        android:id="@+id/tvOwasTorso" />
 
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/cbTorso"
+                        android:id="@+id/cbOwasTorso"
                         android:longClickable="false"
                         android:spinnerMode="dropdown"
                         android:entries="@array/OWAStorso"
@@ -77,7 +77,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ivBracos"
+                    android:id="@+id/ivOwasBracos"
                     android:src="@drawable/ic_owas_b1" />
 
                 <LinearLayout
@@ -89,14 +89,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Braços"
-                        android:id="@+id/tvBracos"
+                        android:text="@string/tvOwasBracos"
+                        android:id="@+id/tvOwasBracos"
                         android:gravity="bottom" />
 
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/cbBracos"
+                        android:id="@+id/cbOwasBracos"
                         android:entries="@array/OWASbracos"
                         android:layout_weight="0.04"
                         android:spinnerMode="dropdown" />
@@ -113,7 +113,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ivPernas"
+                    android:id="@+id/ivOwasPernas"
                     android:src="@drawable/ic_owas_p1" />
 
                 <LinearLayout
@@ -125,14 +125,14 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Pernas"
-                        android:id="@+id/tvPernas"
+                        android:text="@string/tvOwasPernas"
+                        android:id="@+id/tvOwasPernas"
                         android:gravity="bottom" />
 
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/cbPernas"
+                        android:id="@+id/cbOwasPernas"
                         android:layout_weight="0.04"
                         android:entries="@array/OWASpernas"
                         android:spinnerMode="dropdown" />
@@ -142,22 +142,23 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Força"
-                    android:id="@+id/tvForca"
+                    android:text="@string/tvOwasForca"
+                    android:id="@+id/tvOwasForca"
                     android:gravity="bottom" />
 
                 <Spinner
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cbForca"
+                    android:id="@+id/cbOwasForca"
                     android:entries="@array/OWASforca"
                     android:spinnerMode="dropdown"
                     android:layout_weight="0.04" />

@@ -16,15 +16,15 @@
         android:orientation="vertical"
         android:layout_width="315dp"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:weightSum="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ergo Digital"
-            android:id="@+id/textView42"
-            android:layout_marginTop="50dp" />
+        <ImageView
+            android:layout_width="168dp"
+            android:layout_height="112dp"
+            android:id="@+id/imageView2"
+            android:src="@drawable/ic_ergodigital_logo"
+            android:layout_weight="0.32" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -53,7 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView40" />
+            android:id="@+id/textView40"
+            android:visibility="gone" />
 
         <Button
             android:layout_width="fill_parent"
@@ -61,13 +62,15 @@
             android:text="Guardar Pessoas"
             android:id="@+id/button10"
             android:layout_gravity="center_horizontal"
-            android:onClick="callGuardar" />
+            android:onClick="callGuardar"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView41" />
+            android:id="@+id/textView41"
+            android:visibility="gone" />
 
         <Button
             android:layout_width="fill_parent"
@@ -75,13 +78,15 @@
             android:text="LER Pessoas"
             android:id="@+id/button11"
             android:layout_gravity="center_horizontal"
-            android:onClick="callLer" />
+            android:onClick="callLer"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView43" />
+            android:id="@+id/textView43"
+            android:visibility="visible" />
 
         <Button
             android:layout_width="fill_parent"
@@ -90,6 +95,13 @@
             android:id="@+id/button12"
             android:layout_gravity="center_horizontal"
             android:onClick="callAvaliacaoSRegisto" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView8"
+            android:visibility="visible" />
 
         <Button
             android:layout_width="fill_parent"

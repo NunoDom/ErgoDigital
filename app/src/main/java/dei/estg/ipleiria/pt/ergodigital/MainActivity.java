@@ -47,26 +47,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-     //   guardarInternamente();
+       guardarInternamente();
 
     }
 
     @Override
     protected void onDestroy() {
-       // guardarInternamente();
+        guardarInternamente();
         super.onDestroy();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-       // guardarInternamente();
+        guardarInternamente();
 
     }
 
-private void configuracoesUtilizador()
-{
-
+private void configuracoesUtilizador(){
 
     SharedPreferences mPrefs = getSharedPreferences("dados", 0);
     String nomeUtilizador = mPrefs.getString("nomeUtilizador", "");
@@ -74,11 +72,6 @@ private void configuracoesUtilizador()
     if (nomeUtilizador.equals("") && nomeUtilizador.equals("")){
         Intent intent = new Intent(this, UserSettingsActivity.class);
         startActivity(intent);
-    } else {
-       // Toast toast =Toast.makeText(this, "Bem Vindo "+nomeUtilizador, Toast.LENGTH_SHORT);
-        //toast.setGravity(Gravity.TOP, 0, 300);
-        //toast.show();
-
     }
 }
 
@@ -95,14 +88,14 @@ private void configuracoesUtilizador()
             Intent intent = new Intent(this,UserSettingsActivity.class);
             startActivity(intent);
             return true;
-       }else
-       {
-           if (id == R.id.action_userSettings) {
-               Intent intent = new Intent(this,UserSettingsActivity.class);
+       }
+
+           if (id == R.id.action_sobre) {
+               Intent intent = new Intent(this,SobreActivity.class);
                startActivity(intent);
                return true;
            }
-       }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -157,7 +150,7 @@ private void configuracoesUtilizador()
 
 
         Intent intent = new Intent(this, ActivityResultado.class);
-        intent.putExtra("consulta",GestaoUtentes.getInstance().getListaConsultas().get(0));
+        intent.putExtra("consultas",GestaoUtentes.getInstance().getListaConsultas());
         startActivity(intent);
     }
 

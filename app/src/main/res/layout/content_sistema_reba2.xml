@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -8,13 +8,6 @@
     tools:showIn="@layout/activity_sistema_reba2"
     tools:context="dei.estg.ipleiria.pt.ergodigital.SistemaRebaActivity2"
     android:background="@color/white">
-
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/ScrollView01"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -72,7 +65,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Braço"
+                            android:text="@string/tvRebaBraco"
                             android:id="@+id/tvRebaBraco"
                             android:layout_gravity="center" />
 
@@ -81,14 +74,14 @@
                             android:layout_height="60dp"
                             android:id="@+id/cbRebaBraco"
                             android:longClickable="false"
-                            android:spinnerMode="dialog"
+                            android:spinnerMode="dropdown"
                             android:entries="@array/RebaBraco"
                             android:nestedScrollingEnabled="false" />
 
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Se houver adução ou rotação de braço"
+                            android:text="@string/chckboxRebaCorrecaoBraco"
                             android:id="@+id/chckboxRebaCorrecaoBraco"
                             android:layout_gravity="left"
                             android:checked="false" />
@@ -96,14 +89,14 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Se elevar o ombro"
+                            android:text="@string/chckboxRebaCorrecaoBraco2"
                             android:id="@+id/chckboxRebaCorrecaoBraco2"
                             android:layout_gravity="left" />
 
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Se apoiado suportando peso do braço"
+                            android:text="@string/chckboxRebaCorrecaoBraco3"
                             android:id="@+id/chckboxRebaCorrecaoBraco3"
                             android:layout_gravity="left" />
 
@@ -136,7 +129,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Antebraço"
+                            android:text="@string/tvRebaAnteBraco"
                             android:id="@+id/tvRebaAnteBraco"
                             android:layout_gravity="center" />
 
@@ -173,8 +166,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Pulso"
-                            android:id="@+id/tvRebaPernas"
+                            android:text="@string/tvRebaPulso"
+                            android:id="@+id/tvRebaPulso"
                             android:layout_weight="0.14"
                             android:gravity="bottom"
                             android:layout_gravity="center" />
@@ -191,7 +184,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Se houber desvio ou rotação do pulso"
+                            android:text="@string/chckboxRebaCorrecaoPulso"
                             android:id="@+id/chckboxRebaCorrecaoPulso"
                             android:layout_gravity="left" />
 
@@ -208,8 +201,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Pontuação da Pega"
-                        android:id="@+id/textView16"
+                        android:text="@string/tvRebaPega"
+                        android:id="@+id/tvRebaPega"
                         android:layout_gravity="center" />
 
                     <Spinner
@@ -229,6 +222,3 @@
 
         </LinearLayout>
     </ScrollView>
-
-
-</LinearLayout>

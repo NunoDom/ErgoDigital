@@ -23,13 +23,6 @@
             android:gravity="left"
             android:id="@+id/linearLayout6" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/GamElevacaoVerticalTitulo"
-                android:id="@+id/txtViewGamTransporteVerticalTitle" />
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -37,6 +30,13 @@
                 android:gravity="left"
                 android:layout_marginTop="5dp"
                 android:id="@+id/layoutGamTransporteVertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/GamElevacaoVerticalTitulo"
+                    android:id="@+id/txtViewGamTransporteVerticalTitle" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -92,20 +92,20 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/GamElevacaoConstrangimentoPosicao1"
+                    android:text="@string/GamTransporteConstrangimentoPosicao1"
                     android:id="@+id/rbGamTransporteConstrangimentoPosicao1"
                     android:checked="false" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/GamElevacaoConstrangimentoPosicao2"
+                    android:text="@string/GamTransporteConstrangimentoPosicao2"
                     android:id="@+id/rbGamTransporteConstrangimentoPosicao2" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/GamElevacaoConstrangimentoPosicao3"
+                    android:text="@string/GamTransporteConstrangimentoPosicao3"
                     android:id="@+id/rbGamTransporteConstrangimentoPosicao3" />
             </RadioGroup>
         </LinearLayout>
@@ -151,5 +151,10 @@
                     android:id="@+id/rbGamTransporteAderenciaCarga3" />
             </RadioGroup>
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"></LinearLayout>
     </LinearLayout>
 </ScrollView>
