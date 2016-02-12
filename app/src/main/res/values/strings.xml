@@ -489,7 +489,7 @@
     <string name="txtViewKimEmpurarTipoCargaTitulo">Tipo de ajuda</string>
 
 
-    <string name="txtViewKimEmpurarPesoCargaTitulo">Numero de Vezes/Distancia Tota</string>
+    <string name="txtViewKimEmpurarPesoCargaTitulo">Numero de Vezes/Distancia Total</string>
 
 
     <string name="txtViewKimEmpurarPontucacaoPrecisaoTitulo">Pontuação de Precisão</string>
@@ -628,7 +628,7 @@
 
     <string name="GamTransporteObstaculos1">Nenhum</string>
     <string name="GamTransporteObstaculos2">1 fator</string>
-    <string name="GamTransporteObstaculos3">2 factores</string>
+    <string name="GamTransporteObstaculos3">2 fatores</string>
     <string name="GamTransporteObstaculos4">mais de 2</string>
 
     <string name="GamTransporteConstrangimentoPosicao1">Se movimentos livres</string>
@@ -724,7 +724,7 @@
     <string name="title_activity_sistema_mac_transporte3">Sistema Mac Transporte</string>
     <string name="title_activity_sistema_mac_equipa2">Sistema Mac Equipa</string>
     <string name="title_activity_sistema_mac_equipa3">Sistema Mac Equipa</string>
-    <string name="title_activity_sistema_mac_transporte2">Sistem aMac Transporte</string>
+    <string name="title_activity_sistema_mac_transporte2">Sistem Mac Transporte</string>
     <string name="title_activity_sistema_mac_elevacao_result">Sistema Mac Elevacao Resultado
     </string>
     <string name="title_activity_user_settings">UserSettingsActivity</string>
