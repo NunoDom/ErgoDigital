@@ -158,50 +158,56 @@ public class DadosUtenteActivity extends AppCompatActivity {
 
             Calendar newCalender = Calendar.getInstance();
             int anoSistema = newCalender.get(Calendar.YEAR);
-
-            if (ano < 1900 || ano > anoSistema) {
-                Toast.makeText(this, "Ano Invalido", Toast.LENGTH_SHORT).show();
+            int mesSistema = newCalender.get(Calendar.MONTH);
+            int diaSistema = newCalender.get(Calendar.DAY_OF_MONTH);
+            String nomeSemEspacos = nome;
+            nomeSemEspacos.replace(" ","");
+if(nome.equals("")) {
+    Toast.makeText(this, "Insira um nome válido", Toast.LENGTH_SHORT).show();
+}else{
+    if (ano < 1900 || ano > anoSistema) {
+        Toast.makeText(this, "Ano Invalido", Toast.LENGTH_SHORT).show();
+    } else {
+        if (mes < 1 || mes > 12 || mes > mesSistema) {
+            Toast.makeText(this, "Mês Inválido", Toast.LENGTH_SHORT).show();
+        } else {
+            if (dia < 1 || dia > 31 || dia> diaSistema) {
+                Toast.makeText(this, "Dia invalido", Toast.LENGTH_SHORT).show();
             } else {
-                if (mes < 1 || mes > 12) {
-                    Toast.makeText(this, "Mês Inválido", Toast.LENGTH_SHORT).show();
+
+                if ((altura < 50 || altura > 250)) {
+                    Toast.makeText(this, "Altura invalida", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (dia < 1 || dia > 31) {
-                        Toast.makeText(this, "Dia invalido", Toast.LENGTH_SHORT).show();
+                    if (peso < 10 || peso > 500) {
+
                     } else {
+                        if ((spinnerGenero.getSelectedItemPosition() - 1) < 0) {
+                            Toast.makeText(this, "Selecione um genero", Toast.LENGTH_SHORT).show();
 
-                        if ((altura < 50 || altura > 250)) {
-                            Toast.makeText(this, "Altura invalida", Toast.LENGTH_SHORT).show();
                         } else {
-                            if (peso < 10 || peso > 500) {
-
-                            } else {
-                                if ((spinnerGenero.getSelectedItemPosition() - 1) < 0) {
-                                    Toast.makeText(this, "Selecione um genero", Toast.LENGTH_SHORT).show();
-
-                                } else {
-                                    Date date = calender.getTime();
-                                    if (tipo == 0) {//ADICIONAR
-                                        GestaoUtentes.getInstance().addPessoa(nome, date, genero, altura, peso);
-                                        Toast.makeText(this, "Utente adicionado com sucesso ", Toast.LENGTH_SHORT).show();
-                                        this.finish();
-                                        return true;
-                                    } else{//EDITAR
-                                        GestaoUtentes.getInstance().alterarPessoa(pessoa.getId(), nome, date, genero, altura, peso);
-                                        Toast.makeText(this, "Utente alterado com sucesso ", Toast.LENGTH_SHORT).show();
-                                        this.finish();
-                                        return true;
-
-                                    }
-
-
-                                }
+                            Date date = calender.getTime();
+                            if (tipo == 0) {//ADICIONAR
+                                GestaoUtentes.getInstance().addPessoa(nome, date, genero, altura, peso);
+                                Toast.makeText(this, "Utente adicionado com sucesso ", Toast.LENGTH_SHORT).show();
+                                this.finish();
+                                return true;
+                            } else {//EDITAR
+                                GestaoUtentes.getInstance().alterarPessoa(pessoa.getId(), nome, date, genero, altura, peso);
+                                Toast.makeText(this, "Utente alterado com sucesso ", Toast.LENGTH_SHORT).show();
+                                this.finish();
+                                return true;
 
                             }
+
+
                         }
+
                     }
                 }
             }
-
+        }
+    }
+}
         } catch (Exception ex) {
             Toast toast = Toast.makeText(this,"Preencha todos os campos", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);

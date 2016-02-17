@@ -33,7 +33,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_sobre">Sobre</string>
     <string name="title_activity_lista_pessoas">Lista Pessoas</string>
-    <string name="title_activity_avaliacao_postural">Avaliacao Postural</string>
+    <string name="title_activity_avaliacao_postural">Avaliacão Postural</string>
 
 
 
@@ -43,7 +43,7 @@
     <string name="textBtnCH">Movimentação de Cargas</string>
     <string name="textBtnPA">Avaliação Postural</string>
     <string name="textBtnRM">Movimento Repetitivo</string>
-    <string name="textTitle">Tipos de Avaliações Ergonomicas</string>
+    <string name="textTitle">Tipos de Avaliações Ergonómicas</string>
 
 
 
@@ -422,13 +422,13 @@
     <string name="txtViewKimEmpurarTipoOperacaoTitulo">Tipo de Operação</string>
     <string-array name="KimEmpurarTipoOperacao">
         <item>Selecione uma opçao</item>
-        <item>Curta distancia ou paragens frequantes</item>
-        <item>Longas Distancias</item>
+        <item>Curta distância ou paragens frequentes</item>
+        <item>Longas Distâncias</item>
     </string-array>
 
-    <string name="txtViewKimEmpurarEscalaTempoTitulo">Numero de Vezes/Distancia Total</string>
+    <string name="txtViewKimEmpurarEscalaTempoTitulo">Número de Vezes/Distância Total</string>
     <string name="KimEmpurarTipoOperacaoNumeroVezes">Número de vezes</string>
-    <string name="KimEmpurarTipoOperacaoDistancia">Distancia Total</string>
+    <string name="KimEmpurarTipoOperacaoDistancia">Distância Total</string>
 
 
 
@@ -489,7 +489,7 @@
     <string name="txtViewKimEmpurarTipoCargaTitulo">Tipo de ajuda</string>
 
 
-    <string name="txtViewKimEmpurarPesoCargaTitulo">Numero de Vezes/Distancia Total</string>
+    <string name="txtViewKimEmpurarPesoCargaTitulo">Nùmero de Vezes/Ditância Total</string>
 
 
     <string name="txtViewKimEmpurarPontucacaoPrecisaoTitulo">Pontuação de Precisão</string>
@@ -538,7 +538,7 @@
 
     <string name="KimEmpurarPrecisaoPosicaoTitle">Precisão da posição</string>
     <string name="KimEmpurarPrecisaoPosicaoRadioButton1">Baixa \n-Sem especificação da distância a percorrer \n- a carga pode rolar até para ou ir contra um obstáculo</string>
-    <string name="KimEmpurarPrecisaoPosicaoRadioButton2">Alta \n-A carga deve ser posicionada e parada de forma precisa \n- distancia a percorrer deve ser respeitada escrupulosamente\n- Mudanças frequentes na direção</string>
+    <string name="KimEmpurarPrecisaoPosicaoRadioButton2">Alta \n-A carga deve ser posicionada e parada de forma precisa \n- distância a percorrer deve ser respeitada escrupulosamente\n- Mudanças frequentes na direção</string>
 
     <string name="KimEmpurarPrecisaoVelocidadeMovimentoTitle">Velocidade de movimento</string>
     <string name="KimEmpurarPrecisaoVelocidadeMovimentoRadioButton1">lenta (menos de 0.8m/s)</string>
@@ -564,7 +564,7 @@
 
     <string name="Gam">Consiste em avaliar os factores de risco mais comuns em operações de elevação (levantar e baixar), e transporte (carregar e segurar).</string>
 
-    <string name="GamElevacaoFrequenciaPesoCargaTitulo">Frequencia/Peso da carga</string>
+    <string name="GamElevacaoFrequenciaPesoCargaTitulo">Frequência/Peso da carga</string>
     <string-array name="GamElevacaoPontuacaoFrequenciaPeso">
         <item>0</item>
         <item>4</item>
@@ -595,7 +595,7 @@
 
     <string name="GamElevacaoConstrangimentTitulo">Constrangimento de posição</string>
     <string name="GamElevacaoConstrangimentoPosicao1">Se movimentos livres</string>
-    <string name="GamElevacaoConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n por exemplo: um transportador com a monocalha excessivamente alto</string>
+    <string name="GamElevacaoConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponível\n por exemplo: um transportador com a monocalha excessivamente alto</string>
     <string name="GamElevacaoConstrangimentoPosicao3">Se a posição for excessivamente restrita \npor exemplo: áreas confinadas tais como compartimentos de bagagem</string>
 
     <string name="GamElevacaoAderenciaCargaTitulo">Aderência à carga</string>
@@ -610,10 +610,10 @@
 
     <string name="GamElevacaoOutrosFactoresTitulo">Outros fatores ambientais</string>
     <string name="GamElevacaoOutrosFactoresDescricao">Observe o ambiente de trabalho e pontue com base neste casos:\n  -Temperaruras extremes\n  -Fortes correntes de ar \nCondição de luminusidade: \n      -Escuro\n     -Luminoso,pouco contraste</string>
-    <string name="GamElevacaoOutrosFactoresSubtitulo">Numero de fatores de risco</string>
+    <string name="GamElevacaoOutrosFactoresSubtitulo">Número de fatores de risco</string>
     <string name="GamElevacaoOutrosFactoresOpcao0">Nenhum</string>
     <string name="GamElevacaoOutrosFactoresOpcao1">Um</string>
-    <string name="GamElevacaoOutrosFactoresOpcao2">Varios</string>
+    <string name="GamElevacaoOutrosFactoresOpcao2">Vários</string>
 
 //TRANSPORTE
 
@@ -632,7 +632,7 @@
     <string name="GamTransporteObstaculos4">mais de 2</string>
 
     <string name="GamTransporteConstrangimentoPosicao1">Se movimentos livres</string>
-    <string name="GamTransporteConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n por exemplo: uma passagem estreita faz com que o operador  se vire ou desloque a carga para passar</string>
+    <string name="GamTransporteConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponível\n por exemplo: uma passagem estreita faz com que o operador  se vire ou desloque a carga para passar</string>
     <string name="GamTransporteConstrangimentoPosicao3">Se a posição for excessivamente restrita \npor exemplo:transportar cargas numa posição de inclinação para a frente em áreas com teto baixo como caves</string>
 
 //EQUIPA
@@ -681,36 +681,60 @@
 
 
     <string name="GamEquipaConstrangimentoPosicao1">Se movimentos livres</string>
-    <string name="GamEquipaConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponivel\n (por exemplo: espaço entre membros da equipa)\n ou à concepção do posto de trabalho por exemplo: um transportador com monocalha excessivamente alto</string>
+    <string name="GamEquipaConstrangimentoPosicao2">Se o operador adopta posições restritivas durante a elevação por causa do espaço disponível\n (por exemplo: espaço entre membros da equipa)\n ou à concepção do posto de trabalho por exemplo: um transportador com monocalha excessivamente alto</string>
     <string name="GamEquipaConstrangimentoPosicao3">Se a posição for excessivamente restrita \npor exemplo: áreas confinadas tais como compartimentos de bagagem</string>
 
 
 
 
 
+//////////////////DADOS CONSULTA  ///////
+    <string name="txtViewConsultaTurno">Turno:</string>
+
+    <string name="txtViewConsultaSeccao">Secção de Trabalho</string>
+
+    <string name="txtViewConsultaPostoTrabalho">Posto de Trabalho (tarefa)</string>
+
+    <string name="txtViewConsultaTempoTrabalho">Tempo de Trabalho (tarefa)</string>
+
+    <string name="txtViewConsultaHorasTrabalho">Horas de trabalho diário</string>
+
+    <string name="txtViewConsultaObservacoes">Observações</string>
+
+    <string name="bntConsultaRealizarAvaliacao">Realizar avaliação</string>
 
 
 
 
 
+////////////////////////DADOS UTENTE
+    <string name="txtViewUtenteNomeTitulo">Nome Completo</string>
+    <string name="txtViewData">Data Nascimento</string>
+    <string name="txtViewUtenteAltura">Altura</string>
+    <string name="txtViewUtentePeso">Peso</string>
 
 
+/////USER SETTINGS
 
-
+    <string name="txtViewSerSettingTitle">Dados de Utilizador</string>
+    <string name="textViewUserSettingsMail">Email</string>
+    <string name="textViewUserSettingsNome">Nome</string>
+    <string name="btnDadosUserSettingGuardar">Guardar</string>
 
 
 <string name="sobre"> ErgoDigital é uma aplicação para avaliação ergonómica desenvolvida no âmbito do projecto final de curso de informática para a saúde.
-\nDesenvolvida por:\nNuno Domingues e\n Tiago Pinto,\n\ncom o apoio dos Professores:\nRita Ascenso\Eunice Oliveira\nHenrique Almeida.\n\nAgradecimentos especiais à\n Professora Catarina Reis,\n\ne ao colega Ivan Dunets</string>
+\nDesenvolvida por:\nNuno Domingues e\n Tiago Pinto,\n\ncom o apoio dos Professores:\nRita Ascenso\nEunice Oliveira\nHenrique Almeida.\n\nAgradecimentos especiais à\n Professora Catarina Reis,\n\ne ao colega Ivan Dunets</string>
 
 
     <string name="sobre_versao">V.1.0</string>
+    <string name="mais_opcoes">Mais Opções</string>
 
 
 
 //
 
     <string name="title_activity_rula_activity_result">Resultados</string>
-    <string name="title_activity_movimentacao_de_cargas">Movimentacao de Cargas</string>
+    <string name="title_activity_movimentacao_de_cargas">Movimentacão de Cargas</string>
     <string name="title_activity_sistema_kim">Sistema Kim</string>
     <string name="title_activity_sistema_mac">Sistema Mac</string>
     <string name="title_activity_sistema_kim_escolha">Ferramentas Kim</string>
@@ -718,19 +742,19 @@
     <string name="title_activity_sistema_kim_empurrar">Sistema Kim Empurrar</string>
     <string name="title_activity_sistema_mac_transporte">Sistema Mac Transporte</string>
     <string name="title_activity_sistema_mac_equipa">Sistema Mac Equipa</string>
-    <string name="title_activity_sistema_mac_elevacao2">Sistema Mac Elevacao</string>
-    <string name="title_activity_sistema_mac_elevancao3">Sistema Mac Elevancao</string>
+    <string name="title_activity_sistema_mac_elevacao2">Sistema Mac Elevacão</string>
+    <string name="title_activity_sistema_mac_elevancao3">Sistema Mac Elevacão</string>
 
     <string name="title_activity_sistema_mac_transporte3">Sistema Mac Transporte</string>
     <string name="title_activity_sistema_mac_equipa2">Sistema Mac Equipa</string>
     <string name="title_activity_sistema_mac_equipa3">Sistema Mac Equipa</string>
     <string name="title_activity_sistema_mac_transporte2">Sistem Mac Transporte</string>
-    <string name="title_activity_sistema_mac_elevacao_result">Sistema Mac Elevacao Resultado
+    <string name="title_activity_sistema_mac_elevacao_result">Sistema Mac Elevacão Resultado
     </string>
-    <string name="title_activity_user_settings">UserSettingsActivity</string>
-    <string name="title_activity_escolha_avaliacoes">Ferramentas de Avaliacoes</string>
+    <string name="title_activity_user_settings">Definições de Utilizador</string>
+    <string name="title_activity_escolha_avaliacoes">Ferramentas de Avaliacão</string>
     <string name="title_activity_dados_utente">Ficha de Utente</string>
-    <string name="title_activity_dados_consulta">DadosConsultaActivity</string>
+    <string name="title_activity_dados_consulta">Dados da Consulta</string>
     <string name="title_activity_sobre">Sobre</string>
 
 

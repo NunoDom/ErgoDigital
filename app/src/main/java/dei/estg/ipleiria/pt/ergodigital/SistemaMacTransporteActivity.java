@@ -118,7 +118,7 @@ public class SistemaMacTransporteActivity extends AppCompatActivity {
         switch(spinner1.getSelectedItemPosition())
         {
             case 0: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Green"); break;
-            case 1: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Amber"); break;
+            case 1: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Ambar"); break;
             case 2: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Red"); break;
             case 3: resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Purple"); break;
         }
@@ -131,7 +131,7 @@ public class SistemaMacTransporteActivity extends AppCompatActivity {
             resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Green");
         }
         if (radioButton2.isChecked()) {
-            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Amber");
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Ambar");
         }
         if (radioButton3.isChecked()) {
             resultados[1]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Red");

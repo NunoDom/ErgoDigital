@@ -45,24 +45,6 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
-        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
-        int idConsulta = mPrefs.getInt("idConsulta", -1);
-        if (idConsulta>0){
-            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
-            int idUtente= mPrefs.getInt("idUtente", -1);
-            if(idUtente>0){
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(idConsulta);
-                genero=pessoa.getGenero();
-                actualizaAdapterPontuacaoCarga(genero);
-            }
-        }else
-        {
-            Toast.makeText(getApplicationContext(), "ERRO 404: Consulta id not found", Toast.LENGTH_SHORT).show();
-        }
-
-
-
         rgKimLevantarCondicoesTrabalho =(RadioGroup) findViewById(R.id.rgKimLevantarCondicoesTrabalho);
         spinner1 = (Spinner) findViewById(R.id.cbKimTipoDeTrabalho);
         spinner2 = (Spinner) findViewById(R.id.cbKimDuracaoRepeticao);
@@ -75,6 +57,24 @@ public class SistemaKimLevantarActivity extends AppCompatActivity {
         radioButton1 = (RadioButton) findViewById(R.id.rbKimLevantarCondicoesTrabalho1);
         radioButton2 = (RadioButton) findViewById(R.id.rbKimLevantarCondicoesTrabalho2);
         radioButton3 = (RadioButton) findViewById(R.id.rbKimLevantarCondicoesTrabalho3);
+
+
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        int idConsulta = mPrefs.getInt("idConsulta", -1);
+        if (idConsulta>0){
+            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
+            int idUtente= mPrefs.getInt("idUtente", -1);
+            if(idUtente>0){
+                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(idUtente);
+                genero=pessoa.getGenero();
+                //actualizaAdapterPontuacaoCarga(genero);
+            }
+        }else
+        {
+            Toast.makeText(getApplicationContext(), "ERRO 404: Consulta id not found", Toast.LENGTH_SHORT).show();
+        }
+
+
 
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

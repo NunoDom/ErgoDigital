@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import dei.estg.ipleiria.pt.ergodigital.Model.Consulta;
 
@@ -45,6 +46,11 @@ public class EscolhaAvaliacoesActivity extends AppCompatActivity {
         //intent.putExtra("consulta",consulta);
         startActivityForResult(intent,1);
 
+
+    }
+
+    public void callMRActivity(View view) {
+        Toast.makeText(this,"Funcionalidade não implementada",Toast.LENGTH_SHORT).show();
 
     }
 }

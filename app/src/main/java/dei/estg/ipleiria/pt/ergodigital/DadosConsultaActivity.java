@@ -16,7 +16,7 @@ public class DadosConsultaActivity extends AppCompatActivity {
 
     Pessoa utente;
     Consulta consulta;
-
+    SharedPreferences mPrefs;
 
 
     @Override
@@ -26,21 +26,17 @@ public class DadosConsultaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        consulta= new Consulta();
 
-
-        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        mPrefs = getSharedPreferences("dados", 0);
         int idUtente = mPrefs.getInt("idUtente", -1);
+
+    consulta= new Consulta();
 
         if (idUtente>0){
             utente = GestaoUtentes.getInstance().getPessoa(idUtente);
             consulta.setPessoa(utente);
+
         }
-
-
-        SharedPreferences.Editor editor = mPrefs.edit();
-        editor.putInt("idConsulta", consulta.getId());
-        editor.commit();
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -77,6 +73,12 @@ public class DadosConsultaActivity extends AppCompatActivity {
         }
 
         consulta.setObservacoes(editTextObservacoes.getText().toString());
+
+
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putInt("idConsulta", consulta.getId());
+        editor.commit();
+
 
         GestaoUtentes.getInstance().addConsulta(consulta);
         Intent intent = new Intent(this, EscolhaAvaliacoesActivity.class);

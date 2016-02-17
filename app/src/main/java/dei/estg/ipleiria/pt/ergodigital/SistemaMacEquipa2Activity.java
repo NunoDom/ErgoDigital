@@ -74,8 +74,8 @@ public class SistemaMacEquipa2Activity extends AppCompatActivity {
 
     private void calcularResultados() {
         RadioButton radioButton1 = (RadioButton) findViewById(R.id.rbGamEquipaVertical1);
-        RadioButton radioButton2 = (RadioButton) findViewById(R.id.rbGamEquipaVertical1);
-        RadioButton radioButton3 = (RadioButton) findViewById(R.id.rbGamEquipaVertical1);
+        RadioButton radioButton2 = (RadioButton) findViewById(R.id.rbGamEquipaVertical2);
+        RadioButton radioButton3 = (RadioButton) findViewById(R.id.rbGamEquipaVertical3);
 
         if (radioButton1.isChecked()) {
             resultados[2]=new Resultado(getString(R.string.GamElevacaoVerticalTitulo),"Green");

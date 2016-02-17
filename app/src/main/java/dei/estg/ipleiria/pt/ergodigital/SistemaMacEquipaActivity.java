@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -171,6 +172,31 @@ public class SistemaMacEquipaActivity extends AppCompatActivity {
                 resultados[0]=new Resultado(getString(R.string.GamElevacaoFrequenciaPesoCargaTitulo),"Purple");
             }
         }
+
+
+        RadioButton radioButton1 = (RadioButton) findViewById(R.id.rbGamEquipaDistanciaMaos1);
+        RadioButton radioButton2 = (RadioButton) findViewById(R.id.rbGamEquipaDistanciaMaos2);
+        RadioButton radioButton3 = (RadioButton) findViewById(R.id.rbGamEquipaDistanciaMaos3);
+        RadioButton radioButton4 = (RadioButton) findViewById(R.id.rbGamEquipaDistanciaMaos4);
+
+        if (radioButton1.isChecked()) {
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoDistanciaMaosTitulo),"Green");
+        }
+        if (radioButton2.isChecked()) {
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoDistanciaMaosTitulo),"Ambar");
+        }
+        if (radioButton3.isChecked()) {
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoDistanciaMaosTitulo),"Red");
+        }
+        if (radioButton4.isChecked()) {
+            resultados[1]=new Resultado(getString(R.string.GamElevacaoDistanciaMaosTitulo),"Purple");
+        }
+
+
+
+
+
+
 
 
     }

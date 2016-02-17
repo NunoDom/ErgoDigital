@@ -8,10 +8,16 @@ import java.util.GregorianCalendar;
 /**
  * Created by Nuno on 24/01/2016.
  */
+
+
 public class GestaoUtentes implements Serializable{
 
 private static GestaoUtentes instance;
-private ArrayList<Pessoa> listaPessoas;
+
+    //private static int NumUtentes=0;
+    //private static int NumConsultas=1;
+
+    private ArrayList<Pessoa> listaPessoas;
 
     public ArrayList<Consulta> getListaConsultas() {
         return listaConsultas;
@@ -24,6 +30,8 @@ private ArrayList<Pessoa> listaPessoas;
     {
         listaPessoas= new ArrayList<Pessoa>();
         listaConsultas= new ArrayList<Consulta>();
+
+
     }
 
 
@@ -56,6 +64,7 @@ private ArrayList<Pessoa> listaPessoas;
 
 
     public static void setInstance(GestaoUtentes gestaoUtentes) {
+
         instance = gestaoUtentes;
     }
 
@@ -76,6 +85,22 @@ private ArrayList<Pessoa> listaPessoas;
     public void setListaPessoas(ArrayList<Pessoa> listaPessoas) {
         this.listaPessoas = listaPessoas;
     }
+
+
+    public void setNumConsultas()
+    {
+
+        if(listaConsultas.size()>0) {
+            int x = listaConsultas.get(listaConsultas.size() - 1).getId();
+
+            for (int i = 0; i < x; i++) {
+                Consulta consulta = new Consulta();
+            }
+
+        }
+    }
+
+
 
     public Pessoa getPessoa(int id) {
         for (Pessoa i:listaPessoas) {
@@ -141,5 +166,10 @@ private ArrayList<Pessoa> listaPessoas;
             return true;
         } catch (Exception ex) {return false;}
 
+    }
+
+    public void apagarTudo() {
+        listaPessoas.clear();
+        listaConsultas.clear();
     }
 }

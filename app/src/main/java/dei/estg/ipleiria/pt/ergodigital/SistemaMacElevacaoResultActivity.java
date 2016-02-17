@@ -3,6 +3,7 @@ package dei.estg.ipleiria.pt.ergodigital;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -31,14 +32,15 @@ public class SistemaMacElevacaoResultActivity extends AppCompatActivity {
                 ArrayList<Resultado> resultadosList = consulta.getListaResultados();
                 resultados = new Resultado[11];
                 if(resultadosList.size()==8){
-                    for(int i=0;i<resultadosList.size()-1;i++)
+                    for(int i=0;i<resultadosList.size();i++)
                     resultados[i]=resultadosList.get(i);
                 }
                 if(resultadosList.size()==9){
-                    if(resultadosList.get(2).equals(getString(R.string.GamElevacaoVerticalTitulo))) {
+                    Resultado resultadoTest =resultadosList.get(3);
+                    if(resultadosList.get(3).getTitulo().equals(getString(R.string.GamElevacaoConstrangimentTitulo))) {
                         resultados[0] = resultadosList.get(0);
                         resultados[1] = resultadosList.get(1);
-                        resultados[3] = resultadosList.get(2);
+                        resultados[2] = resultadosList.get(2);
                         resultados[4] = resultadosList.get(3);
                         resultados[5] = resultadosList.get(4);
                         resultados[6] = resultadosList.get(5);
@@ -62,6 +64,16 @@ public class SistemaMacElevacaoResultActivity extends AppCompatActivity {
 
         mostrarCores();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_resultados, menu);
+        return true;
+
+
 
     }
 

@@ -14,6 +14,8 @@ public class Consulta implements Serializable{
 
     private static int Identificador=1;
 
+
+
     private int id;
     private Pessoa pessoa;
     private Date dataHora;
@@ -25,6 +27,9 @@ public class Consulta implements Serializable{
     private String observacoes;
     private ArrayList<Resultado> listaResultados;
     private String ferramenta;
+
+
+
 
 
     public ArrayList<Resultado> getListaResultados()
@@ -39,6 +44,11 @@ public class Consulta implements Serializable{
         listaResultados.add(resultado);
     }
 
+
+    public void setIdentificador(int UltimoNumero)
+    {
+        Identificador=UltimoNumero;
+    }
 
     public Consulta(Pessoa pessoa, String turno, String seccao, String posto, int tempoTarefa, int horasTrabalhoDiario, String observacoes,String ferramenta) {
         listaResultados= new ArrayList<Resultado>();

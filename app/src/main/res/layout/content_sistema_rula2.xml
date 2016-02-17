@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ivRulaPescoco"
-                android:src="@drawable/ic_no_image_rec" />
+                android:src="@drawable/ic_rula_n1" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -80,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ivRulaTronco"
-                android:src="@drawable/ic_no_image_rec" />
+                android:src="@drawable/ic_rula_t1" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -113,7 +113,7 @@
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/chckboxRulaTronco1"
+                    android:text="@string/chckboxRulaTronco2"
                     android:id="@+id/chckboxRulaTronco2"
                     android:layout_weight="0.03" />
             </LinearLayout>

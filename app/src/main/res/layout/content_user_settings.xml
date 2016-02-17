@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Dados de Utilizador"
-        android:id="@+id/textView61" />
+        android:id="@+id/txtViewSerSettingTitle" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Nome"
-            android:id="@+id/textView59" />
+            android:id="@+id/textViewUserSettingsNome" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Email"
-            android:id="@+id/textView60" />
+            android:id="@+id/textViewUserSettingsMail" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Guardar"
-            android:id="@+id/button16"
+            android:id="@+id/btnDadosUserSettingGuardar"
             android:onClick="clickGuardar" />
     </LinearLayout>
 </LinearLayout>

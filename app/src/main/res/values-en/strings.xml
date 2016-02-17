@@ -659,8 +659,7 @@
     </string-array>
 
     <string name="GamEquipaComunicacaoTitulo">Communication, co-ordination and control</string>
-    <string name="GamEquipaComunicacaoDescricao">Communication between the operatives is essential when lifting as part of a team.\nExamples of good communication would be that you may hear the operatives counting 'one, two, three' etc prior to the lift.\nLook to see if the team have control of the load, that it is lifted smoothly, and that all members lift together.
-\nAn uncoordinated team lift may leave one member of the team bearing the entire weight.</string>
+    <string name="GamEquipaComunicacaoDescricao">Communication between the operatives is essential when lifting as part of a team.\nExamples of good communication would be that you may hear the operatives counting \'one, two, three\' etc prior to the lift.\nLook to see if the team have control of the load, that it is lifted smoothly, and that all members lift together. \nAn uncoordinated team lift may leave one member of the team bearing the entire weight.</string>
     <string name="GamEquipaComunicacaoSubtitulo">Communication points</string>
 
     <string-array name="GamEquipaComunicacao">
@@ -679,6 +678,20 @@
 
 
 
+    //////////////////DADOS CONSULTA  ///////
+    <string name="txtViewConsultaTurno">Shift:</string>
+
+    <string name="txtViewConsultaSeccao">Section Work</string>
+
+    <string name="txtViewConsultaPostoTrabalho">Workstation(task)</string>
+
+    <string name="txtViewConsultaTempoTrabalho">Working Time (task)</string>
+
+    <string name="txtViewConsultaHorasTrabalho">Hour day</string>
+
+    <string name="txtViewConsultaObservacoes">Comments</string>
+
+    <string name="bntConsultaRealizarAvaliacao">Perform Evaluation</string>
 
 
 
@@ -686,9 +699,19 @@
 
 
 
+    ////////////////////////DADOS UTENTE
+    <string name="txtViewUtenteNomeTitulo">Full Name</string>
+    <string name="txtViewData">Birthday Date</string>
+    <string name="txtViewUtenteAltura">Height</string>
+    <string name="txtViewUtentePeso">Weight</string>
 
 
+    /////USER SETTINGS
 
+    <string name="txtViewSerSettingTitle">User data</string>
+    <string name="textViewUserSettingsMail">Email</string>
+    <string name="textViewUserSettingsNome">Name</string>
+    <string name="btnDadosUserSettingGuardar">Save</string>
 
 <string name="sobre"> DigitalErgo is an application for ergonomic assessment carried out within the final draft of the computer course for health.
 \nDeveloped by: \nNuno Domingues and \n Tiago Pinto, \n \nwith the support of Teachers:. \nRita Ascenso \nEunice Oliveira \nHenrique Almeida \n \nspecial thaks to \ n Teacher Catarina Reis, \n \n to colleague Ivan Dunets</string>
@@ -718,11 +741,11 @@
     <string name="title_activity_sistema_mac_transporte2">System Mac Carrying</string>
     <string name="title_activity_sistema_mac_elevacao_result">System Mac Lifting Result
     </string>
-    <string name="title_activity_user_settings">User Settings Activity</string>
+    <string name="title_activity_user_settings">User Settings</string>
     <string name="title_activity_escolha_avaliacoes">Tools assessments</string>
     <string name="title_activity_dados_utente">Consultation Sheet</string>
     <string name="title_activity_dados_consulta">Query data</string>
     <string name="title_activity_sobre">About</string>
-
+    <string name="mais_opcoes">More Options</string>
 
 </resources>

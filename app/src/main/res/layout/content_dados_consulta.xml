@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Turno:"
+                android:text="@string/txtViewConsultaTurno"
                 android:id="@+id/txtViewConsultaTurno" />
 
             <EditText
@@ -50,8 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Seccção de Trabalho"
-                android:id="@+id/textView14" />
+                android:text="@string/txtViewConsultaSeccao"
+                android:id="@+id/txtViewConsultaSeccao" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -69,8 +69,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Posto de Trabalho (tarefa)"
-                android:id="@+id/textView20" />
+                android:text="@string/txtViewConsultaPostoTrabalho"
+                android:id="@+id/txtViewConsultaPostoTrabalho" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -88,8 +88,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Tempo de Trabalho (tarefa)"
-                android:id="@+id/textView44" />
+                android:text="@string/txtViewConsultaTempoTrabalho"
+                android:id="@+id/txtViewConsultaTempoTrabalho" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -107,8 +107,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Horas de trabalho diário"
-                android:id="@+id/textView45" />
+                android:text="@string/txtViewConsultaHorasTrabalho"
+                android:id="@+id/txtViewConsultaHorasTrabalho" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -126,8 +126,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Observações"
-                android:id="@+id/textView46" />
+                android:text="@string/txtViewConsultaObservacoes"
+                android:id="@+id/txtViewConsultaObservacoes" />
 
             <EditText
                 android:layout_width="fill_parent"
@@ -147,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Realizar avaliação"
-                android:id="@+id/button15"
+                android:id="@+id/bntConsultaRealizarAvaliacao"
                 android:onClick="clickRealizarAvaliacao" />
 
             <Button

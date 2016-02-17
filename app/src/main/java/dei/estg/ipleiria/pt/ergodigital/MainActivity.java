@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //addUtentes();
-        lerInternamente();
         configuracoesUtilizador();
+        lerInternamente();
     }
 
     @Override
@@ -95,6 +95,11 @@ private void configuracoesUtilizador(){
                startActivity(intent);
                return true;
            }
+        if (id == R.id.action_apagar){
+
+            GestaoUtentes.getInstance().apagarTudo();
+            return true;
+        }
 
 
         return super.onOptionsItemSelected(item);
@@ -168,7 +173,9 @@ private void configuracoesUtilizador(){
             inpStream = new ObjectInputStream(input);
 
             GestaoUtentes.setInstance((GestaoUtentes)inpStream.readObject());
+           //Consulta.setInstance((Consulta)inpStream.readObject());
 
+            GestaoUtentes.getInstance().setNumConsultas();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -182,9 +189,11 @@ private void configuracoesUtilizador(){
         ObjectOutputStream outStream = null;
         try {
             GestaoUtentes gestaoUtentes = GestaoUtentes.getInstance();
+            //Consulta gestaoConsulta = Consulta.getInstance();
             output = openFileOutput(BINARYFILE, Context.MODE_PRIVATE);
             outStream = new ObjectOutputStream(output);
             outStream.writeObject(gestaoUtentes);
+          //  outStream.writeObject(gestaoConsulta);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

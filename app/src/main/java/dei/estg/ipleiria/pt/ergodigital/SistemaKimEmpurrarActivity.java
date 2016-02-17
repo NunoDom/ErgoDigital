@@ -65,21 +65,6 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
-        int idConsulta = mPrefs.getInt("idConsulta", -1);
-        if (idConsulta>0){
-            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
-            int idUtente= mPrefs.getInt("idUtente", -1);
-            if(idUtente>0){
-                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(idConsulta);
-                genero=pessoa.getGenero();
-                actualizaAdapterGenero();
-            }
-        }else
-        {
-            Toast.makeText(getApplicationContext(), "ERRO 404: Consulta id not found", Toast.LENGTH_SHORT).show();
-        }
-
         spinnerGenero =  (Spinner)findViewById(R.id.cbKimEmpurarGenero);
         cbKimEmpurarPesoCarga = (Spinner)findViewById(R.id.cbKimEmpurarPesoCarga);
         cbKimEmpurarTipoMovimentoMassa= (Spinner)findViewById(R.id.cbKimEmpurarTipoMovimentoMassa);
@@ -105,6 +90,23 @@ public class SistemaKimEmpurrarActivity extends AppCompatActivity {
 
 
         RadioGroup rgKimEmpurarPosicaoTrabalho = (RadioGroup)findViewById(R.id.rgKimEmpurarPosicaoTrabalho);
+
+
+        SharedPreferences mPrefs = getSharedPreferences("dados", 0);
+        int idConsulta = mPrefs.getInt("idConsulta", -1);
+        if (idConsulta>0){
+            consulta = GestaoUtentes.getInstance().getConsulta(idConsulta);
+            int idUtente= mPrefs.getInt("idUtente", -1);
+            if(idUtente>0){
+                Pessoa pessoa = GestaoUtentes.getInstance().getPessoa(idUtente);
+                genero=pessoa.getGenero();
+                actualizaAdapterGenero();
+            }
+        }else
+        {
+            Toast.makeText(getApplicationContext(), "ERRO 404: Consulta id not found", Toast.LENGTH_SHORT).show();
+        }
+
 
         rgKimEmpurarPosicaoTrabalho.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             ImageView image = (ImageView)findViewById(R.id.iv_kim_empurar_posicao);
@@ -408,7 +410,7 @@ private void click_analisar() {
     }
 
     notaRisco = (camiaoTranporte+precisaoPosicaoVelocidade+pontosAvaliacaoPosicao+pontosCondicaoTrabalho)*pontosAvaliacaoTempo*indiceGenero;
-    Toast.makeText(getApplicationContext(),"B: "+camiaoTranporte+"\nC: "+precisaoPosicaoVelocidade+"\nD "+pontosAvaliacaoPosicao+"\nE" +pontosCondicaoTrabalho+"\nx A "+pontosAvaliacaoTempo+"\nx Genero: "+indiceGenero+"\nResultado Final: "+notaRisco,Toast.LENGTH_LONG).show();
+   // Toast.makeText(getApplicationContext(),"B: "+camiaoTranporte+"\nC: "+precisaoPosicaoVelocidade+"\nD "+pontosAvaliacaoPosicao+"\nE" +pontosCondicaoTrabalho+"\nx A "+pontosAvaliacaoTempo+"\nx Genero: "+indiceGenero+"\nResultado Final: "+notaRisco,Toast.LENGTH_LONG).show();
 
 
 
